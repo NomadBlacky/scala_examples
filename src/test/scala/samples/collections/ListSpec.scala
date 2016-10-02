@@ -12,23 +12,23 @@ import scala.collection.mutable.ListBuffer
  */
 class ListSpec extends FunSpec {
   
-  it("Listを生成する") {
+  it("List() ... Listを生成する") {
     val l: List[Int] = List(1, 2, 3)
   }
   
-  it("Listから値を取り出す") {
+  it("() ... Listから値を取り出す") {
     val l: List[Int] = List(1, 2, 3)
     assert(l(0) == 1)
     assert(l(1) == 2)
     assert(l(2) == 3)
   }
   
-  it("空のListを作成する") {
+  it("Nil ... 空のListを作成する") {
     val l: List[Int] = Nil
     assert(l.isEmpty == true)
   }
   
-  it("ミュータブルなList") {
+  it("ListBuffer ... ミュータブルなList") {
     val l: ListBuffer[Int] = ListBuffer.empty
     l += 1
     l += 2
@@ -37,7 +37,7 @@ class ListSpec extends FunSpec {
     assert(l == ListBuffer(10, 2))
   }
   
-  it("Listに値を追加する") {
+  it(":: :+ ... Listに値を追加する") {
     val l: List[String] = List("b")
     // 先頭に追加
     assert(("a" :: l) == List("a", "b"))
@@ -45,4 +45,9 @@ class ListSpec extends FunSpec {
     assert((l :+ "c") == List("b", "c"))
   }
   
+  it("::: ... List同士を連結する") {
+    val l1 = List(1,2,3)
+    val l2 = List(4,5,6)
+    assert((l1 ::: l2) == List(1,2,3,4,5,6))
+  }
 }
