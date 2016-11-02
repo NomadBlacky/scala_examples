@@ -45,4 +45,22 @@ class ClassSpec extends FunSpec{
     assert(matchTest(Programmer("scala")) == "scala programmer")
     assert(matchTest(Programmer("java")) == "other")
   }
+
+  it("caseクラスとパターンマッチ") {
+    case class Point(x:Int, y:Int)
+
+    def matchTest(value:Any):Int = {
+      value match {
+        case Point(10, y) => y + 1
+        case _ => 0
+      }
+    }
+
+    val p1 = Point(10, 30)
+    assert(matchTest(p1) == 31)
+
+    val p2 = p1.copy(y = 99)
+    assert(p2.x == 10)
+    assert(matchTest(p2) == 100)
+  }
 }
