@@ -63,4 +63,21 @@ class ClassSpec extends FunSpec{
     assert(p2.x == 10)
     assert(matchTest(p2) == 100)
   }
+
+  it("抽象クラス") {
+    abstract class Engineer {
+      def work():String
+      def study():String = "Do study."
+    }
+
+    class Programmer(name:String, age:Int) extends Engineer {
+      def work() = "%s(%d) coding.".format(name, age)
+      // 具象メソッドをオーバーライドするときは override キーワードが必須
+      override def study() = "%s(%d) studies programming.".format(name, age)
+    }
+
+    val programmer = new Programmer("Tom", 23)
+    assert(programmer.work() == "Tom(23) coding.")
+    assert(programmer.study() == "Tom(23) studies programming.")
+  }
 }
