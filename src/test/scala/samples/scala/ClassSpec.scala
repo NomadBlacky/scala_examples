@@ -70,14 +70,14 @@ class ClassSpec extends FunSpec{
       def study():String = "Do study."
     }
 
-    class Programmer(name:String, age:Int) extends Engineer {
-      def work() = "%s(%d) coding.".format(name, age)
+    class Programmer(name:String) extends Engineer {
+      def work() = "%s is writing a program code.".format(name)
       // 具象メソッドをオーバーライドするときは override キーワードが必須
-      override def study() = "%s(%d) studies programming.".format(name, age)
+      override def study() = "%s is studying programming.".format(name)
     }
 
-    val programmer = new Programmer("Tom", 23)
-    assert(programmer.work() == "Tom(23) coding.")
-    assert(programmer.study() == "Tom(23) studies programming.")
+    val programmer = new Programmer("Tom")
+    assert(programmer.work() == "Tom is writing a program code.")
+    assert(programmer.study() == "Tom is studying programming.")
   }
 }
