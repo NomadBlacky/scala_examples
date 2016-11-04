@@ -95,4 +95,30 @@ class ClassSpec extends FunSpec{
 
     assert(new Child().method == "Child.")
   }
+
+  it("sealedによる継承制限とパターンマッチ") {
+    // クラス定義に sealed を付けられたクラスは、別ファイル内で定義されたクラスから継承できない。
+    // (ただし、シールドクラスを継承したクラスは別ファイルから継承可能)
+
+    sealed abstract class TeamMember
+    case class Programmer() extends TeamMember
+    case class Designer() extends TeamMember
+    case class Manager() extends TeamMember
+
+    val member:TeamMember = new Programmer
+
+    // パターンマッチを記述する際に役に立つ
+    member match {
+      case p:Programmer => println("Programmer.")
+      case d:Designer => println("Designer.")
+      // Managerに対するcase式または、デフォルト式が足りてないので警告が出る。
+    }
+
+    // 警告が煩わしい場合は、 @unchecked で無効にできる
+    // FIXME: 空白がない (member:@unchecked) だとエラーなのはなんでだろう
+    (member: @unchecked) match {
+      case p:Programmer => println("Programmer.")
+      case d:Designer => println("Designer.")
+    }
+  }
 }
