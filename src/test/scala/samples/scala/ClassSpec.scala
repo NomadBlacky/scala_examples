@@ -80,4 +80,19 @@ class ClassSpec extends FunSpec{
     assert(programmer.work() == "Tom is writing a program code.")
     assert(programmer.study() == "Tom is studying programming.")
   }
+
+  it("メソッドをvalでオーバーライドする") {
+    // Scala ではフィールドとメソッドに同じ名前で定義できない。
+    // 引数なしのメソッドを val でオーバーライドできるようにするため。
+
+    abstract class Parent {
+      def method:String = "Parent."
+    }
+
+    class Child extends Parent {
+      override val method:String = "Child."
+    }
+
+    assert(new Child().method == "Child.")
+  }
 }
