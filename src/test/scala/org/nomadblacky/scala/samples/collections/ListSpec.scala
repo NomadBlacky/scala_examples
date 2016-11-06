@@ -1,4 +1,4 @@
-package samples.collections
+package org.nomadblacky.scala.samples.collections
 
 import org.scalatest.FunSpec
 import scala.collection.immutable.List

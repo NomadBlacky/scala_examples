@@ -1,4 +1,4 @@
-package samples.exceptions
+package org.nomadblacky.scala.samples.exceptions
 
 import org.scalatest.FunSpec
 

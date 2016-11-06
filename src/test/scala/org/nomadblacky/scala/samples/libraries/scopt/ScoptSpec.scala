@@ -1,4 +1,4 @@
-package samples.libraries.scopt
+package org.nomadblacky.scala.samples.libraries.scopt
 
 import java.io.File
 import java.util.Calendar

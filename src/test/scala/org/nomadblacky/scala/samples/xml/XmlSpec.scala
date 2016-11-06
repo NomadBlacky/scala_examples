@@ -1,4 +1,4 @@
-package samples.xml
+package org.nomadblacky.scala.samples.xml
 
 import org.scalatest.FunSpec
 import scala.xml.XML
