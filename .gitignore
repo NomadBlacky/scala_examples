@@ -29,3 +29,6 @@ project/
 .project
 .classpath
 .settings/
+
+# IntelliJ IDEA specific
+.idea/
