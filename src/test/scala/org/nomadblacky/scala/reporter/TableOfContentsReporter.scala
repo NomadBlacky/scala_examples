@@ -64,7 +64,7 @@ class TableOfContentsReporter() extends Reporter {
 
   def writeTableOfContens: Unit = {
     for { pw <- new PrintWriter(markdownFilePath.toFile) } {
-      pw.println("Table Of Contents\n")
+      pw.println("# Table Of Contents\n")
       succeededTests
         .foldLeft(new mutable.LinkedHashMap[String, mutable.Set[TestSucceeded]] with mutable.MultiMap[String, TestSucceeded]) { (map, e) =>
           map.addBinding(e.suiteName, e)
