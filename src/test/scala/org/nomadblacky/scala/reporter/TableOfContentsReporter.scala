@@ -1,46 +1,28 @@
 package org.nomadblacky.scala.reporter
 
 import java.io.PrintWriter
-import java.nio.file.{Path, Paths}
+import java.nio.file.Paths
 
 import org.scalatest.Reporter
 import org.scalatest.events._
+
+import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
 
 /**
   * Created by blacky on 16/11/06.
   */
 class TableOfContentsReporter() extends Reporter {
 
-  val markdownFilePath: Path = Paths.get("README.md")
-  val stringBuilder: StringBuilder = new StringBuilder()
+  val markdownFilePath = Paths.get("README.md")
+  val stringBuilder = new StringBuilder()
+
+  val succeededTests = ListBuffer[TestSucceeded]()
 
   override def apply(event: Event): Unit = {
     event match {
-      case RunStarting(ordinal, testCount, configMap, formatter, location, payload, threadName, timeStamp) =>
-        stringBuilder.append("# Table of Contents\n\n")
-
-      case SuiteStarting(ordinal, suiteName, suiteId, suiteClassName, formatter, location, rerunner, payload, threadName, timeStamp) =>
-        stringBuilder.append("## " + suiteName + "\n\n")
-
-      case SuiteCompleted(ordinal, suiteName, suiteId, suiteClassName, duration, formatter, location, rerunner, payload, threadName, timeStamp) =>
-        stringBuilder.append("\n")
-
-      case TestSucceeded(ordinal, suiteName, suiteId, suiteClassName, testName, testText, recordedEvents, duration, formatter, location, rerunner, payload, threadName, timeStamp) =>
-        stringBuilder.append("+ " + testName + "\n")
-
-      case TestFailed(ordinal, message, suiteName, suiteId, suiteClassName, testName, testText, recordedEvents, throwable, duration, formatter, location, rerunner, payload, threadName, timeStamp) =>
-        stringBuilder.append("+ " + testName + " (Failed)\n")
-
-      case TestIgnored(ordinal, suiteName, suiteId, suiteClassName, testName, testText, formatter, location, payload, threadName, timeStamp) =>
-        stringBuilder.append("+ " + testName + " (Ignored)\n")
-
-      case TestPending(ordinal, suiteName, suiteId, suiteClassName, testName, testText, recordedEvents, duration, formatter, location, payload, threadName, timeStamp) =>
-        stringBuilder.append("+ " + testName + " (Pending)\n")
-
-      case e: RunCompleted =>
-        val pw = new PrintWriter(markdownFilePath.toFile)
-        pw.println(stringBuilder.toString())
-        pw.close()
+      case e:TestSucceeded => succeededTests += e
+      case _:RunCompleted  => writeTableOfContens
 
       //      case _: RecordableEvent =>
       //      case _: ExceptionalEvent =>
@@ -68,6 +50,35 @@ class TableOfContentsReporter() extends Reporter {
       //      case DiscoveryStarting(ordinal, configMap, threadName, timeStamp) =>
       //      case DiscoveryCompleted(ordinal, duration, threadName, timeStamp) =>
       case _ => // Noting to do.
+    }
+  }
+
+  // Refer to ... http://ym.hatenadiary.jp/entry/2015/04/02/163557
+  implicit class Using[T <: AutoCloseable](resource: T) {
+    def foreach[R](op: T => R): R = {
+      try op(resource)
+      catch { case e: Exception => throw e}
+      finally resource.close()
+    }
+  }
+
+  def writeTableOfContens: Unit = {
+    for { pw <- new PrintWriter(markdownFilePath.toFile) } {
+      pw.println("Table Of Contents\n")
+      succeededTests
+        .foldLeft(new mutable.LinkedHashMap[String, mutable.Set[TestSucceeded]] with mutable.MultiMap[String, TestSucceeded]) { (map, e) =>
+          map.addBinding(e.suiteName, e)
+          map
+        }
+        .toSeq
+        .sortBy(_._1)
+        .foreach { case (key, set) =>
+          pw.println("\n## " + key + "\n")
+          set.foreach { test =>
+            pw.println("+ " + test.testName)
+          }
+        }
+      ;
     }
   }
 }
