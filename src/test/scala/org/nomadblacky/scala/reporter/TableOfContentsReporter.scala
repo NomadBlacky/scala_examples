@@ -1,7 +1,7 @@
 package org.nomadblacky.scala.reporter
 
 import java.io.PrintWriter
-import java.nio.file.Paths
+import java.nio.file.{Path, Paths}
 
 import org.scalatest.Reporter
 import org.scalatest.events._
@@ -70,7 +70,7 @@ class TableOfContentsReporter() extends Reporter {
         map.addBinding(e.suiteName, e)
         map
       }.toSeq.sortBy(_._1).foreach { case (key, set) =>
-        pw.println("\n##" + key + "\n")
+        pw.println("\n## %s\n".format(key))
         set.toList.sortBy { test =>
           test.location match {
             case Some(location) => location match {
@@ -79,7 +79,29 @@ class TableOfContentsReporter() extends Reporter {
             }
             case _ => Integer.MAX_VALUE
           }
-        }.foreach(test => pw.println("+ " + test.testName))
+        }.foreach { test =>
+          val regex = "%s(.+)".format(Paths.get(".").toAbsolutePath.toString).r("more")
+          val path = test.location match {
+            case Some(l:LineInFile) => l.filePathname match {
+              case Some(p) => Some(Paths.get(p))
+              case None => None
+            }
+            case _ => None
+          }
+          val githubRelativeUrl = path match {
+            case Some(p) => p.toString match {
+              // FIXME: Should be given repository name by something.
+              case regex(more) => "scala_sample/blob/master/%s".format(more)
+              case _ => None
+            }
+            case None => None
+          }
+          val lineNumber = test.location match {
+            case Some(l:LineInFile) => l.lineNumber
+            case _ => 1
+          }
+          pw.println("+ [%s](%s#%d)".format(test.testName, githubRelativeUrl, lineNumber))
+        }
       }
     }
   }

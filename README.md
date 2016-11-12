@@ -1,93 +1,93 @@
 # Table Of Contents
 
 
-##ClassSpec
+## ClassSpec
 
-+ require ... 引数を検証する
-+ unapplyを使用したパターンマッチ
-+ caseクラスとパターンマッチ
-+ 抽象クラス
-+ メソッドをvalでオーバーライドする
-+ sealedによる継承制限とパターンマッチ
++ [require ... 引数を検証する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#10)
++ [unapplyを使用したパターンマッチ](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#23)
++ [caseクラスとパターンマッチ](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#49)
++ [抽象クラス](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#67)
++ [メソッドをvalでオーバーライドする](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#84)
++ [sealedによる継承制限とパターンマッチ](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#99)
 
-##ExceptionSpec
+## ExceptionSpec
 
-+ 基本的なtry-catch-finally
++ [基本的なtry-catch-finally](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/exceptions/ExceptionSpec.scala#19)
 
-##ForSpec
+## ForSpec
 
-+ コレクションのイテレート
-+ 要素のフィルタ
-+ yield ... forの結果を保持する
++ [コレクションのイテレート](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#17)
++ [要素のフィルタ](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#23)
++ [yield ... forの結果を保持する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#31)
 
-##FunctionSpec
+## FunctionSpec
 
-+ 関数リテラル
-+ Functionトレイト
-+ 関数を引数に取る関数
-+ プレースホルダ構文
-+ プレースホルダ構文2
-+ 関数の部分適用
-+ 関数のカリー化
-+ 関数のカリー化2
-+ 関数の引数を遅延評価する
++ [関数リテラル](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#7)
++ [Functionトレイト](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#12)
++ [関数を引数に取る関数](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#17)
++ [プレースホルダ構文](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#23)
++ [プレースホルダ構文2](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#36)
++ [関数の部分適用](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#42)
++ [関数のカリー化](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#53)
++ [関数のカリー化2](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#64)
++ [関数の引数を遅延評価する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#71)
 
-##LazySpec
+## LazySpec
 
-+ lazy ... 変数を遅延評価する
++ [lazy ... 変数を遅延評価する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/LazySpec.scala#7)
 
-##ListSpec
+## ListSpec
 
-+ List() ... Listを生成する
-+ () ... Listから値を取り出す
-+ Nil ... 空のListを作成する
-+ ListBuffer ... ミュータブルなList
-+ :: :+ ... Listに値を追加する
-+ ::: ... List同士を連結する
++ [List() ... Listを生成する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#15)
++ [() ... Listから値を取り出す](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#19)
++ [Nil ... 空のListを作成する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#26)
++ [ListBuffer ... ミュータブルなList](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#31)
++ [:: :+ ... Listに値を追加する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#40)
++ [::: ... List同士を連結する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#48)
 
-##MapSpec
+## MapSpec
 
-+ Map() ... Mapを生成する
-+ Map.empty ... 空のMapを生成する
-+ () ... Mapから値を取り出す
-+ + ... 指定したキーと値のペアを追加したMapを返す
-+ - ... 指定したキーの要素を抜いたMapを返す
-+ ミュータブルなMap
-+ keySet ... キーのSetを返す
-+ values ... 値をIterableで返す
++ [Map() ... Mapを生成する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#8)
++ [Map.empty ... 空のMapを生成する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#12)
++ [() ... Mapから値を取り出す](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#17)
++ [+ ... 指定したキーと値のペアを追加したMapを返す](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#24)
++ [- ... 指定したキーの要素を抜いたMapを返す](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#29)
++ [ミュータブルなMap](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#34)
++ [keySet ... キーのSetを返す](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#40)
++ [values ... 値をIterableで返す](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#45)
 
-##MatchSpec
+## MatchSpec
 
-+ 基本的なマッチング
-+ 型のマッチング
-+ パターンガード
++ [基本的なマッチング](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#16)
++ [型のマッチング](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#25)
++ [パターンガード](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#34)
 
-##ScoptSpec
+## ScoptSpec
 
-+ コマンドライン引数を解析する
-+ 引数から日付を取得
-+ 引数からファイルを取得
++ [コマンドライン引数を解析する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#38)
++ [引数から日付を取得](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#47)
++ [引数からファイルを取得](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#57)
 
-##TraitSpec
+## TraitSpec
 
-+ トレイトの基本
-+ 複数のトレイトをミックスインする
-+ インスタンス化のタイミングでミックスインする
-+ 同じシグネチャのメソッドを複数ミックスインした場合
-+ superで呼び出すトレイトのメソッドを指定する
-+ トレイトを単体で利用する
++ [トレイトの基本](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#15)
++ [複数のトレイトをミックスインする](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#26)
++ [インスタンス化のタイミングでミックスインする](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#42)
++ [同じシグネチャのメソッドを複数ミックスインした場合](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#53)
++ [superで呼び出すトレイトのメソッドを指定する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#67)
++ [トレイトを単体で利用する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#87)
 
-##TupleSpec
+## TupleSpec
 
-+ タプルを生成する
-+ タプルから値を取り出す
++ [タプルを生成する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#7)
++ [タプルから値を取り出す](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#11)
 
-##XmlSpec
+## XmlSpec
 
-+ xmlリテラル
-+ 値を埋め込む
-+ ファイルから読み込む
-+ 要素を取得する1
-+ 要素を取得する2
-+ 要素を取得する3
-+ 属性から要素を取得する
++ [xmlリテラル](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#10)
++ [値を埋め込む](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#16)
++ [ファイルから読み込む](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#22)
++ [要素を取得する1](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#28)
++ [要素を取得する2](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#34)
++ [要素を取得する3](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#41)
++ [属性から要素を取得する](scala_sample/blob/master/rc/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#48)
