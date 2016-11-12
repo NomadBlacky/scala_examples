@@ -22,7 +22,7 @@ class TableOfContentsReporter() extends Reporter {
   override def apply(event: Event): Unit = {
     event match {
       case e:TestSucceeded => succeededTests += e
-      case _:RunCompleted  => writeTableOfContens()
+      case _:RunCompleted  => writeTableOfContents()
 
       //      case _: RecordableEvent =>
       //      case _: ExceptionalEvent =>
@@ -62,7 +62,7 @@ class TableOfContentsReporter() extends Reporter {
     }
   }
 
-  private def writeTableOfContens(): Unit = {
+  private def writeTableOfContents(): Unit = {
     for { pw <- new PrintWriter(markdownFilePath.toFile) } {
       pw.println("# Table Of Contents\n")
       val map = new mutable.LinkedHashMap[String, mutable.Set[TestSucceeded]] with mutable.MultiMap[String, TestSucceeded]
