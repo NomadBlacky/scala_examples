@@ -99,7 +99,7 @@ class TableOfContentsReporter() extends Reporter {
             case Some(l:LineInFile) => l.lineNumber
             case _ => 1
           }
-          pw.println("+ [%s](%s#%d)".format(test.testName, githubRelativeUrl, lineNumber))
+          pw.println("+ [%s](%s#L%d)".format(test.testName, githubRelativeUrl, lineNumber))
         }
       }
     }
