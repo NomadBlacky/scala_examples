@@ -22,7 +22,7 @@ class TableOfContentsReporter() extends Reporter {
   override def apply(event: Event): Unit = {
     event match {
       case e:TestSucceeded => succeededTests += e
-      case _:RunCompleted  => writeTableOfContens
+      case _:RunCompleted  => writeTableOfContens()
 
       //      case _: RecordableEvent =>
       //      case _: ExceptionalEvent =>
@@ -62,23 +62,25 @@ class TableOfContentsReporter() extends Reporter {
     }
   }
 
-  def writeTableOfContens: Unit = {
+  private def writeTableOfContens(): Unit = {
     for { pw <- new PrintWriter(markdownFilePath.toFile) } {
       pw.println("# Table Of Contents\n")
-      succeededTests
-        .foldLeft(new mutable.LinkedHashMap[String, mutable.Set[TestSucceeded]] with mutable.MultiMap[String, TestSucceeded]) { (map, e) =>
-          map.addBinding(e.suiteName, e)
-          map
-        }
-        .toSeq
-        .sortBy(_._1)
-        .foreach { case (key, set) =>
-          pw.println("\n## " + key + "\n")
-          set.foreach { test =>
-            pw.println("+ " + test.testName)
+      val map = new mutable.LinkedHashMap[String, mutable.Set[TestSucceeded]] with mutable.MultiMap[String, TestSucceeded]
+      succeededTests.foldLeft(map) { (map, e) =>
+        map.addBinding(e.suiteName, e)
+        map
+      }.toSeq.sortBy(_._1).foreach { case (key, set) =>
+        pw.println("\n##" + key + "\n")
+        set.toList.sortBy { test =>
+          test.location match {
+            case Some(location) => location match {
+              case l:LineInFile => l.lineNumber
+              case _ => Integer.MAX_VALUE
+            }
+            case _ => Integer.MAX_VALUE
           }
-        }
-      ;
+        }.foreach(test => pw.println("+ " + test.testName))
+      }
     }
   }
 }
