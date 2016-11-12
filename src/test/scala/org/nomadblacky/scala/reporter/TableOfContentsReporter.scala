@@ -80,7 +80,7 @@ class TableOfContentsReporter() extends Reporter {
             case _ => Integer.MAX_VALUE
           }
         }.foreach { test =>
-          val regex = "%s(.+)".format(Paths.get(".").toAbsolutePath.toString).r("more")
+          val regex = "%s(.+)".format(Paths.get(".").toAbsolutePath.toString.diff(".")).r("more")
           val path = test.location match {
             case Some(l:LineInFile) => l.filePathname match {
               case Some(p) => Some(Paths.get(p))
@@ -90,8 +90,7 @@ class TableOfContentsReporter() extends Reporter {
           }
           val githubRelativeUrl = path match {
             case Some(p) => p.toString match {
-              // FIXME: Should be given repository name by something.
-              case regex(more) => "scala_sample/blob/master/%s".format(more)
+              case regex(more) => more
               case _ => None
             }
             case None => None
