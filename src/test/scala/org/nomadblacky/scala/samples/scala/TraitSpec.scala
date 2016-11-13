@@ -102,4 +102,86 @@ class TraitSpec extends FunSpec{
     assert(instance2.method1 == "You are calling method1.")
     assert(instance2.method2 == "You are calling method2.")
   }
+
+  it("abstract override で既存のメソッドに新しい処理を追加する") {
+    abstract class Engineer {
+      def work(time:Int): String
+    }
+    class Person extends Engineer {
+      def work(time: Int): String = {
+        "Finish work in %d minutes.".format(time)
+      }
+    }
+    trait Programmer extends Engineer {
+      abstract override def work(time: Int): String = {
+        // trait内でsuperを使う場合、
+        // 具象実装をあとでミックスインする必要がある。
+        // この場合、メソッドに abstract override が必要。
+        super.work(time - 15)
+      }
+    }
+
+    val p = new Person with Programmer
+
+    // Programmer -> Person の順で実行される。
+    assert(p.work(60) == "Finish work in 45 minutes.")
+  }
+
+  it("トレイトの指定順序") {
+    abstract class Engineer {
+      def work(time:Int): String
+    }
+    class Person extends Engineer {
+      def work(time: Int): String = {
+        "Finish work in %d minutes.".format(time)
+      }
+    }
+    trait Programmer extends Engineer {
+      abstract override def work(time: Int): String = {
+        super.work(time - 15)
+      }
+    }
+    trait Agiler extends Engineer {
+      abstract override def work(time: Int): String = {
+        super.work(time / 2)
+      }
+    }
+
+    val p1 = new Person with Programmer with Agiler
+    val p2 = new Person with Agiler with Programmer
+
+    // Agiler -> Programmer
+    assert(p1.work(60) == "Finish work in 15 minutes.")
+    // Programmer -> Agiler
+    assert(p2.work(60) == "Finish work in 22 minutes.")
+
+    // 重なったトレイトはおおよそ右から実行される。
+  }
+
+  it("自分型アノテーション") {
+    // class/object には自分型と言われる型が存在する。
+    // (this の型のこと)
+    // 自分型は全てのスーパークラスに適合しなければならない。
+    // 適合する ... A <: B という関係(代入関係)が成り立つこと。
+
+    trait MyService {
+      def findAll():String
+    }
+    trait MyServiceImpl extends MyService {
+      override def findAll(): String = "MyServiceImpl#findAll"
+    }
+    class MyController {
+      // self: Type => と書くと、自分型はTypeを継承したと認識される。
+      self: MyService =>
+      def execute = {
+        findAll()
+      }
+    }
+    
+    // 自分型の条件を満たせないインスタンスを作成しようとするとコンパイルエラーになる。
+//    val c = new MyController
+
+    val c = new MyController with MyServiceImpl
+    assert(c.execute == "MyServiceImpl#findAll")
+  }
 }

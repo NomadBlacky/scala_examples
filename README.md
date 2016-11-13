@@ -76,6 +76,9 @@
 + [同じシグネチャのメソッドを複数ミックスインした場合](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L53)
 + [superで呼び出すトレイトのメソッドを指定する](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L67)
 + [トレイトを単体で利用する](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L87)
++ [abstract override で既存のメソッドに新しい処理を追加する](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L106)
++ [トレイトの指定順序](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L130)
++ [自分型アノテーション](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L161)
 
 ## TupleSpec
 
