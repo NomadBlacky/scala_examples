@@ -50,4 +50,14 @@ class ListSpec extends FunSpec {
     val l2 = List(4,5,6)
     assert((l1 ::: l2) == List(1,2,3,4,5,6))
   }
+
+  it("withFilter ... 中間データを作らない") {
+    val list = List(1, 2, 3, 4, 5)
+
+    // filterの時点で中間データが作成されてしまう
+    assert(list.filter{ _ % 2 == 0 }.map{ _ * 2 } == List(4, 8))
+
+    // withFilterを使うと中間データを作らずメモリにやさしい
+    assert(list.withFilter{ _ % 2 == 0 }.map{ _ * 2 } == List(4, 8))
+  }
 }
