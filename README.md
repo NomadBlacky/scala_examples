@@ -44,6 +44,8 @@
 + [ListBuffer ... ミュータブルなList](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L31)
 + [:: :+ ... Listに値を追加する](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L40)
 + [::: ... List同士を連結する](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L48)
++ [withFilter ... 中間データを作らない](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L54)
++ [view ... none-strict(中間データを作らない)なコレクションに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L64)
 
 ## MapSpec
 
@@ -84,6 +86,10 @@
 
 + [タプルを生成する](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L7)
 + [タプルから値を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L11)
+
+## TypeParameterSpec
+
++ [Scalaにおける型の検査](src/test/scala/org/nomadblacky/scala/samples/scala/TypeParameterSpec.scala#L10)
 
 ## XmlSpec
 
