@@ -60,4 +60,11 @@ class ListSpec extends FunSpec {
     // withFilterを使うと中間データを作らずメモリにやさしい
     assert(list.withFilter{ _ % 2 == 0 }.map{ _ * 2 } == List(4, 8))
   }
+
+  it("view ... none-strict(中間データを作らない)なコレクションに変換する") {
+    val list = List(1, 2, 3, 4, 5)
+
+    // strict → (view) → none-strict → (force) → strict
+    assert((list.view.filter{ _ % 2 == 0 }.map{ _ * 2 }).force == List(4, 8))
+  }
 }
