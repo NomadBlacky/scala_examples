@@ -38,4 +38,13 @@ class MatchSpec extends FunSpec {
       case _                  => println("other")
     }
   }
+
+  it("リストのマッチング") {
+    val list = List(1,2,3,4,5)
+    list match {
+      // リストの2番目の要素を変数に束縛して、それ以外を捨てる
+      case List(_, i, _*) => assert(i == 2)
+      case _ => fail()
+    }
+  }
 }
