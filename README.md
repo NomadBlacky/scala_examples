@@ -63,6 +63,13 @@
 + [基本的なマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L16)
 + [型のマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L25)
 + [パターンガード](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L34)
++ [リストのマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L42)
+
+## OptionSpec
+
++ [Optionの基本](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L10)
++ [Optionから値を取り出す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L24)
++ [Optionに値が含まれる場合のみに実行させる](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L43)
 
 ## ScoptSpec
 
@@ -86,6 +93,7 @@
 
 + [タプルを生成する](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L7)
 + [タプルから値を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L11)
++ [タプルの要素に意味付けをする](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L18)
 
 ## TypeParameterSpec
 
