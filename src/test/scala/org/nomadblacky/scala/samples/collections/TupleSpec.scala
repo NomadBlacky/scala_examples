@@ -14,4 +14,17 @@ class TupleSpec extends FunSpec {
     assert(t._2 == "hoge")
     assert(t._3 == 1.0)
   }
+
+  it("タプルの要素に意味付けをする") {
+    val t = ("hoge", 20)
+
+    // tuple._1 などとした場合、要素についての情報を何も伝えられないので、
+    assert(t._1 == "hoge")
+    assert(t._2 == 20)
+
+    // このようにするとよい
+    val (name, age) = t
+    assert(name == "hoge")
+    assert(age == 20)
+  }
 }
