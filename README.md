@@ -18,7 +18,7 @@
 
 + [コレクションのイテレート](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L17)
 + [要素のフィルタ](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L23)
-+ [yield ... forの結果を保持する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L31)
++ [yield ... forの結果を新しいコレクションとして返す](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L31)
 
 ## FunctionSpec
 
@@ -88,6 +88,16 @@
 + [abstract override で既存のメソッドに新しい処理を追加する](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L106)
 + [トレイトの指定順序](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L130)
 + [自分型アノテーション](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L161)
+
+## TraversableSpec
+
++ [++ ... Traversableを連結する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L12)
++ [head / headOptional ... 先頭の要素を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L16)
++ [last / lastOption ... 最後の要素を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L24)
++ [init ... 最後以外の要素を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L32)
++ [tail ... 最初以外の要素を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L39)
++ [foldLeft ... 要素の先頭から畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L46)
++ [foldRight ... 要素の最後から畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L58)
 
 ## TupleSpec
 
