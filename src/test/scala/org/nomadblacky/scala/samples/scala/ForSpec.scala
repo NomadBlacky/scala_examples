@@ -28,7 +28,7 @@ class ForSpec extends FunSpec {
     assert(l == ListBuffer(4,5))
   }
   
-  it("yield ... forの結果を保持する") {
+  it("yield ... forの結果を新しいコレクションとして返す") {
     val l = for(name <- List("Taro", "Jiro")) yield "I am " + name
     assert(l == List("I am Taro", "I am Jiro"))
   }
