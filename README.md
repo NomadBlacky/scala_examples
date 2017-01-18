@@ -98,6 +98,15 @@
 + [tail ... 最初以外の要素を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L39)
 + [foldLeft ... 要素の先頭から畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L46)
 + [foldRight ... 要素の最後から畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L58)
++ [reduceLeft ... 最初の要素を初期値として畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L71)
++ [reduceRight ... 最後の要素を初期値として畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L80)
++ [foreach ... 戻り値なしで全ての要素を処理する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L90)
++ [filter ... 条件に一致する要素のみを抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L98)
++ [filter ... 条件に一致しない要素のみを抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L103)
++ [drop ... 指定した数の要素を先頭から取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L108)
++ [dropWhile ... 条件がfalseになるまで要素を取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L116)
++ [take ... 指定した数の要素を先頭から取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L121)
++ [takeWhile ... 条件がfalseになるまで要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L129)
 
 ## TupleSpec
 

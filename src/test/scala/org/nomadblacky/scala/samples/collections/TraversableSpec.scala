@@ -68,4 +68,66 @@ class TraversableSpec extends FunSpec {
     assert((List(1, 2, 3) :\ 0){(sum, i) => sum + i} == 6)
   }
 
+  it("reduceLeft ... 最初の要素を初期値として畳み込みを行う") {
+    val itr = List(1, 3).iterator
+    val result = List(1, 2, 3).reduceLeft { (sum, i) =>
+      assert(sum == itr.next())
+      sum + i
+    }
+    assert(result == 6)
+  }
+
+  it("reduceRight ... 最後の要素を初期値として畳み込みを行う") {
+    val itr = List(3, 5).iterator
+    // reduceLeftと引数の順番が違うので気をつける！
+    val result = List(1, 2, 3).reduceRight { (i, sum) =>
+      assert(sum == itr.next())
+      sum + i
+    }
+    assert(result == 6)
+  }
+
+  it("foreach ... 戻り値なしで全ての要素を処理する") {
+    val itr = List(1, 2, 3).iterator
+
+    List(1, 2, 3).foreach { i =>
+      assert(i == itr.next())
+    }
+  }
+
+  it("filter ... 条件に一致する要素のみを抜き出す") {
+    val result = List(1, 2, 3).filter{ 2 <= _ }
+    assert(result == List(2, 3))
+  }
+
+  it("filter ... 条件に一致しない要素のみを抜き出す") {
+    val result = List(1, 2, 3).filterNot{ 2 <= _ }
+    assert(result == List(1))
+  }
+
+  it("drop ... 指定した数の要素を先頭から取り除く") {
+    assert(List(1, 2, 3).drop(0) == List(1, 2, 3))
+    assert(List(1, 2, 3).drop(1) == List(2, 3))
+    assert(List(1, 2, 3).drop(2) == List(3))
+    assert(List(1, 2, 3).drop(3) == List())
+    assert(List(1, 2, 3).drop(4) == List())
+  }
+
+  it("dropWhile ... 条件がfalseになるまで要素を取り除く") {
+    assert(List(1, 2, 3).dropWhile{ _ <= 2 } == List(3))
+    assert(List(1, 2, 3).dropWhile{ i => i == 1 || i == 3 } == List(2, 3))
+  }
+
+  it("take ... 指定した数の要素を先頭から取り出す") {
+    assert(List(1, 2, 3).take(0) == List())
+    assert(List(1, 2, 3).take(1) == List(1))
+    assert(List(1, 2, 3).take(2) == List(1, 2))
+    assert(List(1, 2, 3).take(3) == List(1, 2, 3))
+    assert(List(1, 2, 3).take(4) == List(1, 2, 3))
+  }
+
+  it("takeWhile ... 条件がfalseになるまで要素を取り出す") {
+    assert(List(1, 2, 3).takeWhile{ _ <= 2 } == List(1, 2))
+    assert(List(1, 2, 3).takeWhile{ i => i == 1 || i == 3 } == List(1))
+  }
 }
