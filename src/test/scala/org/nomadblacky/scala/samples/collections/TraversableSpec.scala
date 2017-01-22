@@ -130,4 +130,12 @@ class TraversableSpec extends FunSpec {
     assert(List(1, 2, 3).takeWhile{ _ <= 2 } == List(1, 2))
     assert(List(1, 2, 3).takeWhile{ i => i == 1 || i == 3 } == List(1))
   }
+
+  it("map ... 要素に関数を適用して新しいコレクションを返す") {
+    assert(List(1, 2, 3).map(_ * 2) == List(2, 4, 6))
+  }
+
+  it("flatMap ... 要素に関数を適用して新しいコレクションを返しflattenする") {
+    assert(List(1, 2, 3).flatMap(i => List(i, i * 2)) == List(1, 2, 2, 4, 3, 6))
+  }
 }
