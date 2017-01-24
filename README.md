@@ -107,6 +107,13 @@
 + [dropWhile ... 条件がfalseになるまで要素を取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L116)
 + [take ... 指定した数の要素を先頭から取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L121)
 + [takeWhile ... 条件がfalseになるまで要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L129)
++ [map ... 要素に関数を適用して新しいコレクションを返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L134)
++ [flatMap ... 要素に関数を適用して新しいコレクションを返しflattenする](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L138)
++ [flatten ... 入れ子になったコレクションを1次元にする](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L142)
++ [splitAt ... コレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L146)
++ [slice ... コレクションの一部を抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L150)
++ [partition ... 条件を満たす要素とそうでない要素に分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L154)
++ [span ... 条件がfalseとなった要素を堺にコレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L159)
 
 ## TupleSpec
 

@@ -138,4 +138,26 @@ class TraversableSpec extends FunSpec {
   it("flatMap ... 要素に関数を適用して新しいコレクションを返しflattenする") {
     assert(List(1, 2, 3).flatMap(i => List(i, i * 2)) == List(1, 2, 2, 4, 3, 6))
   }
+
+  it("flatten ... 入れ子になったコレクションを1次元にする") {
+    assert(List(List(1,2), List(3,4)).flatten == List(1, 2, 3, 4))
+  }
+
+  it("splitAt ... コレクションを分割する") {
+    assert(List(1,2,3,4).splitAt(2) == (List(1,2), List(3,4)))
+  }
+
+  it("slice ... コレクションの一部を抜き出す") {
+    assert(List(1,2,3,4,5).slice(1,3) == List(2,3))
+  }
+
+  it("partition ... 条件を満たす要素とそうでない要素に分割する") {
+    assert(List(1,2,3,4,5).partition(_ < 3) == (List(1,2), List(3,4,5)))
+    assert(List(1,2,3,4,5).partition(_ > 3) == (List(4,5), List(1,2,3)))
+  }
+
+  it("span ... 条件がfalseとなった要素を堺にコレクションを分割する") {
+    assert(List(1,2,3,4,5).span(_ < 3) == (List(1,2), List(3,4,5)))
+    assert(List(1,2,3,4,5).span(_ > 3) == (List(), List(1,2,3,4,5)))
+  }
 }
