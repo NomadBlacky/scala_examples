@@ -160,4 +160,43 @@ class TraversableSpec extends FunSpec {
     assert(List(1,2,3,4,5).span(_ < 3) == (List(1,2), List(3,4,5)))
     assert(List(1,2,3,4,5).span(_ > 3) == (List(), List(1,2,3,4,5)))
   }
+
+  it("groupBy ... 関数の結果をキーとして要素をMapにして返す") {
+    assert(List("hoge", "foo", "bar").groupBy(_.length) == Map(3 -> List("foo", "bar"), 4 -> List("hoge")))
+  }
+
+  it("unzip ... 要素を2つのコレクションに分割する") {
+    assert(List((1, "one"), (2, "two"), (3, "three")).unzip == (List(1, 2, 3), List("one", "two", "three")))
+    assert(Map(1 -> "one", 2 -> "two", 3 -> "three").unzip == (List(1, 2, 3), List("one", "two", "three")))
+  }
+
+  it("unzip3 ... 要素を3つのコレクションに分割する") {
+    assert(List((1, "one", "hoge"), (2, "two", "foo"), (3, "three", "bar")).unzip3 == (List(1, 2, 3), List("one", "two", "three"), List("hoge", "foo", "bar")))
+  }
+
+  it("find ... 最初に条件を満たした要素をOptionで返す") {
+    assert(List(1, 2, 3).find(1 < _) == Some(2))
+    assert(List(1, 2, 3).find(2 < _) == Some(3))
+    assert(List(1, 2, 3).find(3 < _) == None)
+  }
+
+  it("exists ... 条件を満たす要素があるか判定する") {
+    assert(List(1, 2, 3).exists(_ == 1) == true)
+    assert(List(1, 2, 3).exists(_ == 5) == false)
+  }
+
+  it("forall ... 全ての要素が条件を満たすか判定する") {
+    assert(List(1, 2, 3).forall(0 < _) == true)
+    assert(List(1, 2, 3).forall(0 > _) == false)
+  }
+
+  it("count ... 条件を満たす要素の個数を返す") {
+    assert(List(1, 2, 3).count(1 < _) == 2)
+    assert(List(1, 2, 3).count(3 < _) == 0)
+  }
+
+  it("size/length ... 要素の個数を返す") {
+    assert(List(1, 2, 3).size == 3)
+    assert(List(1, 2, 3).length == 3)
+  }
 }

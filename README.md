@@ -114,6 +114,14 @@
 + [slice ... コレクションの一部を抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L150)
 + [partition ... 条件を満たす要素とそうでない要素に分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L154)
 + [span ... 条件がfalseとなった要素を堺にコレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L159)
++ [groupBy ... 関数の結果をキーとして要素をMapにして返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L164)
++ [unzip ... 要素を2つのコレクションに分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L168)
++ [unzip3 ... 要素を3つのコレクションに分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L173)
++ [find ... 最初に条件を満たした要素をOptionで返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L177)
++ [exists ... 条件を満たす要素があるか判定する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L183)
++ [forall ... 全ての要素が条件を満たすか判定する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L188)
++ [count ... 条件を満たす要素の個数を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L193)
++ [size/length ... 要素の個数を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L198)
 
 ## TupleSpec
 
