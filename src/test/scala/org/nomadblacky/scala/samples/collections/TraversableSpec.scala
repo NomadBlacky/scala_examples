@@ -2,6 +2,8 @@ package org.nomadblacky.scala.samples.collections
 
 import org.scalatest.FunSpec
 
+import scala.collection.mutable.ArrayBuffer
+
 /**
   * Created by blacky on 17/01/16.
   *
@@ -199,4 +201,57 @@ class TraversableSpec extends FunSpec {
     assert(List(1, 2, 3).size == 3)
     assert(List(1, 2, 3).length == 3)
   }
+
+  it("min ... 最小値を返す") {
+    assert(List(1, 2, 3).min == 1)
+    assert(List("a", "b", "c").min == "a")
+  }
+
+  it("max ... 最大値を返す") {
+    assert(List(1, 2, 3).max == 3)
+    assert(List("a", "b", "c").max == "c")
+  }
+
+  it("sum ... 合計値を返す") {
+    assert(List(1, 2, 3).sum == 6)
+    // error
+    // assert(List("a", "b", "c").sum == "")
+  }
+
+  it("mkString ... コレクションから文字列を作る") {
+    assert(List(1, 2, 3).mkString == "123")
+    assert(List(1, 2, 3).mkString("-") == "1-2-3")
+    assert(List(1, 2, 3).mkString("[", "-", "]") == "[1-2-3]")
+  }
+
+  it("toArray ... コレクションをArrayに変換する") {
+    // ScalaのArrayはJava配列で実装されているので == の比較はポインタの比較になる？
+    // assert(List(1, 2, 3).toArray == Array(1, 2, 3))
+    assert(List(1, 2, 3).toArray.deep == Array(1, 2, 3).deep)
+  }
+
+  it("toBuffer ... コレクションをBufferに変換する") {
+    assert(List(1, 2, 3).toBuffer == ArrayBuffer(1, 2, 3))
+  }
+
+  it("toIndexedSeq ... コレクションをIndexedSeqに変換する") {
+    assert(List(1, 2, 3).toIndexedSeq == IndexedSeq(1, 2, 3))
+  }
+
+  it("toList ... コレクションをListに変換する") {
+    assert(Array(1, 2, 3).toList == List(1, 2, 3))
+  }
+
+  it("toStream ... コレクションをStreamに変換する") {
+    assert(List(1, 2, 3).toStream == Stream(1, 2, 3))
+  }
+
+  it("par ... 並列コレクション(ParIterable)に変換する") {
+    Range(1, 100).par.foreach(println(_))
+  }
+
+  it("view/force ... コレクションの操作を遅延評価させる(中間データを作らない)") {
+    assert(List(1, 2, 3).view.map(_ * 2).force == List(2, 4, 6))
+  }
+
 }
