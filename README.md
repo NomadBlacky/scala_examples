@@ -32,6 +32,13 @@
 + [関数のカリー化2](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L64)
 + [関数の引数を遅延評価する](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L71)
 
+## IterableSpec
+
++ [grouped ... 指定サイズのListにまとめたIteratorを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L10)
++ [sliding ... ウィンドウをずらしながら参照するIteratorを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L22)
++ [takeRight ... コレクションの最後のn個の要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L35)
++ [dropRight ... コレクションの最後のn個の要素を取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L39)
+
 ## LazySpec
 
 + [lazy ... 変数を遅延評価する](src/test/scala/org/nomadblacky/scala/samples/scala/LazySpec.scala#L7)
