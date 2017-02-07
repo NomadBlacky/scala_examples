@@ -39,4 +39,25 @@ class IterableSpec extends FunSpec {
   it("dropRight ... コレクションの最後のn個の要素を取り除く") {
     assert(List(1, 2, 3, 4, 5).dropRight(3) == List(1, 2))
   }
+
+  it("zip ... 2つのコレクションから対応する要素をペアにする") {
+    assert(List(1, 2, 3).zip(List(10, 20, 30)) == List((1, 10), (2, 20), (3, 30)))
+    assert(List(1, 2   ).zip(List(10, 20, 30)) == List((1, 10), (2, 20)         ))
+    assert(List(1, 2, 3).zip(List(10, 20    )) == List((1, 10), (2, 20)         ))
+  }
+
+  it("zipAll ... 2つのコレクションから対応する要素をペアにする") {
+    assert(List(1, 2, 3).zipAll(List(10, 20, 30), 9, 99) == List((1, 10), (2, 20), (3, 30)))
+    assert(List(1, 2   ).zipAll(List(10, 20, 30), 9, 99) == List((1, 10), (2, 20), (9, 30)))
+    assert(List(1, 2, 3).zipAll(List(10, 20    ), 9, 99) == List((1, 10), (2, 20), (3, 99)))
+  }
+
+  it("zipWithIndex ... コレクションの要素と添字をペアにしたIterableを返す") {
+    assert(List(1, 2, 3).zipWithIndex == List((1, 0), (2, 1), (3, 2)))
+  }
+
+  it("sameElements ... 2つのコレクションが同じ要素を同じ順序で格納しているかを返す") {
+    assert(List(1, 2, 3).sameElements(List(1, 2, 3)) == true)
+    assert(List(1, 2, 3).sameElements(List(3, 2, 1)) == false)
+  }
 }

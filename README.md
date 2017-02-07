@@ -38,6 +38,10 @@
 + [sliding ... ウィンドウをずらしながら参照するIteratorを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L22)
 + [takeRight ... コレクションの最後のn個の要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L35)
 + [dropRight ... コレクションの最後のn個の要素を取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L39)
++ [zip ... 2つのコレクションから対応する要素をペアにする](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L43)
++ [zipAll ... 2つのコレクションから対応する要素をペアにする](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L49)
++ [zipWithIndex ... コレクションの要素と添字をペアにしたIterableを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L55)
++ [sameElements ... 2つのコレクションが同じ要素を同じ順序で格納しているかを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L59)
 
 ## LazySpec
 
