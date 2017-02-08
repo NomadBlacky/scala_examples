@@ -19,6 +19,7 @@
 + [コレクションのイテレート](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L17)
 + [要素のフィルタ](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L23)
 + [yield ... forの結果を新しいコレクションとして返す](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L31)
++ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L36)
 
 ## FunctionSpec
 

@@ -32,4 +32,9 @@ class ForSpec extends FunSpec {
     val l = for(name <- List("Taro", "Jiro")) yield "I am " + name
     assert(l == List("I am Taro", "I am Jiro"))
   }
+
+  it("[Sample] 2つのコレクションを同じ順序で取り出して処理する") {
+    val l = for((a, b) <- (List(1,2,3) zip List(3,4,5))) yield a * b
+    assert(l == List(3, 8, 15))
+  }
 }
