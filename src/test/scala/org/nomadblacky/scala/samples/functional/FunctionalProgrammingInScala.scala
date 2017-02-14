@@ -32,4 +32,49 @@ class FunctionalProgrammingInScala extends FunSpec {
       assert(fibStream(0, 1)(index) == actual)
     }
   }
+
+  it("[EXERCISE 2.2] isSortedの実装") {
+    def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean = {
+      @annotation.tailrec
+      def compare(i: Int): Boolean = {
+        if (as.length <= i + 1) true
+        else if (ordered(as(i),as(i + 1))) compare(i + 1)
+        else false
+      }
+      compare(0)
+    }
+
+    assert(isSorted(Array(1, 2, 3), (a:Int, b:Int) => a <= b) == true)
+    assert(isSorted(Array(1, 3, 2), (a:Int, b:Int) => a <= b) == false)
+    assert(isSorted(Array("a", "bb", "ccc"), (a:String, b:String) => a.length <= b.length) == true)
+    assert(isSorted(Array("aa", "bbb", "c"), (a:String, b:String) => a.length <= b.length) == false)
+  }
+
+  it("[EXERCISE 2.3] カリー化") {
+    def curry[A,B,C](f: (A, B) => C): A => (B => C) = {
+      (a: A) => (b: B) => f(a, b)
+    }
+
+    val f1: (Int, Int) => String = (a: Int, b: Int) => (a + b).toString
+    assert(f1(1, 2) == "3")
+    assert(curry(f1)(1)(2) == "3")
+
+    val f2 = (a: String, b: Int) => a * b
+    assert(f2("a", 3) == "aaa")
+    assert(curry(f2)("a")(3) == "aaa")
+  }
+
+  it("[EXERCISE 2.3] 逆カリー化") {
+    def uncurry[A,B,C](f: A => B => C): (A, B) => C = {
+      (a: A, b: B) => f(a)(b)
+    }
+
+    val f1: (Int) => (Int) => String = (a: Int) => (b: Int) => (a + b).toString
+    assert(f1(1)(2) == "3")
+    assert(uncurry(f1)(1, 2) == "3")
+
+    val f2 = (a: String) => (b: Int) => a * b
+    assert(f2("a")(3) == "aaa")
+    assert(uncurry(f2)("a", 3) == "aaa")
+  }
 }
