@@ -77,4 +77,18 @@ class FunctionalProgrammingInScala extends FunSpec {
     assert(f2("a")(3) == "aaa")
     assert(uncurry(f2)("a", 3) == "aaa")
   }
+
+  it("[EXERCISE 2.5] 関数の合成") {
+    def compose[A,B,C](f: B => C, g: A => B): A => C = {
+      (a: A) => f(g(a))
+    }
+
+    val f1: (Int) => String = (b: Int) => b.toString
+    val f2: (Int) => Int = (a: Int) => a + 10
+    assert(f1(f2(1)) == "11")
+    assert(compose(f1, f2)(1) == "11")
+    assert(f1.compose(f2)(1) == "11")
+  }
+
+  
 }

@@ -40,6 +40,7 @@
 + [[EXERCISE 2.2] isSortedの実装](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L36)
 + [[EXERCISE 2.3] カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L53)
 + [[EXERCISE 2.4] 逆カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L67)
++ [[EXERCISE 2.5] 関数の合成](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L81)
 
 ## IterableSpec
 
