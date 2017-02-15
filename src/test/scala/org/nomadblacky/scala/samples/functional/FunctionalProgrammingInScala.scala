@@ -64,7 +64,7 @@ class FunctionalProgrammingInScala extends FunSpec {
     assert(curry(f2)("a")(3) == "aaa")
   }
 
-  it("[EXERCISE 2.3] 逆カリー化") {
+  it("[EXERCISE 2.4] 逆カリー化") {
     def uncurry[A,B,C](f: A => B => C): (A, B) => C = {
       (a: A, b: B) => f(a)(b)
     }

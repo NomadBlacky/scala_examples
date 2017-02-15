@@ -39,7 +39,7 @@
 + [[EXERCISE 2.1] フィボナッチ数(Stream)](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L28)
 + [[EXERCISE 2.2] isSortedの実装](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L36)
 + [[EXERCISE 2.3] カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L53)
-+ [[EXERCISE 2.3] 逆カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L67)
++ [[EXERCISE 2.4] 逆カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L67)
 
 ## IterableSpec
 
