@@ -1,5 +1,5 @@
-package org.nomadblacky.scala.samples.functional
 
+import org.nomadblacky.scala.samples.functional.{Cons, MyList, MyNil}
 import org.scalatest.FunSpec
 
 /**
@@ -90,5 +90,15 @@ class FunctionalProgrammingInScala extends FunSpec {
     assert(f1.compose(f2)(1) == "11")
   }
 
-  
+  it("[EXERCISE 3.1] match式") {
+    val v = MyList(1, 2, 3, 4, 5) match {
+      case Cons(x, Cons(2, Cons(4, _))) => x
+      case MyNil => 42
+      case Cons(x, Cons(y, Cons(3, Cons(4, _)))) => x + y
+      case Cons(h, t) => h + MyList.sum(t)
+      case _ => 101
+    }
+
+    assert(v == 3)
+  }
 }
