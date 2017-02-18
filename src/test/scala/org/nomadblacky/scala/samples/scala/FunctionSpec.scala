@@ -83,5 +83,44 @@ class FunctionSpec extends FunSpec {
     }
   }
 
+  it("scratch01") {
+    def f(a: Int)(b: Int): Int = a + b
+    def g(c: Int): Int = c + 10
 
+    // これをやりたい
+    val k = (x: Int, y: Int) => g(f(x)(y))
+    assert(k(10, 20) == 40)
+
+    // これはだめ
+    //val l = f(_).compose(g)
+
+    // method と FunctionN は異なる
+    // method は第一級ではない (下記をいずれも満たさない)
+    // 第一級...
+    //    * リテラルがある
+    //    * 実行時に生成できる
+    //    * 手続きや関数の結果として返すことができる
+    //    * 変数に入れて使える
+    //    * 手続きや関数に引数として与えることができる
+    // Reference: http://tkawachi.github.io/blog/2014/11/26/1/
+
+    // _ を使って明示的に変換する必要がある
+    val l = (f(_)) compose g
+    assert(l(10)(20) == 40)
+
+    // 翻訳
+    val ll1: (Int) => (Int) => Int = (f _)
+    val ll2: (Int) => Int = g
+    val ll3 = ll1 compose ll2
+    assert(ll3(10)(20) == 40)
+  }
+
+  it("scratch01 by My.Aiya000") {
+    def comp[A,B,C](g: B => C)(f: A => B)(x: A): C = g(f(x))
+    def f(a: Int)(b: Int): Int = a + b
+    def g(c: Int): Int = c + 10
+
+    val k = comp(f)(g)(_)
+    assert(k(10)(20) == 40)
+  }
 }
