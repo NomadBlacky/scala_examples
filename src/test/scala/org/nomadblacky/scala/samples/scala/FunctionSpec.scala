@@ -15,10 +15,10 @@ class FunctionSpec extends FunSpec {
   }
   
   it("関数を引数に取る関数") {
+    def calc(f:(Int,Int) => Int, num:Int): Int = f(num, num)
     val result = calc((x,y) => x * y, 2)
     assert(result == 4)
   }
-  def calc(f:(Int,Int) => Int, num:Int): Int = f(num, num)
 
   it("プレースホルダ構文") {
     // プレースホルダ…
@@ -78,9 +78,9 @@ class FunctionSpec extends FunSpec {
 
     var count = 0
     myWhile(count < 5) {
-      println(count)
       count += 1
     }
+    assert(count == 5)
   }
 
   it("scratch01") {
