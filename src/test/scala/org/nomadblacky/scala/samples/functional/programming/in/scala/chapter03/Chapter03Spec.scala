@@ -10,6 +10,8 @@ import org.scalatest.FunSpec
   */
 class Chapter03Spec extends FunSpec {
 
+  override def suiteName: String = "第3章 関数型プログラミングのデータ構造"
+
   it("[EXERCISE 3.1] match式") {
     val v = MyList(1, 2, 3, 4, 5) match {
       case Cons(x, Cons(2, Cons(4, _))) => x

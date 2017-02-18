@@ -64,11 +64,10 @@ class TableOfContentsReporter() extends Reporter {
 
   private def writeTableOfContents(): Unit = {
     for { pw <- new PrintWriter(markdownFilePath.toFile) } {
-      pw.println("# Table Of Contents\n")
+      pw.println("# Table of Contents\n")
       val map = new mutable.LinkedHashMap[String, mutable.Set[TestSucceeded]] with mutable.MultiMap[String, TestSucceeded]
       succeededTests.foldLeft(map) { (map, e) =>
         map.addBinding(e.suiteName, e)
-        map
       }.toSeq.sortBy(_._1).foreach { case (key, set) =>
         pw.println("\n## %s\n".format(key))
         set.toList.sortBy { test =>
