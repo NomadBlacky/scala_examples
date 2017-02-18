@@ -115,7 +115,7 @@ class FunctionSpec extends FunSpec {
     assert(ll3(10)(20) == 40)
   }
 
-  it("scratch01 by My.Aiya000") {
+  it("scratch01 by Mr.aiya000") {
     def comp[A,B,C](g: B => C)(f: A => B)(x: A): C = g(f(x))
     def f(a: Int)(b: Int): Int = a + b
     def g(c: Int): Int = c + 10
