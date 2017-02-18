@@ -1,6 +1,19 @@
 # Table Of Contents
 
 
+## Chapter02Spec
+
++ [[EXERCISE 2.1] フィボナッチ数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L14)
++ [[EXERCISE 2.1] フィボナッチ数(Stream)](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L29)
++ [[EXERCISE 2.2] isSortedの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L37)
++ [[EXERCISE 2.3] カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L54)
++ [[EXERCISE 2.4] 逆カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L68)
++ [[EXERCISE 2.5] 関数の合成](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L82)
+
+## Chapter03Spec
+
++ [[EXERCISE 3.1] match式](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L13)
+
 ## ClassSpec
 
 + [require ... 引数を検証する](src/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#L10)
@@ -32,16 +45,8 @@
 + [関数のカリー化](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L53)
 + [関数のカリー化2](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L64)
 + [関数の引数を遅延評価する](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L71)
-
-## FunctionalProgrammingInScala
-
-+ [[EXERCISE 2.1] フィボナッチ数](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L13)
-+ [[EXERCISE 2.1] フィボナッチ数(Stream)](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L28)
-+ [[EXERCISE 2.2] isSortedの実装](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L36)
-+ [[EXERCISE 2.3] カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L53)
-+ [[EXERCISE 2.4] 逆カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L67)
-+ [[EXERCISE 2.5] 関数の合成](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L81)
-+ [[EXERCISE 3.1] match式](src/test/scala/org/nomadblacky/scala/samples/functional/FunctionalProgrammingInScala.scala#L93)
++ [scratch01](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L86)
++ [scratch01 by My.Aiya000](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L118)
 
 ## IterableSpec
 

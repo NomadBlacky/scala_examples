@@ -1,4 +1,4 @@
-package org.nomadblacky.scala.samples.functional
+package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter03
 
 /**
   * Created by blacky on 17/02/16.
@@ -22,4 +22,6 @@ object MyList {
   def apply[A](as: A*): MyList[A] =
     if (as.isEmpty) MyNil
     else Cons(as.head, apply(as.tail: _*))
+
+
 }
