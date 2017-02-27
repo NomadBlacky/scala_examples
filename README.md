@@ -46,6 +46,11 @@
 + [zipWithIndex ... コレクションの要素と添字をペアにしたIterableを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L55)
 + [sameElements ... 2つのコレクションが同じ要素を同じ順序で格納しているかを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L59)
 
+## JFreeChartSpec
+
++ [Part1 ... 円グラフを作成する](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L24)
++ [Part2 ... ヒストグラム](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L35)
+
 ## LazySpec
 
 + [lazy ... 変数を遅延評価する](src/test/scala/org/nomadblacky/scala/samples/scala/LazySpec.scala#L7)
