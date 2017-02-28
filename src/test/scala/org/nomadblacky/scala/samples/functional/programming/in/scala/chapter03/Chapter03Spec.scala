@@ -24,4 +24,26 @@ class Chapter03Spec extends FunSpec {
     assert(v == 3)
   }
 
+  it("[EXERCISE 3.2] tailの実装") {
+    assert(MyList.tail(MyList(1, 2, 3)) == MyList(2, 3))
+    assert(MyList.tail(MyList(1, 2   )) == MyList(2))
+    assert(MyList.tail(MyList(1      )) == MyNil)
+    assert(MyList.tail(MyNil)           == MyNil)
+  }
+
+  it("[EXERCISE 3.3] setHeadの実装") {
+    assert(MyList.setHead(MyList(1, 2, 3), 9) == MyList(9, 2, 3))
+    assert(MyList.setHead(MyList(1, 2   ), 9) == MyList(9, 2))
+    assert(MyList.setHead(MyList(1      ), 9) == MyList(9))
+    assert(MyList.setHead(MyNil          , 9) == MyNil)
+  }
+
+  it("[EXERCISE 3.4] dropの実装") {
+    assert(MyList.drop(MyList(1, 2, 3), 0) == MyList(1, 2, 3))
+    assert(MyList.drop(MyList(1, 2, 3), 1) == MyList(2, 3)   )
+    assert(MyList.drop(MyList(1, 2, 3), 2) == MyList(3)      )
+    assert(MyList.drop(MyList(1, 2, 3), 3) == MyNil          )
+    assert(MyList.drop(MyNil          , 3) == MyNil          )
+  }
+
 }

@@ -187,3 +187,6 @@
 ## 第3章 関数型プログラミングのデータ構造
 
 + [[EXERCISE 3.1] match式](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L15)
++ [[EXERCISE 3.2] tailの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L27)
++ [[EXERCISE 3.3] setHeadの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L34)
++ [[EXERCISE 3.4] dropの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L41)
