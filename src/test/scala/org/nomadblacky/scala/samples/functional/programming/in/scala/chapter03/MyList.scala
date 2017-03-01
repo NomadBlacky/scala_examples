@@ -36,14 +36,12 @@ object MyList {
     case Cons(_, Cons(x, y)) => Cons(a, Cons(x, y))
   }
 
-  def drop[A](list: MyList[A], i: Int) = {
-    def next(list: MyList[A], i: Int): MyList[A] = {
-      if (i <= 0) list
-      else list match {
-        case MyNil => MyNil
-        case Cons(_, x) => next(x, i - 1)
-      }
+  def drop[A](list: MyList[A], i: Int): MyList[A] = {
+    if (i <= 0) list
+    else list match {
+      case MyNil => MyNil
+      case Cons(_, x) => drop(x, i - 1)
     }
-    next(list, i)
+  }
   }
 }
