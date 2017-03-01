@@ -46,4 +46,10 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.drop(MyNil          , 3) == MyNil          )
   }
 
+  it("[EXERCISE 3.4] dropWhileの実装") {
+    assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 3) == MyNil)
+    assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 2) == MyList(3))
+    assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 1) == MyList(2, 3))
+    assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 0) == MyList(1, 2, 3))
+  }
 }

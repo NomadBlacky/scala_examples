@@ -43,5 +43,13 @@ object MyList {
       case Cons(_, x) => drop(x, i - 1)
     }
   }
+
+  def dropWhile[A](list: MyList[A], f: A => Boolean): MyList[A] = {
+    list match {
+      case Cons(x, y) =>
+        if (f(x)) dropWhile(y, f)
+        else list
+      case MyNil => MyNil
+    }
   }
 }
