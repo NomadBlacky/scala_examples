@@ -61,4 +61,11 @@ object MyList {
     }
   }
 
+  def init[A](list: MyList[A]): MyList[A] = {
+    list match {
+      case MyNil => MyNil
+      case Cons(_, MyNil) => MyNil
+      case Cons(x, y) => Cons(x, init(y))
+    }
+  }
 }

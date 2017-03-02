@@ -52,4 +52,11 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 1) == MyList(2, 3))
     assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 0) == MyList(1, 2, 3))
   }
+
+  it("[EXERCISE 3.6] initの実装") {
+    assert(MyList.init(MyList(1, 2, 3)) == MyList(1, 2))
+    assert(MyList.init(MyList(1, 2   )) == MyList(1))
+    assert(MyList.init(MyList(1      )) == MyNil)
+    assert(MyList.init(MyNil)           == MyNil)
+  }
 }
