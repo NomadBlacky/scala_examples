@@ -52,4 +52,13 @@ object MyList {
       case MyNil => MyNil
     }
   }
+
+  def append[A](list1: MyList[A], list2: MyList[A]): MyList[A] = {
+    // 実行時間とメモリ使用量を決めるのはlist1の長さだけ。
+    list1 match {
+      case MyNil => list2
+      case Cons(x, y) => Cons(x, append(y, list2))
+    }
+  }
+
 }
