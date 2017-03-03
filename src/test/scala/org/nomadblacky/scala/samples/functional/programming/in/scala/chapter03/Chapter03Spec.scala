@@ -51,6 +51,13 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 2) == MyList(3))
     assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 1) == MyList(2, 3))
     assert(MyList.dropWhile(MyList(1, 2, 3), (i:Int) => i <= 0) == MyList(1, 2, 3))
+
+    // カリー化することで型推論が手助けされる
+    // 引数リストの左の型パラメータが決まると、右の型パラメータが固定されるため
+    assert(MyList.dropWhile2(MyList(1, 2, 3))(_ <= 3) == MyNil)
+    assert(MyList.dropWhile2(MyList(1, 2, 3))(_ <= 2) == MyList(3))
+    assert(MyList.dropWhile2(MyList(1, 2, 3))(_ <= 1) == MyList(2, 3))
+    assert(MyList.dropWhile2(MyList(1, 2, 3))(_ <= 0) == MyList(1, 2, 3))
   }
 
   it("[EXERCISE 3.6] initの実装") {
