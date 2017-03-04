@@ -76,4 +76,11 @@ object MyList {
     }
   }
 
+  def foldRight[A, B](list: MyList[A], z: B)(f: (A, B) => B): B = {
+    list match {
+      case MyNil => z
+      case Cons(x, y) => f(x, foldRight(y, z)(f))
+    }
+  }
+
 }
