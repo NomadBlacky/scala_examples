@@ -191,4 +191,6 @@
 + [[EXERCISE 3.3] setHeadの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L34)
 + [[EXERCISE 3.4] dropの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L41)
 + [[EXERCISE 3.5] dropWhileの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L49)
-+ [[EXERCISE 3.6] initの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L56)
++ [[EXERCISE 3.6] initの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L63)
++ [[EXERCISE 3.9] lengthの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L70)
++ [[EXERCISE 3.10] foldLeftの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L77)

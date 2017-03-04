@@ -83,4 +83,14 @@ object MyList {
     }
   }
 
+  def length[A](list: MyList[A]): Int = {
+    foldRight(list, 0)((_, n) => n + 1)
+  }
+
+  def foldLeft[A, B](list: MyList[A], z: B)(f: (B, A) => B): B = {
+    list match {
+      case MyNil => z
+      case Cons(x, y) => foldLeft(y, f(z, x))(f)
+    }
+  }
 }

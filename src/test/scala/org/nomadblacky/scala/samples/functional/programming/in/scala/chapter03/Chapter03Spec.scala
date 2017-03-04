@@ -66,4 +66,17 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.init(MyList(1      )) == MyNil)
     assert(MyList.init(MyNil)           == MyNil)
   }
+
+  it("[EXERCISE 3.9] lengthの実装") {
+    assert(MyList.length(MyList(1, 2, 3)) == 3)
+    assert(MyList.length(MyList(1, 2   )) == 2)
+    assert(MyList.length(MyList(1      )) == 1)
+    assert(MyList.length(MyNil)           == 0)
+  }
+
+  it("[EXERCISE 3.10] foldLeftの実装") {
+    assert(MyList.foldLeft(MyList(1, 2, 3, 4, 5), 0)(_ + _) ==  15)
+    assert(MyList.foldLeft(MyList(1, 2, 3, 4, 5), 1)(_ * _) == 120)
+  }
+
 }
