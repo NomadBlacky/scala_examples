@@ -79,4 +79,10 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.foldLeft(MyList(1, 2, 3, 4, 5), 1)(_ * _) == 120)
   }
 
+  it("[EXERCISE 3.11] foldLeftを使った、sum, product, lengthの実装") {
+    assert(MyList.sum2(MyList(1, 2, 3, 4, 5)) == 15)
+    assert(MyList.product2(MyList(1, 2, 3, 4, 5)) == 120)
+    assert(MyList.length(MyList(1, 2, 3, 4, 5)) == 5)
+  }
+
 }

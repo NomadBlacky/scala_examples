@@ -93,4 +93,9 @@ object MyList {
       case Cons(x, y) => foldLeft(y, f(z, x))(f)
     }
   }
+
+  def sum2(list: MyList[Int]) = foldLeft(list, 0)(_ + _)
+  def product2(list: MyList[Double]) = foldLeft(list, 1.0)(_ * _)
+  def length2[A](list: MyList[A]) = foldLeft(list, 0)((n, _) => n + 1)
+
 }
