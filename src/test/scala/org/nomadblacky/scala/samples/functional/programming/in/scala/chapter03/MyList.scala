@@ -102,4 +102,13 @@ object MyList {
     foldLeft(list, MyList[A]())((l, x) => Cons(x, l))
   }
 
+  // https://github.com/fpinscala/fpinscala/blob/master/answerkey/datastructures/13.answer.scala#L9
+  def foldRight2[A, B](list: MyList[A], z: B)(f: (A, B) => B): B = {
+    foldLeft(list, (b:B) => b)((g, a) => b => g(f(a, b)))(z)
+  }
+
+  // https://github.com/fpinscala/fpinscala/blob/master/answerkey/datastructures/13.answer.scala#L12
+  def foldLeft2[A, B](list: MyList[A], z: B)(f: (B, A) => B): B = {
+    foldRight(list, (b:B) => b)((a, g) => b => g(f(b, a)))(z)
+  }
 }
