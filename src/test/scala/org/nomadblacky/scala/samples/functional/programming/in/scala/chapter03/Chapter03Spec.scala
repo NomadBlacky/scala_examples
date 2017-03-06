@@ -85,4 +85,9 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.length(MyList(1, 2, 3, 4, 5)) == 5)
   }
 
+  it("[EXERCISE 3.12] reverseの実装") {
+    assert(MyList.reverse(MyList(1, 2, 3)) == MyList(3, 2, 1))
+    assert(MyList.reverse(MyNil) == MyNil)
+  }
+
 }

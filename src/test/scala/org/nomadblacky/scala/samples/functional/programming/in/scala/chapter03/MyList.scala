@@ -98,4 +98,8 @@ object MyList {
   def product2(list: MyList[Double]) = foldLeft(list, 1.0)(_ * _)
   def length2[A](list: MyList[A]) = foldLeft(list, 0)((n, _) => n + 1)
 
+  def reverse[A](list: MyList[A]): MyList[A] = {
+    foldLeft(list, MyList[A]())((l, x) => Cons(x, l))
+  }
+
 }
