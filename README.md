@@ -194,3 +194,7 @@
 + [[EXERCISE 3.6] initの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L63)
 + [[EXERCISE 3.9] lengthの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L70)
 + [[EXERCISE 3.10] foldLeftの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L77)
++ [[EXERCISE 3.11] foldLeftを使った、sum, product, lengthの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L82)
++ [[EXERCISE 3.12] reverseの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L88)
++ [[EXERCISE 3.14] foldRitghtを利用したappendの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L93)
++ [[EXERCISE 3.15] flattenの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter03/Chapter03Spec.scala#L97)
