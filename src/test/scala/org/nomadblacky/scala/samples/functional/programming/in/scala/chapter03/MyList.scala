@@ -116,4 +116,13 @@ object MyList {
     foldRight(list, list2)((x, acc) => Cons(x, acc))
   }
 
+  def flatten[A](listInList: MyList[MyList[A]]): MyList[A] = {
+    foldRight(listInList, MyList[A]())((acc, l) => foldRight(acc, l)(Cons(_, _)))
+  }
+
+  // https://github.com/fpinscala/fpinscala/blob/master/answerkey/datastructures/15.answer.scala
+  def flatten2[A](listInList: MyList[MyList[A]]): MyList[A] = {
+    foldRight(listInList, MyNil:MyList[A])(appendViaFoldRight)
+  }
+
 }

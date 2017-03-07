@@ -94,5 +94,9 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.appendViaFoldRight(MyList(1, 2), MyList(3, 4)) == MyList(1, 2, 3, 4))
   }
 
-  
+  it("[EXERCISE 3.15] flattenの実装") {
+    val listInList = MyList(MyList(1, 2), MyList(3, 4))
+    assert(MyList.flatten (listInList) == MyList(1, 2, 3, 4))
+    assert(MyList.flatten2(listInList) == MyList(1, 2, 3, 4))
+  }
 }
