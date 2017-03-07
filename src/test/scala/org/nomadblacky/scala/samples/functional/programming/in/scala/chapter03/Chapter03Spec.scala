@@ -90,7 +90,7 @@ class Chapter03Spec extends FunSpec {
     assert(MyList.reverse(MyNil) == MyNil)
   }
 
-  it("[exercise 3.14] foldRitghtを利用したappendの実装") {
+  it("[EXERCISE 3.14] foldRitghtを利用したappendの実装") {
     assert(MyList.appendViaFoldRight(MyList(1, 2), MyList(3, 4)) == MyList(1, 2, 3, 4))
   }
 
