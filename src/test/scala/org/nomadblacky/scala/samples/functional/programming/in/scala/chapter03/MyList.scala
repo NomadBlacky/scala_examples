@@ -111,4 +111,9 @@ object MyList {
   def foldLeft2[A, B](list: MyList[A], z: B)(f: (B, A) => B): B = {
     foldRight(list, (b:B) => b)((a, g) => b => g(f(b, a)))(z)
   }
+
+  def appendViaFoldRight[A](list: MyList[A], list2: MyList[A]): MyList[A] = {
+    foldRight(list, list2)((x, acc) => Cons(x, acc))
+  }
+
 }
