@@ -34,7 +34,41 @@ class Chapter10Spec extends FunSpec {
     override def zero: List[A] = Nil
   }
 
-//  it("[EXERCISE 10.1] 整数の加算、乗算、論理演算子") {
-//
-//  }
+  it("[EXERCISE 10.1] 整数の加算、乗算、論理演算子") {
+    val add: Monoid[Int] = new Monoid[Int] {
+      override def op(a1: Int, a2: Int): Int = a1 + a2
+      override def zero: Int = 0
+    }
+    val multi: Monoid[Int] = new Monoid[Int] {
+      override def op(a1: Int, a2: Int): Int = a1 * a2
+      override def zero: Int = 1
+    }
+    val or: Monoid[Boolean] = new Monoid[Boolean] {
+      override def op(a1: Boolean, a2: Boolean): Boolean = a1 || a2
+      override def zero: Boolean = false
+    }
+    val and: Monoid[Boolean] = new Monoid[Boolean] {
+      override def op(a1: Boolean, a2: Boolean): Boolean = a1 && a2
+      override def zero: Boolean = true
+    }
+
+    for (x <- 1 to 5; y <- 1 to 5; z <- 1 to 5) {
+      assert(add.op(add.op(x, y), z) == add.op(x, add.op(y, z)))
+      assert(add.op(add.zero, x) == add.op(x, add.zero))
+    }
+    for (x <- 1 to 5; y <- 1 to 5; z <- 1 to 5) {
+      assert(multi.op(multi.op(x, y), z) == multi.op(x, multi.op(y, z)))
+      assert(multi.op(multi.zero, x) == multi.op(x, multi.zero))
+    }
+    for (x <- List(false, true); y <- List(false, true); z <- List(false, true)) {
+      assert(or.op(or.op(x, y), z) == or.op(x, or.op(y, z)))
+      assert(or.op(or.zero, x) == or.op(x, or.zero))
+    }
+    for (x <- List(false, true); y <- List(false, true); z <- List(false, true)) {
+      assert(and.op(and.op(x, y), z) == and.op(x, and.op(y, z)))
+      assert(and.op(and.zero, x) == and.op(x, and.zero))
+    }
+  }
+
+
 }
