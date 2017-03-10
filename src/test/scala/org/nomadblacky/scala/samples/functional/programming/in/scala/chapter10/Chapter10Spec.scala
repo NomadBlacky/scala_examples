@@ -70,5 +70,34 @@ class Chapter10Spec extends FunSpec {
     }
   }
 
+  it("[EXERCISE 10.2] Option型の値を結合するMonoidインスタンス") {
+    def optionMonoid[A]: Monoid[Option[A]] = {
+      new Monoid[Option[A]] {
+        override def op(a1: Option[A], a2: Option[A]) = a1 orElse a2
+        override def zero = None
+      }
+    }
+    val options: List[Option[Int]] = List(None, Some(1), Some(2))
+    for (x <- options; y <- options; z <- options) {
+      assert(optionMonoid.op(optionMonoid.op(x, y), z) == optionMonoid.op(x, optionMonoid.op(y, z)))
+      assert(optionMonoid.op(optionMonoid.zero, x) == optionMonoid.op(x, optionMonoid.zero))
+    }
 
+    // https://github.com/fpinscala/fpinscala/blob/master/answerkey/monoids/02.answer.scala
+    // 操作の反転
+    def dual[A](m: Monoid[A]): Monoid[A] = new Monoid[A] {
+      override def op(a1: A, a2: A) = m.op(a2, a1)
+      override def zero = m.zero
+    }
+    def firstOptionMonoid[A]: Monoid[Option[A]] = optionMonoid[A]
+    def lastOptionMonoid[A]: Monoid[Option[A]] = dual(firstOptionMonoid)
+    for (x <- options; y <- options; z <- options) {
+      assert(firstOptionMonoid.op(firstOptionMonoid.op(x, y), z) == firstOptionMonoid.op(x, firstOptionMonoid.op(y, z)))
+      assert(firstOptionMonoid.op(firstOptionMonoid.zero, x) == firstOptionMonoid.op(x, firstOptionMonoid.zero))
+      assert(lastOptionMonoid.op(lastOptionMonoid.op(x, y), z) == lastOptionMonoid.op(x, lastOptionMonoid.op(y, z)))
+      assert(lastOptionMonoid.op(lastOptionMonoid.zero, x) == lastOptionMonoid.op(x, lastOptionMonoid.zero))
+    }
+    assert(firstOptionMonoid.op(firstOptionMonoid.op(Some(1), None), Some(2)) == Some(1))
+    assert(lastOptionMonoid.op(lastOptionMonoid.op(Some(1), None), Some(2)) == Some(2))
+  }
 }
