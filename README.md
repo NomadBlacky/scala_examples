@@ -175,6 +175,11 @@
 + [要素を取得する3](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L41)
 + [属性から要素を取得する](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L48)
 
+## 第10章 モノイド
+
++ [[EXERCISE 10.1] 整数の加算、乗算、論理演算子に対するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L37)
++ [[EXERCISE 10.2] Option型の値を結合するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L73)
+
 ## 第2章 Scala関数型プログラミングの準備
 
 + [[EXERCISE 2.1] フィボナッチ数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L16)
