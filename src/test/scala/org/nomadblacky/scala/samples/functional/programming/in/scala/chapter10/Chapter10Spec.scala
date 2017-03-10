@@ -34,7 +34,7 @@ class Chapter10Spec extends FunSpec {
     override def zero: List[A] = Nil
   }
 
-  it("[EXERCISE 10.1] 整数の加算、乗算、論理演算子") {
+  it("[EXERCISE 10.1] 整数の加算、乗算、論理演算子に対するMonoidインスタンス") {
     val add: Monoid[Int] = new Monoid[Int] {
       override def op(a1: Int, a2: Int): Int = a1 + a2
       override def zero: Int = 0
