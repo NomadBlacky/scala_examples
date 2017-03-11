@@ -100,4 +100,18 @@ class Chapter10Spec extends FunSpec {
     assert(firstOptionMonoid.op(firstOptionMonoid.op(Some(1), None), Some(2)) == Some(1))
     assert(lastOptionMonoid.op(lastOptionMonoid.op(Some(1), None), Some(2)) == Some(2))
   }
+
+  it("[EXERCISE 10.3] endo関数のモノイド") {
+    def endoMonoid[A]: Monoid[A => A] = new Monoid[(A) => A] {
+      override def op(a1: (A) => A, a2: (A) => A) = a1 andThen a2
+      override def zero = (a:A) => a
+    }
+    val f1 = (s:String) => s.trim
+    val f2 = (s:String) => s * 2
+    val f3 = (s:String) => s.toUpperCase
+    assert(endoMonoid.op(endoMonoid.op(f1, f2), f3)(" hoge ") == "HOGEHOGE")
+    assert(endoMonoid.op(f1, endoMonoid.op(f2, f3))(" hoge ") == "HOGEHOGE")
+    assert(endoMonoid.op(endoMonoid.zero, f1)(" foo ") == "foo")
+    assert(endoMonoid.op(f1, endoMonoid.zero)(" foo ") == "foo")
+  }
 }
