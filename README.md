@@ -179,6 +179,8 @@
 
 + [[EXERCISE 10.1] 整数の加算、乗算、論理演算子に対するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L37)
 + [[EXERCISE 10.2] Option型の値を結合するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L73)
++ [[EXERCISE 10.3] endo関数のモノイド](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L104)
++ [[EXERCISE 10.4] foldMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L118)
 
 ## 第2章 Scala関数型プログラミングの準備
 
