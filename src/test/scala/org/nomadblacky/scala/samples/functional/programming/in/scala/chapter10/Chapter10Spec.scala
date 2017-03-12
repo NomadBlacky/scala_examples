@@ -114,4 +114,13 @@ class Chapter10Spec extends FunSpec {
     assert(endoMonoid.op(endoMonoid.zero, f1)(" foo ") == "foo")
     assert(endoMonoid.op(f1, endoMonoid.zero)(" foo ") == "foo")
   }
+
+  it("[EXERCISE 10.4] foldMapの実装") {
+    val list = List("1", "2", "3")
+    val monoid = new Monoid[Int] {
+      override def op(a1: Int, a2: Int) = a1 + a2
+      override def zero = 0
+    }
+    assert(Monoid.foldMap(list, monoid)(_.toInt) == 6)
+  }
 }
