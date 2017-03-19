@@ -98,6 +98,19 @@
 + [引数から日付を取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L47)
 + [引数からファイルを取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L57)
 
+## SetSpec
+
++ [apply, contains ... 要素が含まれるかを調べる](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L16)
++ [subsetOf ... 部分集合であるか調べる](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L23)
++ [+ ... 渡された要素を追加した集合を返す](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L29)
++ [++ ... 渡された集合を追加した集合を返す](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L35)
++ [- ... 渡された要素を除いた集合を返す](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L39)
++ [-- ... 渡された集合のすべての要素を除いた集合を返す](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L45)
++ [empty ... 集合と同じクラスの空集合を返す](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L50)
++ [&, intersect ... 積集合](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L55)
++ [|, union ... 和集合](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L60)
++ [&~, diff ... 差集合](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L65)
+
 ## TraitSpec
 
 + [トレイトの基本](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L15)
