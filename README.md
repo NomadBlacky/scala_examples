@@ -35,6 +35,12 @@
 + [scratch01](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L86)
 + [scratch01 by Mr.aiya000](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L118)
 
+## FutureSpec
+
++ [Futureの基本](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L15)
++ [Await ... スレッドの終了を待機する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L41)
++ [onComplete ... コールバック関数を定義する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L62)
+
 ## IterableSpec
 
 + [grouped ... 指定サイズのListにまとめたIteratorを返す](src/test/scala/org/nomadblacky/scala/samples/collections/IterableSpec.scala#L10)
