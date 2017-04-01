@@ -28,7 +28,7 @@ class FutureSpec extends FunSpec {
 
     // Future#value ... 現在時点のの値をOption[Try[T]]で取得する
     // 未完了 → None  完了 → Some[Try[T]]
-    assert(f.value == None)
+    assert(f.value.isEmpty)
 
     println("D")
 
