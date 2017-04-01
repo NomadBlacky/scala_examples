@@ -58,4 +58,19 @@ class FutureSpec extends FunSpec {
       case Failure(ex) => assert(ex.isInstanceOf[RuntimeException])
     }
   }
+
+  it("onComplete ... コールバック関数を定義する") {
+    val f = Future {
+      Thread.sleep(1000)
+      "ok"
+    }
+    // onComplete はExecutionContextを必要とする(implicit parameter)
+    // これ → import ExecutionContext.Implicits.global
+    // メインスレッド、Futureのスレッド、コールバックのスレッドは基本的に別のスレッドで実行される
+    f.onComplete {
+      case Success(result) => assert(result == "ok")
+      case Failure(_) => fail()
+    }
+    Await.ready(f, Duration.Inf)
+  }
 }
