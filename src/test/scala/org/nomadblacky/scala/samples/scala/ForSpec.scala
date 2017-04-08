@@ -33,6 +33,21 @@ class ForSpec extends FunSpec {
     assert(l == List("I am Taro", "I am Jiro"))
   }
 
+  it("for式のforeach展開") {
+    class Hoge {
+      type A = Int
+      def foreach[U](f: A => U): Unit = {
+        f(1); f(2); f(3)
+      }
+    }
+    // yield を持たないfor式は、foreachとして展開される
+    // (foreachを実装していればfor式で利用できる)
+    for (x <- new Hoge) {
+      println(x)
+    }
+    // new Hoge.foreach(println(_)) と同義
+  }
+
   it("[Sample] 2つのコレクションを同じ順序で取り出して処理する") {
     val l = for((a, b) <- (List(1,2,3) zip List(3,4,5))) yield a * b
     assert(l == List(3, 8, 15))
