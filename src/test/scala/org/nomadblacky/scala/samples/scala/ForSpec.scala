@@ -48,6 +48,20 @@ class ForSpec extends FunSpec {
     // new Hoge.foreach(println(_)) と同義
   }
 
+  it("for式のmap展開") {
+    class Hoge {
+      type A = Int
+      def map[B](f: A => B): TraversableOnce[B] = {
+        List(f(1), f(2), f(3))
+      }
+    }
+    // yield を持つfor式は、mapとして展開される
+    val result = for (x <- new Hoge) yield x.toString * x
+    // new Hoge().map{ x => x.toString * x } と同義
+
+    assert(result == List("1", "22", "333"))
+  }
+
   it("[Sample] 2つのコレクションを同じ順序で取り出して処理する") {
     val l = for((a, b) <- (List(1,2,3) zip List(3,4,5))) yield a * b
     assert(l == List(3, 8, 15))
