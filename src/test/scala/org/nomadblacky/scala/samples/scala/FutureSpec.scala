@@ -73,4 +73,33 @@ class FutureSpec extends FunSpec {
     }
     Await.ready(f, Duration.Inf)
   }
+
+  it("map ... Futureの計算結果を処理するFutureを取得する") {
+    { // Futureの結果がネストしてきたない
+      val f1 = Future {
+        "ok"
+      }
+      f1 onComplete {
+        case Success(str) =>
+          val f2 = Future {
+            if (str == "ok") 1
+            else 0
+          }
+          val result = Await.result(f2, Duration.Inf)
+          assert(result == 1)
+        case Failure(_) => fail()
+      }
+    }
+    { // mapを使うとよい
+      val f1 = Future {
+        "ok"
+      }
+      val f2: Future[Int] = f1 map { str =>
+        if (str == "ok") 1
+        else fail()
+      }
+      val result = Await.result(f2, Duration.Inf)
+      assert(result == 1)
+    }
+  }
 }
