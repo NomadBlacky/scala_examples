@@ -2,7 +2,8 @@ package org.nomadblacky.scala.samples.scalaz
 
 import org.scalatest.FunSpec
 
-import scalaz.NonEmptyList
+import scalaz._
+import Scalaz._
 
 /**
   * Created by blacky on 17/04/13.
@@ -14,6 +15,6 @@ class NonEmptyListSpec extends FunSpec {
   val list = NonEmptyList(1, 2, 3)
 
   it("<:: ．．． 先頭に要素を追加する") {
-    assert((9 <:: list) == NonEmptyList(9, 1, 2, 3))
+    9 <:: list assert_=== NonEmptyList(9, 1, 2, 3)
   }
 }
