@@ -2,7 +2,7 @@ package org.nomadblacky.scala.samples.parsercombinator
 
 import org.scalatest.FunSpec
 
-import scala.util.parsing.combinator.RegexParsers
+import scala.util.parsing.combinator.{JavaTokenParsers, RegexParsers}
 
 /**
   * 参考資料
@@ -81,4 +81,51 @@ class ParserCombinatorSpec extends FunSpec {
       case _ => fail()
     }
   }
+
+  it("四則演算のパース") {
+    // https://gist.github.com/sschaef/5529436
+    object ExprParser extends JavaTokenParsers {
+      sealed trait Tree
+      case class Add(a: Tree, b: Tree) extends Tree
+      case class Sub(a: Tree, b: Tree) extends Tree
+      case class Mul(a: Tree, b: Tree) extends Tree
+      case class Div(a: Tree, b: Tree) extends Tree
+      case class Num(x: Double) extends Tree
+
+      def eval(t: Tree): Double = t match {
+        case Add(a, b) => eval(a) + eval(b)
+        case Sub(a, b) => eval(a) - eval(b)
+        case Mul(a, b) => eval(a) * eval(b)
+        case Div(a, b) => eval(a) / eval(b)
+        case Num(x) => x
+      }
+
+      lazy val expr: Parser[Tree] = term ~ rep("[+-]".r ~ term) ^^ {
+        case t ~ ts => ts.foldLeft(t) {
+          case (t1, "+" ~ t2) => Add(t1, t2)
+          case (t1, "-" ~ t2) => Sub(t1, t2)
+        }
+      }
+
+      lazy val term = factor ~ rep("[*/]".r ~ factor) ^^ {
+        case t ~ ts => ts.foldLeft(t) {
+          case (t1, "*" ~ t2) => Mul(t1, t2)
+          case (t1, "/" ~ t2) => Div(t1, t2)
+        }
+      }
+
+      lazy val factor = "(" ~> expr <~ ")" | num
+
+      lazy val num = floatingPointNumber ^^ { t => Num(t.toDouble) }
+
+      def apply(source: String) = eval(parseAll(expr, source).get)
+    }
+
+    assert(ExprParser("1+2+3") == 6.0)
+    assert(ExprParser("(1+2)*3") == 9.0)
+    assert(ExprParser("1/2+3") == 3.5)
+    assert(ExprParser("1*2-3") == -1.0)
+    assert(ExprParser("5*(6-3)") == 15.0)
+  }
+
 }
