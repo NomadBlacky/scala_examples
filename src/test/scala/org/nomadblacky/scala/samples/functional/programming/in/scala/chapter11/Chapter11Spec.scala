@@ -14,6 +14,8 @@ import org.scalatest.FunSpec
   */
 class Chapter11Spec extends FunSpec {
 
+  override def suiteName: String = "第11章 モナド"
+
   it("11.1 ファンクタ : map関数の一般化") {
     val listFunctor = new Functor[List] {
       override def map[A, B](list: List[A])(f: (A) => B): List[B] = list map f
