@@ -9,7 +9,7 @@ import org.scalatest.FunSpec
   * https://www.amazon.co.jp/dp/B00WM54V5Q/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
   *
   * Github
-  * https://github.com/fpinscala/fpinscala/tree/master/answerkey/monads
+  * https://github.com/fpinscala/fpinscala/tree/master/answerkey/monoids
   */
 class Chapter10Spec extends FunSpec {
 
