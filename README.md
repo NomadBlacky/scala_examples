@@ -10,6 +10,10 @@
 + [メソッドをvalでオーバーライドする](src/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#L84)
 + [sealedによる継承制限とパターンマッチ](src/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#L99)
 
+## DisjunctionSpec
+
++ [Left,Rightの生成](src/test/scala/org/nomadblacky/scala/samples/scalaz/DisjunctionSpec.scala#L20)
+
 ## ExceptionSpec
 
 + [基本的なtry-catch-finally](src/test/scala/org/nomadblacky/scala/samples/exceptions/ExceptionSpec.scala#L19)
@@ -19,7 +23,9 @@
 + [コレクションのイテレート](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L17)
 + [要素のフィルタ](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L23)
 + [yield ... forの結果を新しいコレクションとして返す](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L31)
-+ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L36)
++ [for式のforeach展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L36)
++ [for式のmap展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L51)
++ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L65)
 
 ## FunctionSpec
 
@@ -40,6 +46,7 @@
 + [Futureの基本](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L15)
 + [Await ... スレッドの終了を待機する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L41)
 + [onComplete ... コールバック関数を定義する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L62)
++ [map ... Futureの計算結果を処理するFutureを取得する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L77)
 
 ## IterableSpec
 
@@ -90,6 +97,15 @@
 + [パターンガード](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L34)
 + [リストのマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L42)
 
+## NonEmptyListSpec
+
++ [<:: ．．． 先頭に要素を追加する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L17)
++ [head ... 先頭の要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L21)
++ [size ... 要素の数を取得する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L25)
++ [reverse ... リストを反転する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L29)
++ [map ... 要素に関数を適用する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L33)
++ [flatmap ... 要素に関数を適用し、flattenする](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L37)
+
 ## OptionSpec
 
 + [Optionの基本](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L10)
@@ -97,6 +113,14 @@
 + [foreach ... Optionに値が含まれる場合のみに実行させる](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L43)
 + [map ... 中身の値を関数に適用し値を変換する](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L53)
 + [flatMap ... 中身の値を関数に適用し、SomeならSomeを、NoneならNoneを返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L61)
+
+## ParserCombinatorSpec
+
++ [電話番号のパース](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L17)
++ [パースのエラーハンドリング](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L28)
++ [詳細なエラー内容を取得する](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L49)
++ [パース内容を変換する](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L65)
++ [四則演算のパース](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L85)
 
 ## ScoptSpec
 
@@ -200,6 +224,10 @@
 + [[EXERCISE 10.2] Option型の値を結合するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L73)
 + [[EXERCISE 10.3] endo関数のモノイド](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L104)
 + [[EXERCISE 10.4] foldMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L118)
+
+## 第11章 モナド
+
++ [11.1 ファンクタ : map関数の一般化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter11/Chapter11Spec.scala#L19)
 
 ## 第2章 Scala関数型プログラミングの準備
 
