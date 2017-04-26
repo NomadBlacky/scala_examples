@@ -3,7 +3,7 @@ package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter11
 /**
   * Created by blacky on 17/04/25.
   *
-  * Functorは全体を移せる(map over)ものの型クラス。
+  * Functorは全体を写せる(map over)ものの型クラス。
   * List, Optionなどの型コンストラクタなど。
   * Functor[F]インスタンスは、Fが実際にファンクタであることの裏付けとなる。
   */
