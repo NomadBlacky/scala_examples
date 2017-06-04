@@ -1,6 +1,10 @@
 # Table of Contents
 
 
+## AkkaHttpSpec
+
++ [クライアントAPI](src/test/scala/org/nomadblacky/scala/samples/akka/http/AkkaHttpSpec.scala#L20)
+
 ## ClassSpec
 
 + [require ... 引数を検証する](src/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#L10)
@@ -203,6 +207,12 @@
 + [タプルを生成する](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L7)
 + [タプルから値を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L11)
 + [タプルの要素に意味付けをする](src/test/scala/org/nomadblacky/scala/samples/collections/TupleSpec.scala#L18)
+
+## TypeClassSpec
+
++ [memo](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L24)
++ [型クラスの例](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L41)
++ [Orderedを使った実装例](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L63)
 
 ## TypeParameterSpec
 
