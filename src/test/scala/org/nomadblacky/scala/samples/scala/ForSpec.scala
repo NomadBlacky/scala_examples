@@ -62,6 +62,24 @@ class ForSpec extends FunSpec {
     assert(result == List("1", "22", "333"))
   }
 
+  /**
+    * すべてのfor式は、map,flatMap,withFilterの3つの高階関数で表現できる。
+    */
+
+  it("ジェネレータが1個のときの変換") {
+    val a = for (x <- List(1, 2, 3)) yield x * 2
+    val b = List(1, 2, 3).map(x => x * 2)
+    assert(a == b)
+  }
+
+  it("1個のジェネレータと1個のフィルターで始まるfor式の変換") {
+    val a = for (x <- List(1, 2, 3) if 1 < x) yield x * 2
+    val b = for (x <- List(1, 2, 3) withFilter (x => 1 < x)) yield x * 2
+    val c = List(1, 2, 3) withFilter (x => 1 < x) map (x => x * 2)
+    assert(a == b)
+    assert(b == c)
+  }
+
   it("[Sample] 2つのコレクションを同じ順序で取り出して処理する") {
     val l = for((a, b) <- (List(1,2,3) zip List(3,4,5))) yield a * b
     assert(l == List(3, 8, 15))
