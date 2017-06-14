@@ -1,5 +1,7 @@
 package org.nomadblacky.scala.samples.event.understanding_scala
 
+import java.util
+
 import org.scalatest.FunSpec
 
 /**
@@ -76,8 +78,49 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     // val int: Int = null
   }
 
-  it("共変") {
+  it("ジェネリクス") {
+    /**
+      * 最近の静的型付き言語のほとんどがもっている
+      * 型をパラメータとして取ること柔軟な型定義ができる
+      */
+    val strings = new util.ArrayList[String]
+    strings.add("hoge")
+    // コンパイルエラー↓
+    // strings.add(1)
+  }
 
+  it("共変") {
+    val x:Array[String] = Array("a", "b", "c")
+    // コンパイルエラー↓
+    // val y:Array[Any] = x
+
+    // これを許すと、Stringの配列にIntが入るといった状況が生まれる
+    // y(0) = 1
+
+    /**
+      * + String と Any について、StringがAnyのサブタイプである場合、
+      *   Array[String]がArray[Any]のサブタイプであるとき、
+      *   Arrayは共変であるという。
+      * + 実際にはScalaのArrayは共変ではない(不変)
+      *   一方、Javaの配列は共変だが、実行時に例外が投げられる危険がある。
+      * + 共変は便利だが、制限無しで取り扱うのは危険。
+      *   何らかの制限が必要→共変性に関する注釈をつける
+      */
+
+    sealed trait Link[+T] // + がだいじ
+    case class Cons[T](head: T, tail: Link[T]) extends Link[T]
+    // EmptyはどのようなLinkの変数にも代入できる
+    // Linkの終端を表すのに使うことができる
+    case object Empty extends Link[Nothing]
+    // 1,2,3 からなる単方向連結リスト
+    val cons = Cons(1, Cons(2, Cons(3, Empty)))
+
+    cons match {
+      case Cons(head, tail) =>
+        assert(head == 1)
+        assert(tail == Cons(2, Cons(3, Empty)))
+      case _ => fail()
+    }
   }
 
   it("反変") {
