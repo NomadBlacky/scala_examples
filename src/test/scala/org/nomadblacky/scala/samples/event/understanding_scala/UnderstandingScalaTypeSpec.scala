@@ -124,15 +124,47 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("反変") {
+    /**
+      * 関数の型は引数の型に関して「共変ではない」
+      */
+    val x: Int => Any = {i => i}
+    // コンパイルエラー
+    // val y: Any => Any = x
 
+    // これを許すと、Int引数にStringを渡せてしまうという状況が生まれる。
+    // y("hoge")
+
+    /**
+      * 引数の型は引数の型に関して、「反変である」
+      */
+    val xx: Any => Any = {a => a}
+    val yy: Int => Any = x // OK
+
+    /**
+      * 型の汎化(スーパタイプ)を許容する。
+      * Scalaでは、[-T]のように、型パラメータに - を付けると反変になる。
+      */
+    class Animal
+    class Human extends Animal
+    class Kaban extends Human
+    class JapariPark[-A] {
+      def welcomeTo(arg: A): String = "ようこそジャパリパークへ"
+    }
+
+    val japari1: JapariPark[Kaban] = new JapariPark[Human]
+    assert(japari1.welcomeTo(new Kaban) == "ようこそジャパリパークへ")
+    val japari2: JapariPark[Human] = new JapariPark[Animal]
+    assert(japari2.welcomeTo(new Human) == "ようこそジャパリパークへ")
+    // だめ
+    // val japari3: JapariPark[Human] = new JapariPark[Kaban]
   }
 
   it("構造的部分型") {
-
+    // TODO: Add sample code.
   }
 
   it("高階多相") {
-
+    // TODO: Add sample code.
   }
 
 }
