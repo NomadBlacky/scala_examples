@@ -185,7 +185,42 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("高階多相") {
-    // TODO: Add sample code.
+    /**
+      * List などのコレクションや Option など様々な型が map メソッドを持っている
+      * とにかく map を持っている型を抽象化したい
+      * そのような型 Mapper を定義してみる
+      */
+    trait Mapper[C] {
+      def map[A, B](c: C)(f: C => C): C
+    }
+    /**
+      * C の要素の型は map の呼び出しによって変わるので通常のジェネリクスでは表現できない
+      */
+
+    trait Mapper2[C[_]] {
+      def map[A, B](c: C[A])(f: A => B): C[B]
+    }
+    object Mapper2 {
+      implicit object ListMapper extends Mapper2[List] {
+        override def map[A, B](c: List[A])(f: (A) => B): List[B] = c.map(f)
+      }
+      implicit object OptionMapper extends Mapper2[Option] {
+        override def map[A, B](c: Option[A])(f: (A) => B): Option[B] = c.map(f)
+      }
+    }
+    def add2[C[_]](c: C[Int])(implicit m: Mapper2[C]): C[Int] = {
+      m.map(c)(n => n + 2)
+    }
+    assert(add2(List(1, 2, 3)) == List(3, 4, 5))
+    assert(add2(Option(1)) == Some(3))
+
+    /**
+      * C[_]が肝心
+      * 型コンストラクタを引数に取ることを表す宣言
+      * 型コンストラクタ … ジェネリックなクラスに型が与えられる前の名前のこと
+      * + List[T] → List
+      * + Option[T] → Option
+      */
   }
 
 }
