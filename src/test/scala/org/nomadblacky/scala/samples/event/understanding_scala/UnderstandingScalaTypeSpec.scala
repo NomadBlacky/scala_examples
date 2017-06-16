@@ -1,5 +1,6 @@
 package org.nomadblacky.scala.samples.event.understanding_scala
 
+import java.io.{File, FileInputStream}
 import java.util
 
 import org.scalatest.FunSpec
@@ -160,7 +161,27 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("構造的部分型") {
-    // TODO: Add sample code.
+    /**
+      * 継承関係によらず、必要なメソッドを持っていれば要求を満たす、としたい場合がある。
+      * 動的型付け言語における、duck typing的な考え。
+      */
+    import scala.language.reflectiveCalls
+
+    def using[T <: { def close() }, U](r: T)(f: T => U): U = try {
+      f(r)
+    } finally {
+      r.close()
+    }
+
+    using(new FileInputStream("build.sbt")) { f =>
+      // do something
+    }
+
+    /**
+      * 内部的にはリフレクションを使っているので多用に注意。
+      * import scala.language.reflectiveCalls
+      * をつけないと警告が出る。
+      */
   }
 
   it("高階多相") {
