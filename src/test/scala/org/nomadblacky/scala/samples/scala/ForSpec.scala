@@ -80,6 +80,12 @@ class ForSpec extends FunSpec {
     assert(b == c)
   }
 
+  it("2個のジェネレータで始まるfor式の変換") {
+    val a = for (x <- List(1, 2); y <- List(3, 4)) yield x * y
+    val b = List(1, 2).flatMap(x => List(3, 4).map(y => x * y))
+    assert(a == b)
+  }
+
   it("[Sample] 2つのコレクションを同じ順序で取り出して処理する") {
     val l = for((a, b) <- (List(1,2,3) zip List(3,4,5))) yield a * b
     assert(l == List(3, 8, 15))
