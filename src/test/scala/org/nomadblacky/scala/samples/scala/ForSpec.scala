@@ -82,7 +82,27 @@ class ForSpec extends FunSpec {
 
   it("2個のジェネレータで始まるfor式の変換") {
     val a = for (x <- List(1, 2); y <- List(3, 4)) yield x * y
-    val b = List(1, 2).flatMap(x => List(3, 4).map(y => x * y))
+    val b = List(1, 2).flatMap(x => for (y <- List(3, 4)) yield x * y)
+    val c = List(1, 2).flatMap(x => List(3, 4).map(y => x * y))
+    assert(a == b)
+    assert(b == c)
+  }
+
+  it("ジェネレータに含まれるパターンの変換 - タプルの場合") {
+    val a = for ((x, y) <- List((1, 2), (3, 4))) yield x * y
+    val b = List((1, 2), (3, 4)).map{ case (x, y) => x * y }
+    assert(a == b)
+  }
+
+  it("ジェネレータに含まれるパターンの変換 - その他パターンの場合") {
+    val list = List(Some(1), None, Some(3))
+    val a = for (Some(i) <- list) yield i
+    val b = list.withFilter {
+      case Some(i) => true
+      case _ => false
+    } map {
+      case Some(i) => i
+    }
     assert(a == b)
   }
 
