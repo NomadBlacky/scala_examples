@@ -254,4 +254,14 @@ class TraversableSpec extends FunSpec {
     assert(List(1, 2, 3).view.map(_ * 2).force == List(2, 4, 6))
   }
 
+  it("collectFirst ... caseに最初に一致した値を取得する") {
+    val list = List(9, 7, 4, 2, 1, 3, 9)
+    val result = list.collectFirst {
+      case 1 => "one"
+      case 2 => "two"
+      case 3 => "three"
+    }
+    assert(result == Some("two"))
+  }
+
 }
