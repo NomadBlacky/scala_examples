@@ -31,7 +31,10 @@
 + [for式のmap展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L51)
 + [ジェネレータが1個のときの変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L69)
 + [1個のジェネレータと1個のフィルターで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L75)
-+ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L83)
++ [2個のジェネレータで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L83)
++ [ジェネレータに含まれるパターンの変換 - タプルの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L91)
++ [ジェネレータに含まれるパターンの変換 - その他パターンの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L97)
++ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L109)
 
 ## FunctionSpec
 
@@ -84,6 +87,8 @@
 + [::: ... List同士を連結する](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L48)
 + [withFilter ... 中間データを作らない](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L54)
 + [view ... none-strict(中間データを作らない)なコレクションに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L64)
++ [lengthCompare ... コレクションの要素数と引数の長さを比較する](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L71)
++ [lift](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L81)
 
 ## MapSpec
 
@@ -203,6 +208,8 @@
 + [toStream ... コレクションをStreamに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L245)
 + [par ... 並列コレクション(ParIterable)に変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L249)
 + [view/force ... コレクションの操作を遅延評価させる(中間データを作らない)](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L253)
++ [collect ... ParticalFunctionを適用して要素を変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L257)
++ [collectFirst ... ParticalFunctionに最初に一致した値を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L268)
 
 ## TupleSpec
 
@@ -230,15 +237,16 @@
 
 ## Understanding Scala - Scalaの型システムを学ぶ
 
-+ [Any あらゆる型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L16)
-+ [AnyVal: あらゆる値型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L28)
-+ [AnyRef: あらゆる参照型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L43)
-+ [Nothing: あらゆる型のサブタイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L55)
-+ [Null](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L68)
-+ [共変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L79)
-+ [反変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L83)
-+ [構造的部分型](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L87)
-+ [高階多相](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L91)
++ [Any あらゆる型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L19)
++ [AnyVal: あらゆる値型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L31)
++ [AnyRef: あらゆる参照型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L46)
++ [Nothing: あらゆる型のサブタイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L58)
++ [Null](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L71)
++ [ジェネリクス](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L82)
++ [共変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L93)
++ [反変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L127)
++ [構造的部分型](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L163)
++ [高階多相](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L187)
 
 ## Understanding Scala - Scalaの実行時の挙動を学ぶ
 
