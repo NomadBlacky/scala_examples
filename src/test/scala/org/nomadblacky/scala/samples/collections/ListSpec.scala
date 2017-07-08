@@ -67,4 +67,22 @@ class ListSpec extends FunSpec {
     // strict → (view) → none-strict → (force) → strict
     assert((list.view.filter{ _ % 2 == 0 }.map{ _ * 2 }).force == List(4, 8))
   }
+
+  it("lengthCompare ... コレクションの要素数と引数の長さを比較する") {
+    // lengthを使って比較するよりも高速
+    val list = List(1, 2, 3)
+    assert(list.lengthCompare(1) == 1)
+    assert(list.lengthCompare(2) == 1)
+    assert(list.lengthCompare(3) == 0)
+    assert(list.lengthCompare(4) == -1)
+    assert(list.lengthCompare(5) == -1)
+  }
+
+  it("lift") {
+    val list = List(1, 2, 3)
+    val i = 3
+    val a = if (i < list.length) Some(list(i)) else None
+    val b = list.lift(i)
+    assert(a == b)
+  }
 }
