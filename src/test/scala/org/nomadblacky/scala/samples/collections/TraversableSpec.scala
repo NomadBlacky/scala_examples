@@ -254,7 +254,7 @@ class TraversableSpec extends FunSpec {
     assert(List(1, 2, 3).view.map(_ * 2).force == List(2, 4, 6))
   }
 
-  it("collect ... ParticalFunctionを適用して要素を変換する") {
+  it("collect ... PartialFunctionを適用して要素を変換する") {
     val list = List(1, 2, 3, 4, 5)
     val result = list.collect {
       case 1 => "one"
@@ -265,7 +265,7 @@ class TraversableSpec extends FunSpec {
     assert(result == List("one", "two", "three", "-", "-"))
   }
 
-  it("collectFirst ... ParticalFunctionに最初に一致した値を取得する") {
+  it("collectFirst ... PartialFunctionに最初に一致した値を取得する") {
     val list = List(9, 7, 4, 2, 1, 3, 9)
     val result = list.collectFirst {
       case 1 => "one"
