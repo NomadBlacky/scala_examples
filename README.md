@@ -133,6 +133,28 @@
 + [パース内容を変換する](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L65)
 + [四則演算のパース](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L85)
 
+## PartialFunctionSpec
+
++ [PartialFunctionを定義する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L15)
++ [コレクションのイテレート](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L17)
++ [要素のフィルタ](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L23)
++ [isDefinedAt ... 引数に対して値が返される場合はtrueを返す](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L26)
++ [yield ... forの結果を新しいコレクションとして返す](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L31)
++ [for式のforeach展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L36)
++ [andThen ... PartialFunction合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L36)
++ [for式のmap展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L51)
++ [compose ... PartialFunctionを合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L53)
++ [ジェネレータが1個のときの変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L69)
++ [orElse ... 部分関数にマッチしなかった引数を次の部分関数にマッチさせる関数合成](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L69)
++ [1個のジェネレータと1個のフィルターで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L75)
++ [2個のジェネレータで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L83)
++ [runWith ... 部分関数の結果を利用する関数と合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L84)
++ [ジェネレータに含まれるパターンの変換 - タプルの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L91)
++ [lift ... 関数の結果をOptionで返す関数に変換する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L92)
++ [ジェネレータに含まれるパターンの変換 - その他パターンの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L97)
++ [applyOrElse ... 引数がマッチすればその結果を返し、マッチしなければデフォルト値を返す](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L103)
++ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L109)
+
 ## ScoptSpec
 
 + [コマンドライン引数を解析する](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L38)
@@ -208,8 +230,8 @@
 + [toStream ... コレクションをStreamに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L245)
 + [par ... 並列コレクション(ParIterable)に変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L249)
 + [view/force ... コレクションの操作を遅延評価させる(中間データを作らない)](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L253)
-+ [collect ... ParticalFunctionを適用して要素を変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L257)
-+ [collectFirst ... ParticalFunctionに最初に一致した値を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L268)
++ [collect ... PartialFunctionを適用して要素を変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L257)
++ [collectFirst ... PartialFunctionに最初に一致した値を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L268)
 
 ## TupleSpec
 
