@@ -111,4 +111,24 @@ class PartialFunctionSpec extends ForSpec with Matchers {
     val result = if (pf.isDefinedAt(arg)) pf(arg) else arg.toString
     assert(result == "2")
   }
+
+  it("[Usage] TraversableLike#collect") {
+    val list = List(1, 2, 3)
+    // filterとmapを組み合わせたようなメソッド
+    // 部分関数にマッチしたものだけを取り出し、変換する。
+    val result = list.collect {
+      case 1 => "one"
+      case 2 => "two"
+    }
+    result shouldBe List("one", "two")
+  }
+
+  it("[Usage] TraversableOnce#collectFirst") {
+    // 部分関数に最初にマッチした要素を取り出し、変換する。
+    val pf: PartialFunction[Int, String] = {
+      case 2 => "two"
+    }
+    List(1, 2, 3).collectFirst(pf) shouldBe Some("two")
+    List(4, 5, 6).collectFirst(pf) shouldBe None
+  }
 }
