@@ -112,6 +112,20 @@ class PartialFunctionSpec extends ForSpec with Matchers {
     assert(result == "2")
   }
 
+  it("[Usage] ふつうの関数(全域関数)の代わりに使う") {
+    // PartialFunctionはFunction1を継承しているので、
+    // Function1と同様に使用することができる。
+    val list: List[(Int, Int)] = List((1, 2), (3, 4), (5, 6))
+
+    // この場合、引数がタプルであることは自明なので、このように書ける。
+    val result1 = list.map { case (i, j) => i * j }
+    // 全域関数を使った場合
+    val result2 = list.map { t => t._1 * t._2 }
+
+    result1 shouldBe List(2, 12, 30)
+    result2 shouldBe result1
+  }
+
   it("[Usage] TraversableLike#collect") {
     val list = List(1, 2, 3)
     // filterとmapを組み合わせたようなメソッド
@@ -131,4 +145,25 @@ class PartialFunctionSpec extends ForSpec with Matchers {
     List(1, 2, 3).collectFirst(pf) shouldBe Some("two")
     List(4, 5, 6).collectFirst(pf) shouldBe None
   }
+
+  it("ListはPartialFunction[Int,A]をmix-inしている") {
+    val list = List("a", "b", "c")
+    list(0) shouldBe "a"
+    list(1) shouldBe "b"
+    list(2) shouldBe "c"
+
+    val result = List(2, 1, 0) map list
+    result shouldBe List("c", "b", "a")
+  }
+
+  it("MapはPartialFunction[K,V]をmix-inしている") {
+    val map = Map("one"->1, "two"->2, "three"->3)
+    map("one") shouldBe 1
+    map("two") shouldBe 2
+    map("three") shouldBe 3
+
+    val result = List("two", "three", "four") collect map
+    result shouldBe List(2, 3)
+  }
+
 }
