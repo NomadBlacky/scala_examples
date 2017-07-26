@@ -2,6 +2,8 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.Matchers
 
+import scala.util.{Failure, Success, Try}
+
 /**
   * Created by blacky on 17/07/09.
   *
@@ -144,6 +146,16 @@ class PartialFunctionSpec extends ForSpec with Matchers {
     }
     List(1, 2, 3).collectFirst(pf) shouldBe Some("two")
     List(4, 5, 6).collectFirst(pf) shouldBe None
+  }
+
+  it("[Usage] Try#collect") {
+    val result1: Try[String] = Try { 1 }.collect { case 1 => "one" }
+    val result2: Try[String] = Try { 1 }.collect { case 2 => "two" }
+    val result3: Try[String] = Try { throw new RuntimeException(); 1 }.collect { case 1 => "one" }
+
+    result1 shouldBe Success("one")
+    result2 shouldBe a [Failure[_]]
+    result3 shouldBe a [Failure[_]]
   }
 
   it("ListはPartialFunction[Int,A]をmix-inしている") {
