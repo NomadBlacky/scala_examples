@@ -25,6 +25,34 @@ class PartialFunctionSpec extends ForSpec with Matchers {
     assertThrows[MatchError](pf(3))
   }
 
+  it("caseはPartialFunctionのシンタックスシュガー") {
+    val pf1: PartialFunction[Int, String] = {
+      case 1 => "one"
+    }
+    val pf2: PartialFunction[Int, String] = new PartialFunction[Int, String] {
+      override def isDefinedAt(x: Int): Boolean = x match {
+        case 1 => true
+        case _ => false
+      }
+      override def apply(v1: Int): String = v1 match {
+        case 1 => "one"
+        case _ => throw new MatchError(v1)
+      }
+    }
+
+    pf1.isDefinedAt(1) shouldBe true
+    pf2.isDefinedAt(1) shouldBe true
+
+    pf1.isDefinedAt(2) shouldBe false
+    pf2.isDefinedAt(2) shouldBe false
+
+    pf1(1) shouldBe "one"
+    pf2(1) shouldBe "one"
+
+    assertThrows[MatchError](pf1(2))
+    assertThrows[MatchError](pf2(2))
+  }
+
   it("isDefinedAt ... 引数に対して値が返される場合はtrueを返す") {
     val pf: PartialFunction[Int, String] = {
       case i if i % 2 == 0 => "even"
