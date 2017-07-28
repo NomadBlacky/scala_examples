@@ -19,8 +19,8 @@ class PartialFunctionSpec extends ForSpec with Matchers {
       case 1 => "one"
       case 2 => "two"
     }
-    assert(pf(1) == "one")
-    assert(pf(2) == "two")
+    pf(1) shouldBe "one"
+    pf(2) shouldBe "two"
     // 引数がマッチしない場合はMatchErrorが投げられる
     assertThrows[MatchError](pf(3))
   }
@@ -57,10 +57,10 @@ class PartialFunctionSpec extends ForSpec with Matchers {
     val pf: PartialFunction[Int, String] = {
       case i if i % 2 == 0 => "even"
     }
-    assert(pf.isDefinedAt(1) == false)
-    assert(pf.isDefinedAt(2) == true)
-    assert(pf.isDefinedAt(3) == false)
-    assert(pf.isDefinedAt(4) == true)
+    pf.isDefinedAt(1) shouldBe false
+    pf.isDefinedAt(2) shouldBe true
+    pf.isDefinedAt(3) shouldBe false
+    pf.isDefinedAt(4) shouldBe true
   }
 
   it("andThen ... PartialFunction合成する") {
@@ -73,10 +73,10 @@ class PartialFunctionSpec extends ForSpec with Matchers {
       case "three" => 3
     }
     val andThen = pf1 andThen pf2
-    assert(andThen(1) == 1)
-    assert(andThen.isDefinedAt(2) == true)
+    andThen(1) shouldBe 1
+    andThen.isDefinedAt(2) shouldBe true
     assertThrows[MatchError](andThen(2))
-    assert(andThen.isDefinedAt(3) == false)
+    andThen.isDefinedAt(3) shouldBe false
     assertThrows[MatchError](andThen(3))
   }
 
@@ -89,9 +89,10 @@ class PartialFunctionSpec extends ForSpec with Matchers {
       case "one" => 1
       case "three" => 3
     }
-    // TODO: andThenがPartialFunctionを返すのに対し、composeがFunctionを返すのなんでだろ…
+    // Function1( PartialFunction(x) )
+    // という形で合成されるので、戻り値の型はFunction1となる
     val compose = pf1 compose pf2
-    assert(compose("one") == "one")
+    compose("one") shouldBe "one"
     assertThrows[MatchError](compose("two"))
     assertThrows[MatchError](compose("three"))
   }
@@ -104,10 +105,13 @@ class PartialFunctionSpec extends ForSpec with Matchers {
       case 2 => "two"
     }
     val pf = pf1 orElse pf2
-    assert(pf(1) == "one")
-    assert(pf.isDefinedAt(2) == true)
-    assert(pf(2) == "two")
-    assert(pf.isDefinedAt(3) == false)
+
+    pf(1) shouldBe "one"
+
+    pf.isDefinedAt(2) shouldBe true
+    pf(2) shouldBe "two"
+
+    pf.isDefinedAt(3) shouldBe false
     assertThrows[MatchError](pf(3))
   }
 
@@ -115,8 +119,8 @@ class PartialFunctionSpec extends ForSpec with Matchers {
     val pf: PartialFunction[Int, String] = {
       case 1 => "one"
     }
-    assert(pf.runWith(s => s.length)(1) == true)
-    assert(pf.runWith(_ => fail())(2) == false)
+    pf.runWith(s => s.length)(1) shouldBe true
+    pf.runWith(_ => fail())(2) shouldBe false
   }
 
   it("lift ... 関数の結果をOptionで返す関数に変換する") {
@@ -125,21 +129,21 @@ class PartialFunctionSpec extends ForSpec with Matchers {
       case 2 => "two"
     }
     val f: (Int) => Option[String] = pf.lift
-    assert(f(1) == Some("one"))
-    assert(f(2) == Some("two"))
-    assert(f(3) == None)
+    f(1) shouldBe Some("one")
+    f(2) shouldBe Some("two")
+    f(3) shouldBe None
   }
 
   it("applyOrElse ... 引数がマッチすればその結果を返し、マッチしなければデフォルト値を返す") {
     val pf: PartialFunction[Int, String] = {
       case 1 => "one"
     }
-    assert(pf.applyOrElse(1, (i:Int) => i.toString) == "one")
-    assert(pf.applyOrElse(2, (i:Int) => i.toString) == "2")
+    pf.applyOrElse(1, (i:Int) => i.toString) shouldBe "one"
+    pf.applyOrElse(2, (i:Int) => i.toString) shouldBe "2"
     // 同義
     val arg = 2
     val result = if (pf.isDefinedAt(arg)) pf(arg) else arg.toString
-    assert(result == "2")
+    result shouldBe "2"
   }
 
   it("[Usage] ふつうの関数(全域関数)の代わりに使う") {
