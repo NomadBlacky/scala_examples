@@ -135,8 +135,8 @@
 
 ## PartialFunctionSpec
 
-+ [PartialFunctionを定義する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L17)
 + [コレクションのイテレート](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L17)
++ [PartialFunctionを定義する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L17)
 + [要素のフィルタ](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L23)
 + [caseはPartialFunctionのシンタックスシュガー](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L28)
 + [yield ... forの結果を新しいコレクションとして返す](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L31)
@@ -146,21 +146,21 @@
 + [andThen ... PartialFunction合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L66)
 + [ジェネレータが1個のときの変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L69)
 + [1個のジェネレータと1個のフィルターで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L75)
-+ [compose ... PartialFunctionを合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L83)
 + [2個のジェネレータで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L83)
++ [compose ... PartialFunctionを合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L83)
 + [ジェネレータに含まれるパターンの変換 - タプルの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L91)
 + [ジェネレータに含まれるパターンの変換 - その他パターンの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L97)
-+ [orElse ... 部分関数にマッチしなかった引数を次の部分関数にマッチさせる関数合成](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L99)
++ [orElse ... 部分関数にマッチしなかった引数を次の部分関数にマッチさせる関数合成](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L100)
 + [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L109)
-+ [runWith ... 部分関数の結果を利用する関数と合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L114)
-+ [lift ... 関数の結果をOptionで返す関数に変換する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L122)
-+ [applyOrElse ... 引数がマッチすればその結果を返し、マッチしなければデフォルト値を返す](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L133)
-+ [[Usage] ふつうの関数(全域関数)の代わりに使う](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L145)
-+ [[Usage] TraversableLike#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L165)
-+ [[Usage] TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L176)
-+ [[Usage] Try#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L185)
-+ [ListはPartialFunction[Int,A]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L195)
-+ [MapはPartialFunction[K,V]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L205)
++ [runWith ... 部分関数の結果を利用する関数と合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L118)
++ [lift ... 関数の結果をOptionで返す関数に変換する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L126)
++ [applyOrElse ... 引数がマッチすればその結果を返し、マッチしなければデフォルト値を返す](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L137)
++ [[Usage] ふつうの関数(全域関数)の代わりに使う](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L149)
++ [[Usage] TraversableLike#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L163)
++ [[Usage] TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L174)
++ [[Usage] Try#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L183)
++ [ListはPartialFunction[Int,A]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L193)
++ [MapはPartialFunction[K,V]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L203)
 
 ## ScoptSpec
 
