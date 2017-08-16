@@ -15,7 +15,8 @@ libraryDependencies ++= Seq(
   "org.jfree" % "jfreechart" % "1.0.19",
   "com.github.pathikrit" %% "better-files" % "2.17.1",
   "org.scalaz" %% "scalaz-core" % scalazVersion,
-  "com.typesafe.akka" %% "akka-http-core" % "10.0.7"
+  "com.typesafe.akka" %% "akka-http-core" % "10.0.7",
+  "com.chuusai" %% "shapeless" % "2.3.2"
 )
 
 testOptions in Test ++= Seq(

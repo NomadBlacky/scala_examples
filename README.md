@@ -181,6 +181,17 @@
 + [|, union ... 和集合](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L60)
 + [&~, diff ... 差集合](src/test/scala/org/nomadblacky/scala/samples/collections/SetSpec.scala#L65)
 
+## ShapelessSpec
+
++ [Poly ... 複数の型を処理できる関数](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L12)
++ [HList ... 複数の型を持てるList](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L28)
++ [HListの操作](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L41)
++ [Coproduct ... Eitherを任意の数の選択肢にしたもの](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L57)
++ [Generic ... case classなどをHListやCoproductに変換する](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L88)
++ [Record ... HListにキーがついたもの](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L109)
++ [Sindleton-typed literals ... リテラルをひとつの型として扱う](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L126)
++ [case classをMapに変換する](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L138)
+
 ## TraitSpec
 
 + [トレイトの基本](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L15)
