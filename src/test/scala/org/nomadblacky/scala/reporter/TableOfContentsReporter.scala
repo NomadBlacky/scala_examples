@@ -22,7 +22,7 @@ class TableOfContentsReporter() extends Reporter {
 
   lazy val filePathRegex: Regex = {
     val currentDir = Paths.get(".").toAbsolutePath.getParent
-    s"$currentDir(.+)".r("more")
+    s"$currentDir/(.+)".r("more")
   }
 
   class MMultiMap[K,V] extends mutable.LinkedHashMap[K,mutable.Set[V]] with mutable.MultiMap[K,V]
@@ -67,7 +67,7 @@ class TableOfContentsReporter() extends Reporter {
         }
 
     for (pw <- new PrintWriter(markdownFilePath.toFile)) {
-      markdownLines.foreach(pw.println)
+      header +: markdownLines foreach pw.println
     }
   }
 
