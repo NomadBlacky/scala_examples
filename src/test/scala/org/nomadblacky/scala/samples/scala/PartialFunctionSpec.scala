@@ -1,6 +1,6 @@
 package org.nomadblacky.scala.samples.scala
 
-import org.scalatest.Matchers
+import org.scalatest.{FunSpec, Matchers}
 
 import scala.util.{Failure, Success, Try}
 
@@ -12,7 +12,7 @@ import scala.util.{Failure, Success, Try}
   * 特定の引数に対してのみ結果を返す関数。
   * 引数により値を返さない場合がある。
   */
-class PartialFunctionSpec extends ForSpec with Matchers {
+class PartialFunctionSpec extends FunSpec with Matchers {
 
   it("PartialFunctionを定義する") {
     val pf: PartialFunction[Int, String] = {
