@@ -1,4 +1,4 @@
-package org.nomadblacky.scala.samples.scalaz
+package org.nomadblacky.scala.samples.libraries.scalaz
 
 import org.scalatest.FunSpec
 
