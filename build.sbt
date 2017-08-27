@@ -16,7 +16,8 @@ libraryDependencies ++= Seq(
   "com.github.pathikrit" %% "better-files" % "2.17.1",
   "org.scalaz" %% "scalaz-core" % scalazVersion,
   "com.typesafe.akka" %% "akka-http-core" % "10.0.7",
-  "com.chuusai" %% "shapeless" % "2.3.2"
+  "com.chuusai" %% "shapeless" % "2.3.2",
+  "org.typelevel" %% "cats-core" % "1.0.0-MF"
 )
 
 testOptions in Test ++= Seq(
