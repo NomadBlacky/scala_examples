@@ -16,10 +16,14 @@ import scala.util.matching.Regex
 class TableOfContentsReporter() extends Reporter {
 
   val markdownFilePath: Path = Paths.get("README.md")
-  val stringBuilder: scala.StringBuilder = new StringBuilder()
   val succeededTests: ListBuffer[TestSucceeded] = ListBuffer[TestSucceeded]()
 
-  lazy val filePathRegex: Regex = "%s(.+)".format(Paths.get(".").toAbsolutePath.toString.diff(".")).r("more")
+  val header = "# Table of Contents\n"
+
+  lazy val filePathRegex: Regex = {
+    val currentDir = Paths.get(".").toAbsolutePath.getParent
+    s"$currentDir(.+)".r("more")
+  }
 
   class MMultiMap[K,V] extends mutable.LinkedHashMap[K,mutable.Set[V]] with mutable.MultiMap[K,V]
 
@@ -48,25 +52,26 @@ class TableOfContentsReporter() extends Reporter {
     .getOrElse(default)
 
   private def writeTableOfContents(): Unit = {
+    val sortedSuites = succeededTests
+      .foldLeft(new MMultiMap[String, TestSucceeded]) { (map, e) => map.addBinding(e.suiteName, e) }
+      .toSeq
+      .sortBy(_._1)
+
+    val markdownLines: Seq[String] = sortedSuites
+        .flatMap { case (suiteName, tests) =>
+          val testLines = tests
+            .toList
+            .sortBy(getLineNumber(_, Int.MaxValue))
+            .map(getTestDetailLine)
+          Seq("", s"## $suiteName", "") ++ testLines
+        }
+
     for (pw <- new PrintWriter(markdownFilePath.toFile)) {
-      pw.println("# Table of Contents\n")
-
-      val sortedSuites = succeededTests
-        .foldLeft(new MMultiMap[String, TestSucceeded]) { (map, e) => map.addBinding(e.suiteName, e) }
-        .toSeq
-        .sortBy(_._1)
-
-      sortedSuites.foreach { case (suiteName, tests) =>
-        pw.println("\n## %s\n".format(suiteName))
-        tests
-          .toList
-          .sortBy(getLineNumber(_, Int.MaxValue))
-          .foreach(eachTest(pw, _))
-      }
+      markdownLines.foreach(pw.println)
     }
   }
 
-  private def eachTest(pw: PrintWriter, test: TestSucceeded): Unit = {
+  private def getTestDetailLine(test: TestSucceeded): String = {
     val githubRelativeUrl: Option[String] = test
       .location
       .flatMap {
@@ -78,10 +83,9 @@ class TableOfContentsReporter() extends Reporter {
         case _ => None
       }
 
-    val line = githubRelativeUrl match {
+    githubRelativeUrl match {
       case Some(url) => s"+ [${test.testName}]($url#L${getLineNumber(test)})"
       case None => s"+ ${test.testName}"
     }
-    pw.println(line)
   }
 }
