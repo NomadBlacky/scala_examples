@@ -16,7 +16,7 @@
 
 ## DisjunctionSpec
 
-+ [Left,Rightの生成](src/test/scala/org/nomadblacky/scala/samples/scalaz/DisjunctionSpec.scala#L20)
++ [Left,Rightの生成](src/test/scala/org/nomadblacky/scala/samples/libraries/scalaz/DisjunctionSpec.scala#L20)
 
 ## ExceptionSpec
 
@@ -110,12 +110,12 @@
 
 ## NonEmptyListSpec
 
-+ [<:: ．．． 先頭に要素を追加する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L17)
-+ [head ... 先頭の要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L21)
-+ [size ... 要素の数を取得する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L25)
-+ [reverse ... リストを反転する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L29)
-+ [map ... 要素に関数を適用する](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L33)
-+ [flatmap ... 要素に関数を適用し、flattenする](src/test/scala/org/nomadblacky/scala/samples/scalaz/NonEmptyListSpec.scala#L37)
++ [<:: ．．． 先頭に要素を追加する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalaz/NonEmptyListSpec.scala#L17)
++ [head ... 先頭の要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/libraries/scalaz/NonEmptyListSpec.scala#L21)
++ [size ... 要素の数を取得する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalaz/NonEmptyListSpec.scala#L25)
++ [reverse ... リストを反転する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalaz/NonEmptyListSpec.scala#L29)
++ [map ... 要素に関数を適用する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalaz/NonEmptyListSpec.scala#L33)
++ [flatmap ... 要素に関数を適用し、flattenする](src/test/scala/org/nomadblacky/scala/samples/libraries/scalaz/NonEmptyListSpec.scala#L37)
 
 ## OptionSpec
 
@@ -135,23 +135,12 @@
 
 ## PartialFunctionSpec
 
-+ [コレクションのイテレート](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L17)
 + [PartialFunctionを定義する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L17)
-+ [要素のフィルタ](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L23)
 + [caseはPartialFunctionのシンタックスシュガー](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L28)
-+ [yield ... forの結果を新しいコレクションとして返す](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L31)
-+ [for式のforeach展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L36)
-+ [for式のmap展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L51)
 + [isDefinedAt ... 引数に対して値が返される場合はtrueを返す](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L56)
 + [andThen ... PartialFunction合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L66)
-+ [ジェネレータが1個のときの変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L69)
-+ [1個のジェネレータと1個のフィルターで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L75)
-+ [2個のジェネレータで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L83)
 + [compose ... PartialFunctionを合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L83)
-+ [ジェネレータに含まれるパターンの変換 - タプルの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L91)
-+ [ジェネレータに含まれるパターンの変換 - その他パターンの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L97)
 + [orElse ... 部分関数にマッチしなかった引数を次の部分関数にマッチさせる関数合成](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L100)
-+ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L109)
 + [runWith ... 部分関数の結果を利用する関数と合成する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L118)
 + [lift ... 関数の結果をOptionで返す関数に変換する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L126)
 + [applyOrElse ... 引数がマッチすればその結果を返し、マッチしなければデフォルト値を返す](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L137)
