@@ -25,4 +25,21 @@ class CatsSpec extends FunSpec with Matchers {
       4 -> NonEmptyList.of("hoge")
     )
   }
+
+  it("cats.instances で型クラスの実装が提供される") {
+    // 型クラスShowは、toStringのような、人が読むための文字列を提供する型クラス
+    // ShowSyntaxで AnyRef => Show の暗黙的変換が定義される
+    import cats.syntax.show._
+
+    // ただし、この時点では、Intに対するShowのインスタンスが定義されていない
+    // ↓コンパイルエラー
+//  10.show
+
+    // cats.instnces 以下に型クラスのインスタンスが定義されている
+    import cats.instances.int._
+
+    // 利用できた
+    10.show shouldBe "10"
+  }
+
 }
