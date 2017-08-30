@@ -42,4 +42,18 @@ class CatsSpec extends FunSpec with Matchers {
     10.show shouldBe "10"
   }
 
+  it("Eq ... 型安全な等価比較を提供する") {
+    // EqSyntax により、型安全な比較をするメソッドが提供される
+    import cats.syntax.eq._
+    import cats.instances.string._
+
+    // FIXME: Conflict to org.scalastics.TripleEqualsSupport
+//  "hoge" === "hoge" shouldBe true
+    // 型安全なので、これはコンパイルエラー
+//  "hoge" === 10 shouldBe false
+
+    "hoge" =!= "hoge" shouldBe false
+    // 同じくコンパイルエラー
+//  "hoge" =!= 10 shouldBe true
+  }
 }
