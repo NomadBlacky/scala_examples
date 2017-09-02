@@ -57,4 +57,23 @@ class MatchSpec extends FunSpec with Matchers {
     }
     actual shouldBe 2
   }
+
+  it("複数のパターンをまとめる") {
+    // `|` を使うことで、複数のパターンをまとめることができる。
+    // switch文のフォールスルーのような場合を書きたいときに使える。
+    def func(i: Int): String = i match {
+      case 1 | 2 => "one or two"
+      // パターンガードは複数書けない
+      case x if x == 3 /* | y if y == 4 */ => "three"
+      case y if y == 4 | y == 5 => "four or five"
+      case _ => "other"
+    }
+
+    func(1) shouldBe "one or two"
+    func(2) shouldBe "one or two"
+    func(3) shouldBe "three"
+    func(4) shouldBe "four or five"
+    func(5) shouldBe "four or five"
+    func(6) shouldBe "other"
+  }
 }
