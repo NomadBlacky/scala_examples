@@ -14,32 +14,38 @@ import org.scalatest.{FunSpec, Matchers}
 class MatchSpec extends FunSpec with Matchers {
   
   it("基本的なマッチング") {
-     val x = 10
-     val actual = x match {
-       case  1 => fail()
-       case 10 => "OK"
-       case  _ => fail()
+     def func(i: Int): String = i match {
+       case 1 => "one"
+       case 2 => "two"
+       case _ => "other"
      }
-    actual shouldBe "OK"
+
+    func(1) shouldBe "one"
+    func(2) shouldBe "two"
+    func(3) shouldBe "other"
   }
   
   it("型のマッチング") {
-    val x: Any = "hoge"
-    val actual = x match {
-      case _: Int    => fail()
+    def func(a: Any): String = a match {
+      case i: Int    => s"OK: $i"
       case s: String => s"OK: $s"
-      case _         => fail()
+      case _         => "other"
     }
-    actual shouldBe "OK: hoge"
+
+    func(1)      shouldBe "OK: 1"
+    func("hoge") shouldBe "OK: hoge"
+    func(1.0)    shouldBe "other"
   }
-  
+
   it("パターンガード") {
-    val x: Any = 50
-    val actual = x match {
-      case i: Int if 100 <= i => fail()
-      case _                  => "OK"
+    def func(i: Int): String = i match {
+      case i: Int if 100 <= i => "more than 100"
+      case _                  => "other"
     }
-    actual shouldBe "OK"
+
+    func(1)   shouldBe "other"
+    func(99)  shouldBe "other"
+    func(100) shouldBe "more than 100"
   }
 
   it("リストのマッチング") {
