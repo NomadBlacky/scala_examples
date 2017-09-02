@@ -68,4 +68,26 @@ class OptionSpec extends FunSpec with Matchers {
     o2.flatMap(i => Some(i + 10)) shouldBe None
     o2.flatMap(_ => None)         shouldBe None
   }
+
+  it("collect ... PartialFunctionを適用し、値が返る場合はその結果をSomeに包んで返す") {
+    val o1: Option[Int] = Some(1)
+    val o2: Option[Int] = Some(2)
+    val none: Option[Int] = None
+
+    val pf: PartialFunction[Int, String] = {
+      case 1 => "one"
+    }
+    o1.collect(pf)   shouldBe Some("one")
+    o2.collect(pf)   shouldBe None
+    none.collect(pf) shouldBe None
+
+    // Someを返す関数を渡すflatMapはcollectで簡略化できる
+    val pf2: PartialFunction[Int, Option[String]] = {
+      case 1 => Some("one")
+      case _ => None
+    }
+    o1.flatMap(pf2)   shouldBe Some("one")
+    o2.flatMap(pf2)   shouldBe None
+    none.flatMap(pf2) shouldBe None
+  }
 }
