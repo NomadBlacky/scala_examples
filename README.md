@@ -5,6 +5,12 @@
 
 + [クライアントAPI](src/test/scala/org/nomadblacky/scala/samples/akka/http/AkkaHttpSpec.scala#L20)
 
+## Catsの基礎
+
++ [cats.syntax で型クラス・既存型に対する拡張などが提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L10)
++ [cats.instances で型クラスの実装が提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L29)
++ [Eq ... 型安全な等価比較を提供する](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L45)
+
 ## ClassSpec
 
 + [require ... 引数を検証する](src/test/scala/org/nomadblacky/scala/samples/scala/ClassSpec.scala#L10)
@@ -104,9 +110,10 @@
 ## MatchSpec
 
 + [基本的なマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L16)
-+ [型のマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L25)
-+ [パターンガード](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L34)
-+ [リストのマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L42)
++ [型のマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L28)
++ [パターンガード](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L40)
++ [リストのマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L51)
++ [複数のパターンをまとめる](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L61)
 
 ## NonEmptyListSpec
 
@@ -120,10 +127,11 @@
 ## OptionSpec
 
 + [Optionの基本](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L10)
-+ [Optionから値を取り出す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L24)
-+ [foreach ... Optionに値が含まれる場合のみに実行させる](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L43)
-+ [map ... 中身の値を関数に適用し値を変換する](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L53)
-+ [flatMap ... 中身の値を関数に適用し、SomeならSomeを、NoneならNoneを返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L61)
++ [Optionから値を取り出す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L25)
++ [foreach ... Optionに値が含まれる場合のみに実行させる](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L44)
++ [map ... 中身の値を関数に適用し値を変換する](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L54)
++ [flatMap ... 中身の値を関数に適用し、SomeならSomeを、NoneならNoneを返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L62)
++ [collect ... PartialFunctionを適用し、値が返る場合はその結果をSomeに包んで返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L72)
 
 ## ParserCombinatorSpec
 
