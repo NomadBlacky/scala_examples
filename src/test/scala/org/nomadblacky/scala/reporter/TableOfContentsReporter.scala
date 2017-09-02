@@ -45,10 +45,7 @@ class TableOfContentsReporter() extends Reporter {
 
   def getLineNumber(test: TestSucceeded, default: Int = 1): Int = test
     .location
-    .flatMap {
-      case l:LineInFile => Some(l.lineNumber)
-      case _ => None
-    }
+    .collect { case l:LineInFile => l.lineNumber }
     .getOrElse(default)
 
   private def writeTableOfContents(): Unit = {
@@ -74,14 +71,9 @@ class TableOfContentsReporter() extends Reporter {
   private def getTestDetailLine(test: TestSucceeded): String = {
     val githubRelativeUrl: Option[String] = test
       .location
-      .flatMap {
-        case l:LineInFile => l.filePathname.map(Paths.get(_).toString)
-        case _ => None
-      }
-      .flatMap {
-        case filePathRegex(more) => Some(more)
-        case _ => None
-      }
+      .collect { case l:LineInFile => l.filePathname }
+      .flatMap(_.map(Paths.get(_).toString))
+      .collect { case filePathRegex(more) => more }
 
     githubRelativeUrl match {
       case Some(url) => s"+ [${test.testName}]($url#L${getLineNumber(test)})"
