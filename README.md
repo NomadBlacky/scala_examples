@@ -7,9 +7,10 @@
 
 ## Catsの基礎
 
-+ [cats.syntax で型クラス・既存型に対する拡張などが提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L10)
-+ [cats.instances で型クラスの実装が提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L29)
-+ [Eq ... 型安全な等価比較を提供する](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L45)
++ [cats.syntax で型クラス・既存型に対する拡張などが提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L11)
++ [cats.instances で型クラスの実装が提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L30)
++ [Eq ... 型安全な等価比較を提供する](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L46)
++ [Monoid ... 二項演算と単位元を持つ代数的構造](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L61)
 
 ## ClassSpec
 

@@ -1,6 +1,7 @@
 package org.nomadblacky.scala.samples.libraries.cats
 
 import cats.data.NonEmptyList
+import cats.kernel.Monoid
 import org.scalatest.{FunSpec, Matchers}
 
 class CatsSpec extends FunSpec with Matchers {
@@ -56,4 +57,17 @@ class CatsSpec extends FunSpec with Matchers {
     // 同じくコンパイルエラー
 //  "hoge" =!= 10 shouldBe true
   }
+
+  it("Monoid ... 二項演算と単位元を持つ代数的構造") {
+    import cats.Monoid
+    import cats.syntax.monoid._
+
+    implicit val joinMonoid: Monoid[String] = new Monoid[String] {
+      override def empty = ""
+      override def combine(x: String, y: String): String = x + y
+    }
+
+    "a" |+| "b" shouldBe "ab"
+  }
+
 }
