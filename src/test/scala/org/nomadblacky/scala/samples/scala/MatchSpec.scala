@@ -76,4 +76,35 @@ class MatchSpec extends FunSpec with Matchers {
     func(5) shouldBe "four or five"
     func(6) shouldBe "other"
   }
+
+  it("パターンマッチでFizzBuzz") {
+    def fizzbuzz(i: Int): Seq[String] = {
+      (1 to i).map { x =>
+        (x % 3, x % 5) match {
+          case (0, 0) => "FizzBuzz"
+          case (0, _) => "Fizz"
+          case (_, 0) => "Buzz"
+          case _ => x.toString
+        }
+      }
+    }
+
+    fizzbuzz(15) shouldBe Seq(
+      "1",
+      "2",
+      "Fizz",
+      "4",
+      "Buzz",
+      "Fizz",
+      "7",
+      "8",
+      "Fizz",
+      "Buzz",
+      "11",
+      "Fizz",
+      "13",
+      "14",
+      "FizzBuzz",
+    )
+  }
 }
