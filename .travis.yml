@@ -6,3 +6,6 @@ cache:
   directories:
     - $HOME/.ivy2/cache
     - $HOME/.sbt/launchers
+
+after_success:
+  - 'bash update-readme.sh'
