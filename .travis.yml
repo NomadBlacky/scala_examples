@@ -1,0 +1,8 @@
+language: scala
+scala: 2.12.3
+jdk: oraclejdk8
+
+cache:
+  directories:
+    - $HOME/.ivy2/cache
+    - $HOME/.sbt/launchers
