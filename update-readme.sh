@@ -1,6 +1,7 @@
 #!/bin/sh
 
 if git status -s | grep README.md; then
+    git checkout master
     git config user.email "travis@travis.com"
     git config user.name "travis"
     git add -u
