@@ -115,6 +115,7 @@
 + [パターンガード](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L40)
 + [リストのマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L51)
 + [複数のパターンをまとめる](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L61)
++ [パターンマッチでFizzBuzz](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L80)
 
 ## NonEmptyListSpec
 
@@ -159,6 +160,11 @@
 + [[Usage] Try#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L183)
 + [ListはPartialFunction[Int,A]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L193)
 + [MapはPartialFunction[K,V]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L203)
+
+## ScalaとJavan結合
+
++ [ScalaからJavaを使う 01](src/test/scala/org/nomadblacky/scala/samples/with_java/WithJavaSpec.scala#L9)
++ [ScalaからJavaを使う 02](src/test/scala/org/nomadblacky/scala/samples/with_java/WithJavaSpec.scala#L14)
 
 ## ScoptSpec
 
