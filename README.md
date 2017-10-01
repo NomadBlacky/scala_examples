@@ -5,6 +5,10 @@
 
 + [クライアントAPI](src/test/scala/org/nomadblacky/scala/samples/akka/http/AkkaHttpSpec.scala#L20)
 
+## AkkaStreamsSpec
+
++ [ことはじめ](src/test/scala/org/nomadblacky/scala/samples/akka/streams/AkkaStreamsSpec.scala#L22)
+
 ## Catsの基礎
 
 + [cats.syntax で型クラス・既存型に対する拡張などが提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L11)
