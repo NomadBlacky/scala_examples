@@ -105,4 +105,49 @@ class Chapter01Spec extends FunSpec with Matchers {
     val result6 = fn2(str1, str2)
     result6 shouldBe expect
   }
+
+  it("03. 円周率") {
+    // "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+    // という文を単語に分解し，各単語の（アルファベットの）文字数を先頭から出現順に並べたリストを作成せよ．
+    val text = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+    val expect = Seq(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9)
+
+    // A01
+    val result = text
+      .split("""\W+""")
+      .map(_.length)
+      .toList
+    result shouldBe expect
+
+    // A02
+    val expected2 = "314159265358979"
+    val string = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+
+    val answer = (for {
+      xs <- string.split(" ") // String <- Array[String]
+    } yield {
+      xs.foldLeft(0) {
+        case (acc, c) if c.isLetter => acc + 1 // (Int, Char)
+        case (acc, _) => acc
+      }
+    }).mkString
+    answer shouldBe expected2
+
+    // A03
+    var str = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+    val buffer = scala.collection.mutable.ListBuffer[Int]()
+    str.replaceAll(""",|\.""", "").split(" ").foreach{
+      word => buffer += word.length()
+    }
+    buffer shouldBe expect
+
+    // A04
+    val pi :List[Int] = str
+      .replaceAll(",","")
+      .replaceAll("\\.","")
+      .split(" ")
+      .map(_.length)
+      .toList
+    pi shouldBe expect
+  }
 }
