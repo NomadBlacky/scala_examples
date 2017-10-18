@@ -200,6 +200,12 @@
 + [Sindleton-typed literals ... リテラルをひとつの型として扱う](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L126)
 + [case classをMapに変換する](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L138)
 
+## StringInterpolationSpec
+
++ [s補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L11)
++ [f補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L18)
++ [raw補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L25)
+
 ## TraitSpec
 
 + [トレイトの基本](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L15)
