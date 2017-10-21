@@ -3,6 +3,9 @@ package org.nomadblacky.scala.samples.nlp100
 import org.scalatest.{FunSpec, Matchers}
 
 import scala.annotation.tailrec
+import scala.collection.immutable.ListMap
+import scala.collection.mutable
+import scala.util.matching.Regex
 
 class Chapter01Spec extends FunSpec with Matchers {
 
@@ -149,5 +152,55 @@ class Chapter01Spec extends FunSpec with Matchers {
       .map(_.length)
       .toList
     pi shouldBe expect
+  }
+
+  it("04. 元素記号") {
+    /**
+      * "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
+      * という文を単語に分解し，1, 5, 6, 7, 8, 9, 15, 16, 19番目の単語は先頭の1文字
+     * それ以外の単語は先頭に2文字を取り出し
+      * 取り出した文字列から単語の位置（先頭から何番目の単語か）への連想配列（辞書型もしくはマップ型）を作成せよ．
+      */
+    val text = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
+    val expect = Map(
+      1 -> "H", 2 -> "He", 3 -> "Li", 4 -> "Be", 5 -> "B",
+      6 -> "C", 7 -> "N", 8 -> "O", 9 -> "F", 10 -> "Ne",
+      11 -> "Na", 12 -> "Mi", 13 -> "Al", 14 -> "Si", 15 -> "P",
+      16 -> "S", 17 -> "Cl", 18 -> "Ar", 19 -> "K", 20 -> "Ca"
+    )
+
+    // A01
+    val pic = Set(1, 5, 6, 7, 8, 9, 15, 16, 19)
+    val result = text
+      .split("""\W+""")
+      .zipWithIndex
+      .map { case (s, i) =>
+        val realIndex = i + 1
+        val count = if (pic.contains(realIndex)) 1 else 2
+        (realIndex, s.take(count))
+      }
+      .toMap
+    result shouldBe expect
+
+    // A02
+    val ones = Seq(1, 5, 6, 7, 8, 9, 15, 16, 19)
+    val (_, answer) = text.split("""\W+""")
+      .foldLeft((1, Map.empty[Int, String])) {
+        case ((current, map), word) =>
+          (current + 1, map.updated(current, word.take(if (ones.contains(current)) 1 else 2)))
+      }
+    answer shouldBe expect
+
+    // A03
+    var n: Int = 0
+    val poss = "^1|5|6|7|8|9|15|16|19$"
+    val map = mutable.Map.empty[Int, String]
+
+    text.split("""\s""").foreach { word =>
+      n += 1
+      val hoge = if (n.toString.matches(poss)) 1 else 2
+      map.put(n, word.take(hoge))
+    }
+    map shouldBe expect
   }
 }
