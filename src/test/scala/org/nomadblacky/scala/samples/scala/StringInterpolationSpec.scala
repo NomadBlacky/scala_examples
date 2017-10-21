@@ -30,7 +30,7 @@ class StringInterpolationSpec extends FunSpec with Matchers {
     raw"hoge\nfoo" shouldBe """hoge\nfoo"""
   }
 
-  it("自分でを実装する") {
+  it("自分で実装する") {
     import StringInterpolationSpec._
 
     val num = 1
