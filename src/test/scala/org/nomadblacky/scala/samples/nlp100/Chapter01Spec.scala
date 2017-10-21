@@ -3,10 +3,14 @@ package org.nomadblacky.scala.samples.nlp100
 import org.scalatest.{FunSpec, Matchers}
 
 import scala.annotation.tailrec
-import scala.collection.immutable.ListMap
 import scala.collection.mutable
-import scala.util.matching.Regex
 
+/**
+  * 言語処理100本ノック 第1章: 準備運動
+  *
+  * Weeble Scalaもくもく勉強会にて回答されたコードです。
+  * https://weeyble-scala.connpass.com/
+  */
 class Chapter01Spec extends FunSpec with Matchers {
 
   override def suiteName: String = "言語処理100本ノック 第1章: 準備運動"
@@ -32,7 +36,7 @@ class Chapter01Spec extends FunSpec with Matchers {
     // A02
     val result2 =
       for {
-        (c,i) <- text.zipWithIndex if i % 2 == 0
+        (c, i) <- text.zipWithIndex if i % 2 == 0
       } yield c
     result2.mkString shouldBe "パトカー"
 
@@ -53,7 +57,7 @@ class Chapter01Spec extends FunSpec with Matchers {
 
     // A01
     val result = (str1 zip str2)
-      .flatMap { case (c1,c2) => Seq(c1, c2) }
+      .flatMap { case (c1, c2) => Seq(c1, c2) }
       .mkString
     result shouldBe expect
 
@@ -139,15 +143,15 @@ class Chapter01Spec extends FunSpec with Matchers {
     // A03
     var str = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
     val buffer = scala.collection.mutable.ListBuffer[Int]()
-    str.replaceAll(""",|\.""", "").split(" ").foreach{
+    str.replaceAll(""",|\.""", "").split(" ").foreach {
       word => buffer += word.length()
     }
     buffer shouldBe expect
 
     // A04
-    val pi :List[Int] = str
-      .replaceAll(",","")
-      .replaceAll("\\.","")
+    val pi: List[Int] = str
+      .replaceAll(",", "")
+      .replaceAll("\\.", "")
       .split(" ")
       .map(_.length)
       .toList
