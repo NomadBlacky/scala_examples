@@ -16,6 +16,8 @@ import org.scalatest.{FunSpec, Matchers}
   */
 class AkkaStreamsSpec extends FunSpec with Matchers {
 
+  override def suiteName: String = "Akka Streams"
+
   import akka.stream._
   import akka.stream.scaladsl._
 

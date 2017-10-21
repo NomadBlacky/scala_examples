@@ -11,7 +11,7 @@ import org.scalatest.FunSpec
   */
 class UnderstandingScalaImplicitSpec extends FunSpec {
 
-  override def suiteName: String = "Understanding Scala - Scalaのimplicit parameterを学ぶ"
+  override def suiteName: String = "[勉強会] Understanding Scala - Scalaのimplicit parameterを学ぶ"
 
   it("implicit parameter") {
     /**

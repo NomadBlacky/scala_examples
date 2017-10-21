@@ -15,6 +15,8 @@ import scala.util.Random
   */
 class JFreeChartSpec extends FunSpec with BeforeAndAfter {
 
+  override def suiteName: String = "JFreeChart - グラフを描画するJavaライブラリ"
+
   val ResultDir:String = "target/jfreechart/"
 
   before {

@@ -7,6 +7,8 @@ import org.scalatest.FunSpec
   */
 class IterableSpec extends FunSpec {
 
+  override def suiteName: String = "Iterable - コレクションの要素をひとつずつ返すトレイト"
+
   it("grouped ... 指定サイズのListにまとめたIteratorを返す") {
     val itr:Iterator[List[Int]] = List(1, 2, 3, 4).grouped(2)
     assert(itr.next() == List(1, 2))

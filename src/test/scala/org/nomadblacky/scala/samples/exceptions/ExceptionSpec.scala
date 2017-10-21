@@ -15,6 +15,8 @@ import org.scalatest.FunSpec
  * }
  */
 class ExceptionSpec extends FunSpec {
+
+  override def suiteName: String = "例外処理"
   
   it("基本的なtry-catch-finally") {
     val result = try {

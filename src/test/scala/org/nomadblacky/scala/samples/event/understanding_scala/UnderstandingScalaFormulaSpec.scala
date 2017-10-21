@@ -13,7 +13,7 @@ import scala.annotation.tailrec
   */
 class UnderstandingScalaFormulaSpec extends FunSpec {
 
-  override def suiteName: String = "Understanding Scala - Scalaの実行時の挙動を学ぶ"
+  override def suiteName: String = "[勉強会] Understanding Scala - Scalaの実行時の挙動を学ぶ"
 
   it("メソッド呼び出し式") {
     /**

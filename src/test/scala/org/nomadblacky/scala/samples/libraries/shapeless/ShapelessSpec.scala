@@ -9,6 +9,8 @@ import shapeless._
   */
 class ShapelessSpec extends FunSpec with Matchers {
 
+  override def suiteName: String = "Shapeless"
+
   it("Poly ... 複数の型を処理できる関数") {
     object size extends Poly1 {
       implicit def caseInt = at[Int](_ => 1)

@@ -17,6 +17,8 @@ import scala.concurrent.ExecutionContext.Implicits.global
   */
 class AkkaHttpSpec extends FunSpec {
 
+  override def suiteName: String = "Akka HTTP"
+
   it("クライアントAPI") {
     implicit val system = ActorSystem()
     implicit val materializer = ActorMaterializer()

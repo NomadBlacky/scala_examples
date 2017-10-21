@@ -15,7 +15,7 @@ import scala.concurrent.Future
   */
 class UnderstandingScalaTrapSpec extends FunSpec {
 
-  override def suiteName: String = "Understanding Scala - Scalaの落とし穴を学ぶ"
+  override def suiteName: String = "[勉強会] Understanding Scala - Scalaの落とし穴を学ぶ"
 
   it("Unitを返す関数を意図せず書いてしまう") {
     // Javaのノリで書くとUnitが返る関数ができる

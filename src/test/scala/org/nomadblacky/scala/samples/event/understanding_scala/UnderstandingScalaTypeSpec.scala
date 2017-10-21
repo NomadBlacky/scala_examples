@@ -14,7 +14,7 @@ import org.scalatest.FunSpec
   */
 class UnderstandingScalaTypeSpec extends FunSpec {
 
-  override def suiteName: String = "Understanding Scala - Scalaの型システムを学ぶ"
+  override def suiteName: String = "[勉強会] Understanding Scala - Scalaの型システムを学ぶ"
 
   it("Any あらゆる型のスーパータイプ") {
     /**

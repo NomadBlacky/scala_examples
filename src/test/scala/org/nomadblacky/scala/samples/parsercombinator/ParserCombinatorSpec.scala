@@ -14,6 +14,8 @@ import scala.util.parsing.combinator.{JavaTokenParsers, RegexParsers}
   */
 class ParserCombinatorSpec extends FunSpec {
 
+  override def suiteName: String = "パーザコンビネータ"
+
   it("電話番号のパース") {
     // 正規表現パーサを継承する
     object PhoneNumberParser extends RegexParsers {

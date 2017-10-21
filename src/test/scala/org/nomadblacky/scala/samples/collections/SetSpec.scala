@@ -10,6 +10,8 @@ import org.scalatest.FunSpec
   */
 class SetSpec extends FunSpec {
 
+  override def suiteName: String = "Set - 重複する要素を含まないコレクション"
+
   val s1 = Set(1, 2, 3)
   val s2 = Set(3, 4, 5)
 

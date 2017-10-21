@@ -11,6 +11,8 @@ import scala.collection.mutable.ArrayBuffer
   */
 class TraversableSpec extends FunSpec {
 
+  override def suiteName: String = "Traversable - コレクションの最上位に位置するトレイト"
+
   it("++ ... Traversableを連結する") {
     assert((List(1, 2) ++ List(3,4)) == List(1, 2, 3, 4))
   }

@@ -13,7 +13,7 @@ import org.scalatest.FunSpec
   */
 class Chapter10Spec extends FunSpec {
 
-  override def suiteName: String = "第10章 モノイド"
+  override def suiteName: String = "[FP in Scala] 第10章 モノイド"
 
   /**
     * モノイドは以下の要素で構成される

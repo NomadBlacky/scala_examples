@@ -6,7 +6,9 @@ import scala.xml.Elem
 import scala.xml.NodeSeq
 
 class XmlSpec extends FunSpec {
-  
+
+  override def suiteName: String = "XMLを扱う"
+
   it("xmlリテラル") {
     val xml = <h1>title</h1>
     assert(xml.getClass == classOf[Elem])

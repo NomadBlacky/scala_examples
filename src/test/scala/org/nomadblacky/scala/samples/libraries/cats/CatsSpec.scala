@@ -6,7 +6,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 class CatsSpec extends FunSpec with Matchers {
 
-  override def suiteName: String = "Catsの基礎"
+  override def suiteName: String = "[Cats] Catsの基礎"
 
   it("cats.syntax で型クラス・既存型に対する拡張などが提供される") {
     // cats.syntax 以下のパッケージで、

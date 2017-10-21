@@ -4,7 +4,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 class WithJavaSpec extends FunSpec with Matchers {
 
-  override def suiteName: String = "ScalaとJavan結合"
+  override def suiteName: String = "ScalaとJavaの結合"
 
   it("ScalaからJavaを使う 01") {
     val java = new JavaClass(1)

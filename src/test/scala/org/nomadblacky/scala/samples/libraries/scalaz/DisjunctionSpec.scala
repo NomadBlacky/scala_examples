@@ -17,6 +17,8 @@ import Scalaz._
   */
 class DisjunctionSpec extends FunSpec {
 
+  override def suiteName: String = "[Scalaz] Disjunction - 強化版Either"
+
   it("Left,Rightの生成") {
     // Leftの生成
     val a: \/[Int, String] = -\/(1)

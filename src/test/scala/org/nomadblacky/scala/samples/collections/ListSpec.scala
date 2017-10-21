@@ -11,6 +11,8 @@ import scala.collection.mutable.ListBuffer
  * ランダムアクセスは遅い。
  */
 class ListSpec extends FunSpec {
+
+  override def suiteName: String = "List - 単方向リスト"
   
   it("List() ... Listを生成する") {
     val l: List[Int] = List(1, 2, 3)

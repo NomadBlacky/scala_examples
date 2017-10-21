@@ -11,6 +11,8 @@ import org.scalatest.FunSpec
   */
 class ScoptSpec extends FunSpec {
 
+  override def suiteName: String = "Scopt - コマンドライン引数を解析するライブラリ"
+
   val parser = new scopt.OptionParser[Config]("ScoptSpec") {
     head("ScoptSpec")
 

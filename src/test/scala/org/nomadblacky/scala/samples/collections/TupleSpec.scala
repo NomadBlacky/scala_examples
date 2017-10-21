@@ -3,6 +3,8 @@ package org.nomadblacky.scala.samples.collections
 import org.scalatest.FunSpec
 
 class TupleSpec extends FunSpec {
+
+  override def suiteName: String = "Tuple - 任意の複数の値を保持するクラス"
   
   it("タプルを生成する") {
     val t = (1, "hoge", 1.0)

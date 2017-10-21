@@ -11,7 +11,7 @@ import org.scalatest.FunSpec
   */
 class Chapter02Spec extends FunSpec {
 
-  override def suiteName: String = "第2章 Scala関数型プログラミングの準備"
+  override def suiteName: String = "[FP in Scala] 第2章 Scala関数型プログラミングの準備"
 
   it("[EXERCISE 2.1] フィボナッチ数") {
     def fib(n: Int): Int = {

@@ -4,7 +4,9 @@ import org.scalatest.FunSpec
 import scala.collection.immutable.Set
 
 class MapSpec extends FunSpec {
-  
+
+  override def suiteName: String = "Map - キーと値で構成されるコレクション"
+
   it("Map() ... Mapを生成する") {
     val m: Map[Int, String] = Map[Int, String](1 -> "a", 2 -> "b", 3 -> "c")
   }

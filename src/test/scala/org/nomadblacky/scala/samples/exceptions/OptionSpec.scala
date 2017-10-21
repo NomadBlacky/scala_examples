@@ -7,6 +7,8 @@ import org.scalatest.{FunSpec, Matchers}
   */
 class OptionSpec extends FunSpec with Matchers {
 
+  override def suiteName: String = "Option - 値が存在しない可能性があることを表すクラス"
+
   it("Optionの基本") {
     // Option[+A] ... 値が存在しない可能性があることを表すクラス
 

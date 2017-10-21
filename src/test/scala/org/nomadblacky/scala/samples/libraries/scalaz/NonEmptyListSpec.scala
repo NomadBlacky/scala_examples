@@ -12,6 +12,8 @@ import Scalaz._
   */
 class NonEmptyListSpec extends FunSpec {
 
+  override def suiteName: String = "[Scalaz] NonEmptyList - 空でないことが保証されるリスト"
+
   val list = NonEmptyList(1, 2, 3)
 
   it("<:: ．．． 先頭に要素を追加する") {
