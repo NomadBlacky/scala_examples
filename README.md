@@ -375,7 +375,8 @@
 
 ## 言語処理100本ノック 第1章: 準備運動
 
-+ [00. 文字列の逆順](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L11)
-+ [01. 「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L16)
-+ [02. 「パトカー」＋「タクシー」＝「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L45)
-+ [03. 円周率](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L109)
++ [00. 文字列の逆順](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L18)
++ [01. 「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L23)
++ [02. 「パトカー」＋「タクシー」＝「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L52)
++ [03. 円周率](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L116)
++ [04. 元素記号](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L161)
