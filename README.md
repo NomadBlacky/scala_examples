@@ -200,12 +200,6 @@
 + [Sindleton-typed literals ... リテラルをひとつの型として扱う](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L126)
 + [case classをMapに変換する](src/test/scala/org/nomadblacky/scala/samples/libraries/shapeless/ShapelessSpec.scala#L138)
 
-## StringInterpolationSpec
-
-+ [s補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L11)
-+ [f補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L18)
-+ [raw補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L25)
-
 ## TraitSpec
 
 + [トレイトの基本](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L15)
@@ -337,6 +331,13 @@
 + [要素を取得する2](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L34)
 + [要素を取得する3](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L41)
 + [属性から要素を取得する](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L48)
+
+## 文字列の補間 (String Interpolation)
+
++ [s補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L13)
++ [f補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L20)
++ [raw補間子](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L27)
++ [自分でを実装する](src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala#L33)
 
 ## 第10章 モノイド
 
