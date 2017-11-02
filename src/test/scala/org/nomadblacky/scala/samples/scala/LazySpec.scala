@@ -3,6 +3,8 @@ package org.nomadblacky.scala.samples.scala
 import org.scalatest.FunSpec
 
 class LazySpec extends FunSpec {
+
+  override def suiteName: String = "遅延評価"
   
   it("lazy ... 変数を遅延評価する") {
     val x = 1

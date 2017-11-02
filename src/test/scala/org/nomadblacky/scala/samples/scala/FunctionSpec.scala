@@ -3,6 +3,8 @@ package org.nomadblacky.scala.samples.scala
 import org.scalatest.FunSpec
 
 class FunctionSpec extends FunSpec {
+
+  override def suiteName: String = "Scalaの関数"
   
   it("関数リテラル") {
     val func = (x:Int, y:Int) => x + y

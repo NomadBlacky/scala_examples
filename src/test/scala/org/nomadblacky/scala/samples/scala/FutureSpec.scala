@@ -12,6 +12,8 @@ import scala.util.{Failure, Success}
   */
 class FutureSpec extends FunSpec {
 
+  override def suiteName: String = "Futureの使い方"
+
   it("Futureの基本") {
     // Future#apply で Futureインスタンスを生成
     val f = Future {

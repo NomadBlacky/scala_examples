@@ -7,6 +7,8 @@ import org.scalatest.FunSpec
   */
 class ClassSpec extends FunSpec{
 
+  override def suiteName: String = "Scalaのクラス"
+
   it("require ... 引数を検証する") {
     class Programmer(val language:String) {
       require(language != null && language.nonEmpty)

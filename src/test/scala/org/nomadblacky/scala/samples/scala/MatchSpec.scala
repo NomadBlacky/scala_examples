@@ -12,6 +12,8 @@ import org.scalatest.{FunSpec, Matchers}
  * }
  */
 class MatchSpec extends FunSpec with Matchers {
+
+  override def suiteName: String = "match式とパターンマッチング"
   
   it("基本的なマッチング") {
      def func(i: Int): String = i match {

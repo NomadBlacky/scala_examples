@@ -14,6 +14,8 @@ import scala.util.{Failure, Success, Try}
   */
 class PartialFunctionSpec extends FunSpec with Matchers {
 
+  override def suiteName: String = "部分関数"
+
   it("PartialFunctionを定義する") {
     val pf: PartialFunction[Int, String] = {
       case 1 => "one"

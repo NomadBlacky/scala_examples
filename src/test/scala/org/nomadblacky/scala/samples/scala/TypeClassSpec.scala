@@ -21,6 +21,7 @@ import scala.math.Ordering
   */
 class TypeClassSpec extends FunSpec {
 
+  override def suiteName: String = "型クラスの使い方"
 
   it("型クラスとは") {
     /**

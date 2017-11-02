@@ -13,6 +13,8 @@ import scala.collection.mutable.ListBuffer
  * ※処理に複数の式を記述したい場合{}で囲む
  */
 class ForSpec extends FunSpec {
+
+  override def suiteName: String = "for式 (for内包表記)"
   
   it("コレクションのイテレート") {
     for (i <- List(1,2,3,4,5)) {

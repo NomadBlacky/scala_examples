@@ -12,6 +12,8 @@ import org.scalatest.FunSpec
   */
 class TraitSpec extends FunSpec{
 
+  override def suiteName: String = "トレイトの使い方"
+
   it("トレイトの基本") {
     trait Programmer {
       def coding: String = "I'm writing a program code."
