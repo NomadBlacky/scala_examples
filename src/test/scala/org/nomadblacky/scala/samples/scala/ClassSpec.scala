@@ -8,9 +8,8 @@ import org.scalatest.FunSpec
 class ClassSpec extends FunSpec{
 
   it("require ... 引数を検証する") {
-    class Programmer(_language:String) {
-      require(_language != null && !_language.isEmpty)
-      val language = _language
+    class Programmer(val language:String) {
+      require(language != null && language.nonEmpty)
     }
 
     new Programmer("Scala")

@@ -21,7 +21,8 @@ import scala.math.Ordering
   */
 class TypeClassSpec extends FunSpec {
 
-  it("memo") {
+
+  it("型クラスとは") {
     /**
       * + 型クラスとは
       *   + ある型に振る舞いを提供する仕組み。
