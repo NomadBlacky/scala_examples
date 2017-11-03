@@ -79,7 +79,37 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     }
   }
 
-  it("sealed traitを使った列挙型") {
-    pending
+  it("sealed trait と case objectを使った列挙型") {
+    sealed trait Enum
+    case object One extends Enum
+    case object Two extends Enum
+    case object Three extends Enum
+
+    // Enumerationと異なり、パターンマッチでコンパイラが網羅性を検知できる
+    val enum: Enum = One
+    enum match {
+      case One =>
+      // ここで Two が抜けていることをコンパイラが警告する
+      case Three => fail()
+    }
+  }
+
+  it("sealed abstract classで値と振る舞いをもたせる") {
+    // この場合、列挙型というよりも代数的データ型である
+    sealed abstract class Enum(val value: Int) {
+      def describe: String = s"value: $value"
+    }
+    case object One extends Enum(1)
+    case object Two extends Enum(2)
+    final case class Three(otherName: String) extends Enum(3)
+
+    val enum: Enum = Three("drei")
+    enum match {
+      case One => fail()
+      case Two => fail()
+      case t: Three =>
+        t.value shouldBe 3
+        t.otherName shouldBe "drei"
+    }
   }
 }
