@@ -11,13 +11,13 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     object Enum extends Enumeration {
       val One, Two, Three = Value
     }
-    val enumOne: Enum.Value = Enum.One
 
     // 列挙型はそれぞれidを持つ
-    enumOne.id shouldBe 0
+    import Enum._
+    One.id shouldBe 0
+    Two.id shouldBe 1
 
     // 列挙体は順序を持つ
-    import Enum._
     One <  One shouldBe false
     One <= One shouldBe true
     One <  Two shouldBe true
@@ -34,6 +34,9 @@ class EnumInScalaSpec extends FunSpec with Matchers {
       val One, Two, Three = Value
     }
     import Enum._
+
+    //val enumOne: Enum.Value = Enum.One
+    //                  ↑これが余計
     val enumOne: Enum = One
 
     enumOne.id shouldBe 0
