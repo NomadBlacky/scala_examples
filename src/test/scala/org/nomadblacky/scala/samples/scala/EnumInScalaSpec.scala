@@ -25,6 +25,15 @@ class EnumInScalaSpec extends FunSpec with Matchers {
 
     // valuesで列挙体のSetが返る
     Enum.values shouldBe Enum.ValueSet(One, Two, Three)
+
+    // パターンマッチでコンパイラが網羅性を検知できない
+    intercept[MatchError] {
+      Two match {
+        case One   => fail()
+        // ここで Two が抜けているが警告は出ない。
+        case Three => fail()
+      }
+    }
   }
 
   it("余計な `Value` を排除する") {
