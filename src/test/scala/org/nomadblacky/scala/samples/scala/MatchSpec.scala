@@ -2,6 +2,8 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.{FunSpec, Matchers}
 
+import scala.util.Try
+
 /**
  * match式
  * 
@@ -108,5 +110,30 @@ class MatchSpec extends FunSpec with Matchers {
       "14",
       "FizzBuzz",
     )
+  }
+
+  it("unapply ... 独自のパターンを定義する") {
+    object SSH {
+      // Optionに入ったTupleを返す、unapplyメソッドを実装する
+      def unapply(arg: String): Option[(String, String)] = {
+        val strs = arg.split('@')
+        for {
+          user <- strs.headOption
+          host <- strs.tail.headOption
+        } yield (user, host)
+      }
+    }
+
+    "sshuser@192.168.3.31" match {
+      case SSH(user, host) =>
+        user shouldBe "sshuser"
+        host shouldBe "192.168.3.31"
+      case _ => fail()
+    }
+
+    "hogehoge" match {
+      case SSH(_, _) => fail()
+      case _ => // OK
+    }
   }
 }
