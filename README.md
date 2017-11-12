@@ -70,6 +70,8 @@
 + [Enumerationを使った方法](src/test/scala/org/nomadblacky/scala/samples/scala/EnumInScalaSpec.scala#L9)
 + [余計な `Value` を排除する](src/test/scala/org/nomadblacky/scala/samples/scala/EnumInScalaSpec.scala#L39)
 + [列挙型に値をもたせる](src/test/scala/org/nomadblacky/scala/samples/scala/EnumInScalaSpec.scala#L54)
++ [sealed trait と case objectを使った列挙型](src/test/scala/org/nomadblacky/scala/samples/scala/EnumInScalaSpec.scala#L82)
++ [sealed abstract classで値と振る舞いをもたせる](src/test/scala/org/nomadblacky/scala/samples/scala/EnumInScalaSpec.scala#L97)
 
 ## ScalaとJavaの結合
 
@@ -314,12 +316,13 @@
 
 ## match式とパターンマッチング
 
-+ [基本的なマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L18)
-+ [型のマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L30)
-+ [パターンガード](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L42)
-+ [リストのマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L53)
-+ [複数のパターンをまとめる](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L63)
-+ [パターンマッチでFizzBuzz](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L82)
++ [基本的なマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L20)
++ [型のマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L32)
++ [パターンガード](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L44)
++ [リストのマッチング](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L55)
++ [複数のパターンをまとめる](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L65)
++ [パターンマッチでFizzBuzz](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L84)
++ [unapply ... 独自のパターンを定義する](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L115)
 
 ## トレイトの使い方
 
