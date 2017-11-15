@@ -198,6 +198,10 @@
 + [要素を取得する3](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L43)
 + [属性から要素を取得する](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L50)
 
+## [BestPractice] Pimp My Library パターン
+
++ [`implicit class` で既存クラスにメソッドを追加する](src/test/scala/org/nomadblacky/scala/samples/best_practice/PimpMyLibraryPatternSpec.scala#L11)
+
 ## [Cats] Catsの基礎
 
 + [cats.syntax で型クラス・既存型に対する拡張などが提供される](src/test/scala/org/nomadblacky/scala/samples/libraries/cats/CatsSpec.scala#L11)
