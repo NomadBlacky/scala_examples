@@ -9,6 +9,11 @@
 
 + [ことはじめ](src/test/scala/org/nomadblacky/scala/samples/akka/streams/AkkaStreamsSpec.scala#L24)
 
+## EffectiveScalaSpec
+
++ [関数定義の中で直接パターンマッチを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L14)
++ [型エイリアスを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L37)
+
 ## Futureの使い方
 
 + [Futureの基本](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L17)
