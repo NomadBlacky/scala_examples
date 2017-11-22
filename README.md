@@ -13,6 +13,7 @@
 
 + [関数定義の中で直接パターンマッチを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L14)
 + [型エイリアスを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L37)
++ [コレクション処理の可読性を保つ](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L56)
 
 ## Futureの使い方
 
