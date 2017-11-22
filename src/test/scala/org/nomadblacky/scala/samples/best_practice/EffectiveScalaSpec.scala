@@ -52,4 +52,39 @@ class EffectiveScalaSpec extends FunSpec with Matchers {
     type IntToStr2 = Int => String
     val factory: IntToStr2 = i => i.toString
   }
+
+  it("コレクション処理の可読性を保つ") {
+    val votes = Seq(("scala", 1), ("java", 4), ("scala", 10), ("scala", 1), ("python", 10))
+
+    // 正しい処理ではあるが、読み手にとって理解しづらい
+    val orderedVotes = votes
+      .groupBy(_._1)
+      .map { case (which, counts) =>
+        (which, counts.foldLeft(0)(_ + _._2))
+      }.toSeq
+      .sortBy(_._2)
+      .reverse
+
+    // 中間結果やパラメータに名前をつけることで可読性を保つ
+    val voteByLang = votes groupBy { case (lang, _) => lang }
+    val sumByLang = voteByLang map { case (lang, counts) =>
+      val countsOnly = counts map { case (_, count) => count }
+      (lang, countsOnly.sum)
+    }
+    val orderedVotes2 = sumByLang.toSeq
+      .sortBy { case (_, count) => count }
+      .reverse
+
+    // 名前空間を汚したくなければ、式を {} でグループ化する
+    val orderedVotes3 = {
+      val voteByLang = votes groupBy { case (lang, _) => lang }
+      val sumByLang = voteByLang map { case (lang, counts) =>
+        val countsOnly = counts map { case (_, count) => count }
+        (lang, countsOnly.sum)
+      }
+      sumByLang.toSeq
+        .sortBy { case (_, count) => count }
+        .reverse
+    }
+  }
 }
