@@ -1,9 +1,10 @@
 package org.nomadblacky.scala.samples.best_practice
 
-import java.net.{Socket, SocketAddress}
 import java.util.concurrent.{ConcurrentHashMap, ConcurrentLinkedQueue}
 
 import org.scalatest.{FunSpec, Matchers}
+
+import scala.collection.mutable
 
 /**
   * Effective Scala
@@ -86,5 +87,22 @@ class EffectiveScalaSpec extends FunSpec with Matchers {
         .sortBy { case (_, count) => count }
         .reverse
     }
+  }
+
+  it("Javaコレクションとの相互変換") {
+    // JavaConvertersは、asJava メソッドと asScala メソッドを追加する
+    // ※暗黙の変換を行うJavaConversionsは非推奨となっている。
+    import scala.collection.JavaConverters._
+
+    // Scala → Java
+    val jList: java.util.List[Int] = Seq(1, 2, 3).asJava
+    val jMap: java.util.Map[Int, String] = Map(1 -> "a", 2 -> "b").asJava
+
+    // Java → Scala
+    val sList: Seq[Int] = java.util.Arrays.asList(1, 2, 3).asScala
+    val sMap: mutable.Map[Int, String] = new java.util.HashMap[Int, String]() {
+      put(1, "a")
+      put(2, "b")
+    }.asScala
   }
 }
