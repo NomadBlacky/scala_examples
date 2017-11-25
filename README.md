@@ -11,9 +11,10 @@
 
 ## EffectiveScalaSpec
 
-+ [関数定義の中で直接パターンマッチを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L14)
-+ [型エイリアスを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L37)
-+ [コレクション処理の可読性を保つ](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L56)
++ [関数定義の中で直接パターンマッチを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L15)
++ [型エイリアスを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L38)
++ [コレクション処理の可読性を保つ](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L57)
++ [Javaコレクションとの相互変換](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L92)
 
 ## Futureの使い方
 
