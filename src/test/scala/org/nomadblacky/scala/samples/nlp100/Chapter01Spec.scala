@@ -207,4 +207,25 @@ class Chapter01Spec extends FunSpec with Matchers {
     }
     map shouldBe expect
   }
+
+  it("07. テンプレートによる文生成") {
+    /**
+      * 引数x, y, zを受け取り「x時のyはz」という文字列を返す関数を実装せよ．
+      * さらに，x=12, y="気温", z=22.4として，実行結果を確認せよ．
+      */
+    // A01
+    def template(x: Int, y: String, z: Double): String = s"${x}時の${y}は$z"
+
+    template(12, "気温", 22.4) shouldBe "12時の気温は22.4"
+
+    // A02
+    def atXoclockYisZ(x: Int)(y: String)(z: Double) = s"${x}時の${y}は${z}"
+
+    val expected = "12時の気温は22.4"
+    val answer = atXoclockYisZ(12)("気温")(22.4)
+
+    answer shouldBe expected
+  }
+
+
 }
