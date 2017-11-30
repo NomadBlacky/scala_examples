@@ -379,6 +379,8 @@
 + [02. 「パトカー」＋「タクシー」＝「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L52)
 + [03. 円周率](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L116)
 + [04. 元素記号](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L161)
++ [07. テンプレートによる文生成](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L211)
++ [08. 暗号文](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L230)
 
 ## 遅延評価
 
