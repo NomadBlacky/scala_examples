@@ -227,5 +227,46 @@ class Chapter01Spec extends FunSpec with Matchers {
     answer shouldBe expected
   }
 
+  it("08. 暗号文") {
+    /**
+      * 与えられた文字列の各文字を，以下の仕様で変換する関数cipherを実装せよ．
+      * 英小文字ならば(219 - 文字コード)の文字に置換
+      * その他の文字はそのまま出力
+      * この関数を用い，英語のメッセージを暗号化・復号化せよ．
+      */
+    // A01
+    val text = "I love Scala. Do you like Scala?"
+    val expect = "I olev Sxzoz. Dl blf orpv Sxzoz?"
+
+    def chpher01(text: String): String = text.map { c =>
+      if(c.isLower) (219 - c).toChar else c
+    }.mkString
+
+    chpher01(text) shouldBe expect
+    chpher01(chpher01(text)) shouldBe text
+
+    // A02
+    def cipher02(src: String): String = {
+      src.map { c: Char =>
+        if (c.isLower) (219 - c.toInt).toChar
+        else c
+      }.mkString
+    }
+    cipher02(text) shouldBe expect
+    cipher02(cipher02(text)) shouldBe text
+
+    // A03
+    def cipher03(text: String): String = {
+      text.map { c => if (c.isLower) { (219 - c.toInt).toChar } else { c } }.toString
+    }
+    cipher03(cipher03("Test")) should equal("Test")
+
+    // A01
+    def chpher04(text: String): String = text.map { c =>
+      if(c.isLower) (219 - c).toChar else c
+    } // mkStringは不要 (CanBuildFromのおかげ)
+    chpher04(text) shouldBe expect
+    chpher04(chpher04(text)) shouldBe text
+  }
 
 }
