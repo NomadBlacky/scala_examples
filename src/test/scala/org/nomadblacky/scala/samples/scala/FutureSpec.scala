@@ -3,7 +3,6 @@ package org.nomadblacky.scala.samples.scala
 import org.scalatest.FunSpec
 
 import scala.concurrent._
-import ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 import scala.util.{Failure, Success}
 
@@ -14,8 +13,18 @@ class FutureSpec extends FunSpec {
 
   override def suiteName: String = "Futureの使い方"
 
+  /**
+    * ExecutionContextとは?
+    * ・Runnableのインスタンスを渡すと、よしなに非同期実行してくれる仕組み
+    * ・実行タイミング・スレッドへの配分などは実装により異なる
+    * ・ExecutionContext.Implicits.globalは通常、最大でCPUの論理プロセッサ数ぶんのスレッドを立ち上げ、処理する。
+    *   ※オプションで「論理プロセッサ数 x N倍」に設定できる。
+    */
+  import ExecutionContext.Implicits.global
+
   it("Futureの基本") {
     // Future#apply で Futureインスタンスを生成
+    // ここで、ExcutionContextが入ってくる
     val f = Future {
       // インスタンス生成と同時に別スレッドで実行される
       println("A")
