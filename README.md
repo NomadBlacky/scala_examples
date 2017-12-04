@@ -18,10 +18,10 @@
 
 ## Futureの使い方
 
-+ [Futureの基本](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L17)
-+ [Await ... スレッドの終了を待機する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L43)
-+ [onComplete ... コールバック関数を定義する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L64)
-+ [map ... Futureの計算結果を処理するFutureを取得する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L79)
++ [Futureの基本](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L25)
++ [Await ... スレッドの終了を待機する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L52)
++ [onComplete ... コールバック関数を定義する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L73)
++ [map ... Futureの計算結果を処理するFutureを取得する](src/test/scala/org/nomadblacky/scala/samples/scala/FutureSpec.scala#L88)
 
 ## Iterable - コレクションの要素をひとつずつ返すトレイト
 
