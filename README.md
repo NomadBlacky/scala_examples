@@ -9,6 +9,11 @@
 
 + [ことはじめ](src/test/scala/org/nomadblacky/scala/samples/akka/streams/AkkaStreamsSpec.scala#L24)
 
+## Chapter06Spec
+
++ [[EXERCISE 6.1] ランダムな 0~Int.MaxValue のIntを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L28)
++ [[EXERCISE 6.2] ランダムな 0~1未満 のDoubleを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L32)
+
 ## EffectiveScalaSpec
 
 + [関数定義の中で直接パターンマッチを使う](src/test/scala/org/nomadblacky/scala/samples/best_practice/EffectiveScalaSpec.scala#L15)
