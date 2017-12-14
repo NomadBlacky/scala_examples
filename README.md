@@ -379,13 +379,14 @@
 
 ## 言語処理100本ノック 第1章: 準備運動
 
-+ [00. 文字列の逆順](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L18)
-+ [01. 「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L23)
-+ [02. 「パトカー」＋「タクシー」＝「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L52)
-+ [03. 円周率](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L116)
-+ [04. 元素記号](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L161)
-+ [07. テンプレートによる文生成](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L211)
-+ [08. 暗号文](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L230)
++ [00. 文字列の逆順](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L19)
++ [01. 「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L24)
++ [02. 「パトカー」＋「タクシー」＝「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L53)
++ [03. 円周率](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L117)
++ [04. 元素記号](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L162)
++ [07. テンプレートによる文生成](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L212)
++ [08. 暗号文](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L231)
++ [09. Typoglycemia](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L273)
 
 ## 遅延評価
 
