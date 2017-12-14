@@ -4,6 +4,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 import scala.annotation.tailrec
 import scala.collection.mutable
+import scala.util.Random
 
 /**
   * 言語処理100本ノック 第1章: 準備運動
@@ -269,4 +270,70 @@ class Chapter01Spec extends FunSpec with Matchers {
     chpher04(chpher04(text)) shouldBe text
   }
 
+  it("09. Typoglycemia") {
+    val text = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
+
+    // A01
+    def typoglycemia01(text: String): String = {
+      val words = text.split("\\s").map {
+        case s if 5 <= s.length =>
+          val prefix = s.take(1)
+          val middle = Random.shuffle(s.drop(1).dropRight(1).toSeq).mkString
+          val suffix = s.takeRight(1)
+          prefix + middle + suffix
+        case s => s
+      }
+      words.mkString(" ")
+    }
+    println(typoglycemia01(text))
+
+    // A02
+    def typoglycemia02(word: String): String =
+      word.head + Random.shuffle(word.substring(1, word.length - 1).toSeq).mkString + word.last
+    def condition(word: String, num: Int): String = word match {
+      case w if w.length > num => typoglycemia02(w)
+      case w => w
+    }
+    val xs = for {
+      word <- text.split("""\s+""")
+    } yield {
+      condition(word, 4)
+    }
+    println(xs.mkString(" "))
+
+    // A03
+    def typoglycemia03(str: String):String = {
+      val arr = str.split(" ")
+      arr.map{text => if (text.length > 4) randomize(text) else text }.mkString(" ")
+    }
+    def randomize(text:String): String =  {
+      val n = text.length
+      val h = text.substring(0,1)
+      val l = text.substring(n - 1, n)
+      val mid = text.substring(1, n - 1)
+
+      h + scala.util.Random.shuffle(mid.toSeq).mkString + l
+    }
+    println(typoglycemia03(text))
+
+    // A04
+    val state = text.split(" ").map{ word =>
+      if(word.size < 5) {
+        word
+      } else{
+        val subWord = word.substring(1, word.size -1)
+        val v = Random.shuffle(subWord.toSeq)
+        val wo = word.head +: v :+ word.last
+        String.valueOf(wo.toArray)
+      }
+    }
+    println(state.mkString(" "))
+
+    // A05
+    val typoglycemia05 = (str: String) => str.split("\\s").map {
+      case w if w.length > 4 => w.head + Random.shuffle(w.substring(1, w.length - 1).toSeq).mkString + w.last
+      case w => w
+    }.mkString(" ")
+    println(typoglycemia05(text))
+  }
 }
