@@ -13,6 +13,8 @@
 
 + [[EXERCISE 6.1] ランダムな 0~Int.MaxValue のIntを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L28)
 + [[EXERCISE 6.2] ランダムな 0~1未満 のDoubleを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L32)
++ [[EXERCISE 6.3] ランダムな値のタプルを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L36)
++ [[EXERCISE 6.4] ランダムな整数のリストを作成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L59)
 
 ## EffectiveScalaSpec
 
