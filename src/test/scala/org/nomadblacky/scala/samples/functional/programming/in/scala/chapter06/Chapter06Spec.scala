@@ -68,4 +68,44 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     ints(5)(SimpleRNG(10)) shouldBe expect
   }
+
+  // 6.4 状態の処理に適したAPI
+  type Rand[+A] = RNG => (A, RNG)
+
+  val int: Rand[Int] = _.nextInt
+
+  def unit[A](a: A): Rand[A] = rng => (a, rng)
+
+  /**
+    * 状態そのものを変化させずに状態アクションの出力を変換するmap関数
+    * 関数合成のようなもの
+    */
+  def map[A, B](s: Rand[A])(f: A => B): Rand[B] = rng => {
+    val (a, rng2) = s(rng)
+    (f(a), rng2)
+  }
+
+  def nonNegativeEven: Rand[Int] = map(nonNegativeInt)(i => i - i % 2)
+
+  val double2: Rand[Double] = map(nonNegativeInt)(d => d / (Int.MaxValue.toDouble + 1))
+
+  it("[EXERCISE 6.5] double関数の再実装") {
+    double2(SimpleRNG(10)) shouldBe (0.0017916266806423664, SimpleRNG(252149039181L))
+  }
+
+  // 6.4.1 状態アクションの結合
+
+  /**
+    * [EXERCISE 6.6]
+    */
+  def map2[A, B, C](ra: Rand[A], rb: Rand[B])(f: (A, B) => C): Rand[C] = rng => {
+    val (a, rng2) = ra(rng)
+    val (b, rng3) = rb(rng2)
+    (f(a, b), rng3)
+  }
+
+  it("[EXERCISE 6.6] mapの再実装") {
+    val func: Rand[(Int, Double)] = map2(nonNegativeEven, double2)((_, _))
+    func(SimpleRNG(10)) shouldBe ((3847488, 0.6213264381513), SimpleRNG(87443922374356L))
+  }
 }
