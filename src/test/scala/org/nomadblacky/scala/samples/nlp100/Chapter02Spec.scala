@@ -13,7 +13,7 @@ import scala.io.Source
 class Chapter02Spec extends FunSpec with Matchers {
 
   it("テキストファイルの読み込み") {
-    val strings: Iterator[String] = Source.fromFile("./hightemp.txt").getLines()
+    val strings: Iterator[String] = Source.fromFile("data/hightemp.txt").getLines()
     println(strings.mkString("\n"))
   }
 
