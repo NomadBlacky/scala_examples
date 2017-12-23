@@ -108,4 +108,7 @@ class Chapter06Spec extends FunSpec with Matchers {
     val func: Rand[(Int, Double)] = map2(nonNegativeEven, double2)((_, _))
     func(SimpleRNG(10)) shouldBe ((3847488, 0.6213264381513), SimpleRNG(87443922374356L))
   }
+
+  def both[A, B](ra: Rand[A], rb: Rand[B]): Rand[(A, B)] = map2(ra, rb)((_, _))
+
 }
