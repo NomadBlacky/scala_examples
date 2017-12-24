@@ -2,12 +2,11 @@ package org.nomadblacky.scala.samples.best_practice
 
 import java.awt.Point
 import java.io.File
-import java.nio.charset.{Charset, StandardCharsets}
+import java.util.Scanner
 
-import org.apache.commons.io.FileUtils
 import org.scalatest.{FunSpec, Matchers}
 
-import scala.util.Try
+import scala.annotation.tailrec
 
 class DesignPatternsInScalaSpec extends FunSpec with Matchers {
 
@@ -27,15 +26,30 @@ class DesignPatternsInScalaSpec extends FunSpec with Matchers {
   }
 
   it("LoanパターンでAutoClosingを実装する") {
-    def file2iterator[X](file: File, charset: Charset = StandardCharsets.UTF_8)(body: Iterator[String] => X): Try[X] = {
-      import scala.collection.JavaConverters._
-      def using[Resource <: {def close()}, A](r: Resource)(f: Resource => A): A = try {
-        f(r)
-      } finally {
-        r.close()
-      }
-      Try(using(FileUtils.lineIterator(file, charset.toString))(lineItr => body(lineItr.asScala)))
+    def using[Resource <: AutoCloseable, A](r: Resource)(f: Resource => A): A = try {
+      f(r)
+    } finally {
+      r.close()
     }
 
+    def linesCount(scanner: Scanner): Int = {
+      @tailrec def loop(scanner: Scanner, i: Int): Int =
+        if (scanner.hasNextLine) {
+          scanner.nextLine()
+          loop(scanner, i + 1)
+        } else {
+          i
+        }
+      loop(scanner, 0)
+    }
+
+    val scanner = new Scanner(new File("data/hightemp.txt"), "UTF-8")
+
+    val result = using(scanner)(linesCount)
+    result shouldBe 24
+
+    val caught =
+      intercept[IllegalStateException](scanner.nextLine())
+    caught.getMessage shouldBe "Scanner closed"
   }
 }
