@@ -111,4 +111,34 @@ class Chapter06Spec extends FunSpec with Matchers {
 
   def both[A, B](ra: Rand[A], rb: Rand[B]): Rand[(A, B)] = map2(ra, rb)((_, _))
 
+  val randIntDouble: Rand[(Int, Double)] = both(int, double)
+  val randDoubleInt: Rand[(Double, Int)] = both(double, int)
+
+  it("[EXERCISE 6.7] sequenceの実装") {
+    def sequence[A](fs: List[Rand[A]]): Rand[List[A]] = {
+      val init: Rand[List[A]] = rng => (List.empty[A], rng)
+      fs.foldLeft(init) { (rand, f) =>
+        rng => {
+          val (a, rng2) = rand(rng)
+          val (b, rng3) = f(rng2)
+          (a :+ b, rng3)
+        }
+      }
+    }
+    def ints(count: Int)(rng: RNG): (List[Int], RNG) = {
+      sequence(List.fill(count)(nonNegativeInt(_)))(rng)
+    }
+    val expect = (List(3847489, 1334288366, 1486862010, 711662464, 1453296530), SimpleRNG(186231735346465L))
+
+    ints(5)(SimpleRNG(10)) shouldBe expect
+
+    // https://github.com/fpinscala/fpinscala/blob/master/answerkey/state/07.answer.scala
+    def sequence2[A](fs: List[Rand[A]]): Rand[List[A]] =
+      fs.foldRight(unit(List.empty[A]))((f, acc) => map2(f, acc)(_ :: _))
+
+    def ints2(count: Int): Rand[List[Int]] =
+      sequence(List.fill(count)(nonNegativeInt))
+
+    ints2(5)(SimpleRNG(10)) shouldBe expect
+  }
 }
