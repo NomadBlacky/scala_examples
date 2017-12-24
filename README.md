@@ -9,6 +9,11 @@
 
 + [ことはじめ](src/test/scala/org/nomadblacky/scala/samples/akka/streams/AkkaStreamsSpec.scala#L24)
 
+## Chapter02Spec
+
++ [テキストファイルの読み込み](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter02Spec.scala#L15)
++ [10. 行数のカウント](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter02Spec.scala#L20)
+
 ## Chapter06Spec
 
 + [[EXERCISE 6.1] ランダムな 0~Int.MaxValue のIntを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L28)
@@ -17,6 +22,7 @@
 + [[EXERCISE 6.4] ランダムな整数のリストを作成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L59)
 + [[EXERCISE 6.5] double関数の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L92)
 + [[EXERCISE 6.6] mapの再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L107)
++ [[EXERCISE 6.7] sequenceの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L117)
 
 ## EffectiveScalaSpec
 
@@ -214,9 +220,10 @@
 + [要素を取得する3](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L43)
 + [属性から要素を取得する](src/test/scala/org/nomadblacky/scala/samples/xml/XmlSpec.scala#L50)
 
-## [BestPractice] Pimp My Library パターン
+## [BestPractice] Scalaでのデザインパターン
 
-+ [`implicit class` で既存クラスにメソッドを追加する](src/test/scala/org/nomadblacky/scala/samples/best_practice/PimpMyLibraryPatternSpec.scala#L11)
++ [Pimp My Library パターンで既存クラスにメソッドを追加する](src/test/scala/org/nomadblacky/scala/samples/best_practice/DesignPatternsInScalaSpec.scala#L15)
++ [LoanパターンでAutoClosingを実装する](src/test/scala/org/nomadblacky/scala/samples/best_practice/DesignPatternsInScalaSpec.scala#L28)
 
 ## [Cats] Catsの基礎
 
