@@ -23,6 +23,7 @@
 + [[EXERCISE 6.5] double関数の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L92)
 + [[EXERCISE 6.6] mapの再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L107)
 + [[EXERCISE 6.7] sequenceの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L117)
++ [[EXERCISE 6.8] flatMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L164)
 
 ## EffectiveScalaSpec
 
