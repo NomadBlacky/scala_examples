@@ -141,4 +141,36 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     ints2(5)(SimpleRNG(10)) shouldBe expect
   }
+
+  // 6.4.2 入れ子の状態アクション
+  def nonNegativeLessThen(n: Int): Rand[Int] = { rng =>
+    val (i, rng2) = nonNegativeInt(rng)
+    val mod = i % n
+    if (i + (n - 1) - mod >= 0)
+      (mod, rng2)
+    else
+      nonNegativeLessThen(n)(rng)
+  }
+
+  /**
+    * [EXERCISE 6.8]
+    */
+  def flatMap[A, B](f: Rand[A])(g: A => Rand[B]): Rand[B] =
+    rng => {
+      val (v, rng2) = f(rng)
+      g(v)(rng2)
+    }
+
+  it("[EXERCISE 6.8] flatMapの実装") {
+    def nonNegativeLessThen(n: Int): Rand[Int] =
+      flatMap(nonNegativeInt) { i =>
+        val mod = i % n
+        if (i + (n - 1) - mod >= 0)
+          unit(mod)
+        else
+          nonNegativeLessThen(n)
+      }
+
+    nonNegativeLessThen(20)(SimpleRNG(10)) shouldBe (9, SimpleRNG(252149039181L))
+  }
 }
