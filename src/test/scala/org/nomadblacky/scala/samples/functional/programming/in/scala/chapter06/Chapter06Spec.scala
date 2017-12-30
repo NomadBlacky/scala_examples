@@ -173,4 +173,15 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     nonNegativeLessThen(20)(SimpleRNG(10)) shouldBe (9, SimpleRNG(252149039181L))
   }
+
+  it("[EXERCISE 6.9] map,map2の再実装") {
+    def map[A, B](s: Rand[A])(f: A => B): Rand[B] =
+      flatMap(s)(a => unit(f(a)))
+
+    def map2[A, B, C](ra: Rand[A], rb: Rand[B])(f: (A, B) => C): Rand[C] =
+      flatMap(ra)(a => map(rb)(b => f(a, b)))
+
+    map(int)(_.toString)(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
+    map2(int, double)((i, d) => s"$i:$d")(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513",SimpleRNG(87443922374356L))
+  }
 }
