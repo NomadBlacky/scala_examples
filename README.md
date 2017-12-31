@@ -25,6 +25,7 @@
 + [[EXERCISE 6.7] sequenceの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L117)
 + [[EXERCISE 6.8] flatMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L164)
 + [[EXERCISE 6.9] map,map2の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L177)
++ [6.5 状態アクションデータ型の一般化 [EXERCISE 6.10] 関数の一般化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L240)
 
 ## EffectiveScalaSpec
 
