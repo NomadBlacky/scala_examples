@@ -184,4 +184,66 @@ class Chapter06Spec extends FunSpec with Matchers {
     map(int)(_.toString)(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
     map2(int, double)((i, d) => s"$i:$d")(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513",SimpleRNG(87443922374356L))
   }
+
+  describe("6.5 状態アクションデータ型の一般化") {
+    /**
+      * より汎用的なmap関数
+      */
+    def map_[S, A, B](a: S => (A, S))(f: A => B): S => (B, S) =
+      s => {
+        val (a2, s2) = a(s)
+        (f(a2), s2)
+      }
+
+    /**
+      * Randより汎用的な型
+      * 何らかの状態を伴う計算、状態アクションなどの省略形
+      */
+    //type State[S, +A] = S => (A, S)
+
+    /**
+      * クラスとして独立させ、関数を追加する。
+      * この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
+      *
+      * [EXERCISE 6.10]
+      */
+    case class State[S, +A](run: S => (A, S)) {
+      def map[B](f: A => B): State[S, B] =
+        flatMap(a => State.unit(f(a)))
+
+      def map2[B, C](sb: State[S, B])(f: (A, B) => C): State[S, C] =
+        flatMap(a => sb.map(b => f(a, b)))
+
+      def flatMap[B](f: A => State[S, B]): State[S, B] =
+        State { (s: S) =>
+          val (a, s2) = run(s)
+          f(a).run(s2)
+        }
+    }
+
+    /**
+      * [EXERCISE 6.10]
+      */
+    object State {
+      def unit[S, A](a: A): State[S, A] =
+        State(s => (a, s))
+
+      def sequence[S, A](sas: List[State[S, A]]): State[S, List[A]] =
+        sas.foldRight(unit[S, List[A]](List.empty))((st, acc) => st.map2(acc)(_ :: _))
+    }
+
+    /**
+      * RandをStateのエイリアスとする
+      */
+    type Rand[A] = State[RNG, A]
+
+    it("[EXERCISE 6.10] 関数の一般化") {
+      State.unit[RNG, Int](1).run(SimpleRNG(10)) shouldBe (1, SimpleRNG(10))
+
+      val rand: Rand[Int] = State(int)
+      rand.map(i => i.toString).run(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
+      rand.map2(State(double))((i, d) => s"$i:$d").run(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513",SimpleRNG(87443922374356L))
+      rand.flatMap(i => State.unit(i.toString)).run(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
+    }
+  }
 }
