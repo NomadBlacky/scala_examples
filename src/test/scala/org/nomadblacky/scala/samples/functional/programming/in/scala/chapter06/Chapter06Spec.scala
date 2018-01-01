@@ -246,4 +246,34 @@ class Chapter06Spec extends FunSpec with Matchers {
       rand.flatMap(i => State.unit(i.toString)).run(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
     }
   }
+
+  describe("6.6 純粋関数型の命令型プログラミング") {
+    type Rand[A] = State[RNG, A]
+    val int: Rand[Int] = (rng: RNG) => rng.nextInt
+    def ints(count: Int): Rand[List[Int]] =
+      State.sequence(List.fill(count)(int))
+
+    // 関数型の表現だと少しわかりにくい
+    val ns: Rand[List[Int]] =
+      int.flatMap(x =>
+        int.flatMap(y =>
+          ints(x).map(xs =>
+            xs.map(_ % y))))
+
+    // for内包表記を使うと命令形のスタイルで書ける
+    val ns2: Rand[List[Int]] = for {
+      x  <- int
+      y  <- int
+      xs <- ints(x)
+    } yield xs.map(_ % y)
+
+    // 任意の方法で状態を変更する
+    def modify[S](f: S => S): State[S, Unit] = for {
+      s <- get
+      _ <- set(f(s))
+    } yield ()
+
+    def get[S]: State[S, S] = State(s => (s, s))
+    def set[S](s: S): State[S, Unit] = State(_ => ((), s))
+  }
 }
