@@ -57,6 +57,10 @@
 + [Part1 ... 円グラフを作成する](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L26)
 + [Part2 ... ヒストグラム](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L37)
 
+## JVM関連のあれこれ
+
++ [クラスパスの一覧を取得する](src/test/scala/org/nomadblacky/scala/samples/scala/JVMSpec.scala#L9)
+
 ## List - 単方向リスト
 
 + [List() ... Listを生成する](src/test/scala/org/nomadblacky/scala/samples/collections/ListSpec.scala#L17)
