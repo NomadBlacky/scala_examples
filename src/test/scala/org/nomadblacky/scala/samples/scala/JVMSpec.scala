@@ -14,7 +14,7 @@ class JVMSpec extends FunSpec with Matchers {
       case _ => urlses(cl.getParent)
     }
 
-    val  urls = urlses(getClass.getClassLoader)
-    println(urls.filterNot(_.toString.contains("ivy")).mkString("\n"))
+    val urls = urlses(ClassLoader.getSystemClassLoader)
+    println(urls.mkString("\n"))
   }
 }
