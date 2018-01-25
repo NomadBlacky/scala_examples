@@ -85,6 +85,12 @@
 + [keySet ... キーのSetを返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L42)
 + [values ... 値をIterableで返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L47)
 
+## Ninety-Nine Scala Problems
+
++ [P01 (*) Find the last element of a list.](src/test/scala/org/nomadblacky/scala/samples/s99/S99Spec.scala#L15)
++ [P02 (*) Find the last but one element of a list.](src/test/scala/org/nomadblacky/scala/samples/s99/S99Spec.scala#L21)
++ [P03 (*) Find the Kth element of a list.](src/test/scala/org/nomadblacky/scala/samples/s99/S99Spec.scala#L42)
+
 ## Option - 値が存在しない可能性があることを表すクラス
 
 + [Optionの基本](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L12)
