@@ -9,6 +9,11 @@
 
 + [ことはじめ](src/test/scala/org/nomadblacky/scala/samples/akka/streams/AkkaStreamsSpec.scala#L24)
 
+## Ammonite-Ops
+
++ [パスを参照する](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L10)
++ [基本的なファイル操作](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L24)
+
 ## Chapter02Spec
 
 + [テキストファイルの読み込み](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter02Spec.scala#L15)
