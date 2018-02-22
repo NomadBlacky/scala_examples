@@ -52,4 +52,22 @@ class AmmoniteSpec extends FunSpec with Matchers {
     write.append(pwd/'tmp/"foo.txt", "Boo!") // 追記
   }
 
+  it("拡張演算子とワンライナー") {
+    // http://ammonite.io/#Extensions
+
+    // Traversableの拡張
+    val seq = Seq(1, 2, 3)
+    seq |  (_ * 2)              shouldBe seq.map(_ * 2)
+    seq || (i => Seq(i, i * 2)) shouldBe seq.flatMap(i => Seq(i, i * 2))
+    seq |? (_ % 2 == 0)         shouldBe seq.filter(_ % 2 == 0)
+    seq |& (_ + _)              shouldBe seq.reduce(_ * _)
+    seq |! println              // foreach
+
+    // Pipeable
+    val func = (i: Int) => i * 2
+    100 |> func shouldBe 200 // func(100)
+
+    // Callable
+    func!100 shouldBe 200 // func(100)
+  }
 }
