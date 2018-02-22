@@ -3,6 +3,9 @@ package org.nomadblacky.scala.samples.ammonite
 import ammonite.ops._
 import org.scalatest.{FunSpec, Matchers}
 
+/**
+  * http://ammonite.io/#Ammonite-Ops
+  */
 class AmmoniteSpec extends FunSpec with Matchers {
 
   override def suiteName: String = "Ammonite-Ops"
@@ -34,4 +37,19 @@ class AmmoniteSpec extends FunSpec with Matchers {
     mv(pwd/'tmp/"sample2.txt", pwd/'tmp/"sample3.txt") // 移動
     rm! pwd/'tmp/"sample3.txt" // 削除
   }
+
+  it("ファイルの読み書き") {
+    // http://ammonite.io/#Operations
+
+    // テキストファイルの読み込み
+    read(pwd/'tmp/"sample.txt") shouldBe "Scala de Scala\n"
+    read.bytes! pwd/'tmp/"sample.txt" // Array[Byte]
+    read.lines! pwd/'tmp/"sample.txt" // Vector[String]
+
+    // ファイルの書き込み
+    write(pwd/'tmp/"hoge.txt", "Foo!")
+    write.over(pwd/'tmp/"foo.txt", "Yaa!") // 上書き
+    write.append(pwd/'tmp/"foo.txt", "Boo!") // 追記
+  }
+
 }
