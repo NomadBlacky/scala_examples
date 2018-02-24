@@ -33,6 +33,7 @@
 + [[EXERCISE 6.8] flatMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L164)
 + [[EXERCISE 6.9] map,map2の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L177)
 + [6.5 状態アクションデータ型の一般化 [EXERCISE 6.10] 関数の一般化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L240)
++ [6.6 純粋関数型の命令型プログラミング [EXERCISE 6.11] 有限状態オートマトンの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L279)
 
 ## EffectiveScalaSpec
 
