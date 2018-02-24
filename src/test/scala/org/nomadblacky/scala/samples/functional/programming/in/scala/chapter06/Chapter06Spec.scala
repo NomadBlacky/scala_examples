@@ -275,5 +275,65 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     def get[S]: State[S, S] = State(s => (s, s))
     def set[S](s: S): State[S, Unit] = State(_ => ((), s))
+
+    it("[EXERCISE 6.11] 有限状態オートマトンの実装") {
+      /**
+        * - ロックされた状態の自動販売機に硬貨を投入すると、スナックが残っている場合はロックが解除される。
+        * - ロックが解除された状態の自動販売機のハンドルを回すと、スナックが出てきてロックがかかる。
+        * - ロックされた状態でハンドルを回したり、ロックが解除された状態で硬貨を投入したりしても何も起こらない
+        * - スナックが売り切れた自動販売機は入力を全て無視する。
+        */
+      sealed trait Input
+      case object Coin extends Input
+      case object Turn extends Input
+      case class Machine(locked: Boolean, candies: Int, coins: Int)
+
+      // https://github.com/fpinscala/fpinscala/blob/master/answerkey/state/11.answer.scala
+      object Candy {
+        def update: Input => Machine => Machine = i => m =>
+          (i, m) match {
+            case (_, Machine(_, 0, _)) => m
+            case (Coin, Machine(false, _, _)) => m
+            case (Turn, Machine(true, _, _)) => m
+            case (Coin, Machine(true, candy, coin)) =>
+              Machine(false, candy, coin + 1)
+            case (Turn, Machine(false, candy, coin)) =>
+              Machine(true, candy - 1, coin)
+          }
+
+        def simulateMachine(inputs: List[Input]): State[Machine, (Int, Int)] = for {
+          // State#sequence(List[State[Machine, Unit]]): State[Machine, List[Unit]]
+          _ <- State.sequence(
+            // List[Input]#map(Input => State[Machine, Unit]): List[State[Machine, Unit]]
+            inputs map (modify[Machine] _ compose update)
+          )
+          // State[Machine, Machine]
+          s <- get
+        } yield (s.coins, s.candies)
+
+        // 要約
+        def simulateMachine2(inputs: List[Input]): State[Machine, (Int, Int)] = {
+          State.sequence(inputs map (modify[Machine] _ compose update)).flatMap( (_: List[Unit]) => {
+            get.map( (m: Machine) =>
+              (m.coins, m.candies)
+            )
+          })
+        }
+      }
+
+      val s1 = Candy.simulateMachine(
+        // 4回正しい購入をする
+        List(Coin, Turn, Coin, Turn, Coin, Turn, Coin, Turn)
+      )
+      s1.run(Machine(true, 5, 10)) shouldBe ((14, 1), Machine(true, 1, 14))
+
+      val s2 = Candy.simulateMachine(List(
+        Turn, Turn, // 2回空回し
+        Coin, Coin, // 2回空コイン
+        Coin, Turn, Coin, Turn, Coin, Turn, Coin, Turn, Coin, Turn, // 5回購入
+        Coin, Turn  // 何も起こらない
+      ))
+      s2.run(Machine(true, 5, 10)) shouldBe ((15, 0), Machine(true, 0, 15))
+    }
   }
 }
