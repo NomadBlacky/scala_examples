@@ -69,5 +69,8 @@ class AmmoniteSpec extends FunSpec with Matchers {
 
     // Callable
     func!100 shouldBe 200 // func(100)
+
+    // ワーキングディレクトリ以下の".scala"ファイルを読み込む
+    ls.rec! pwd |? (_.ext == "scala") | read
   }
 }
