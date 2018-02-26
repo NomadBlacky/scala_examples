@@ -1,14 +1,19 @@
 package org.nomadblacky.scala.samples.ammonite
 
 import ammonite.ops._
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.{BeforeAndAfterAll, FunSpec, Matchers}
 
 /**
   * http://ammonite.io/#Ammonite-Ops
   */
-class AmmoniteSpec extends FunSpec with Matchers {
+class AmmoniteSpec extends FunSpec with Matchers with BeforeAndAfterAll {
 
   override def suiteName: String = "Ammonite-Ops"
+
+  override protected def beforeAll(): Unit = {
+    val f = pwd/'tmp/"hoge.txt"
+    if (exists! f) rm! f
+  }
 
   it("パスを参照する") {
     pwd  // カレントディレクトリ
