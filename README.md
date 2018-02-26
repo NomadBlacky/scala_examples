@@ -11,10 +11,11 @@
 
 ## Ammonite-Ops
 
-+ [パスを参照する](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L13)
-+ [基本的なファイル操作](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L27)
-+ [ファイルの読み書き](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L41)
-+ [拡張演算子とワンライナー](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L55)
++ [パスを参照する](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L18)
++ [基本的なファイル操作](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L32)
++ [ファイルの読み書き](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L46)
++ [拡張演算子とワンライナー](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L60)
++ [サブプロセスの実行](src/test/scala/org/nomadblacky/scala/samples/ammonite/AmmoniteSpec.scala#L82)
 
 ## Chapter02Spec
 
