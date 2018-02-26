@@ -78,4 +78,17 @@ class AmmoniteSpec extends FunSpec with Matchers with BeforeAndAfterAll {
     // ワーキングディレクトリ以下の".scala"ファイルを読み込む
     ls.rec! pwd |? (_.ext == "scala") | read
   }
+
+  it("サブプロセスの実行") {
+    // ワーキングディレクトリを implicit parameter として渡す
+    import ammonite.ops.ImplicitWd._
+
+    // % %% でコマンドを実行できる
+    // 一見、コンパイルが通らなそうな見た目だが、これはDynamic#applyDynamicを使用しているので正しいコードである。
+    // http://www.ne.jp/asahi/hishidama/home/tech/scala/dynamic.html
+    %ls
+    val res = %%('echo, "foo!")
+    res.exitCode shouldBe 0
+    res.out.string shouldBe "foo!\n"
+  }
 }
