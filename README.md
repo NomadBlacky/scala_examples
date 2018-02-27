@@ -373,6 +373,10 @@
 + [パターンマッチでFizzBuzz](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L84)
 + [unapply ... 独自のパターンを定義する](src/test/scala/org/nomadblacky/scala/samples/scala/MatchSpec.scala#L115)
 
+## scala.Dynamic ... 動的言語のような構文をサポートする
+
++ [applyDynamic](src/test/scala/org/nomadblacky/scala/samples/scala/DynamicSpec.scala#L16)
+
 ## トレイトの使い方
 
 + [トレイトの基本](src/test/scala/org/nomadblacky/scala/samples/scala/TraitSpec.scala#L17)
