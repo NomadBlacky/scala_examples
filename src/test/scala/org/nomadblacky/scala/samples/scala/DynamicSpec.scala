@@ -24,4 +24,21 @@ class DynamicSpec extends FunSpec with Matchers {
     mymap.bbb(-1) shouldBe -1
   }
 
+  it("applyDynamicNamed") {
+    case class MyMap[V](m: Map[String, V]) extends Dynamic {
+      def applyDynamicNamed[U](key: String)(args: (String, V => U)*): Map[String, U] = {
+        val kvs = for {
+          v  <- m.lift(key).toSeq
+          (k, f) <- args
+        } yield (k, f(v))
+        kvs.toMap
+      }
+    }
+    val mymap = MyMap(Map("aaa" -> 10))
+
+    val f = (i: Int) => i * 2
+    val g = (i: Int) => i * 10
+    mymap.aaa(x = f, y = g) shouldBe Map("x" -> 20, "y" -> 100)
+    mymap.bbb(x = f, y = g) shouldBe Map()
+  }
 }
