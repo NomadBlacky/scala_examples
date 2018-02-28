@@ -376,6 +376,7 @@
 ## scala.Dynamic ... 動的言語のような構文をサポートする
 
 + [applyDynamic](src/test/scala/org/nomadblacky/scala/samples/scala/DynamicSpec.scala#L16)
++ [applyDynamicNamed](src/test/scala/org/nomadblacky/scala/samples/scala/DynamicSpec.scala#L27)
 
 ## トレイトの使い方
 
