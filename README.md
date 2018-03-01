@@ -108,6 +108,7 @@
 + [map ... 中身の値を関数に適用し値を変換する](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L56)
 + [flatMap ... 中身の値を関数に適用し、SomeならSomeを、NoneならNoneを返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L64)
 + [collect ... PartialFunctionを適用し、値が返る場合はその結果をSomeに包んで返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L74)
++ [fold ... Noneなら初期値を、Someなら関数を適用した値を返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L96)
 
 ## Scalaで列挙型を扱う
 
