@@ -92,4 +92,16 @@ class OptionSpec extends FunSpec with Matchers {
     o2.flatMap(pf2)   shouldBe None
     none.flatMap(pf2) shouldBe None
   }
+
+  it("fold ... Noneなら初期値を、Someなら関数を適用した値を返す") {
+    val o1: Option[Int] = Some(10)
+    val o2: Option[Int] = None
+
+    o1.fold(-1)(_ * 10) shouldBe 100
+    o2.fold(-1)(_ * 10) shouldBe -1
+
+    // map と getOrElse を使った場合と同義
+    o1.fold(-1)(_ * 10) shouldBe o1.map(_ * 10).getOrElse(-1)
+    o2.fold(-1)(_ * 10) shouldBe o2.map(_ * 10).getOrElse(-1)
+  }
 }
