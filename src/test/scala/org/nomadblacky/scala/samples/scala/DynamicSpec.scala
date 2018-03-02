@@ -41,4 +41,24 @@ class DynamicSpec extends FunSpec with Matchers {
     mymap.aaa(x = f, y = g) shouldBe Map("x" -> 20, "y" -> 100)
     mymap.bbb(x = f, y = g) shouldBe Map()
   }
+
+  it("selectDynamic") {
+    case class MyMap[V](m: Map[String, V]) extends Dynamic {
+      def selectDynamic(key: String): Option[V] = m.get(key)
+    }
+    val mymap = MyMap(Map("aaa" -> 10))
+
+    mymap.aaa shouldBe Some(10)
+    mymap.bbb shouldBe None
+  }
+
+  it("updateDynamic") {
+    case class MyMap[V](m: Map[String, V]) extends Dynamic {
+      def updateDynamic(key: String)(value: V): Map[String, V] = m + (key -> value)
+    }
+    val mymap = MyMap(Map("aaa" -> 10))
+
+    (mymap.aaa = 100) shouldBe Map("aaa" -> 100)
+    (mymap.bbb = 200) shouldBe Map("aaa" -> 10, "bbb" -> 200)
+  }
 }
