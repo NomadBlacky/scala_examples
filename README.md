@@ -378,6 +378,8 @@
 
 + [applyDynamic](src/test/scala/org/nomadblacky/scala/samples/scala/DynamicSpec.scala#L16)
 + [applyDynamicNamed](src/test/scala/org/nomadblacky/scala/samples/scala/DynamicSpec.scala#L27)
++ [selectDynamic](src/test/scala/org/nomadblacky/scala/samples/scala/DynamicSpec.scala#L45)
++ [updateDynamic](src/test/scala/org/nomadblacky/scala/samples/scala/DynamicSpec.scala#L55)
 
 ## トレイトの使い方
 
