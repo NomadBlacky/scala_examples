@@ -19,7 +19,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" % "akka-stream_2.12" % "2.5.6",
   "com.chuusai" %% "shapeless" % "2.3.2",
   "org.typelevel" %% "cats-core" % "1.0.0-MF",
-  "com.lihaoyi" %% "ammonite-ops" % "1.0.3"
+  "com.lihaoyi" %% "ammonite-ops" % "1.0.3",
+  "com.typesafe.play" %% "play-ahc-ws-standalone" % "1.1.6"
 )
 
 testOptions in Test ++= Seq(
