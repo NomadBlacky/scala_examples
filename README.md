@@ -112,7 +112,8 @@
 
 ## Play WS ... Play製のHTTPクライアント
 
-+ [基本的なHTTPアクセス](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L21)
++ [基本的なHTTPアクセス](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L24)
++ [akka-streamsのSourceとして受け取る](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L33)
 
 ## Scalaで列挙型を扱う
 
