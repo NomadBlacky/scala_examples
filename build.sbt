@@ -9,6 +9,7 @@ val scalazVersion = "7.2.10"
 libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % "3.0.0",
   "org.scalatest" %% "scalatest" % "3.0.0" % "test",
+  "org.scalacheck" %% "scalacheck" % "1.13.4" % "test",
   "com.github.scopt" %% "scopt" % "3.5.0",
   "org.pegdown" % "pegdown" % "1.6.0",
   "org.scala-lang" % "scala-reflect" % scalaVersion.value,
