@@ -115,6 +115,11 @@
 + [基本的なHTTPアクセス](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L24)
 + [akka-streamsのSourceとして受け取る](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L33)
 
+## ScalaCheckSpec
+
++ [forAll ... ランダムに生成された値でテストを行う](src/test/scala/org/nomadblacky/scala/samples/testing/ScalaCheckSpec.scala#L9)
++ [whenever ... 値のフィルタ](src/test/scala/org/nomadblacky/scala/samples/testing/ScalaCheckSpec.scala#L15)
+
 ## Scalaで列挙型を扱う
 
 + [Enumerationを使った方法](src/test/scala/org/nomadblacky/scala/samples/scala/EnumInScalaSpec.scala#L9)
