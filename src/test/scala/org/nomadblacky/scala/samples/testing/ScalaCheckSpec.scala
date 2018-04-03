@@ -1,6 +1,6 @@
 package org.nomadblacky.scala.samples.testing
 
-import org.scalacheck.Gen
+import org.scalacheck.{Arbitrary, Gen}
 import org.scalatest.{FunSpec, Matchers}
 import org.scalatest.prop.GeneratorDrivenPropertyChecks
 
@@ -20,22 +20,42 @@ class ScalaCheckSpec extends FunSpec with Matchers with GeneratorDrivenPropertyC
     }
   }
 
-  case class User(id: Long, name: String) {
-    def isValidName: Boolean = 1 <= name.length && name.length <= 10
+  case class User(name: String, age: Int) {
+    def isAdult: Boolean = 20 <= age
   }
 
   it("Gen ... 値を生成するジェネレータ") {
-    pending
-
     val userGen: Gen[User] = for {
-      id   <- Gen.choose(1, 999999L)
       name <- Gen.alphaNumStr
-    } yield User(id, name)
+      age  <- Gen.choose(1, 100)
+    } yield User(name, age)
 
     forAll(userGen) { (u: User) =>
-      whenever(u.name.isEmpty) {
-        u.isValidName shouldBe false
-      }
+      (1 <= u.age && u.age <= 100) shouldBe true
+    }
+  }
+
+  it("suchThat ... ジェネレータに対するフィルタ") {
+    val userGen = for {
+      name <- Gen.alphaNumStr
+      age  <- Gen.choose(1, 100).suchThat(20 <= _)
+    } yield User(name, age)
+
+    forAll(userGen) { u =>
+      u.isAdult shouldBe true
+    }
+  }
+
+  it("Arbitrary ... forAllのimplicit parameterとして使う") {
+    val userGen = for {
+      name <- Gen.alphaNumStr
+      age  <- Gen.choose(1, 100).suchThat(20 <= _)
+    } yield User(name, age)
+
+    implicit val arbitraryUser: Arbitrary[User] = Arbitrary(userGen)
+
+    forAll { (u: User) =>
+      u.isAdult shouldBe true
     }
   }
 }
