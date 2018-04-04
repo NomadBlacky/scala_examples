@@ -119,6 +119,9 @@
 
 + [forAll ... ランダムに生成された値でテストを行う](src/test/scala/org/nomadblacky/scala/samples/testing/ScalaCheckSpec.scala#L9)
 + [whenever ... 値のフィルタ](src/test/scala/org/nomadblacky/scala/samples/testing/ScalaCheckSpec.scala#L15)
++ [Gen ... 値を生成するジェネレータ](src/test/scala/org/nomadblacky/scala/samples/testing/ScalaCheckSpec.scala#L27)
++ [suchThat ... ジェネレータに対するフィルタ](src/test/scala/org/nomadblacky/scala/samples/testing/ScalaCheckSpec.scala#L38)
++ [Arbitrary ... forAllのimplicit parameterとして使う](src/test/scala/org/nomadblacky/scala/samples/testing/ScalaCheckSpec.scala#L49)
 
 ## Scalaで列挙型を扱う
 
