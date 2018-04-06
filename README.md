@@ -159,6 +159,17 @@
 + [scratch01](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L88)
 + [scratch01 by Mr.aiya000](src/test/scala/org/nomadblacky/scala/samples/scala/FunctionSpec.scala#L120)
 
+## ScalikeJDBC
+
++ [接続設定とコネクション コネクションプールの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L40)
++ [接続設定とコネクション 複数データソースへの接続](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L49)
++ [接続設定とコネクション その他オプションの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L63)
++ [DBブロックとトランザクション readOnly ... select文のみ実行できる](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L83)
++ [DBブロックとトランザクション autoCommit ... 更新毎にコミットを行う](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L96)
++ [DBブロックとトランザクション localTx ... ブロックのスコープに閉じた同一トランザクションで実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L105)
++ [DBブロックとトランザクション withTx ... すでに存在するトランザクション内で実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L124)
++ [DBブロックとトランザクション AutoSession ... 有効なセッションがなければ自動的に新しいセッションを開始する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L146)
+
 ## Scopt - コマンドライン引数を解析するライブラリ
 
 + [コマンドライン引数を解析する](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L40)
