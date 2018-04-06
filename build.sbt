@@ -21,7 +21,10 @@ libraryDependencies ++= Seq(
   "com.chuusai" %% "shapeless" % "2.3.2",
   "org.typelevel" %% "cats-core" % "1.0.0-MF",
   "com.lihaoyi" %% "ammonite-ops" % "1.0.3",
-  "com.typesafe.play" %% "play-ahc-ws-standalone" % "1.1.6"
+  "com.typesafe.play" %% "play-ahc-ws-standalone" % "1.1.6",
+  "org.scalikejdbc" %% "scalikejdbc" % "3.2.2",
+  "org.scalikejdbc" %% "scalikejdbc-test" % "3.2.2" % "test",
+  "com.h2database" % "h2" % "1.4.197"
 )
 
 testOptions in Test ++= Seq(
