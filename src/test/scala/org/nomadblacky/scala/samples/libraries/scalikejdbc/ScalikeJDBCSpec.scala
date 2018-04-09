@@ -32,6 +32,11 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     }
   }
 
+  before {
+    Class.forName("org.h2.Driver")
+    ConnectionPool.singleton("jdbc:h2:mem:db", "username", "password")
+  }
+
   /**
     * https://github.com/scalikejdbc/scalikejdbc-cookbook/blob/master/ja/03_connection.md
     */
@@ -74,11 +79,6 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
   }
 
   describe("DBブロックとトランザクション") {
-
-    before {
-      Class.forName("org.h2.Driver")
-      ConnectionPool.singleton("jdbc:h2:mem:db", "username", "password")
-    }
 
     it("readOnly ... select文のみ実行できる") {
       DB readOnly { implicit s =>
@@ -172,4 +172,34 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       createMember2("bar")
     }
   }
+
+  describe("SQLテンプレート") {
+
+    it("JDBCのSQLテンプレート") {
+      val sql = SQL("insert into members(id, name) values(?, ?)")
+        .bind(100L, "user01")
+    }
+
+    it("名前付きSQLテンプレート") {
+      SQL("insert into members(id, name) values({id}, {name})")
+        .bindByName(
+          'id -> 100L,
+          'name -> "user01"
+        )
+    }
+
+    it("実行可能なSQLテンプレート") {
+      SQL(
+        """insert into members(id, name) values (
+          |  /*'id*/12345,
+          |  /*'name*/'dummy-user'
+          |)
+        """.stripMargin)
+        .bindByName(
+          'id -> 100L,
+          'name -> "user01"
+        )
+    }
+  }
+
 }
