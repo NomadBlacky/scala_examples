@@ -2,7 +2,7 @@ name := "samples"
 
 version := "1.0"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.5"
 
 val scalazVersion = "7.2.10"
 
