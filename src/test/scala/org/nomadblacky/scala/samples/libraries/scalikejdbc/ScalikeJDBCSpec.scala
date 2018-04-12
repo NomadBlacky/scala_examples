@@ -1,4 +1,3 @@
-
 package org.nomadblacky.scala.samples.libraries.scalikejdbc
 
 import java.sql.SQLException
@@ -20,15 +19,12 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     Class.forName("org.h2.Driver")
     ConnectionPool.singleton("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1", "username", "password")
     DB localTx { implicit s =>
-      sql"""
-            create table members(
-              id bigint auto_increment primary key,
-              name varchar(50) not null
-            )
-        """
-        .stripMargin
-        .execute
-        .apply()
+      val sqls = Seq(
+        sql"create table members(id bigint auto_increment primary key, name varchar(50) not null);",
+        sql"create table team_members(id bigint primary key auto_increment, team_id bigint not null)",
+        sql"create table teams(id bigint primary key auto_increment, name varchar(50))"
+      )
+      sqls.foreach(_.update().apply())
     }
   }
 
@@ -189,8 +185,8 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     }
 
     it("実行可能なSQLテンプレート") {
-      SQL(
-        """insert into members(id, name) values (
+      SQL("""
+        insert into members(id, name) values (
           |  /*'id*/12345,
           |  /*'name*/'dummy-user'
           |)
@@ -199,6 +195,66 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
           'id -> 100L,
           'name -> "user01"
         )
+    }
+
+    it("SQLインターポレーション") {
+      val name = "user01"
+      sql"""
+           insert into members(id, name) values (${100L}, $name)
+         """
+    }
+
+    it("SQLSyntax") {
+      def ordering(isAsk: Boolean): SQLSyntax =
+        if (isAsk) sqls"ask" else sqls"desc" // SQLSyntaxは sqls のみで生成可能
+
+      // SQLの一部として組み込まれる
+      sql"""
+            select * from members order by ${ordering(true)}
+        """
+    }
+
+    it("Seqの展開") {
+      // Seqのみ、in句を想定してカンマ区切りで展開される
+      val ids = Seq(1, 2, 3)
+      val sql = sql"select * from members where id in ($ids)"
+    }
+
+    it("SQLSyntaxSupport") {
+      case class TeamMember(id: Long, teamId: Long)
+      case class Team(id: Long, name: String)
+
+      // ベタに書くと
+      sql"""
+            select m.id as m_id, m.team_id as m_tid, t.id as t_id, t.name as t_name
+            from team_members m inner join team t on m.team_id = t.id
+        """
+        .map(rs => (TeamMember(rs.long("m_id"), rs.long("m_tid")), Team(rs.long("t_id"), rs.string("t_name"))))
+
+      // SQLSyntaxSupportを使う
+      object TeamMember extends SQLSyntaxSupport[TeamMember] {
+        override def tableName: String = "team_members"
+        def apply(m: ResultName[TeamMember])(implicit rs: WrappedResultSet): TeamMember =
+          new TeamMember(id = rs.long(m.id), teamId = rs.long(m.teamId))
+      }
+      object Team extends SQLSyntaxSupport[Team] {
+        override def tableName: String = "teams"
+        def apply(t: ResultName[Team])(implicit rs: WrappedResultSet): Team =
+          new Team(id = rs.long(t.id), name = rs.string(t.name))
+      }
+
+      val (m, t) = (TeamMember.syntax("m"), Team.syntax("t"))
+      sql"""
+            select ${m.result.*} ${t.result.*}
+            from ${TeamMember.as(m)} inner join ${Team.as(t)} on ${m.teamId} = ${t.id}
+        """
+        .map(implicit rs => (TeamMember(m.resultName), Team(t.resultName)))
+
+      // ・文字列指定がなくなり、タイプセーフになる
+      // ・applyを定義すると、マッピング処理はどんなジョインクエリでも再利用できる
+
+      // ボイラープレートが増えるのを避けたい → scalikejdbc-syntax-support-macro を使う
+      // http://scalikejdbc.org/documentation/auto-macros.html
     }
   }
 
