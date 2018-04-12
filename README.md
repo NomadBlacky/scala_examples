@@ -161,17 +161,21 @@
 
 ## ScalikeJDBC
 
-+ [接続設定とコネクション コネクションプールの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L45)
-+ [接続設定とコネクション 複数データソースへの接続](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L54)
-+ [接続設定とコネクション その他オプションの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L68)
-+ [DBブロックとトランザクション readOnly ... select文のみ実行できる](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L83)
-+ [DBブロックとトランザクション autoCommit ... 更新毎にコミットを行う](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L96)
-+ [DBブロックとトランザクション localTx ... ブロックのスコープに閉じた同一トランザクションで実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L105)
-+ [DBブロックとトランザクション withTx ... すでに存在するトランザクション内で実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L124)
-+ [DBブロックとトランザクション AutoSession ... 有効なセッションがなければ自動的に新しいセッションを開始する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L146)
-+ [SQLテンプレート JDBCのSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L178)
-+ [SQLテンプレート 名前付きSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L183)
-+ [SQLテンプレート 実行可能なSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L191)
++ [接続設定とコネクション コネクションプールの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L41)
++ [接続設定とコネクション 複数データソースへの接続](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L50)
++ [接続設定とコネクション その他オプションの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L64)
++ [DBブロックとトランザクション readOnly ... select文のみ実行できる](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L79)
++ [DBブロックとトランザクション autoCommit ... 更新毎にコミットを行う](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L92)
++ [DBブロックとトランザクション localTx ... ブロックのスコープに閉じた同一トランザクションで実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L101)
++ [DBブロックとトランザクション withTx ... すでに存在するトランザクション内で実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L120)
++ [DBブロックとトランザクション AutoSession ... 有効なセッションがなければ自動的に新しいセッションを開始する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L142)
++ [SQLテンプレート JDBCのSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L174)
++ [SQLテンプレート 名前付きSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L179)
++ [SQLテンプレート 実行可能なSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L187)
++ [SQLテンプレート SQLインターポレーション](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L200)
++ [SQLテンプレート SQLSyntax](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L207)
++ [SQLテンプレート Seqの展開](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L217)
++ [SQLテンプレート SQLSyntaxSupport](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L223)
 
 ## Scopt - コマンドライン引数を解析するライブラリ
 
