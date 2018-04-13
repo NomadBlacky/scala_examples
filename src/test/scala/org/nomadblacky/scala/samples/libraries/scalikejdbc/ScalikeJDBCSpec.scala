@@ -256,6 +256,20 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       // ボイラープレートが増えるのを避けたい → scalikejdbc-syntax-support-macro を使う
       // http://scalikejdbc.org/documentation/auto-macros.html
     }
+
+    it("QueryDSL") {
+      case class Team(id: Long, name: String)
+      object Team extends SQLSyntaxSupport[Team] {
+        override def tableName: String = "teams"
+        def insert(id: Long, name: String): Int = DB.localTx { implicit s =>
+          withSQL {
+            insertInto(Team)
+              .columns(column.id, column.name)
+              .values(id, name)
+          }.update().apply()
+        }
+      }
+    }
   }
 
 }
