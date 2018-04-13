@@ -176,6 +176,7 @@
 + [SQLテンプレート SQLSyntax](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L207)
 + [SQLテンプレート Seqの展開](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L217)
 + [SQLテンプレート SQLSyntaxSupport](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L223)
++ [SQLテンプレート QueryDSL](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L260)
 
 ## Scopt - コマンドライン引数を解析するライブラリ
 
