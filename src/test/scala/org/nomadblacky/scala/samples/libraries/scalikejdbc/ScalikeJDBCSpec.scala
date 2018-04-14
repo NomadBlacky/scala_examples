@@ -261,15 +261,26 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       case class Team(id: Long, name: String)
       object Team extends SQLSyntaxSupport[Team] {
         override def tableName: String = "teams"
-        def insert(id: Long, name: String): Int = DB.localTx { implicit s =>
+        def create(id: Long, name: String): Int = DB.localTx { implicit s =>
           withSQL {
-            insertInto(Team)
+            insert.into(Team)
               .columns(column.id, column.name)
               .values(id, name)
           }.update().apply()
         }
       }
+
+      val ordering = sqls"desc"
+      val id = 1234
+
+      val t = Team.syntax("t")
+      val names = DB.localTx { implicit s =>
+        withSQL {
+          select(t.name).from(Team as t).where.eq(t.id, id).orderBy(t.id).append(ordering)
+        }.map(rs => rs.string(t.name)).list().apply()
+      }
     }
+
   }
 
 }
