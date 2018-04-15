@@ -274,7 +274,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       val id = 1234
 
       val t = Team.syntax("t")
-      val names = DB.localTx { implicit s =>
+      val names = DB.readOnly { implicit s =>
         withSQL {
           select(t.name).from(Team as t).where.eq(t.id, id).orderBy(t.id).append(ordering)
         }.map(rs => rs.string(t.name)).list().apply()
