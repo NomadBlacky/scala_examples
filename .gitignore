@@ -71,3 +71,4 @@ fabric.properties
 .ensime
 .ensime_cache/
 target/
+tmp/
