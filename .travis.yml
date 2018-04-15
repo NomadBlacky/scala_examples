@@ -1,6 +1,8 @@
 language: scala
 scala: 2.12.3
 jdk: oraclejdk8
+script:
+  - sbt TableOfContents/test
 cache:
   directories:
   - "$HOME/.ivy2/cache"

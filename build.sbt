@@ -1,5 +1,7 @@
 val scalazVersion = "7.2.10"
 
+lazy val TableOfContents = config("tableOfContents").extend(Test)
+
 lazy val commonSettings = Seq(
   name := "scala_samples",
   version := "1.0",
@@ -28,3 +30,10 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings)
+  .configs(TableOfContents)
+  .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
+  .settings(
+    testOptions in TableOfContents ++= Seq(
+      Tests.Argument(TestFrameworks.ScalaTest, "-C", "org.nomadblacky.scala.reporter.TableOfContentsReporter")
+    )
+  )
