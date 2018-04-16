@@ -177,6 +177,12 @@
 + [SQLテンプレート Seqの展開](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L217)
 + [SQLテンプレート SQLSyntaxSupport](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L223)
 + [SQLテンプレート QueryDSL](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L260)
++ [一般的な利用のサンプル例 single ... Primary Key での検索](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L291)
++ [一般的な利用のサンプル例 count文 & single ... 件数を取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L301)
++ [一般的な利用のサンプル例 list ... 複数件取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L308)
++ [一般的な利用のサンプル例 first ... 最初の１件のみ取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L314)
++ [一般的な利用のサンプル例 foreach ... １行ずつ読み込む](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L320)
++ [一般的な利用のサンプル例 in句 と SQLInterpolation](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L329)
 
 ## Scopt - コマンドライン引数を解析するライブラリ
 
