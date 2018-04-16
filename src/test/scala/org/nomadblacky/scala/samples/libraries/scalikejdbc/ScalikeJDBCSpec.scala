@@ -283,4 +283,63 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
   }
 
+  describe("一般的な利用のサンプル例") {
+
+    case class Member(id: Long, name: String)
+    val * = (rs: WrappedResultSet) => Member(rs.long("id"), rs.string("name"))
+
+    it("single ... Primary Key での検索") {
+      val id = 1234
+
+      // single はOptionで結果を返す
+      // ２件以上ヒットした場合は例外が投げられる
+      val member: Option[Member] = DB.readOnly { implicit s =>
+        sql"select * from members where id = $id".map(*).single().apply()
+      }
+    }
+
+    it("count文 & single ... 件数を取得") {
+      // countの結果は single で取得して Option#get で取得する
+      val count: Long = DB.readOnly { implicit s =>
+        sql"select count(1) from members".map(_.long(1)).single().apply().get
+      }
+    }
+
+    it("list ... 複数件取得") {
+      val members: Seq[Member] = DB.readOnly { implicit s =>
+        sql"select * from members".map(*).list().apply()
+      }
+    }
+
+    it("first ... 最初の１件のみ取得") {
+      val member = DB.readOnly { implicit s =>
+        sql"select * from members order by id desc".map(*).first().apply()
+      }
+    }
+
+    it("foreach ... １行ずつ読み込む") {
+      // 巨大な結果など、１行ずつ読みたい場合に使う
+      DB.readOnly { implicit s =>
+        sql"select * from members".foreach { rs =>
+          // ...
+        }
+      }
+    }
+
+    it("in句 と SQLInterpolation") {
+      val memberIds = Seq(1, 2, 3)
+
+      // SQLInterpolation は Seq でパラメタを受け取ることができる
+      val members = DB.readOnly { implicit s =>
+        sql"select * from members where id in ($memberIds)".map(*).list().apply()
+      }
+
+      // 従来のSQL構文では in句 はサポートされていないので、自分で組み立てる
+      val query = "select * from members where id in (%s)".format(memberIds.map(_ => "?").mkString(","))
+      val members2 = DB.readOnly { implicit s =>
+        SQL(query).bind(memberIds: _*).map(*).list().apply()
+      }
+    }
+  }
+
 }
