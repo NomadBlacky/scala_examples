@@ -1,6 +1,7 @@
 package org.nomadblacky.scala.samples.libraries.scalikejdbc
 
 import java.sql.SQLException
+import java.time.Instant
 
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FunSpec, Matchers}
 import scalikejdbc._
@@ -20,9 +21,10 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     ConnectionPool.singleton("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1", "username", "password")
     DB localTx { implicit s =>
       val sqls = Seq(
-        sql"create table members(id bigint auto_increment primary key, name varchar(50) not null);",
+        sql"create table members(id bigint auto_increment primary key, name varchar(50) not null, team_id bigint not null);",
         sql"create table team_members(id bigint primary key auto_increment, team_id bigint not null)",
-        sql"create table teams(id bigint primary key auto_increment, name varchar(50))"
+        sql"create table teams(id bigint primary key auto_increment, name varchar(50))",
+        sql"create table users(id bigint primary key auto_increment, name varchar(50) not null, organization varchar(50), created_at timestamp not null)"
       )
       sqls.foreach(_.update().apply())
     }
@@ -140,32 +142,32 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     case class Member(id: Long, name: String)
 
     it("AutoSession ... 有効なセッションがなければ自動的に新しいセッションを開始する") {
-      def createMember(name: String): Member = {
+      def createMember(name: String, teamId: Long): Member = {
         val id = DB localTx { implicit s =>
-          sql"insert into members(name) values(${name})".updateAndReturnGeneratedKey().apply()
+          sql"insert into members(name, team_id) values($name, $teamId)".updateAndReturnGeneratedKey().apply()
 
           // localTx で囲っているので、この時点でトランザクションが終了してしまう
         }
         Member(id, name)
       }
-      createMember("hoge")
+      createMember("hoge", 100L)
       // この設計だと同じトランザクションを使って処理を続けられない
 
       // implicit parameter としてセッションを受け取るようにした
-      def createMember2(name: String)(implicit s: DBSession = AutoSession): Member = {
-        val id = sql"insert into members(name) values(${name})".updateAndReturnGeneratedKey().apply()
+      def createMember2(name: String, teamId: Long)(implicit s: DBSession = AutoSession): Member = {
+        val id = sql"insert into members(name, team_id) values($name, $teamId)".updateAndReturnGeneratedKey().apply()
         Member(id, name)
       }
 
       // こうすることで、 localTx などを使うこともできるし、
       DB localTx { implicit s =>
-        createMember2("foo")
+        createMember2("foo", 200L)
 
         // 同じトランザクションを使う処理
       }
 
       // 単体で実行もできる
-      createMember2("bar")
+      createMember2("bar", 300L)
     }
   }
 
@@ -285,8 +287,10 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
   describe("一般的な利用のサンプル例") {
 
-    case class Member(id: Long, name: String)
-    val * = (rs: WrappedResultSet) => Member(rs.long("id"), rs.string("name"))
+    case class Member(id: Long, name: String, teamId: Long)
+    val * = (rs: WrappedResultSet) => Member(rs.long("id"), rs.string("name"), rs.long("team_id"))
+
+    case class Team(id: Long, name: String)
 
     it("single ... Primary Key での検索") {
       val id = 1234
@@ -338,6 +342,84 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       val query = "select * from members where id in (%s)".format(memberIds.map(_ => "?").mkString(","))
       val members2 = DB.readOnly { implicit s =>
         SQL(query).bind(memberIds: _*).map(*).list().apply()
+      }
+    }
+
+    it("join クエリ") {
+      // SQLSyntaxSupportがおすすめ
+      object Member extends SQLSyntaxSupport[Member] {
+        override def tableName: String = "team_members"
+      }
+      object Team extends SQLSyntaxSupport[Team] {
+        override def tableName: String = "teams"
+      }
+
+      case class JoinedMember(id: Long, team: Team)
+      object JoinedMember {
+        def apply(m: ResultName[Member], t: ResultName[Team])(implicit rs: WrappedResultSet): JoinedMember =
+          new JoinedMember(id = rs.long(m.id), new Team(id = rs.long(t.id), rs.string(t.name)))
+      }
+
+      val (m, t) = (Member.syntax("m"), Team.syntax("t"))
+      val joinedMembers = DB.readOnly { implicit s =>
+        sql"""
+           select ${m.result.*}, ${t.result.*}
+           from ${Member as m} left join ${Team as t} on ${m.teamId} = ${t.id}
+        """
+          .map(implicit rs => JoinedMember(m.resultName, t.resultName)).list().apply()
+      }
+    }
+
+    it("Insert") {
+      DB.autoCommit { implicit s =>
+        // nullableな値はOptionが使える
+        // 日付・時刻は JavaSE8 の Date Time API もしくは Joda Time を使う
+        // (ScalikeJDBCのVersion3からは Date Time API を推奨)
+        val (name, organization, createdAt) = ("User", Some("Hoge Inc."), Instant.now())
+        sql"insert into users (name, organization, created_at) values ($name, $organization, $createdAt)".update().apply()
+      }
+    }
+
+    it("auto-increment な id を取得する") {
+      val (name, organization, createdAt) = ("User", None, Instant.now())
+      val id: Long = DB localTx { implicit s =>
+        // auto-increment である PK を扱うには updateAndReturnGeneratedKey を指定する
+        sql"insert into users (name, organization, created_at) values ($name, $organization, $createdAt)"
+          .updateAndReturnGeneratedKey().apply()
+      }
+    }
+
+    it("Update") {
+      // insert と変わらず update を指定する
+      val (id, newName) = (100L, "newUser!")
+      DB localTx { implicit s =>
+        sql"update users set name = $newName where id = $id".update().apply()
+      }
+    }
+
+    it("Delete") {
+      // insert, update と同様に update を指定する
+      val id = 100L
+      DB localTx { implicit s =>
+        sql"delete from users where id = $id".update().apply()
+      }
+    }
+
+    it("Batch") {
+      // バッチ処理には batch, batchByName を使用する
+      // バインド引数のリストを実行数分だけ一括で渡す
+      // ある程度大きな件数を更新する場合はこちらがおすすめ
+      val now = Instant.now()
+      val params1: Seq[Seq[Any]] = (1 to 100).map(i => Seq("user_" + i, now))
+      DB localTx { implicit s =>
+        // batch メソッドはJDBCのSQLテンプレートに対してSeq[Any]を実行数分渡すメソッド
+        SQL("insert into users (name, created_at) values(?, ?)").batch(params1: _*).apply()
+      }
+
+      val params2: Seq[Seq[(Symbol, Any)]] = (101 to 200).map(i => Seq('name -> ("user_" + i), 'createdAt -> now))
+      DB localTx { implicit s =>
+        // batchByName メソッドはJDBCのSQLテンプレート or 実行可能なSQLテンプレートに対してSeq[(Symbol, Any)]を実行数分渡すメソッド
+        SQL("insert into users (name, created_at) values({name}, {createdAt})").batchByName(params2: _*).apply()
       }
     }
   }
