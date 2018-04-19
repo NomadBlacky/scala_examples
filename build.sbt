@@ -24,7 +24,8 @@ lazy val commonSettings = Seq(
     "com.typesafe.play" %% "play-ahc-ws-standalone" % "1.1.6",
     "org.scalikejdbc" %% "scalikejdbc" % "3.2.2",
     "org.scalikejdbc" %% "scalikejdbc-test" % "3.2.2" % "test",
-    "com.h2database" % "h2" % "1.4.197"
+    "com.h2database" % "h2" % "1.4.197",
+    "ch.qos.logback" % "logback-classic" % "1.2.3"
   )
 )
 

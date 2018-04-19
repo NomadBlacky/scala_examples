@@ -424,4 +424,56 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     }
   }
 
+  describe("SQL ロギング") {
+
+    /**
+      * ScalikeJDBCでは、実行したSQLとそのレスポンスタイムをログ出力する機能がある。
+      * スタックトレースを併せて出力することで、どのクラスのどのメソッドから発行されたかも確認できる。
+      *
+      * デフォルトでは、DEBUGレベルですべてのSQLを出力、
+      * 一定以上の時間がかかったSQLはWARNレベルでログを出力するようになっている。
+      */
+
+    def insertMember(name: String, teamId: Long): Unit = DB.localTx { implicit s =>
+      sql"insert into members(name, team_id) values($name, $teamId)".update().apply()
+    }
+
+    it("コードでの設定") {
+      GlobalSettings.loggingSQLAndTime = LoggingSQLAndTimeSettings(
+        enabled = true,
+        logLevel = 'DEBUG,
+        warningEnabled = true,
+        warningThresholdMillis = 1000L,
+        warningLogLevel = 'WARN
+      )
+      insertMember("hoge", 111L)
+    }
+
+    it("SLF4Jの実装を設定") {
+      // src/test/resources/logback.xml
+      /*
+      <configuration>
+          <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+              <encoder>
+                  <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+              </encoder>
+          </appender>
+          <root level="info">
+              <appender-ref ref="STDOUT" />
+          </root>
+      </configuration>
+       */
+    }
+
+    it("シングルラインモード") {
+      // スタックトレースが不要な場合
+      GlobalSettings.loggingSQLAndTime = new LoggingSQLAndTimeSettings(
+        enabled = true,
+        singleLineMode = true,
+        logLevel = 'DEBUG
+      )
+      insertMember("foo", 222L)
+    }
+  }
+
 }
