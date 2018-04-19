@@ -189,6 +189,9 @@
 + [一般的な利用のサンプル例 Update](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L392)
 + [一般的な利用のサンプル例 Delete](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L400)
 + [一般的な利用のサンプル例 Batch](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L408)
++ [SQL ロギング コードでの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L441)
++ [SQL ロギング SLF4Jの実装を設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L452)
++ [SQL ロギング シングルラインモード](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L468)
 
 ## Scopt - コマンドライン引数を解析するライブラリ
 
