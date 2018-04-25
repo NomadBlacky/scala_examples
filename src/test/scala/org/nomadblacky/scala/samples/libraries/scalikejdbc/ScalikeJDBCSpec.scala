@@ -3,8 +3,9 @@ package org.nomadblacky.scala.samples.libraries.scalikejdbc
 import java.sql.SQLException
 import java.time.Instant
 
-import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FunSpec, Matchers}
+import org.scalatest._
 import scalikejdbc._
+import scalikejdbc.scalatest.AutoRollback
 
 import scala.util.Try
 
@@ -475,5 +476,4 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       insertMember("foo", 222L)
     }
   }
-
 }
