@@ -284,6 +284,18 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       }
     }
 
+    it("[Tips] SQLSyntaxSupportFeature#selectDynamic におけるカラム名展開の違い") {
+      case class Team(id: Long, name: String)
+      object Team extends SQLSyntaxSupport[Team] {
+        override def tableName: String = "teams"
+      }
+
+      val t = Team.syntax("t")
+      t.id            shouldBe sqls"t.id"           // カラム名
+      t.result.id     shouldBe sqls"t.id as i_on_t" // カラム名 as エイリアス
+      t.resultName.id shouldBe sqls"i_on_t"         // エイリアス
+    }
+
   }
 
   describe("一般的な利用のサンプル例") {
