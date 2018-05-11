@@ -6,6 +6,7 @@ import java.time.Instant
 import org.scalatest._
 import scalikejdbc._
 import scalikejdbc.scalatest.AutoRollback
+import skinny.orm.{ Alias, SkinnyCRUDMapper, SkinnyMapper }
 
 import scala.util.Try
 
@@ -486,6 +487,29 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
         logLevel = 'DEBUG
       )
       insertMember("foo", 222L)
+    }
+  }
+
+  describe("Skinny ORM") {
+    it("SkinnyCRUDMapper") {
+      case class Member(id: Long, name: String, teamId: Long)
+      object Member extends SkinnyCRUDMapper[Member] {
+        override def tableName: String = "members"
+        override lazy val defaultAlias: Alias[Member] = createAlias("m")
+        override def extract(rs: WrappedResultSet, n: scalikejdbc.ResultName[Member]): Member = autoConstruct(rs, n)
+      }
+
+      // Create
+      Member.createWithAttributes('name -> "hoge", 'teamId -> 100L)
+      // Read
+      Member.findById(123)
+      Member.where('name -> "hoge")
+      // Update
+      Member.updateById(123).withAttributes('name -> "foo")
+      Member.updateBy(sqls.eq(Member.column.name, "hoge")).withAttributes('name -> "foo")
+      // Delete
+      Member.deleteById(123)
+      Member.deleteBy(sqls.eq(Member.column.name, "hoge"))
     }
   }
 }

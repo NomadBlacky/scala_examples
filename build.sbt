@@ -26,6 +26,7 @@ lazy val commonSettings = Seq(
     "org.scalikejdbc" %% "scalikejdbc" % scalikejdbcVersion,
     "org.scalikejdbc" %% "scalikejdbc-config" % scalikejdbcVersion,
     "org.scalikejdbc" %% "scalikejdbc-test" % scalikejdbcVersion % "test",
+    "org.skinny-framework" %% "skinny-orm" % "2.6.0",
     "com.h2database" % "h2" % "1.4.197",
     "ch.qos.logback" % "logback-classic" % "1.2.3"
   )
