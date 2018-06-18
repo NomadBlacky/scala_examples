@@ -29,7 +29,12 @@ class TableOfContentsReporter() extends Reporter {
 
 
   override def apply(event: Event): Unit = event match {
-    case e:TestSucceeded => succeededTests += e
+    case e:TestSucceeded =>
+      succeededTests += e
+      println(s"${Console.GREEN}${e.testName}${Console.RESET}")
+    case e:TestFailed =>
+      println(s"${Console.RED}${e.testName}${Console.RESET}")
+      e.throwable.foreach(_.printStackTrace())
     case _:RunCompleted  => writeTableOfContents()
     case _ =>
   }
