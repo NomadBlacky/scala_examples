@@ -29,7 +29,9 @@ lazy val commonSettings = Seq(
     "org.skinny-framework" %% "skinny-orm" % "2.6.0",
     "com.h2database" % "h2" % "1.4.197",
     "ch.qos.logback" % "logback-classic" % "1.2.3"
-  )
+  ),
+  wartremoverWarnings ++= Warts.unsafe,
+  wartremoverWarnings -= Wart.NonUnitStatements
 )
 
 lazy val root = (project in file("."))
