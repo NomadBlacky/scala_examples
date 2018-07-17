@@ -1,15 +1,15 @@
 package org.nomadblacky.scala.samples.scala
 
-import org.scalatest.FunSpec
+import org.scalatest.{FunSpec, Matchers}
 
 import scala.concurrent._
-import scala.concurrent.duration.Duration
+import scala.concurrent.duration._
 import scala.util.{Failure, Success}
 
 /**
   * Created by blacky on 17/03/31.
   */
-class FutureSpec extends FunSpec {
+class FutureSpec extends FunSpec with Matchers {
 
   override def suiteName: String = "Futureの使い方"
 
@@ -112,5 +112,16 @@ class FutureSpec extends FunSpec {
       val result = Await.result(f2, Duration.Inf)
       assert(result == 1)
     }
+  }
+
+  it("sequence ... Seq[Future] を Future[Seq] に変換する") {
+    val futures1: Seq[Future[Int]] = Seq(Future.successful(1), Future.successful(2), Future.successful(3))
+    val resultF1: Future[Seq[Int]] = Future.sequence(futures1)
+    Await.result(resultF1, 1.seconds) shouldBe Seq(1, 2, 3)
+
+    // Failureが含まれる場合は失敗に寄せられる
+    val futures2: Seq[Future[Int]] = Seq(Future.successful(1), Future.failed(new RuntimeException), Future.successful(3))
+    val resultF2: Future[Seq[Int]] = Future.sequence(futures2)
+    a [RuntimeException] shouldBe thrownBy(Await.result(resultF2, 3.seconds))
   }
 }
