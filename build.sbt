@@ -8,8 +8,8 @@ lazy val commonSettings = Seq(
   version := "1.0",
   scalaVersion := "2.12.6",
   libraryDependencies ++= Seq(
-    "org.scalactic" %% "scalactic" % "3.0.0",
-    "org.scalatest" %% "scalatest" % "3.0.0" % "test",
+    "org.scalactic" %% "scalactic" % "3.0.5",
+    "org.scalatest" %% "scalatest" % "3.0.5" % "test",
     "org.scalacheck" %% "scalacheck" % "1.13.4" % "test",
     "com.github.scopt" %% "scopt" % "3.5.0",
     "org.pegdown" % "pegdown" % "1.6.0",
