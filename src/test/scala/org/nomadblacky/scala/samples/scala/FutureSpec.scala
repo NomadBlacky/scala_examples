@@ -55,7 +55,7 @@ class FutureSpec extends FunSpec with Matchers {
       "ok"
     }
     // Await.result でスレッドの終了を待機して結果を受け取る
-    val result = Await.result(f, Duration.Inf)
+    val result = Await.result(f, 3.seconds)
     assert(result == "ok")
 
     val f2: Future[String] = Future {
@@ -63,7 +63,7 @@ class FutureSpec extends FunSpec with Matchers {
       throw new RuntimeException()
     }
     // Futureの例外を受け取りたい場合は Await.ready で処理を終えてからFutureのメソッドで結果を受け取る
-    Await.ready(f2, Duration.Inf)
+    Await.ready(f2, 3.seconds)
     f2.value.get match {
       case Success(_) => fail()
       case Failure(ex) => assert(ex.isInstanceOf[RuntimeException])
@@ -82,7 +82,7 @@ class FutureSpec extends FunSpec with Matchers {
       case Success(result) => assert(result == "ok")
       case Failure(_) => fail()
     }
-    Await.ready(f, Duration.Inf)
+    Await.ready(f, 3.seconds)
   }
 
   it("map ... Futureの計算結果を処理するFutureを取得する") {
@@ -96,7 +96,7 @@ class FutureSpec extends FunSpec with Matchers {
             if (str == "ok") 1
             else 0
           }
-          val result = Await.result(f2, Duration.Inf)
+          val result = Await.result(f2, 3.seconds)
           assert(result == 1)
         case Failure(_) => fail()
       }
@@ -109,7 +109,7 @@ class FutureSpec extends FunSpec with Matchers {
         if (str == "ok") 1
         else fail()
       }
-      val result = Await.result(f2, Duration.Inf)
+      val result = Await.result(f2, 3.seconds)
       assert(result == 1)
     }
   }
