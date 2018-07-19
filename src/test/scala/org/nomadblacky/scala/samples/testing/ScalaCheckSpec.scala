@@ -41,9 +41,15 @@ class ScalaCheckSpec extends FunSpec with Matchers with GeneratorDrivenPropertyC
       age  <- Gen.choose(1, 100).suchThat(20 <= _)
     } yield User(name, age)
 
-    forAll(userGen) { u =>
-      u.isAdult shouldBe true
-    }
+    forAll(userGen)(_.isAdult shouldBe true)
+
+    // for式のガードでも同様
+    val userGen2 = for {
+      name <- Gen.alphaNumStr
+      age  <- Gen.choose(1, 100) if 20 <= age
+    } yield User(name, age)
+
+    forAll(userGen2)(_.isAdult shouldBe true)
   }
 
   it("Arbitrary ... forAllのimplicit parameterとして使う") {
