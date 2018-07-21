@@ -21,7 +21,7 @@ class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeA
     DBs.setupAll()
 
     DB.localTx { implicit s =>
-      sql"create table users2(id bigint primary key auto_increment, name varchar(50) not null, organization varchar(50))"
+      sql"create table if not exists users2(id bigint primary key auto_increment, name varchar(50) not null, organization varchar(50))"
         .update()
         .apply()
     }
