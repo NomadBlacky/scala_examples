@@ -11,17 +11,17 @@ class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeA
 
   object User {
     def create(name: String, organization: Option[String])(implicit session: DBSession): Unit =
-      sql"insert into users(name, organization) values($name, $organization)".update().apply()
+      sql"insert into users2(name, organization) values($name, $organization)".update().apply()
 
     def count()(implicit session: DBSession): Long =
-      sql"select count(1) from users".map(_.long(1)).single().apply().get
+      sql"select count(1) from users2".map(_.long(1)).single().apply().get
   }
 
   override protected def beforeAll(): Unit = {
     DBs.setupAll()
 
     DB.localTx { implicit s =>
-      sql"create table users(id bigint primary key auto_increment, name varchar(50) not null, organization varchar(50))"
+      sql"create table users2(id bigint primary key auto_increment, name varchar(50) not null, organization varchar(50))"
         .update()
         .apply()
     }
@@ -40,7 +40,7 @@ class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeA
       // DBs.setupAll() を呼ぶと、 application.conf を読み込んで接続情報を初期化する
       import scalikejdbc.config._
       DBs.setupAll()
-      DB.getAllTableNames() contains "users"
+      DB.getAllTableNames() contains "users2"
     }
 
     it("自動ロールバック") { implicit session =>
