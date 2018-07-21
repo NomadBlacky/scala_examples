@@ -72,3 +72,4 @@ fabric.properties
 .ensime_cache/
 target/
 tmp/
+sample.mv.db
