@@ -9,6 +9,8 @@ class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeA
 
   override def suiteName: String = "ScalikeJDBCでのユニットテスト"
 
+  override def db(): DB = NamedDB('sample1).toDB
+
   object User {
     def create(name: String, organization: Option[String])(implicit session: DBSession): Unit =
       sql"insert into users2(name, organization) values($name, $organization)".update().apply()
@@ -20,7 +22,7 @@ class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeA
   override protected def beforeAll(): Unit = {
     DBs.setupAll()
 
-    DB.localTx { implicit s =>
+    NamedDB('sample1).localTx { implicit s =>
       sql"create table if not exists users2(id bigint primary key auto_increment, name varchar(50) not null, organization varchar(50))"
         .update()
         .apply()
