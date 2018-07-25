@@ -169,6 +169,13 @@ class TraversableSpec extends FunSpec {
     assert(List("hoge", "foo", "bar").groupBy(_.length) == Map(3 -> List("foo", "bar"), 4 -> List("hoge")))
   }
 
+  it("grouped ... N件ごとにコレクションを分割する") {
+    val list = List(1, 2, 3, 4, 5)
+    assert(list.grouped(2).toList == List(List(1, 2), List(3, 4), List(5)))
+    assert(list.grouped(3).toList == List(List(1, 2, 3), List(4, 5)))
+    assertThrows[IllegalArgumentException](list.grouped(0))
+  }
+
   it("unzip ... 要素を2つのコレクションに分割する") {
     assert(List((1, "one"), (2, "two"), (3, "three")).unzip == (List(1, 2, 3), List("one", "two", "three")))
     assert(Map(1 -> "one", 2 -> "two", 3 -> "three").unzip == (List(1, 2, 3), List("one", "two", "three")))
