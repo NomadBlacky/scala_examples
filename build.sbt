@@ -4,43 +4,55 @@ val scalikejdbcVersion = "3.2.2"
 lazy val TableOfContents = config("tableOfContents").extend(Test)
 
 lazy val commonSettings = Seq(
-  name := "scala_samples",
-  version := "1.0",
   scalaVersion := "2.12.6",
-  libraryDependencies ++= Seq(
-    "org.scalactic" %% "scalactic" % "3.0.5",
-    "org.scalatest" %% "scalatest" % "3.0.5" % "test",
-    "org.scalacheck" %% "scalacheck" % "1.13.4" % "test",
-    "com.github.scopt" %% "scopt" % "3.5.0",
-    "org.pegdown" % "pegdown" % "1.6.0",
-    "org.scala-lang" % "scala-reflect" % scalaVersion.value,
-    "org.jfree" % "jfreechart" % "1.0.19",
-    "com.github.pathikrit" %% "better-files" % "2.17.1",
-    "org.scalaz" %% "scalaz-core" % scalazVersion,
-    "com.typesafe.akka" %% "akka-http-core" % "10.0.7",
-    "com.typesafe.akka" % "akka-stream_2.12" % "2.5.6",
-    "com.chuusai" %% "shapeless" % "2.3.2",
-    "org.typelevel" %% "cats-core" % "1.0.0-MF",
-    "com.lihaoyi" %% "ammonite-ops" % "1.0.3",
-    "com.typesafe.play" %% "play-ahc-ws-standalone" % "1.1.6",
-    "org.scalikejdbc" %% "scalikejdbc" % scalikejdbcVersion,
-    "org.scalikejdbc" %% "scalikejdbc-config" % scalikejdbcVersion,
-    "org.scalikejdbc" %% "scalikejdbc-test" % scalikejdbcVersion % "test",
-    "org.skinny-framework" %% "skinny-orm" % "2.6.0",
-    "com.h2database" % "h2" % "1.4.197",
-    "ch.qos.logback" % "logback-classic" % "1.2.3"
-  ),
   wartremoverWarnings ++= Warts.unsafe,
   wartremoverWarnings -= Wart.NonUnitStatements
 )
 
+lazy val reporter = (project in file("reporter"))
+  .settings(commonSettings)
+  .settings(
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % "3.0.5"
+    )
+  )
+
 lazy val root = (project in file("."))
+  .dependsOn(reporter)
   .settings(commonSettings)
   .configs(TableOfContents)
   .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
   .settings(
+    name := "scala_samples",
+    version := "1.0",
     TableOfContents / testOptions ++= Seq(
-      Tests.Argument(TestFrameworks.ScalaTest, "-C", "org.nomadblacky.scala.reporter.TableOfContentsReporter")
+      Tests.Argument(
+        TestFrameworks.ScalaTest,
+        "-C", "org.nomadblacky.scala.reporter.TableOfContentsReporter"
+      )
+    ),
+    libraryDependencies ++= Seq(
+      "org.scalactic" %% "scalactic" % "3.0.5",
+      "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+      "org.scalacheck" %% "scalacheck" % "1.13.4" % "test",
+      "com.github.scopt" %% "scopt" % "3.5.0",
+      "org.pegdown" % "pegdown" % "1.6.0",
+      "org.scala-lang" % "scala-reflect" % scalaVersion.value,
+      "org.jfree" % "jfreechart" % "1.0.19",
+      "com.github.pathikrit" %% "better-files" % "2.17.1",
+      "org.scalaz" %% "scalaz-core" % scalazVersion,
+      "com.typesafe.akka" %% "akka-http-core" % "10.0.7",
+      "com.typesafe.akka" % "akka-stream_2.12" % "2.5.6",
+      "com.chuusai" %% "shapeless" % "2.3.2",
+      "org.typelevel" %% "cats-core" % "1.0.0-MF",
+      "com.lihaoyi" %% "ammonite-ops" % "1.0.3",
+      "com.typesafe.play" %% "play-ahc-ws-standalone" % "1.1.6",
+      "org.scalikejdbc" %% "scalikejdbc" % scalikejdbcVersion,
+      "org.scalikejdbc" %% "scalikejdbc-config" % scalikejdbcVersion,
+      "org.scalikejdbc" %% "scalikejdbc-test" % scalikejdbcVersion % "test",
+      "org.skinny-framework" %% "skinny-orm" % "2.6.0",
+      "com.h2database" % "h2" % "1.4.197",
+      "ch.qos.logback" % "logback-classic" % "1.2.3"
     )
   )
 
