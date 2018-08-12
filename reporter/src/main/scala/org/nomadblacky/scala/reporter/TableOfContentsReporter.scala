@@ -39,16 +39,7 @@ class TableOfContentsReporter() extends Reporter {
     case _ =>
   }
 
-  // Refer to ... http://ym.hatenadiary.jp/entry/2015/04/02/163557
-  implicit class Using[T <: AutoCloseable](resource: T) {
-    def foreach[R](op: T => R): R = {
-      try op(resource)
-      catch { case e: Exception => throw e }
-      finally resource.close()
-    }
-  }
-
-  def getLineNumber(test: TestSucceeded, default: Int = 1): Int = test
+  private[reporter] def getLineNumber(test: TestSucceeded, default: Int = 1): Int = test
     .location
     .collect { case l:LineInFile => l.lineNumber }
     .getOrElse(default)
