@@ -95,6 +95,15 @@
 + [keySet ... キーのSetを返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L42)
 + [values ... 値をIterableで返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L47)
 
+## N01PatternMatching
+
++ [愚直に実装する](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L25)
++ [パターンマッチを使ってみる](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L45)
++ [collectを使う](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L71)
++ [PartialFunctionとは](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L81)
++ [標準ライブラリにおけるPartialFunctionの利用例 TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L112)
++ [標準ライブラリにおけるPartialFunctionの利用例 Try#recoverWith](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L130)
+
 ## Ninety-Nine Scala Problems
 
 + [P01 (*) Find the last element of a list.](src/test/scala/org/nomadblacky/scala/samples/s99/S99Spec.scala#L15)
