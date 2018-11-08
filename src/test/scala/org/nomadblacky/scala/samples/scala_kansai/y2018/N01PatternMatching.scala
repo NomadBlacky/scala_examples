@@ -98,6 +98,16 @@ class N01PatternMatching extends FunSpec with Matchers {
     pf.lift(1) shouldBe None
     pf.lift(2) shouldBe Some("even")
 
+    // タプルのリストに使う
+    val strings = List(("a", 1), ("b", 2), ("c", 3)).map { tuple =>
+      tuple._1 * tuple._2
+    }
+    val strings2 = List(("a", 1), ("b", 2), ("c", 3)).map {
+      case (str, times) => str * times
+    }
+    strings shouldBe List("a", "bb", "ccc")
+    strings shouldBe strings2
+
     def extractUserNameWithTop10Chars05(users: List[User]): List[String] = {
       users.flatMap {
         case User(Some(name), true) if 10 <= name.length => Some(name.take(10))

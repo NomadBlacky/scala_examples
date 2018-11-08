@@ -1,6 +1,7 @@
 package org.nomadblacky.scala.samples.scala_kansai.y2018
 
 import org.scalatest.{FunSpec, Matchers}
+import org.slf4j.Logger
 
 import scala.util.Try
 
@@ -86,11 +87,24 @@ class N02ForSyntax extends FunSpec with Matchers {
 
   describe("for式ベストプラクティス") {
 
-    def resolveAllUsers(): Try[Seq[User]] = ???
+    def resolveAllUsers(): Seq[User] = ???
+    def storeActiveUserName(names: Seq[String]) = ???
+    val logger: Logger = ???
 
     it("× ジェネレータに処理を詰め込む") {
-      for {
-      } yield
+      def ex1 = {
+        for {
+          activeUserNames <- Try {
+            resolveAllUsers().collect {
+              case User(Some(name), true) => name
+            }
+          }
+          _ <- Try {
+            logger.info("activeUserCount {}", activeUserNames.length)
+            storeActiveUserName(activeUserNames)
+          }
+        } yield ()
+      }
     }
 
     it("○ 内部関数やprivateメソッドに切り出す") {
