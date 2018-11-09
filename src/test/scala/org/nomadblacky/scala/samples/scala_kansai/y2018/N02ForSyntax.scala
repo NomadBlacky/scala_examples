@@ -2,9 +2,12 @@ package org.nomadblacky.scala.samples.scala_kansai.y2018
 
 import org.scalatest.{FunSpec, Matchers}
 
+import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Try
 
 class N02ForSyntax extends FunSpec with Matchers {
+
+  override def suiteName: String = "Readable Code in Scala ~ for式編"
 
   case class User(name: Option[String], isActive: Boolean)
 
@@ -84,25 +87,114 @@ class N02ForSyntax extends FunSpec with Matchers {
     }
   }
 
-  describe("for式ベストプラクティス") {
+  describe("本当にあった怖いfor式") {
 
-    def resolveAllUsers(): Try[Seq[User]] = ???
-
-    it("× ジェネレータに処理を詰め込む") {
-      for {
-      } yield
+    it("恐ろしく長いfor式") {
+      def とてもすごい処理: Try[Seq[String]] = {
+        for {
+          activeUsersGroupIds <- Try {
+            memberRepository.resolveAll().collect {
+              case Member(_, _, isActive, Some(groupId)) if isActive => groupId
+            }
+          }
+          activeGroupNames <- Try {
+            groupRepository.resolveIn(activeUsersGroupIds.toSet).collect {
+              case Group(_, name, isDeleted) if !isDeleted => name
+            }
+          }
+          // 100行近く続く …
+          すごい結果: Seq[String] = {
+            {
+              {
+                Seq(/* なにか */)
+              }
+            }
+          }
+        } yield すごい結果
+      }
     }
 
-    it("○ 内部関数やprivateメソッドに切り出す") {
+    case class Member(id: Long, name: String, isActive: Boolean, groupId: Option[Long])
+    case class Group(id: Long, name: String, isDeleted: Boolean)
 
+    object memberRepository {
+      def resolveAll(): Seq[Member] = ???
+    }
+    object groupRepository {
+      def resolveIn(ids: Set[Long]): Seq[Group] = ???
     }
 
-    it("処理の中断を例外で表現する") {
-
+    it("Bad Practice: ジェネレータに処理を詰め込む") {
+      def resolveActiveGroupNames: Try[Seq[String]] = {
+        for {
+          activeUsersGroupIds <- Try {
+            memberRepository.resolveAll().collect {
+              case Member(_, _, isActive, Some(groupId)) if isActive => groupId
+            }
+          }
+          activeGroupNames <- Try {
+            groupRepository.resolveIn(activeUsersGroupIds.toSet).collect {
+              case Group(_, name, isDeleted) if !isDeleted => name
+            }
+          }
+        } yield activeGroupNames
+      }
     }
 
-    it("") {
+    it("内部関数やprivateメソッドに切り出す") {
+      def resolveActiveGroupNames: Try[Seq[String]] = {
+        for {
+          members <- resolveAllMembers()
+          groupIds = extractGroupIdFromActiveMember(members)
+          groups <- resolveGroupsIn(groupIds)
+          activeGroupNames = extractNameFromExistsGroup(groups)
+        } yield activeGroupNames
+      }
 
+      def resolveAllMembers() =
+        Try(memberRepository.resolveAll())
+
+      def extractGroupIdFromActiveMember(members: Seq[Member]) = members.collect {
+        case Member(_, _, isActive, Some(groupId)) if isActive => groupId
+      }
+
+      def resolveGroupsIn(groupIds: Seq[Long]) = Try(groupRepository.resolveIn(groupIds.toSet))
+
+      def extractNameFromExistsGroup(groups: Seq[Group]) = groups.collect {
+        case Group(_, name, isDeleted) if !isDeleted => name
+      }
+    }
+
+    it("複数のfor式に書き換える") {
+      def resolveActiveGroupNames: Try[Seq[String]] = {
+        for {
+          groupIds <- resolveActiveGroupIds()
+          groupNames <- resolveExistsGroupNameIn(groupIds)
+        } yield groupNames
+      }
+
+      def resolveActiveGroupIds(): Try[Seq[Long]] = for {
+        members <- resolveAllMembers()
+        groupIds = extractGroupIdFromActiveMember(members)
+      } yield groupIds
+
+      def resolveExistsGroupNameIn(groupIds: Seq[Long]) = for {
+        groups <- resolveGroupsIn(groupIds)
+        activeGroupNames = extractNameFromExistsGroup(groups)
+      } yield activeGroupNames
+
+      def resolveAllMembers() =
+        Try(memberRepository.resolveAll())
+
+      def extractGroupIdFromActiveMember(members: Seq[Member]) = members.collect {
+        case Member(_, _, isActive, Some(groupId)) if isActive => groupId
+      }
+
+      def resolveGroupsIn(groupIds: Seq[Long]) = Try(groupRepository.resolveIn(groupIds.toSet))
+
+      def extractNameFromExistsGroup(groups: Seq[Group]) = groups.collect {
+        case Group(_, name, isDeleted) if !isDeleted => name
+      }
     }
   }
 }

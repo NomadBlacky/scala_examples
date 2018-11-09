@@ -8,6 +8,19 @@ import scala.util.{Failure, Success, Try}
 
 class N01PatternMatching extends FunSpec with Matchers {
 
+  override def suiteName: String = "Readable Code in Scala ~ パターンマッチ編"
+
+  it("match式おさらい") {
+    val anyObject: Any = "nanika"
+    anyObject match {
+      case 1 => "one"                      // 値のマッチング
+      case d: Double => d.toString         // 型のマッチング
+      case Some(x) => x.toString           // 構造のマッチング
+      case s: String if 5 <= s.length => s // パターンガード
+      case any => "Any"                    // 任意の値
+    }
+  }
+
   case class User(name: Option[String], isActive: Boolean)
 
   val userList = List(
@@ -59,9 +72,9 @@ class N01PatternMatching extends FunSpec with Matchers {
     def extractUserNameWithTop10Chars03(users: List[User]): List[String] = {
       users.flatMap { user =>
         user match {
-          case User(Some(name), true) if 10 <= name.length => Some(name.take(10))
-          case User(Some(name), true)                      => Some(name)
-          case _                                           => None
+          case User(Some(name), true) if 10 <= name.length => List(name.take(10))
+          case User(Some(name), true)                      => List(name)
+          case _                                           => Nil
         }
       }
     }
@@ -97,6 +110,16 @@ class N01PatternMatching extends FunSpec with Matchers {
     pf.lift(0) shouldBe Some("zero")
     pf.lift(1) shouldBe None
     pf.lift(2) shouldBe Some("even")
+
+    // タプルのリストに使う
+    val strings = List(("a", 1), ("b", 2), ("c", 3)).map { tuple =>
+      tuple._1 * tuple._2
+    }
+    val strings2 = List(("a", 1), ("b", 2), ("c", 3)).map {
+      case (str, times) => str * times
+    }
+    strings shouldBe List("a", "bb", "ccc")
+    strings shouldBe strings2
 
     def extractUserNameWithTop10Chars05(users: List[User]): List[String] = {
       users.flatMap {
