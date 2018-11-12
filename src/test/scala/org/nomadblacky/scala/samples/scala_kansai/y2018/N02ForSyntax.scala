@@ -2,7 +2,6 @@ package org.nomadblacky.scala.samples.scala_kansai.y2018
 
 import org.scalatest.{FunSpec, Matchers}
 
-import scala.concurrent.{ExecutionContext, Future}
 import scala.util.Try
 
 class N02ForSyntax extends FunSpec with Matchers {
@@ -55,8 +54,52 @@ class N02ForSyntax extends FunSpec with Matchers {
       // yield がないと foreach 展開となる
     }
 
+    it("mapの展開") {
+      for {
+        a <- List(1, 2, 3, 4, 5)
+      } yield a * 2
+
+      List(1, 2, 3, 4, 5).map(a => a * 2)
+    }
+
+    it("withFilterの展開") {
+      for {
+        a <- List(1, 2, 3, 4, 5) if a < 3
+      } yield a * 2
+
+      List(1, 2, 3, 4, 5)
+        .withFilter(a => a < 3)
+        .map(a => a * 2)
+    }
+
+    it("flatMapの展開") {
+      for {
+        a <- List(1, 2, 3) if a < 3
+        b <- List(4, 5, 6)
+      } yield a * b
+
+      List(1, 2, 3).withFilter(a => a < 3).flatMap { a =>
+        List(4, 5, 6).map { b =>
+          a * b
+        }
+      }
+    }
+
+    it("foreachの展開") {
+      for {
+        a <- List(1, 2, 3) if a < 3
+        b <- List(4, 5, 6)
+      } println(a * b)
+
+      List(1, 2, 3).withFilter(a => a < 3).foreach { a =>
+        List(4, 5, 6).foreach { b =>
+          println(a * b)
+        }
+      }
+    }
+
     it("for式を紐解いてみよう") {
-      // これを展開(desuger)するとどうなる?
+      // これを展開(desugar)するとどうなる?
       for {
         i1 <- Try(10 / 2) if 0 < i1
         i2 <- Try(10 / 0) if 1 < i2
@@ -103,14 +146,14 @@ class N02ForSyntax extends FunSpec with Matchers {
             }
           }
           // 100行近く続く …
-          すごい結果: Seq[String] = {
+          sugoiResult: Seq[String] = {
             {
               {
                 Seq(/* なにか */)
               }
             }
           }
-        } yield すごい結果
+        } yield sugoiResult
       }
     }
 

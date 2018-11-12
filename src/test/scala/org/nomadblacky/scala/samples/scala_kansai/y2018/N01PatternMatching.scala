@@ -27,15 +27,21 @@ class N01PatternMatching extends FunSpec with Matchers {
     User(Some("user1"), isActive = true),
     User(None, isActive = true),
     User(Some("user3"), isActive = false),
-    User(Some("tooooooooo long name user4"), isActive = true),
-    User(Some("tooooooooo long name user5"), isActive = false),
+    User(Some("user444444444444"), isActive = true),
+    User(Some("user555555555555"), isActive = false),
     User(None, isActive = false),
     User(Some("user7"), isActive = true)
   )
 
-  val expect = List("user1", "tooooooooo", "user7")
+  val expect = List("user1", "user4", "user7")
 
   it("愚直に実装する") {
+    /**
+      * + `List[User]` に対して
+      * + `isActive` が `true` のものだけを抜き出し
+      * + 名前が10文字以上の場合は最初の5文字だけを抜き出し
+      * + `List[String]` を返す
+      */
     def extractUserNameWithTop10Chars(users: List[User]): List[String] = {
       users
         .withFilter(u => u.isActive)
@@ -44,7 +50,7 @@ class N01PatternMatching extends FunSpec with Matchers {
           user match {
             case User(Some(name), _) =>
               if (10 <= name.length) {
-                name.take(10)
+                name.take(5)
               } else {
                 name
               }
@@ -62,7 +68,7 @@ class N01PatternMatching extends FunSpec with Matchers {
         .withFilter(u => u.name.isDefined)
         .map { user =>
           user match {
-            case User(Some(name), _) if 10 <= name.length => name.take(10)
+            case User(Some(name), _) if 10 <= name.length => name.take(5)
             case User(Some(name), _)                      => name
           }
         }
@@ -72,7 +78,7 @@ class N01PatternMatching extends FunSpec with Matchers {
     def extractUserNameWithTop10Chars03(users: List[User]): List[String] = {
       users.flatMap { user =>
         user match {
-          case User(Some(name), true) if 10 <= name.length => List(name.take(10))
+          case User(Some(name), true) if 10 <= name.length => List(name.take(5))
           case User(Some(name), true)                      => List(name)
           case _                                           => Nil
         }
@@ -84,7 +90,7 @@ class N01PatternMatching extends FunSpec with Matchers {
   it("collectを使う") {
     def extractUserNameWithTop10Chars04(users: List[User]): List[String] =
       users.collect {
-        case User(Some(name), true) if 10 <= name.length => name.take(10)
+        case User(Some(name), true) if 10 <= name.length => name.take(5)
         case User(Some(name), true)                      => name
       }
 
@@ -123,7 +129,7 @@ class N01PatternMatching extends FunSpec with Matchers {
 
     def extractUserNameWithTop10Chars05(users: List[User]): List[String] = {
       users.flatMap {
-        case User(Some(name), true) if 10 <= name.length => Some(name.take(10))
+        case User(Some(name), true) if 10 <= name.length => Some(name.take(5))
         case User(Some(name), true)                      => Some(name)
         case _                                           => None
       }
