@@ -14,8 +14,8 @@ class N02ForSyntax extends FunSpec with Matchers {
     User(Some("user1"), isActive = true),
     User(None, isActive = true),
     User(Some("user3"), isActive = false),
-    User(Some("tooooooooo long name user4"), isActive = true),
-    User(Some("tooooooooo long name user5"), isActive = false),
+    User(Some("user444444444444"), isActive = true),
+    User(Some("user555555555555"), isActive = false),
     User(None, isActive = false),
     User(Some("user7"), isActive = true)
   )
@@ -26,30 +26,30 @@ class N02ForSyntax extends FunSpec with Matchers {
 
       // これと
       def namePair(userName1: String, userName2: String): Option[(String, String)] =
-        findUser("user1").flatMap { user1 =>
+        findUser(userName1).flatMap { user1 =>
           user1.name.flatMap { user1Name =>
-            findUser("user2").flatMap { user2 =>
+            findUser(userName2).flatMap { user2 =>
               user2.name.withFilter(userName2 => 10 <= userName2.length).map { user2Name =>
-                (user1Name, user2Name)
+                (user1Name, user2Name.take(5))
               }
             }
           }
         }
 
       namePair("user1", "user2") shouldBe None
-      namePair("user1", "user3") shouldBe Some("user1 & user3")
+      namePair("user1", "user444444444444") shouldBe Some(("user1", "user4"))
 
       // これは同義
       def namePair2(userName1: String, userName2: String): Option[(String, String)] =
         for {
-          user1     <- findUser("user1")
+          user1     <- findUser(userName1)
           user1Name <- user1.name
-          user2     <- findUser("user2")
+          user2     <- findUser(userName2)
           user2Name <- user2.name if 10 <= userName2.length
-        } yield (user1Name, user2Name)
+        } yield (user1Name, user2Name.take(5))
 
       namePair2("user1", "user2") shouldBe None
-      namePair2("user1", "user3") shouldBe Some("user1 & user3")
+      namePair2("user1", "user444444444444") shouldBe Some(("user1", "user4"))
 
       // yield がないと foreach 展開となる
     }
