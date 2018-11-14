@@ -95,15 +95,6 @@
 + [keySet ... キーのSetを返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L42)
 + [values ... 値をIterableで返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L47)
 
-## N01PatternMatching
-
-+ [愚直に実装する](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L25)
-+ [パターンマッチを使ってみる](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L45)
-+ [collectを使う](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L71)
-+ [PartialFunctionとは](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L81)
-+ [標準ライブラリにおけるPartialFunctionの利用例 TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L112)
-+ [標準ライブラリにおけるPartialFunctionの利用例 Try#recoverWith](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L130)
-
 ## Ninety-Nine Scala Problems
 
 + [P01 (*) Find the last element of a list.](src/test/scala/org/nomadblacky/scala/samples/s99/S99Spec.scala#L15)
@@ -124,6 +115,29 @@
 
 + [基本的なHTTPアクセス](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L24)
 + [akka-streamsのSourceとして受け取る](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L33)
+
+## Readable Code in Scala ~ for式編
+
++ [for式のおさらい for式は withFilter,flatMap,map,foreach のシュガーシンタックス](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L24)
++ [for式のおさらい mapの展開](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L57)
++ [for式のおさらい withFilterの展開](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L65)
++ [for式のおさらい flatMapの展開](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L75)
++ [for式のおさらい foreachの展開](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L88)
++ [for式のおさらい for式を紐解いてみよう](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L101)
++ [本当にあった怖いfor式 恐ろしく長いfor式](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L135)
++ [本当にあった怖いfor式 Bad Practice: ジェネレータに処理を詰め込む](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L170)
++ [本当にあった怖いfor式 内部関数やprivateメソッドに切り出す](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L187)
++ [本当にあった怖いfor式 複数のfor式に書き換える](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N02ForSyntax.scala#L211)
+
+## Readable Code in Scala ~ パターンマッチ編
+
++ [match式おさらい](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L13)
++ [愚直に実装する](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L38)
++ [パターンマッチを使ってみる](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L64)
++ [collectを使う](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L90)
++ [PartialFunctionとは](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L100)
++ [標準ライブラリにおけるPartialFunctionの利用例 TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L141)
++ [標準ライブラリにおけるPartialFunctionの利用例 Try#recoverWith](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L159)
 
 ## ScalaCheckSpec
 
