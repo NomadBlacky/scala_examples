@@ -24,17 +24,17 @@
 
 ## Chapter06Spec
 
-+ [[EXERCISE 6.1] ランダムな 0~Int.MaxValue のIntを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L28)
-+ [[EXERCISE 6.2] ランダムな 0~1未満 のDoubleを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L32)
-+ [[EXERCISE 6.3] ランダムな値のタプルを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L36)
-+ [[EXERCISE 6.4] ランダムな整数のリストを作成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L59)
-+ [[EXERCISE 6.5] double関数の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L92)
-+ [[EXERCISE 6.6] mapの再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L107)
-+ [[EXERCISE 6.7] sequenceの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L117)
-+ [[EXERCISE 6.8] flatMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L164)
-+ [[EXERCISE 6.9] map,map2の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L177)
-+ [6.5 状態アクションデータ型の一般化 [EXERCISE 6.10] 関数の一般化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L240)
-+ [6.6 純粋関数型の命令型プログラミング [EXERCISE 6.11] 有限状態オートマトンの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L279)
++ [[EXERCISE 6.1] ランダムな 0~Int.MaxValue のIntを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L27)
++ [[EXERCISE 6.2] ランダムな 0~1未満 のDoubleを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L31)
++ [[EXERCISE 6.3] ランダムな値のタプルを生成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L35)
++ [[EXERCISE 6.4] ランダムな整数のリストを作成する関数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L60)
++ [[EXERCISE 6.5] double関数の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L94)
++ [[EXERCISE 6.6] mapの再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L109)
++ [[EXERCISE 6.7] sequenceの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L119)
++ [[EXERCISE 6.8] flatMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L166)
++ [[EXERCISE 6.9] map,map2の再実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L179)
++ [6.5 状態アクションデータ型の一般化 [EXERCISE 6.10] 関数の一般化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L245)
++ [6.6 純粋関数型の命令型プログラミング [EXERCISE 6.11] 有限状態オートマトンの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter06/Chapter06Spec.scala#L284)
 
 ## EffectiveScalaSpec
 
@@ -64,8 +64,8 @@
 
 ## JFreeChart - グラフを描画するJavaライブラリ
 
-+ [Part1 ... 円グラフを作成する](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L26)
-+ [Part2 ... ヒストグラム](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L37)
++ [Part1 ... 円グラフを作成する](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L25)
++ [Part2 ... ヒストグラム](src/test/scala/org/nomadblacky/scala/samples/libraries/jfreechart/JFreeChartSpec.scala#L35)
 
 ## JVM関連のあれこれ
 
@@ -92,8 +92,8 @@
 + [+ ... 指定したキーと値のペアを追加したMapを返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L26)
 + [- ... 指定したキーの要素を抜いたMapを返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L31)
 + [ミュータブルなMap](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L36)
-+ [keySet ... キーのSetを返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L42)
-+ [values ... 値をIterableで返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L47)
++ [keySet ... キーのSetを返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L43)
++ [values ... 値をIterableで返す](src/test/scala/org/nomadblacky/scala/samples/collections/MapSpec.scala#L48)
 
 ## Ninety-Nine Scala Problems
 
@@ -106,15 +106,15 @@
 + [Optionの基本](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L12)
 + [Optionから値を取り出す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L27)
 + [foreach ... Optionに値が含まれる場合のみに実行させる](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L46)
-+ [map ... 中身の値を関数に適用し値を変換する](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L56)
-+ [flatMap ... 中身の値を関数に適用し、SomeならSomeを、NoneならNoneを返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L64)
-+ [collect ... PartialFunctionを適用し、値が返る場合はその結果をSomeに包んで返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L74)
-+ [fold ... Noneなら初期値を、Someなら関数を適用した値を返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L96)
++ [map ... 中身の値を関数に適用し値を変換する](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L60)
++ [flatMap ... 中身の値を関数に適用し、SomeならSomeを、NoneならNoneを返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L68)
++ [collect ... PartialFunctionを適用し、値が返る場合はその結果をSomeに包んで返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L78)
++ [fold ... Noneなら初期値を、Someなら関数を適用した値を返す](src/test/scala/org/nomadblacky/scala/samples/exceptions/OptionSpec.scala#L100)
 
 ## Play WS ... Play製のHTTPクライアント
 
-+ [基本的なHTTPアクセス](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L24)
-+ [akka-streamsのSourceとして受け取る](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L33)
++ [基本的なHTTPアクセス](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L23)
++ [akka-streamsのSourceとして受け取る](src/test/scala/org/nomadblacky/scala/samples/play/ws/PlayWSSpec.scala#L32)
 
 ## Readable Code in Scala ~ for式編
 
@@ -133,11 +133,11 @@
 
 + [match式おさらい](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L13)
 + [愚直に実装する](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L38)
-+ [パターンマッチを使ってみる](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L64)
-+ [collectを使う](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L90)
-+ [PartialFunctionとは](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L100)
-+ [標準ライブラリにおけるPartialFunctionの利用例 TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L141)
-+ [標準ライブラリにおけるPartialFunctionの利用例 Try#recoverWith](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L159)
++ [パターンマッチを使ってみる](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L65)
++ [collectを使う](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L91)
++ [PartialFunctionとは](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L101)
++ [標準ライブラリにおけるPartialFunctionの利用例 TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L142)
++ [標準ライブラリにおけるPartialFunctionの利用例 Try#recoverWith](src/test/scala/org/nomadblacky/scala/samples/scala_kansai/y2018/N01PatternMatching.scala#L160)
 
 ## ScalaCheckSpec
 
@@ -192,36 +192,36 @@
 + [接続設定とコネクション コネクションプールの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L45)
 + [接続設定とコネクション 複数データソースへの接続](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L54)
 + [接続設定とコネクション その他オプションの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L68)
-+ [DBブロックとトランザクション readOnly ... select文のみ実行できる](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L83)
-+ [DBブロックとトランザクション autoCommit ... 更新毎にコミットを行う](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L96)
-+ [DBブロックとトランザクション localTx ... ブロックのスコープに閉じた同一トランザクションで実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L105)
-+ [DBブロックとトランザクション withTx ... すでに存在するトランザクション内で実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L124)
-+ [DBブロックとトランザクション AutoSession ... 有効なセッションがなければ自動的に新しいセッションを開始する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L146)
-+ [SQLテンプレート JDBCのSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L178)
-+ [SQLテンプレート 名前付きSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L183)
-+ [SQLテンプレート 実行可能なSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L191)
-+ [SQLテンプレート SQLインターポレーション](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L204)
-+ [SQLテンプレート SQLSyntax](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L211)
-+ [SQLテンプレート Seqの展開](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L221)
-+ [SQLテンプレート SQLSyntaxSupport](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L227)
-+ [SQLテンプレート QueryDSL](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L264)
-+ [SQLテンプレート [Tips] SQLSyntaxSupportFeature#selectDynamic におけるカラム名展開の違い](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L288)
-+ [一般的な利用のサンプル例 single ... Primary Key での検索](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L309)
-+ [一般的な利用のサンプル例 count文 & single ... 件数を取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L319)
-+ [一般的な利用のサンプル例 list ... 複数件取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L326)
-+ [一般的な利用のサンプル例 first ... 最初の１件のみ取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L332)
-+ [一般的な利用のサンプル例 foreach ... １行ずつ読み込む](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L338)
-+ [一般的な利用のサンプル例 in句 と SQLInterpolation](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L347)
-+ [一般的な利用のサンプル例 join クエリ](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L362)
-+ [一般的な利用のサンプル例 Insert](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L387)
-+ [一般的な利用のサンプル例 auto-increment な id を取得する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L397)
-+ [一般的な利用のサンプル例 Update](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L406)
-+ [一般的な利用のサンプル例 Delete](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L414)
-+ [一般的な利用のサンプル例 Batch](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L422)
-+ [SQL ロギング コードでの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L455)
-+ [SQL ロギング SLF4Jの実装を設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L466)
-+ [SQL ロギング シングルラインモード](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L482)
-+ [Skinny ORM SkinnyCRUDMapper](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L494)
++ [DBブロックとトランザクション readOnly ... select文のみ実行できる](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L86)
++ [DBブロックとトランザクション autoCommit ... 更新毎にコミットを行う](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L99)
++ [DBブロックとトランザクション localTx ... ブロックのスコープに閉じた同一トランザクションで実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L108)
++ [DBブロックとトランザクション withTx ... すでに存在するトランザクション内で実行する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L127)
++ [DBブロックとトランザクション AutoSession ... 有効なセッションがなければ自動的に新しいセッションを開始する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L150)
++ [SQLテンプレート JDBCのSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L182)
++ [SQLテンプレート 名前付きSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L187)
++ [SQLテンプレート 実行可能なSQLテンプレート](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L195)
++ [SQLテンプレート SQLインターポレーション](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L208)
++ [SQLテンプレート SQLSyntax](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L215)
++ [SQLテンプレート Seqの展開](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L225)
++ [SQLテンプレート SQLSyntaxSupport](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L231)
++ [SQLテンプレート QueryDSL](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L268)
++ [SQLテンプレート [Tips] SQLSyntaxSupportFeature#selectDynamic におけるカラム名展開の違い](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L293)
++ [一般的な利用のサンプル例 single ... Primary Key での検索](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L314)
++ [一般的な利用のサンプル例 count文 & single ... 件数を取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L324)
++ [一般的な利用のサンプル例 list ... 複数件取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L331)
++ [一般的な利用のサンプル例 first ... 最初の１件のみ取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L337)
++ [一般的な利用のサンプル例 foreach ... １行ずつ読み込む](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L343)
++ [一般的な利用のサンプル例 in句 と SQLInterpolation](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L352)
++ [一般的な利用のサンプル例 join クエリ](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L367)
++ [一般的な利用のサンプル例 Insert](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L394)
++ [一般的な利用のサンプル例 auto-increment な id を取得する](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L406)
++ [一般的な利用のサンプル例 Update](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L416)
++ [一般的な利用のサンプル例 Delete](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L424)
++ [一般的な利用のサンプル例 Batch](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L432)
++ [SQL ロギング コードでの設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L464)
++ [SQL ロギング SLF4Jの実装を設定](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L475)
++ [SQL ロギング シングルラインモード](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L491)
++ [Skinny ORM SkinnyCRUDMapper](src/test/scala/org/nomadblacky/scala/samples/libraries/scalikejdbc/ScalikeJDBCSpec.scala#L503)
 
 ## ScalikeJDBCでのユニットテスト
 
@@ -230,9 +230,9 @@
 
 ## Scopt - コマンドライン引数を解析するライブラリ
 
-+ [コマンドライン引数を解析する](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L40)
-+ [引数から日付を取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L49)
-+ [引数からファイルを取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L59)
++ [コマンドライン引数を解析する](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L45)
++ [引数から日付を取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L54)
++ [引数からファイルを取得](src/test/scala/org/nomadblacky/scala/samples/libraries/scopt/ScoptSpec.scala#L64)
 
 ## Set - 重複する要素を含まないコレクション
 
@@ -266,45 +266,45 @@
 + [init ... 最後以外の要素を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L36)
 + [tail ... 最初以外の要素を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L43)
 + [foldLeft ... 要素の先頭から畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L50)
-+ [foldRight ... 要素の最後から畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L62)
-+ [reduceLeft ... 最初の要素を初期値として畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L75)
-+ [reduceRight ... 最後の要素を初期値として畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L84)
-+ [foreach ... 戻り値なしで全ての要素を処理する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L94)
-+ [filter ... 条件に一致する要素のみを抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L102)
-+ [filter ... 条件に一致しない要素のみを抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L107)
-+ [drop ... 指定した数の要素を先頭から取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L112)
-+ [dropWhile ... 条件がfalseになるまで要素を取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L120)
-+ [take ... 指定した数の要素を先頭から取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L125)
-+ [takeWhile ... 条件がfalseになるまで要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L133)
-+ [map ... 要素に関数を適用して新しいコレクションを返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L138)
-+ [flatMap ... 要素に関数を適用して新しいコレクションを返しflattenする](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L142)
-+ [flatten ... 入れ子になったコレクションを1次元にする](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L146)
-+ [splitAt ... コレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L150)
-+ [slice ... コレクションの一部を抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L154)
-+ [partition ... 条件を満たす要素とそうでない要素に分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L158)
-+ [span ... 条件がfalseとなった要素を堺にコレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L163)
-+ [groupBy ... 関数の結果をキーとして要素をMapにして返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L168)
-+ [grouped ... N件ごとにコレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L172)
-+ [unzip ... 要素を2つのコレクションに分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L179)
-+ [unzip3 ... 要素を3つのコレクションに分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L184)
-+ [find ... 最初に条件を満たした要素をOptionで返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L188)
-+ [exists ... 条件を満たす要素があるか判定する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L194)
-+ [forall ... 全ての要素が条件を満たすか判定する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L199)
-+ [count ... 条件を満たす要素の個数を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L204)
-+ [size/length ... 要素の個数を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L209)
-+ [min ... 最小値を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L214)
-+ [max ... 最大値を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L219)
-+ [sum ... 合計値を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L224)
-+ [mkString ... コレクションから文字列を作る](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L230)
-+ [toArray ... コレクションをArrayに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L236)
-+ [toBuffer ... コレクションをBufferに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L242)
-+ [toIndexedSeq ... コレクションをIndexedSeqに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L246)
-+ [toList ... コレクションをListに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L250)
-+ [toStream ... コレクションをStreamに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L254)
-+ [par ... 並列コレクション(ParIterable)に変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L258)
-+ [view/force ... コレクションの操作を遅延評価させる(中間データを作らない)](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L262)
-+ [collect ... PartialFunctionを適用して要素を変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L266)
-+ [collectFirst ... PartialFunctionに最初に一致した値を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L277)
++ [foldRight ... 要素の最後から畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L64)
++ [reduceLeft ... 最初の要素を初期値として畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L79)
++ [reduceRight ... 最後の要素を初期値として畳み込みを行う](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L88)
++ [foreach ... 戻り値なしで全ての要素を処理する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L98)
++ [filter ... 条件に一致する要素のみを抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L106)
++ [filter ... 条件に一致しない要素のみを抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L111)
++ [drop ... 指定した数の要素を先頭から取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L116)
++ [dropWhile ... 条件がfalseになるまで要素を取り除く](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L124)
++ [take ... 指定した数の要素を先頭から取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L131)
++ [takeWhile ... 条件がfalseになるまで要素を取り出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L139)
++ [map ... 要素に関数を適用して新しいコレクションを返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L146)
++ [flatMap ... 要素に関数を適用して新しいコレクションを返しflattenする](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L150)
++ [flatten ... 入れ子になったコレクションを1次元にする](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L154)
++ [splitAt ... コレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L158)
++ [slice ... コレクションの一部を抜き出す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L162)
++ [partition ... 条件を満たす要素とそうでない要素に分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L166)
++ [span ... 条件がfalseとなった要素を堺にコレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L171)
++ [groupBy ... 関数の結果をキーとして要素をMapにして返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L176)
++ [grouped ... N件ごとにコレクションを分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L180)
++ [unzip ... 要素を2つのコレクションに分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L187)
++ [unzip3 ... 要素を3つのコレクションに分割する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L192)
++ [find ... 最初に条件を満たした要素をOptionで返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L202)
++ [exists ... 条件を満たす要素があるか判定する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L208)
++ [forall ... 全ての要素が条件を満たすか判定する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L213)
++ [count ... 条件を満たす要素の個数を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L218)
++ [size/length ... 要素の個数を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L223)
++ [min ... 最小値を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L228)
++ [max ... 最大値を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L233)
++ [sum ... 合計値を返す](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L238)
++ [mkString ... コレクションから文字列を作る](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L244)
++ [toArray ... コレクションをArrayに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L250)
++ [toBuffer ... コレクションをBufferに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L256)
++ [toIndexedSeq ... コレクションをIndexedSeqに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L260)
++ [toList ... コレクションをListに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L264)
++ [toStream ... コレクションをStreamに変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L268)
++ [par ... 並列コレクション(ParIterable)に変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L272)
++ [view/force ... コレクションの操作を遅延評価させる(中間データを作らない)](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L276)
++ [collect ... PartialFunctionを適用して要素を変換する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L280)
++ [collectFirst ... PartialFunctionに最初に一致した値を取得する](src/test/scala/org/nomadblacky/scala/samples/collections/TraversableSpec.scala#L291)
 
 ## Tuple - 任意の複数の値を保持するクラス
 
@@ -340,10 +340,10 @@
 
 ## [FP in Scala] 第10章 モノイド
 
-+ [[EXERCISE 10.1] 整数の加算、乗算、論理演算子に対するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L37)
-+ [[EXERCISE 10.2] Option型の値を結合するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L73)
-+ [[EXERCISE 10.3] endo関数のモノイド](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L104)
-+ [[EXERCISE 10.4] foldMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L118)
++ [[EXERCISE 10.1] 整数の加算、乗算、論理演算子に対するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L36)
++ [[EXERCISE 10.2] Option型の値を結合するMonoidインスタンス](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L88)
++ [[EXERCISE 10.3] endo関数のモノイド](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L127)
++ [[EXERCISE 10.4] foldMapの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter10/Chapter10Spec.scala#L141)
 
 ## [FP in Scala] 第11章 モナド
 
@@ -352,11 +352,11 @@
 ## [FP in Scala] 第2章 Scala関数型プログラミングの準備
 
 + [[EXERCISE 2.1] フィボナッチ数](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L16)
-+ [[EXERCISE 2.1] フィボナッチ数(Stream)](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L31)
-+ [[EXERCISE 2.2] isSortedの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L39)
-+ [[EXERCISE 2.3] カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L56)
-+ [[EXERCISE 2.4] 逆カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L70)
-+ [[EXERCISE 2.5] 関数の合成](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L84)
++ [[EXERCISE 2.1] フィボナッチ数(Stream)](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L32)
++ [[EXERCISE 2.2] isSortedの実装](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L41)
++ [[EXERCISE 2.3] カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L58)
++ [[EXERCISE 2.4] 逆カリー化](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L72)
++ [[EXERCISE 2.5] 関数の合成](src/test/scala/org/nomadblacky/scala/samples/functional/programming/in/scala/chapter02/Chapter02Spec.scala#L86)
 
 ## [FP in Scala] 第3章 関数型プログラミングのデータ構造
 
@@ -392,31 +392,31 @@
 + [Monoidを使ってsumを書き直す](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaImplicitSpec.scala#L37)
 + [implicit parameterの導入](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaImplicitSpec.scala#L58)
 + [implicit parameterの仕組み](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaImplicitSpec.scala#L80)
-+ [Scala標準ライブラリにおけるimplicit parameterの例](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaImplicitSpec.scala#L89)
++ [Scala標準ライブラリにおけるimplicit parameterの例](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaImplicitSpec.scala#L90)
 
 ## [勉強会] Understanding Scala - Scalaの型システムを学ぶ
 
 + [Any あらゆる型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L19)
-+ [AnyVal: あらゆる値型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L31)
-+ [AnyRef: あらゆる参照型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L46)
-+ [Nothing: あらゆる型のサブタイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L58)
-+ [Null](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L71)
-+ [ジェネリクス](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L82)
-+ [共変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L93)
-+ [反変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L127)
-+ [構造的部分型](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L163)
-+ [高階多相](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L187)
++ [AnyVal: あらゆる値型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L32)
++ [AnyRef: あらゆる参照型のスーパータイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L48)
++ [Nothing: あらゆる型のサブタイプ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L61)
++ [Null](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L75)
++ [ジェネリクス](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L87)
++ [共変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L99)
++ [反変](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L132)
++ [構造的部分型](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L173)
++ [高階多相](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTypeSpec.scala#L199)
 
 ## [勉強会] Understanding Scala - Scalaの実行時の挙動を学ぶ
 
 + [メソッド呼び出し式](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L18)
-+ [while式](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L28)
-+ [if式](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L39)
-+ [for式(1)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L49)
-+ [for式(2)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L64)
-+ [for式(3)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L73)
-+ [for式(4)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L83)
-+ [match式](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L96)
++ [while式](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L29)
++ [if式](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L41)
++ [for式(1)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L52)
++ [for式(2)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L71)
++ [for式(3)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L83)
++ [for式(4)](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L96)
++ [match式](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaFormulaSpec.scala#L110)
 
 ## [勉強会] Understanding Scala - Scalaの落とし穴を学ぶ
 
@@ -424,14 +424,14 @@
 + [変更可能コレクションの変更しない操作を呼び出してしまう](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L34)
 + [配列同士の==](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L40)
 + [誤ったFutureの使い方](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L50)
-+ [意図しない結果のパターンマッチ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L61)
-+ [誤った正規表現のパターンマッチ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L65)
-+ [既存の型同士のimplicit conversionは使わない](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L69)
-+ [改行とブロックの組み合わせに注意](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L80)
-+ [Javaのメソッドの返り値に注意](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L84)
-+ [Set#mapの罠](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L90)
-+ [インナークラスのインスタンス](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L97)
-+ [アンダースコア七変化](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L106)
++ [意図しない結果のパターンマッチ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L67)
++ [誤った正規表現のパターンマッチ](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L71)
++ [既存の型同士のimplicit conversionは使わない](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L75)
++ [改行とブロックの組み合わせに注意](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L86)
++ [Javaのメソッドの返り値に注意](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L90)
++ [Set#mapの罠](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L96)
++ [インナークラスのインスタンス](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L103)
++ [アンダースコア七変化](src/test/scala/org/nomadblacky/scala/samples/event/understanding_scala/UnderstandingScalaTrapSpec.scala#L112)
 
 ## for式 (for内包表記)
 
@@ -440,12 +440,12 @@
 + [yield ... forの結果を新しいコレクションとして返す](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L33)
 + [for式のforeach展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L38)
 + [for式のmap展開](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L53)
-+ [ジェネレータが1個のときの変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L71)
-+ [1個のジェネレータと1個のフィルターで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L77)
-+ [2個のジェネレータで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L85)
-+ [ジェネレータに含まれるパターンの変換 - タプルの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L93)
-+ [ジェネレータに含まれるパターンの変換 - その他パターンの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L99)
-+ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L111)
++ [ジェネレータが1個のときの変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L70)
++ [1個のジェネレータと1個のフィルターで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L76)
++ [2個のジェネレータで始まるfor式の変換](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L84)
++ [ジェネレータに含まれるパターンの変換 - タプルの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L95)
++ [ジェネレータに含まれるパターンの変換 - その他パターンの場合](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L101)
++ [[Sample] 2つのコレクションを同じ順序で取り出して処理する](src/test/scala/org/nomadblacky/scala/samples/scala/ForSpec.scala#L113)
 
 ## match式とパターンマッチング
 
@@ -481,8 +481,8 @@
 + [電話番号のパース](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L19)
 + [パースのエラーハンドリング](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L30)
 + [詳細なエラー内容を取得する](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L51)
-+ [パース内容を変換する](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L67)
-+ [四則演算のパース](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L87)
++ [パース内容を変換する](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L68)
++ [四則演算のパース](src/test/scala/org/nomadblacky/scala/samples/parsercombinator/ParserCombinatorSpec.scala#L90)
 
 ## 例外処理
 
@@ -491,8 +491,8 @@
 ## 型クラスの使い方
 
 + [型クラスとは](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L26)
-+ [型クラスの例](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L43)
-+ [Orderedを使った実装例](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L65)
++ [型クラスの例](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L44)
++ [Orderedを使った実装例](src/test/scala/org/nomadblacky/scala/samples/scala/TypeClassSpec.scala#L66)
 
 ## 文字列の補間 (String Interpolation)
 
@@ -506,11 +506,11 @@
 + [00. 文字列の逆順](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L19)
 + [01. 「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L24)
 + [02. 「パトカー」＋「タクシー」＝「パタトクカシーー」](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L53)
-+ [03. 円周率](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L117)
-+ [04. 元素記号](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L162)
-+ [07. テンプレートによる文生成](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L212)
-+ [08. 暗号文](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L231)
-+ [09. Typoglycemia](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L273)
++ [03. 円周率](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L119)
++ [04. 元素記号](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L164)
++ [07. テンプレートによる文生成](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L234)
++ [08. 暗号文](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L254)
++ [09. Typoglycemia](src/test/scala/org/nomadblacky/scala/samples/nlp100/Chapter01Spec.scala#L300)
 
 ## 遅延評価
 
@@ -528,8 +528,8 @@
 + [lift ... 関数の結果をOptionで返す関数に変換する](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L128)
 + [applyOrElse ... 引数がマッチすればその結果を返し、マッチしなければデフォルト値を返す](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L139)
 + [[Usage] ふつうの関数(全域関数)の代わりに使う](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L151)
-+ [[Usage] TraversableLike#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L165)
-+ [[Usage] TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L176)
-+ [[Usage] Try#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L185)
-+ [ListはPartialFunction[Int,A]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L195)
-+ [MapはPartialFunction[K,V]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L205)
++ [[Usage] TraversableLike#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L167)
++ [[Usage] TraversableOnce#collectFirst](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L178)
++ [[Usage] Try#collect](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L187)
++ [ListはPartialFunction[Int,A]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L197)
++ [MapはPartialFunction[K,V]をmix-inしている](src/test/scala/org/nomadblacky/scala/samples/scala/PartialFunctionSpec.scala#L207)
