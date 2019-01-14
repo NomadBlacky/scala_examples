@@ -1,8 +1,8 @@
 package org.nomadblacky.scala.samples.libraries.jfreechart
 
 import better.files.File
-import org.jfree.chart.{ChartFactory, ChartUtilities, JFreeChart}
 import org.jfree.chart.plot.{PiePlot, PlotOrientation}
+import org.jfree.chart.{ChartFactory, ChartUtils, JFreeChart}
 import org.jfree.data.general.DefaultPieDataset
 import org.jfree.data.statistics.HistogramDataset
 import org.scalatest.{BeforeAndAfter, FunSpec}
@@ -29,7 +29,7 @@ class JFreeChartSpec extends FunSpec with BeforeAndAfter {
     val chart: JFreeChart = new JFreeChart("sample", new PiePlot(dataSet))
     val file              = File(ResultDir + "part1.png")
 
-    ChartUtilities.saveChartAsJPEG(file.toJava, chart, 300, 300)
+    ChartUtils.saveChartAsJPEG(file.toJava, chart, 300, 300)
   }
 
   it("Part2 ... ヒストグラム") {
@@ -57,6 +57,6 @@ class JFreeChartSpec extends FunSpec with BeforeAndAfter {
     )
     val file = File(ResultDir + "part2.png")
 
-    ChartUtilities.saveChartAsJPEG(file.toJava, chart, 300, 300)
+    ChartUtils.saveChartAsJPEG(file.toJava, chart, 300, 300)
   }
 }
