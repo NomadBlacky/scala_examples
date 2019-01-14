@@ -107,7 +107,7 @@ class FunctionSpec extends FunSpec {
     // Reference: http://tkawachi.github.io/blog/2014/11/26/1/
 
     // _ を使って明示的に変換する必要がある
-    val l = (f(_)) compose g
+    val l = f _ compose g
     assert(l(10)(20) == 40)
 
     // 翻訳
