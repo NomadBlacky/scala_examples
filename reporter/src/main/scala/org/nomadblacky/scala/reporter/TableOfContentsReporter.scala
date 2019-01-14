@@ -20,12 +20,10 @@ class TableOfContentsReporter() extends Reporter {
 
   val header = "# Table of Contents\n"
 
-  lazy val filePathRegex: Regex = {
+  lazy val relativeFilePathRegex: Regex = {
     val currentDir = Paths.get(".").toAbsolutePath.getParent
-    s"$currentDir/(.+)".r("more")
+    s"$currentDir/(.+)".r
   }
-
-  class MMultiMap[K, V] extends mutable.LinkedHashMap[K, mutable.Set[V]] with mutable.MultiMap[K, V]
 
   override def apply(event: Event): Unit = event match {
     case e: TestSucceeded =>
@@ -45,9 +43,7 @@ class TableOfContentsReporter() extends Reporter {
 
   private def writeTableOfContents(): Unit = {
     val sortedSuites = succeededTests
-      .foldLeft(new MMultiMap[String, TestSucceeded]) { (map, e) =>
-        map.addBinding(e.suiteName, e)
-      }
+      .groupBy(_.suiteName)
       .toSeq
       .sortBy(_._1)
 
@@ -66,10 +62,13 @@ class TableOfContentsReporter() extends Reporter {
   }
 
   private def getTestDetailLine(test: TestSucceeded): String = {
-    val githubRelativeUrl: Option[String] = test.location
-      .collect { case l: LineInFile => l.filePathname }
-      .flatMap(_.map(Paths.get(_).toString))
-      .collect { case filePathRegex(more) => more }
+    val githubRelativeUrl = for {
+      location         <- test.location.collect { case l: LineInFile => l }
+      filePathname     <- location.filePathname
+      absolutePathName = Paths.get(filePathname).toAbsolutePath.toString
+      matchGroups      <- relativeFilePathRegex.unapplySeq(absolutePathName)
+      relativeFilePath <- matchGroups.headOption
+    } yield relativeFilePath
 
     githubRelativeUrl match {
       case Some(url) => s"+ [${test.testName}]($url#L${getLineNumber(test)})"
