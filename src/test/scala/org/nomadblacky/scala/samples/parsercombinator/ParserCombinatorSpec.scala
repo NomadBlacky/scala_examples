@@ -43,7 +43,7 @@ class ParserCombinatorSpec extends FunSpec {
     }
     PhoneNumberParser("01278903456") match {
       case Left(errorMsg) =>
-        assert(errorMsg == "`-' expected but `7' found")
+        assert(errorMsg == "'-' expected but '7' found")
       case _ => fail()
     }
   }
@@ -60,7 +60,7 @@ class ParserCombinatorSpec extends FunSpec {
     }
     PhoneNumberParser("01278903456") match {
       case Left(errorMsg) =>
-        assert(errorMsg == "`-' expected but `7' found on line 1 on column 4")
+        assert(errorMsg == "'-' expected but '7' found on line 1 on column 4")
       case _ => fail()
     }
   }
