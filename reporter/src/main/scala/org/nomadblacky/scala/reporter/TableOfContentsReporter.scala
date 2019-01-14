@@ -15,7 +15,7 @@ import scala.util.matching.Regex
   */
 class TableOfContentsReporter() extends Reporter {
 
-  val markdownFilePath: Path = Paths.get("README.md")
+  val markdownFilePath: Path                    = Paths.get("README.md")
   val succeededTests: ListBuffer[TestSucceeded] = ListBuffer[TestSucceeded]()
 
   val header = "# Table of Contents\n"
@@ -25,39 +25,40 @@ class TableOfContentsReporter() extends Reporter {
     s"$currentDir/(.+)".r("more")
   }
 
-  class MMultiMap[K,V] extends mutable.LinkedHashMap[K,mutable.Set[V]] with mutable.MultiMap[K,V]
-
+  class MMultiMap[K, V] extends mutable.LinkedHashMap[K, mutable.Set[V]] with mutable.MultiMap[K, V]
 
   override def apply(event: Event): Unit = event match {
-    case e:TestSucceeded =>
+    case e: TestSucceeded =>
       succeededTests += e
       println(s"${Console.GREEN}${e.testName}${Console.RESET}")
-    case e:TestFailed =>
+    case e: TestFailed =>
       println(s"${Console.RED}${e.testName}${Console.RESET}")
       e.throwable.foreach(_.printStackTrace())
-    case _:RunCompleted  => writeTableOfContents()
-    case _ =>
+    case _: RunCompleted => writeTableOfContents()
+    case _               =>
   }
 
-  private[reporter] def getLineNumber(test: TestSucceeded, default: Int = 1): Int = test
-    .location
-    .collect { case l:LineInFile => l.lineNumber }
-    .getOrElse(default)
+  private[reporter] def getLineNumber(test: TestSucceeded, default: Int = 1): Int =
+    test.location
+      .collect { case l: LineInFile => l.lineNumber }
+      .getOrElse(default)
 
   private def writeTableOfContents(): Unit = {
     val sortedSuites = succeededTests
-      .foldLeft(new MMultiMap[String, TestSucceeded]) { (map, e) => map.addBinding(e.suiteName, e) }
+      .foldLeft(new MMultiMap[String, TestSucceeded]) { (map, e) =>
+        map.addBinding(e.suiteName, e)
+      }
       .toSeq
       .sortBy(_._1)
 
     val markdownLines: Seq[String] = sortedSuites
-        .flatMap { case (suiteName, tests) =>
-          val testLines = tests
-            .toList
+      .flatMap {
+        case (suiteName, tests) =>
+          val testLines = tests.toList
             .sortBy(getLineNumber(_, Int.MaxValue))
             .map(getTestDetailLine)
           Seq("", s"## $suiteName", "") ++ testLines
-        }
+      }
 
     for (pw <- new PrintWriter(markdownFilePath.toFile)) {
       header +: markdownLines foreach pw.println
@@ -65,15 +66,14 @@ class TableOfContentsReporter() extends Reporter {
   }
 
   private def getTestDetailLine(test: TestSucceeded): String = {
-    val githubRelativeUrl: Option[String] = test
-      .location
-      .collect { case l:LineInFile => l.filePathname }
+    val githubRelativeUrl: Option[String] = test.location
+      .collect { case l: LineInFile => l.filePathname }
       .flatMap(_.map(Paths.get(_).toString))
       .collect { case filePathRegex(more) => more }
 
     githubRelativeUrl match {
       case Some(url) => s"+ [${test.testName}]($url#L${getLineNumber(test)})"
-      case None => s"+ ${test.testName}"
+      case None      => s"+ ${test.testName}"
     }
   }
 }

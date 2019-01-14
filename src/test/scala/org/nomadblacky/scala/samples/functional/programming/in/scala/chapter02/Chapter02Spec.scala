@@ -23,39 +23,41 @@ class Chapter02Spec extends FunSpec {
       go(0, n, 0, 1)
     }
 
-    List(0, 1, 1, 2, 3, 5, 8, 13, 21).zipWithIndex.foreach { case(actual, index) =>
-      assert(fib(index) == actual)
+    List(0, 1, 1, 2, 3, 5, 8, 13, 21).zipWithIndex.foreach {
+      case (actual, index) =>
+        assert(fib(index) == actual)
     }
   }
 
   it("[EXERCISE 2.1] フィボナッチ数(Stream)") {
     def fibStream(a: Int, b: Int): Stream[Int] = a #:: fibStream(b, a + b)
 
-    List(0, 1, 1, 2, 3, 5, 8, 13, 21).zipWithIndex.foreach { case(actual, index) =>
-      assert(fibStream(0, 1)(index) == actual)
+    List(0, 1, 1, 2, 3, 5, 8, 13, 21).zipWithIndex.foreach {
+      case (actual, index) =>
+        assert(fibStream(0, 1)(index) == actual)
     }
   }
 
   it("[EXERCISE 2.2] isSortedの実装") {
-    def isSorted[A](as: Array[A], ordered: (A,A) => Boolean): Boolean = {
+    def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
       @annotation.tailrec
       def compare(i: Int): Boolean = {
         if (as.length <= i + 1) true
-        else if (ordered(as(i),as(i + 1))) compare(i + 1)
+        else if (ordered(as(i), as(i + 1))) compare(i + 1)
         else false
       }
       compare(0)
     }
 
-    assert(isSorted(Array(1, 2, 3), (a:Int, b:Int) => a <= b) == true)
-    assert(isSorted(Array(1, 3, 2), (a:Int, b:Int) => a <= b) == false)
-    assert(isSorted(Array("a", "bb", "ccc"), (a:String, b:String) => a.length <= b.length) == true)
-    assert(isSorted(Array("aa", "bbb", "c"), (a:String, b:String) => a.length <= b.length) == false)
+    assert(isSorted(Array(1, 2, 3), (a: Int, b: Int) => a <= b) == true)
+    assert(isSorted(Array(1, 3, 2), (a: Int, b: Int) => a <= b) == false)
+    assert(isSorted(Array("a", "bb", "ccc"), (a: String, b: String) => a.length <= b.length) == true)
+    assert(isSorted(Array("aa", "bbb", "c"), (a: String, b: String) => a.length <= b.length) == false)
   }
 
   it("[EXERCISE 2.3] カリー化") {
-    def curry[A,B,C](f: (A, B) => C): A => (B => C) = {
-      (a: A) => (b: B) => f(a, b)
+    def curry[A, B, C](f: (A, B) => C): A => (B => C) = { (a: A) => (b: B) =>
+      f(a, b)
     }
 
     val f1: (Int, Int) => String = (a: Int, b: Int) => (a + b).toString
@@ -68,8 +70,8 @@ class Chapter02Spec extends FunSpec {
   }
 
   it("[EXERCISE 2.4] 逆カリー化") {
-    def uncurry[A,B,C](f: A => B => C): (A, B) => C = {
-      (a: A, b: B) => f(a)(b)
+    def uncurry[A, B, C](f: A => B => C): (A, B) => C = { (a: A, b: B) =>
+      f(a)(b)
     }
 
     val f1: (Int) => (Int) => String = (a: Int) => (b: Int) => (a + b).toString
@@ -82,12 +84,12 @@ class Chapter02Spec extends FunSpec {
   }
 
   it("[EXERCISE 2.5] 関数の合成") {
-    def compose[A,B,C](f: B => C, g: A => B): A => C = {
-      (a: A) => f(g(a))
+    def compose[A, B, C](f: B => C, g: A => B): A => C = { (a: A) =>
+      f(g(a))
     }
 
     val f1: (Int) => String = (b: Int) => b.toString
-    val f2: (Int) => Int = (a: Int) => a + 10
+    val f2: (Int) => Int    = (a: Int) => a + 10
     assert(f1(f2(1)) == "11")
     assert(compose(f1, f2)(1) == "11")
     assert(f1.compose(f2)(1) == "11")

@@ -13,10 +13,10 @@ class OptionSpec extends FunSpec with Matchers {
     // Option[+A] ... 値が存在しない可能性があることを表すクラス
 
     // Some の場合は値が存在し、
-    val o1:Option[Int] = Some(1)
+    val o1: Option[Int] = Some(1)
 
     // None の場合は値が存在しない
-    val o2:Option[Int] = None
+    val o2: Option[Int] = None
 
     o1.get shouldBe 1
 
@@ -31,11 +31,11 @@ class OptionSpec extends FunSpec with Matchers {
     // 主にmatch式や、
     o1 match {
       case Some(i) => i shouldBe 1
-      case _ => fail()
+      case _       => fail()
     }
     o2 match {
       case None =>
-      case _ => fail()
+      case _    => fail()
     }
 
     // getOrElseを使う
@@ -49,8 +49,12 @@ class OptionSpec extends FunSpec with Matchers {
 
     // foreach を使うと、Someの場合のみに実行させるといったことができる
     // 要素数1のリストとイメージすると foreach という命名がわかりやすい
-    o1 foreach { i => i shouldBe 1 }
-    o2 foreach { _ => fail() }
+    o1 foreach { i =>
+      i shouldBe 1
+    }
+    o2 foreach { _ =>
+      fail()
+    }
   }
 
   it("map ... 中身の値を関数に適用し値を変換する") {
@@ -66,21 +70,21 @@ class OptionSpec extends FunSpec with Matchers {
     val o2: Option[Int] = None
 
     o1.flatMap(i => Some(i + 10)) shouldBe Some(11)
-    o1.flatMap(_ => None)         shouldBe None
+    o1.flatMap(_ => None) shouldBe None
     o2.flatMap(i => Some(i + 10)) shouldBe None
-    o2.flatMap(_ => None)         shouldBe None
+    o2.flatMap(_ => None) shouldBe None
   }
 
   it("collect ... PartialFunctionを適用し、値が返る場合はその結果をSomeに包んで返す") {
-    val o1: Option[Int] = Some(1)
-    val o2: Option[Int] = Some(2)
+    val o1: Option[Int]   = Some(1)
+    val o2: Option[Int]   = Some(2)
     val none: Option[Int] = None
 
     val pf: PartialFunction[Int, String] = {
       case 1 => "one"
     }
-    o1.collect(pf)   shouldBe Some("one")
-    o2.collect(pf)   shouldBe None
+    o1.collect(pf) shouldBe Some("one")
+    o2.collect(pf) shouldBe None
     none.collect(pf) shouldBe None
 
     // Someを返す関数を渡すflatMapはcollectで簡略化できる
@@ -88,8 +92,8 @@ class OptionSpec extends FunSpec with Matchers {
       case 1 => Some("one")
       case _ => None
     }
-    o1.flatMap(pf2)   shouldBe Some("one")
-    o2.flatMap(pf2)   shouldBe None
+    o1.flatMap(pf2) shouldBe Some("one")
+    o2.flatMap(pf2) shouldBe None
     none.flatMap(pf2) shouldBe None
   }
 

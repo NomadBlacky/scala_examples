@@ -17,6 +17,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   override def suiteName: String = "[勉強会] Understanding Scala - Scalaの型システムを学ぶ"
 
   it("Any あらゆる型のスーパータイプ") {
+
     /**
       * 最低限のメソッドのみを提供
       */
@@ -29,21 +30,23 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("AnyVal: あらゆる値型のスーパータイプ") {
+
     /**
       * Javaでいうプリミティブ型をまとめたもの
       * AnyValにnullは代入できない
       * 便宜上存在しているが、AnyValに意味があることは少ない
       */
-    val int: AnyVal = 10
+    val int: AnyVal    = 10
     val double: AnyVal = 1.0
-    val char: AnyVal = 'a'
-    val bool: AnyVal = true
-    val unit: AnyVal = {}
+    val char: AnyVal   = 'a'
+    val bool: AnyVal   = true
+    val unit: AnyVal   = {}
     // だめ
     // val nul: AnyVal = null
   }
 
   it("AnyRef: あらゆる参照型のスーパータイプ") {
+
     /**
       * Javaでいうjava.lang.Object
       * 参照型のすべての値はAnyRefに代入できる
@@ -56,6 +59,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("Nothing: あらゆる型のサブタイプ") {
+
     /**
       * Javaでは相当する型が存在しない
       * あらゆる型のサブタイプ
@@ -69,6 +73,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("Null") {
+
     /**
       * あらゆる参照型のサブタイプ
       * 値はnullのみ
@@ -80,6 +85,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("ジェネリクス") {
+
     /**
       * 最近の静的型付き言語のほとんどがもっている
       * 型をパラメータとして取ること柔軟な型定義ができる
@@ -91,7 +97,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("共変") {
-    val x:Array[String] = Array("a", "b", "c")
+    val x: Array[String] = Array("a", "b", "c")
     // コンパイルエラー↓
     // val y:Array[Any] = x
 
@@ -107,7 +113,6 @@ class UnderstandingScalaTypeSpec extends FunSpec {
       * + 共変は便利だが、制限無しで取り扱うのは危険。
       *   何らかの制限が必要→共変性に関する注釈をつける
       */
-
     sealed trait Link[+T] // + がだいじ
     case class Cons[T](head: T, tail: Link[T]) extends Link[T]
     // EmptyはどのようなLinkの変数にも代入できる
@@ -125,10 +130,13 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("反変") {
+
     /**
       * 関数の型は引数の型に関して「共変ではない」
       */
-    val x: Int => Any = {i => i}
+    val x: Int => Any = { i =>
+      i
+    }
     // コンパイルエラー
     // val y: Any => Any = x
 
@@ -138,7 +146,9 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     /**
       * 引数の型は引数の型に関して、「反変である」
       */
-    val xx: Any => Any = {a => a}
+    val xx: Any => Any = { a =>
+      a
+    }
     val yy: Int => Any = x // OK
 
     /**
@@ -161,30 +171,33 @@ class UnderstandingScalaTypeSpec extends FunSpec {
   }
 
   it("構造的部分型") {
+
     /**
       * 継承関係によらず、必要なメソッドを持っていれば要求を満たす、としたい場合がある。
       * 動的型付け言語における、duck typing的な考え。
       */
     import scala.language.reflectiveCalls
 
-    def using[T <: { def close() }, U](r: T)(f: T => U): U = try {
-      f(r)
-    } finally {
-      r.close()
-    }
+    def using[T <: { def close() }, U](r: T)(f: T => U): U =
+      try {
+        f(r)
+      } finally {
+        r.close()
+      }
 
     using(new FileInputStream("build.sbt")) { f =>
       // do something
     }
 
     /**
-      * 内部的にはリフレクションを使っているので多用に注意。
-      * import scala.language.reflectiveCalls
-      * をつけないと警告が出る。
-      */
+    * 内部的にはリフレクションを使っているので多用に注意。
+    * import scala.language.reflectiveCalls
+    * をつけないと警告が出る。
+    */
   }
 
   it("高階多相") {
+
     /**
       * List などのコレクションや Option など様々な型が map メソッドを持っている
       * とにかく map を持っている型を抽象化したい
@@ -193,10 +206,10 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     trait Mapper[C] {
       def map[A, B](c: C)(f: C => C): C
     }
+
     /**
       * C の要素の型は map の呼び出しによって変わるので通常のジェネリクスでは表現できない
       */
-
     trait Mapper2[C[_]] {
       def map[A, B](c: C[A])(f: A => B): C[B]
     }
@@ -215,12 +228,12 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     assert(add2(Option(1)) == Some(3))
 
     /**
-      * C[_]が肝心
-      * 型コンストラクタを引数に取ることを表す宣言
-      * 型コンストラクタ … ジェネリックなクラスに型が与えられる前の名前のこと
-      * + List[T] → List
-      * + Option[T] → Option
-      */
+    * C[_]が肝心
+    * 型コンストラクタを引数に取ることを表す宣言
+    * 型コンストラクタ … ジェネリックなクラスに型が与えられる前の名前のこと
+    * + List[T] → List
+    * + Option[T] → Option
+    */
   }
 
 }

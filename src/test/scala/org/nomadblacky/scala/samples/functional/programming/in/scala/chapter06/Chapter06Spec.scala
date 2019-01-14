@@ -12,7 +12,7 @@ class Chapter06Spec extends FunSpec with Matchers {
     */
   def nonNegativeInt(rng: RNG): (Int, RNG) = {
     val (n, rng2) = rng.nextInt
-    val n2 = if (n == Int.MinValue) Int.MaxValue else Math.abs(n)
+    val n2        = if (n == Int.MinValue) Int.MaxValue else Math.abs(n)
     (n2, rng2)
   }
 
@@ -23,7 +23,6 @@ class Chapter06Spec extends FunSpec with Matchers {
     val (n, rng2) = nonNegativeInt(rng)
     (n / (Int.MaxValue.toDouble + 1), rng2)
   }
-
 
   it("[EXERCISE 6.1] ランダムな 0~Int.MaxValue のIntを生成する関数") {
     nonNegativeInt(SimpleRNG(10)) shouldBe (3847489, SimpleRNG(252149039181L))
@@ -53,14 +52,17 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     intDouble(SimpleRNG(10)) shouldBe ((3847489, 0.6213264381513), SimpleRNG(87443922374356L))
     doubleInt(SimpleRNG(10)) shouldBe ((0.0017916266806423664, 1334288366), SimpleRNG(87443922374356L))
-    double3(SimpleRNG(10)) shouldBe ((0.0017916266806423664, 0.6213264381513, 0.6923740776255727), SimpleRNG(97442988689487L))
+    double3(SimpleRNG(10)) shouldBe ((0.0017916266806423664, 0.6213264381513, 0.6923740776255727), SimpleRNG(
+      97442988689487L
+    ))
   }
 
   it("[EXERCISE 6.4] ランダムな整数のリストを作成する関数") {
     def ints(count: Int)(rng: RNG): (List[Int], RNG) = {
-      (1 to count).foldLeft((List.empty[Int], rng)) { case ((list, r), _) =>
-        val (i, r2) = nonNegativeInt(r)
-        (list :+ i, r2)
+      (1 to count).foldLeft((List.empty[Int], rng)) {
+        case ((list, r), _) =>
+          val (i, r2) = nonNegativeInt(r)
+          (list :+ i, r2)
       }
     }
 
@@ -117,8 +119,8 @@ class Chapter06Spec extends FunSpec with Matchers {
   it("[EXERCISE 6.7] sequenceの実装") {
     def sequence[A](fs: List[Rand[A]]): Rand[List[A]] = {
       val init: Rand[List[A]] = rng => (List.empty[A], rng)
-      fs.foldLeft(init) { (rand, f) =>
-        rng => {
+      fs.foldLeft(init) { (rand, f) => rng =>
+        {
           val (a, rng2) = rand(rng)
           val (b, rng3) = f(rng2)
           (a :+ b, rng3)
@@ -145,7 +147,7 @@ class Chapter06Spec extends FunSpec with Matchers {
   // 6.4.2 入れ子の状態アクション
   def nonNegativeLessThen(n: Int): Rand[Int] = { rng =>
     val (i, rng2) = nonNegativeInt(rng)
-    val mod = i % n
+    val mod       = i % n
     if (i + (n - 1) - mod >= 0)
       (mod, rng2)
     else
@@ -182,10 +184,13 @@ class Chapter06Spec extends FunSpec with Matchers {
       flatMap(ra)(a => map(rb)(b => f(a, b)))
 
     map(int)(_.toString)(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
-    map2(int, double)((i, d) => s"$i:$d")(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513",SimpleRNG(87443922374356L))
+    map2(int, double)((i, d) => s"$i:$d")(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513", SimpleRNG(
+      87443922374356L
+    ))
   }
 
   describe("6.5 状態アクションデータ型の一般化") {
+
     /**
       * より汎用的なmap関数
       */
@@ -242,7 +247,9 @@ class Chapter06Spec extends FunSpec with Matchers {
 
       val rand: Rand[Int] = State(int)
       rand.map(i => i.toString).run(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
-      rand.map2(State(double))((i, d) => s"$i:$d").run(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513",SimpleRNG(87443922374356L))
+      rand.map2(State(double))((i, d) => s"$i:$d").run(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513", SimpleRNG(
+        87443922374356L
+      ))
       rand.flatMap(i => State.unit(i.toString)).run(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
     }
   }
@@ -255,10 +262,7 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     // 関数型の表現だと少しわかりにくい
     val ns: Rand[List[Int]] =
-      int.flatMap(x =>
-        int.flatMap(y =>
-          ints(x).map(xs =>
-            xs.map(_ % y))))
+      int.flatMap(x => int.flatMap(y => ints(x).map(xs => xs.map(_ % y))))
 
     // for内包表記を使うと命令形のスタイルで書ける
     val ns2: Rand[List[Int]] = for {
@@ -268,15 +272,17 @@ class Chapter06Spec extends FunSpec with Matchers {
     } yield xs.map(_ % y)
 
     // 任意の方法で状態を変更する
-    def modify[S](f: S => S): State[S, Unit] = for {
-      s <- get
-      _ <- set(f(s))
-    } yield ()
+    def modify[S](f: S => S): State[S, Unit] =
+      for {
+        s <- get
+        _ <- set(f(s))
+      } yield ()
 
-    def get[S]: State[S, S] = State(s => (s, s))
+    def get[S]: State[S, S]          = State(s => (s, s))
     def set[S](s: S): State[S, Unit] = State(_ => ((), s))
 
     it("[EXERCISE 6.11] 有限状態オートマトンの実装") {
+
       /**
         * - ロックされた状態の自動販売機に硬貨を投入すると、スナックが残っている場合はロックが解除される。
         * - ロックが解除された状態の自動販売機のハンドルを回すと、スナックが出てきてロックがかかる。
@@ -290,34 +296,37 @@ class Chapter06Spec extends FunSpec with Matchers {
 
       // https://github.com/fpinscala/fpinscala/blob/master/answerkey/state/11.answer.scala
       object Candy {
-        def update: Input => Machine => Machine = i => m =>
-          (i, m) match {
-            case (_, Machine(_, 0, _)) => m
-            case (Coin, Machine(false, _, _)) => m
-            case (Turn, Machine(true, _, _)) => m
-            case (Coin, Machine(true, candy, coin)) =>
-              Machine(false, candy, coin + 1)
-            case (Turn, Machine(false, candy, coin)) =>
-              Machine(true, candy - 1, coin)
+        def update: Input => Machine => Machine =
+          i =>
+            m =>
+              (i, m) match {
+                case (_, Machine(_, 0, _))        => m
+                case (Coin, Machine(false, _, _)) => m
+                case (Turn, Machine(true, _, _))  => m
+                case (Coin, Machine(true, candy, coin)) =>
+                  Machine(false, candy, coin + 1)
+                case (Turn, Machine(false, candy, coin)) =>
+                  Machine(true, candy - 1, coin)
           }
 
-        def simulateMachine(inputs: List[Input]): State[Machine, (Int, Int)] = for {
-          // State#sequence(List[State[Machine, Unit]]): State[Machine, List[Unit]]
-          _ <- State.sequence(
-            // List[Input]#map(Input => State[Machine, Unit]): List[State[Machine, Unit]]
-            inputs map (modify[Machine] _ compose update)
-          )
-          // State[Machine, Machine]
-          s <- get
-        } yield (s.coins, s.candies)
+        def simulateMachine(inputs: List[Input]): State[Machine, (Int, Int)] =
+          for {
+            // State#sequence(List[State[Machine, Unit]]): State[Machine, List[Unit]]
+            _ <- State.sequence(
+              // List[Input]#map(Input => State[Machine, Unit]): List[State[Machine, Unit]]
+              inputs map (modify[Machine] _ compose update)
+            )
+            // State[Machine, Machine]
+            s <- get
+          } yield (s.coins, s.candies)
 
         // 要約
         def simulateMachine2(inputs: List[Input]): State[Machine, (Int, Int)] = {
-          State.sequence(inputs map (modify[Machine] _ compose update)).flatMap( (_: List[Unit]) => {
-            get.map( (m: Machine) =>
-              (m.coins, m.candies)
-            )
-          })
+          State
+            .sequence(inputs map (modify[Machine] _ compose update))
+            .flatMap((_: List[Unit]) => {
+              get.map((m: Machine) => (m.coins, m.candies))
+            })
         }
       }
 
@@ -327,12 +336,26 @@ class Chapter06Spec extends FunSpec with Matchers {
       )
       s1.run(Machine(true, 5, 10)) shouldBe ((14, 1), Machine(true, 1, 14))
 
-      val s2 = Candy.simulateMachine(List(
-        Turn, Turn, // 2回空回し
-        Coin, Coin, // 2回空コイン
-        Coin, Turn, Coin, Turn, Coin, Turn, Coin, Turn, Coin, Turn, // 5回購入
-        Coin, Turn  // 何も起こらない
-      ))
+      val s2 = Candy.simulateMachine(
+        List(
+          Turn,
+          Turn, // 2回空回し
+          Coin,
+          Coin, // 2回空コイン
+          Coin,
+          Turn,
+          Coin,
+          Turn,
+          Coin,
+          Turn,
+          Coin,
+          Turn,
+          Coin,
+          Turn, // 5回購入
+          Coin,
+          Turn // 何も起こらない
+        )
+      )
       s2.run(Machine(true, 5, 10)) shouldBe ((15, 0), Machine(true, 0, 15))
     }
   }

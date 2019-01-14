@@ -10,7 +10,7 @@ import org.scalatest.FunSpec
   *
   * trait ... (人・ものの) 特性、特色、特徴
   */
-class TraitSpec extends FunSpec{
+class TraitSpec extends FunSpec {
 
   override def suiteName: String = "トレイトの使い方"
 
@@ -20,21 +20,21 @@ class TraitSpec extends FunSpec{
     }
 
     // クラスが明示的に継承をしない場合、 extends キーワードでミックスインする
-    class Person(val name:String) extends Programmer
+    class Person(val name: String) extends Programmer
 
     assert(new Person("Tom").coding == "I'm writing a program code.")
   }
 
   it("複数のトレイトをミックスインする") {
     trait Programmer {
-      def coding:String = "I'm writing a program code."
+      def coding: String = "I'm writing a program code."
     }
     trait Designer {
-      def design:String = "I'm making a design."
+      def design: String = "I'm making a design."
     }
 
     // with キーワードでミックスインする
-    class Person(val name:String) extends Programmer with Designer
+    class Person(val name: String) extends Programmer with Designer
     val p = new Person("Alex")
 
     assert(p.coding == "I'm writing a program code.")
@@ -43,9 +43,9 @@ class TraitSpec extends FunSpec{
 
   it("インスタンス化のタイミングでミックスインする") {
     trait Programmer {
-      def coding:String = "I'm writing a program code."
+      def coding: String = "I'm writing a program code."
     }
-    class Person(val name:String)
+    class Person(val name: String)
 
     val p = new Person("Tom") with Programmer
 
@@ -54,32 +54,32 @@ class TraitSpec extends FunSpec{
 
   it("同じシグネチャのメソッドを複数ミックスインした場合") {
     trait Programmer {
-      def write:String = "I'm writing a program code."
+      def write: String = "I'm writing a program code."
     }
     trait Writer {
-      def write:String = "I'm writing a blog."
+      def write: String = "I'm writing a blog."
     }
 
     class Person extends Programmer with Writer {
       // メソッドを必ずオーバーライドしなくてはならない。(エラーになる。)
-      override def write:String = "I'm writing a document."
+      override def write: String = "I'm writing a document."
     }
   }
 
   it("superで呼び出すトレイトのメソッドを指定する") {
     trait Programmer {
-      def write:String = "I'm writing a program code."
+      def write: String = "I'm writing a program code."
     }
     trait Writer {
-      def write:String = "I'm writing a blog."
+      def write: String = "I'm writing a blog."
     }
     class Person
 
     val p1 = new Person with Programmer with Writer {
-      override def write:String = super[Programmer].write
+      override def write: String = super[Programmer].write
     }
     val p2 = new Person with Programmer with Writer {
-      override def write:String = super[Writer].write
+      override def write: String = super[Writer].write
     }
 
     assert(p1.write == "I'm writing a program code.")
@@ -88,10 +88,10 @@ class TraitSpec extends FunSpec{
 
   it("トレイトを単体で利用する") {
     trait T1 {
-      def method1:String = "You are calling method1."
+      def method1: String = "You are calling method1."
     }
     trait T2 {
-      def method2:String = "You are calling method2."
+      def method2: String = "You are calling method2."
     }
 
     // {} はトレイトをミックスインした無名クラスを作成することを意味している。
@@ -107,7 +107,7 @@ class TraitSpec extends FunSpec{
 
   it("abstract override で既存のメソッドに新しい処理を追加する") {
     abstract class Engineer {
-      def work(time:Int): String
+      def work(time: Int): String
     }
     class Person extends Engineer {
       def work(time: Int): String = {
@@ -131,7 +131,7 @@ class TraitSpec extends FunSpec{
 
   it("トレイトの指定順序") {
     abstract class Engineer {
-      def work(time:Int): String
+      def work(time: Int): String
     }
     class Person extends Engineer {
       def work(time: Int): String = {
@@ -167,7 +167,7 @@ class TraitSpec extends FunSpec{
     // 適合する ... A <: B という関係(代入関係)が成り立つこと。
 
     trait MyService {
-      def findAll():String
+      def findAll(): String
     }
     trait MyServiceImpl extends MyService {
       override def findAll(): String = "MyServiceImpl#findAll"
@@ -179,7 +179,7 @@ class TraitSpec extends FunSpec{
         findAll()
       }
     }
-    
+
     // 自分型の条件を満たせないインスタンスを作成しようとするとコンパイルエラーになる。
 //    val c = new MyController
 

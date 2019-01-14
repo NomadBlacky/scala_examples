@@ -18,10 +18,10 @@ class Chapter02Spec extends FunSpec with Matchers {
   }
 
   it("10. 行数のカウント") {
+
     /**
       * 行数をカウントせよ．確認にはwcコマンドを用いよ．
       */
-
     // A01
     val lines01 = Source.fromFile("data/hightemp.txt").getLines()
     val count01 = lines01.size

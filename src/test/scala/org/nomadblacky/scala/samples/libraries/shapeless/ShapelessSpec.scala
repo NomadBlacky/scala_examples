@@ -13,7 +13,7 @@ class ShapelessSpec extends FunSpec with Matchers {
 
   it("Poly ... 複数の型を処理できる関数") {
     object size extends Poly1 {
-      implicit def caseInt = at[Int](_ => 1)
+      implicit def caseInt    = at[Int](_ => 1)
       implicit def caseString = at[String](_.length)
       implicit def caseTuple[T, U](implicit st: Case.Aux[T, Int], su: Case.Aux[U, Int]) =
         at[(T, U)](t => size(t._1) + size(t._2))
@@ -44,13 +44,13 @@ class ShapelessSpec extends FunSpec with Matchers {
     val xs = 1 :: "hoge" :: HNil
 
     object minusOne extends Poly1 {
-      implicit val caseInt = at[Int](_ - 1)
+      implicit val caseInt    = at[Int](_ - 1)
       implicit val caseString = at[String](_.init)
     }
     xs.map(minusOne) shouldBe (0 :: "hog" :: HNil)
 
     object totalSize extends Poly2 {
-      implicit val caseInt = at[Int, Int](_ + _)
+      implicit val caseInt    = at[Int, Int](_ + _)
       implicit val caseString = at[Int, String](_ + _.length)
     }
     xs.foldLeft(0)(totalSize) shouldBe 5
@@ -72,14 +72,14 @@ class ShapelessSpec extends FunSpec with Matchers {
 
     // 変換
     object size extends Poly1 {
-      implicit val intCase = at[Int](i => (i, i))
-      implicit val stringCase = at[String](s => (s, s.length))
-      implicit val booleanCase = at[Boolean](b => (b, if(b) 1 else 0))
+      implicit val intCase     = at[Int](i => (i, i))
+      implicit val stringCase  = at[String](s => (s, s.length))
+      implicit val booleanCase = at[Boolean](b => (b, if (b) 1 else 0))
     }
     val result = isb.map(size)
     type SIZE = (Int, Int) :+: (String, Int) :+: (Boolean, Int) :+: CNil
 
-    result shouldBe a [SIZE]
+    result shouldBe a[SIZE]
     result.select[(Int, Int)] shouldBe None
     result.select[(String, Int)] shouldBe Some(("hoge", 4))
     result.select[(Boolean, Int)] shouldBe None
@@ -99,7 +99,7 @@ class ShapelessSpec extends FunSpec with Matchers {
 
     // Coproduct
     sealed trait Lang
-    case class Java() extends Lang
+    case class Java()  extends Lang
     case class Scala() extends Lang
 
     val lang = Generic[Lang].to(Scala())
@@ -113,10 +113,10 @@ class ShapelessSpec extends FunSpec with Matchers {
     import record._
 
     val user =
-      ("id" ->> 1) ::
-        ("name" ->> "hoge") ::
-        ("age" ->> 20) ::
-        HNil
+    ("id" ->> 1) ::
+    ("name" ->> "hoge") ::
+    ("age" ->> 20) ::
+    HNil
 
     user("id") shouldBe 1
     user("name") shouldBe "hoge"
@@ -129,7 +129,7 @@ class ShapelessSpec extends FunSpec with Matchers {
     import syntax.singleton._
 
     // 1しか受け付けない関数
-    val one = 1.witness
+    val one         = 1.witness
     def f(x: one.T) = x
 
     f(1) shouldBe 1

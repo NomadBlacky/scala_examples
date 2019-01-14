@@ -23,14 +23,14 @@ class DisjunctionSpec extends FunSpec {
     // Leftの生成
     val a: \/[Int, String] = -\/(1)
     val b: \/[Int, String] = \/.left(1) // leftメソッドで
-    val c: Int \/ String = -\/(1)       // 中置記法で
+    val c: Int \/ String   = -\/(1) // 中置記法で
     a assert_=== b
     b assert_=== c
-    
+
     // Rightの生成
     val d: \/[Int, String] = \/-("a")
     val e: \/[Int, String] = \/.right("a") // rightメソッドで
-    val f: Int \/ String = \/-("a")        // 中置記法で
+    val f: Int \/ String   = \/-("a") // 中置記法で
     d assert_=== e
     e assert_=== f
   }

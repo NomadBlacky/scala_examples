@@ -71,7 +71,7 @@ class PartialFunctionSpec extends FunSpec with Matchers {
       case 2 => "two"
     }
     val pf2: PartialFunction[String, Int] = {
-      case "one" => 1
+      case "one"   => 1
       case "three" => 3
     }
     val andThen = pf1 andThen pf2
@@ -88,7 +88,7 @@ class PartialFunctionSpec extends FunSpec with Matchers {
       case 2 => "two"
     }
     val pf2: PartialFunction[String, Int] = {
-      case "one" => 1
+      case "one"   => 1
       case "three" => 3
     }
     // Function1( PartialFunction(x) )
@@ -140,10 +140,10 @@ class PartialFunctionSpec extends FunSpec with Matchers {
     val pf: PartialFunction[Int, String] = {
       case 1 => "one"
     }
-    pf.applyOrElse(1, (i:Int) => i.toString) shouldBe "one"
-    pf.applyOrElse(2, (i:Int) => i.toString) shouldBe "2"
+    pf.applyOrElse(1, (i: Int) => i.toString) shouldBe "one"
+    pf.applyOrElse(2, (i: Int) => i.toString) shouldBe "2"
     // 同義
-    val arg = 2
+    val arg    = 2
     val result = if (pf.isDefinedAt(arg)) pf(arg) else arg.toString
     result shouldBe "2"
   }
@@ -156,7 +156,9 @@ class PartialFunctionSpec extends FunSpec with Matchers {
     // この場合、引数がタプルであることは自明なので、このように書ける。
     val result1 = list.map { case (i, j) => i * j }
     // 全域関数を使った場合
-    val result2 = list.map { t => t._1 * t._2 }
+    val result2 = list.map { t =>
+      t._1 * t._2
+    }
 
     result1 shouldBe List(2, 12, 30)
     result2 shouldBe result1
@@ -183,13 +185,13 @@ class PartialFunctionSpec extends FunSpec with Matchers {
   }
 
   it("[Usage] Try#collect") {
-    val result1: Try[String] = Try { 1 }.collect { case 1 => "one" }
-    val result2: Try[String] = Try { 1 }.collect { case 2 => "two" }
+    val result1: Try[String] = Try { 1 }.collect { case 1                               => "one" }
+    val result2: Try[String] = Try { 1 }.collect { case 2                               => "two" }
     val result3: Try[String] = Try { throw new RuntimeException(); 1 }.collect { case 1 => "one" }
 
     result1 shouldBe Success("one")
-    result2 shouldBe a [Failure[_]]
-    result3 shouldBe a [Failure[_]]
+    result2 shouldBe a[Failure[_]]
+    result3 shouldBe a[Failure[_]]
   }
 
   it("ListはPartialFunction[Int,A]をmix-inしている") {
@@ -203,7 +205,7 @@ class PartialFunctionSpec extends FunSpec with Matchers {
   }
 
   it("MapはPartialFunction[K,V]をmix-inしている") {
-    val map = Map("one"->1, "two"->2, "three"->3)
+    val map = Map("one" -> 1, "two" -> 2, "three" -> 3)
     map("one") shouldBe 1
     map("two") shouldBe 2
     map("three") shouldBe 3

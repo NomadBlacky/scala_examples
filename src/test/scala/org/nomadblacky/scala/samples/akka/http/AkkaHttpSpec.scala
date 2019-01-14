@@ -20,7 +20,7 @@ class AkkaHttpSpec extends FunSpec {
   override def suiteName: String = "Akka HTTP"
 
   it("クライアントAPI") {
-    implicit val system = ActorSystem()
+    implicit val system       = ActorSystem()
     implicit val materializer = ActorMaterializer()
 
     val responseFuture: Future[HttpResponse] =

@@ -65,7 +65,7 @@ class FutureSpec extends FunSpec with Matchers {
     // Futureの例外を受け取りたい場合は Await.ready で処理を終えてからFutureのメソッドで結果を受け取る
     Await.ready(f2, 3.seconds)
     f2.value.get match {
-      case Success(_) => fail()
+      case Success(_)  => fail()
       case Failure(ex) => assert(ex.isInstanceOf[RuntimeException])
     }
   }
@@ -80,7 +80,7 @@ class FutureSpec extends FunSpec with Matchers {
     // メインスレッド、Futureのスレッド、コールバックのスレッドは基本的に別のスレッドで実行される
     f.onComplete {
       case Success(result) => assert(result == "ok")
-      case Failure(_) => fail()
+      case Failure(_)      => fail()
     }
     Await.ready(f, 3.seconds)
   }
@@ -120,8 +120,9 @@ class FutureSpec extends FunSpec with Matchers {
     Await.result(resultF1, 1.seconds) shouldBe Seq(1, 2, 3)
 
     // Failureが含まれる場合は失敗に寄せられる
-    val futures2: Seq[Future[Int]] = Seq(Future.successful(1), Future.failed(new RuntimeException), Future.successful(3))
+    val futures2: Seq[Future[Int]] =
+      Seq(Future.successful(1), Future.failed(new RuntimeException), Future.successful(3))
     val resultF2: Future[Seq[Int]] = Future.sequence(futures2)
-    a [RuntimeException] shouldBe thrownBy(Await.result(resultF2, 3.seconds))
+    a[RuntimeException] shouldBe thrownBy(Await.result(resultF2, 3.seconds))
   }
 }

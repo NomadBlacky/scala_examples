@@ -63,7 +63,7 @@ class CatsSpec extends FunSpec with Matchers {
     import cats.syntax.monoid._
 
     implicit val joinMonoid: Monoid[String] = new Monoid[String] {
-      override def empty = ""
+      override def empty                                 = ""
       override def combine(x: String, y: String): String = x + y
     }
 

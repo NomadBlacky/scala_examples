@@ -27,8 +27,8 @@ class AkkaStreamsSpec extends FunSpec with Matchers {
     // 設定・ロジックなど
     implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-    val source = Source(1 to 10) // Publisher
-    val sink = Sink.foreach(println) // Subscriber
+    val source = Source(1 to 10)       // Publisher
+    val sink   = Sink.foreach(println) // Subscriber
 
     source
       .map(_ * 2) // Stage (Actorが立ち上がる)

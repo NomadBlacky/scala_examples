@@ -149,7 +149,7 @@ class N02ForSyntax extends FunSpec with Matchers {
           sugoiResult: Seq[String] = {
             {
               {
-                Seq(/* なにか */)
+                Seq( /* なにか */ )
               }
             }
           }
@@ -211,20 +211,22 @@ class N02ForSyntax extends FunSpec with Matchers {
     it("複数のfor式に書き換える") {
       def resolveActiveGroupNames: Try[Seq[String]] = {
         for {
-          groupIds <- resolveActiveGroupIds()
+          groupIds   <- resolveActiveGroupIds()
           groupNames <- resolveExistsGroupNameIn(groupIds)
         } yield groupNames
       }
 
-      def resolveActiveGroupIds(): Try[Seq[Long]] = for {
-        members <- resolveAllMembers()
-        groupIds = extractGroupIdFromActiveMember(members)
-      } yield groupIds
+      def resolveActiveGroupIds(): Try[Seq[Long]] =
+        for {
+          members <- resolveAllMembers()
+          groupIds = extractGroupIdFromActiveMember(members)
+        } yield groupIds
 
-      def resolveExistsGroupNameIn(groupIds: Seq[Long]) = for {
-        groups <- resolveGroupsIn(groupIds)
-        activeGroupNames = extractNameFromExistsGroup(groups)
-      } yield activeGroupNames
+      def resolveExistsGroupNameIn(groupIds: Seq[Long]) =
+        for {
+          groups <- resolveGroupsIn(groupIds)
+          activeGroupNames = extractNameFromExistsGroup(groups)
+        } yield activeGroupNames
 
       def resolveAllMembers() =
         Try(memberRepository.resolveAll())

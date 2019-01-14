@@ -26,11 +26,12 @@ class DesignPatternsInScalaSpec extends FunSpec with Matchers {
   }
 
   it("LoanパターンでAutoClosingを実装する") {
-    def using[Resource <: AutoCloseable, A](r: Resource)(f: Resource => A): A = try {
-      f(r)
-    } finally {
-      r.close()
-    }
+    def using[Resource <: AutoCloseable, A](r: Resource)(f: Resource => A): A =
+      try {
+        f(r)
+      } finally {
+        r.close()
+      }
 
     def linesCount(scanner: Scanner): Int = {
       @tailrec def loop(scanner: Scanner, i: Int): Int =

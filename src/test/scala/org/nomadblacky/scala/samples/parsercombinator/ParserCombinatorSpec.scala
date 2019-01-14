@@ -32,7 +32,7 @@ class ParserCombinatorSpec extends FunSpec {
       def code = """\d{3}""".r ~ "-" ~ """\d{4}""".r ~ "-" ~ """\d{4}""".r
       // パース結果はParseResultで返る
       def apply(source: String) = parseAll(code, source) match {
-        case Success(parsed, _) => Right(parsed)
+        case Success(parsed, _)         => Right(parsed)
         case NoSuccess(errorMessage, _) => Left(errorMessage)
       }
     }
@@ -54,7 +54,8 @@ class ParserCombinatorSpec extends FunSpec {
       def apply(source: String) = parseAll(code, source) match {
         case Success(parsed, _) => Right(parsed)
         // next パースされていない地点を表す
-        case NoSuccess(errorMessage, next) => Left(s"$errorMessage on line ${next.pos.line} on column ${next.pos.column}")
+        case NoSuccess(errorMessage, next) =>
+          Left(s"$errorMessage on line ${next.pos.line} on column ${next.pos.column}")
       }
     }
     PhoneNumberParser("01278903456") match {
@@ -70,11 +71,13 @@ class ParserCombinatorSpec extends FunSpec {
 
     object PhoneNumberParser extends RegexParsers {
       // P ^^ f はパース結果Pを関数fで変換する
-      def code = """\d{3}""".r ~ "-" ~ """\d{4}""".r ~ "-" ~ """\d{4}""".r ^^
-        { case (area~"-"~city~"-"~subscriber) => PhoneNumber(area, city, subscriber) }
+      def code = """\d{3}""".r ~ "-" ~ """\d{4}""".r ~ "-" ~ """\d{4}""".r ^^ {
+        case (area ~ "-" ~ city ~ "-" ~ subscriber) => PhoneNumber(area, city, subscriber)
+      }
       def apply(source: String) = parseAll(code, source) match {
         case Success(parsed, _) => Right(parsed)
-        case NoSuccess(errorMessage, next) => Left(s"$errorMessage on line ${next.pos.line} on column ${next.pos.column}")
+        case NoSuccess(errorMessage, next) =>
+          Left(s"$errorMessage on line ${next.pos.line} on column ${next.pos.column}")
       }
     }
     PhoneNumberParser("012-7890-3456") match {
@@ -92,33 +95,37 @@ class ParserCombinatorSpec extends FunSpec {
       case class Sub(a: Tree, b: Tree) extends Tree
       case class Mul(a: Tree, b: Tree) extends Tree
       case class Div(a: Tree, b: Tree) extends Tree
-      case class Num(x: Double) extends Tree
+      case class Num(x: Double)        extends Tree
 
       def eval(t: Tree): Double = t match {
         case Add(a, b) => eval(a) + eval(b)
         case Sub(a, b) => eval(a) - eval(b)
         case Mul(a, b) => eval(a) * eval(b)
         case Div(a, b) => eval(a) / eval(b)
-        case Num(x) => x
+        case Num(x)    => x
       }
 
       lazy val expr: Parser[Tree] = term ~ rep("[+-]".r ~ term) ^^ {
-        case t ~ ts => ts.foldLeft(t) {
-          case (t1, "+" ~ t2) => Add(t1, t2)
-          case (t1, "-" ~ t2) => Sub(t1, t2)
-        }
+        case t ~ ts =>
+          ts.foldLeft(t) {
+            case (t1, "+" ~ t2) => Add(t1, t2)
+            case (t1, "-" ~ t2) => Sub(t1, t2)
+          }
       }
 
       lazy val term = factor ~ rep("[*/]".r ~ factor) ^^ {
-        case t ~ ts => ts.foldLeft(t) {
-          case (t1, "*" ~ t2) => Mul(t1, t2)
-          case (t1, "/" ~ t2) => Div(t1, t2)
-        }
+        case t ~ ts =>
+          ts.foldLeft(t) {
+            case (t1, "*" ~ t2) => Mul(t1, t2)
+            case (t1, "/" ~ t2) => Div(t1, t2)
+          }
       }
 
       lazy val factor = "(" ~> expr <~ ")" | num
 
-      lazy val num = floatingPointNumber ^^ { t => Num(t.toDouble) }
+      lazy val num = floatingPointNumber ^^ { t =>
+        Num(t.toDouble)
+      }
 
       def apply(source: String) = eval(parseAll(expr, source).get)
     }

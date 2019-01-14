@@ -19,7 +19,7 @@ class StringInterpolationSpec extends FunSpec with Matchers {
 
   it("f補間子") {
     // printf のような形式で書式を設定できる
-    val name = "Mike"
+    val name   = "Mike"
     val height = 160.5
     f"$name%s is $height%2.2f meters tall." shouldBe "Mike is 160.50 meters tall."
   }
@@ -46,14 +46,15 @@ class StringInterpolationSpec extends FunSpec with Matchers {
 object StringInterpolationSpec {
 
   implicit class MyStringInterpolation(val sc: StringContext) extends AnyVal {
-    def spacing(args: Any*): String = sc.parts.flatten.mkString(" ")
+    def spacing(args: Any*): String       = sc.parts.flatten.mkString(" ")
     def getParts(args: Any*): Seq[String] = sc.parts
-    def args(args: Any*): Seq[Any] = args
+    def args(args: Any*): Seq[Any]        = args
     def double(args: Any*): String = {
       val ai = args.iterator
-      val f = (a: Any) => a match {
-        case i: Int => i * 2
-        case s: String => s + s
+      val f = (a: Any) =>
+        a match {
+          case i: Int    => i * 2
+          case s: String => s + s
       }
       sc.parts.reduceLeft { (acc, s) =>
         acc + f(ai.next()) + s
@@ -63,11 +64,11 @@ object StringInterpolationSpec {
     // ↓ 利用するとコンパイル通らない。なんで?
     def parts(args: Any*): Seq[String] = sc.parts
     /*
-      * [error] /home/blacky/projects/scala/samples/src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala:41:13: not enough arguments for method apply: (idx: Int)String in trait SeqLike.
-      * [error] Unspecified value parameter idx.
-      * [error]     parts"hoge, $num, foo, ${num + 1}, bar, $str"
-      * [error]     ^
-      */
+   * [error] /home/blacky/projects/scala/samples/src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala:41:13: not enough arguments for method apply: (idx: Int)String in trait SeqLike.
+   * [error] Unspecified value parameter idx.
+   * [error]     parts"hoge, $num, foo, ${num + 1}, bar, $str"
+   * [error]     ^
+   */
   }
 
 }

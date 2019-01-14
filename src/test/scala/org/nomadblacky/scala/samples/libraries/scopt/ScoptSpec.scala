@@ -5,7 +5,6 @@ import java.util.Calendar
 
 import org.scalatest.FunSpec
 
-
 /**
   * Created by blacky on 16/10/14.
   */
@@ -16,17 +15,23 @@ class ScoptSpec extends FunSpec {
   val parser = new scopt.OptionParser[Config]("ScoptSpec") {
     head("ScoptSpec")
 
-    opt[String]('a', "aaa").action((s, c) => {
-      c.copy(aaa = s)
-    }).text("set string to aaa")
+    opt[String]('a', "aaa")
+      .action((s, c) => {
+        c.copy(aaa = s)
+      })
+      .text("set string to aaa")
 
-    opt[Int]('b', "bbb").action((x, c) => {
-      c.copy(bbb = Some(x))
-    }).text("set int to bbb")
+    opt[Int]('b', "bbb")
+      .action((x, c) => {
+        c.copy(bbb = Some(x))
+      })
+      .text("set int to bbb")
 
-    opt[Unit]('c', "ccc").action((b, c) => {
-      c.copy(ccc = true)
-    }).text("set true to ccc")
+    opt[Unit]('c', "ccc")
+      .action((b, c) => {
+        c.copy(ccc = true)
+      })
+      .text("set true to ccc")
 
     opt[Calendar]("calendar").action((x, c) => {
       c.copy(calendar = Some(x))
@@ -59,7 +64,11 @@ class ScoptSpec extends FunSpec {
   it("引数からファイルを取得") {
     parser.parse(List("--file", "build.sbt"), Config()) match {
       case Some(config: Config) =>
-        assert(config.file.getOrElse(throw new IllegalArgumentException()).getAbsolutePath == new File("build.sbt").getAbsolutePath)
+        assert(
+          config.file
+            .getOrElse(throw new IllegalArgumentException())
+            .getAbsolutePath == new File("build.sbt").getAbsolutePath
+        )
       case None =>
         throw new IllegalArgumentException("arguments are bad.")
     }
@@ -67,9 +76,9 @@ class ScoptSpec extends FunSpec {
 }
 
 case class Config(
-                 aaa: String = "",
-                 bbb: Option[Int] = None,
-                 ccc: Boolean = false,
-                 calendar: Option[Calendar] = None,
-                 file: Option[File] = None
-                 )
+    aaa: String = "",
+    bbb: Option[Int] = None,
+    ccc: Boolean = false,
+    calendar: Option[Calendar] = None,
+    file: Option[File] = None
+)

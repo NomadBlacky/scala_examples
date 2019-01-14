@@ -18,9 +18,9 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     Two.id shouldBe 1
 
     // 列挙体は順序を持つ
-    One <  One shouldBe false
+    One < One shouldBe false
     One <= One shouldBe true
-    One <  Two shouldBe true
+    One < Two shouldBe true
     One <= Two shouldBe true
 
     // valuesで列挙体のSetが返る
@@ -29,7 +29,7 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     // パターンマッチでコンパイラが網羅性を検知できない
     intercept[MatchError] {
       Two match {
-        case One   => fail()
+        case One => fail()
         // ここで Two が抜けているが警告は出ない。
         case Three => fail()
       }
@@ -64,8 +64,8 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     }
     import Enum._
 
-    One.toDouble   shouldBe 1.0
-    Two.toDouble   shouldBe 2.0
+    One.toDouble shouldBe 1.0
+    Two.toDouble shouldBe 2.0
     Three.toDouble shouldBe 3.0
 
     // しかし、valuesで取ってきた列挙型はEnum.Valueのため、直接値は取れない…
@@ -81,8 +81,8 @@ class EnumInScalaSpec extends FunSpec with Matchers {
 
   it("sealed trait と case objectを使った列挙型") {
     sealed trait Enum
-    case object One extends Enum
-    case object Two extends Enum
+    case object One   extends Enum
+    case object Two   extends Enum
     case object Three extends Enum
 
     // Enumerationと異なり、パターンマッチでコンパイラが網羅性を検知できる
@@ -99,8 +99,8 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     sealed abstract class Enum(val value: Int) {
       def describe: String = s"value: $value"
     }
-    case object One extends Enum(1)
-    case object Two extends Enum(2)
+    case object One                           extends Enum(1)
+    case object Two                           extends Enum(2)
     final case class Three(otherName: String) extends Enum(3)
 
     val enum: Enum = Three("drei")

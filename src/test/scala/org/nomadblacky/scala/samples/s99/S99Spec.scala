@@ -19,7 +19,7 @@ class S99Spec extends FunSpec with Matchers {
   }
 
   it("P02 (*) Find the last but one element of a list.") {
-    val list = List(1, 1, 2, 3, 5, 8)
+    val list   = List(1, 1, 2, 3, 5, 8)
     val expect = 5
 
     // A01
@@ -40,8 +40,8 @@ class S99Spec extends FunSpec with Matchers {
   }
 
   it("P03 (*) Find the Kth element of a list.") {
-    val list = List(1, 1, 2, 3, 5, 8)
-    val index = 2
+    val list   = List(1, 1, 2, 3, 5, 8)
+    val index  = 2
     val expect = 2
 
     // A01

@@ -12,7 +12,7 @@ object Mappable {
       val m: Map[tmr.Key, tmr.Value] = tmr(gen.to(a))
       m.map {
         case (k: Symbol, v) => k.name -> v
-        case x => throw new IllegalStateException(x.toString())
+        case x              => throw new IllegalStateException(x.toString())
       }
     }
   }

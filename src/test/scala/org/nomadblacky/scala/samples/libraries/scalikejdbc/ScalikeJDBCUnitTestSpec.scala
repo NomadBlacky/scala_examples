@@ -1,6 +1,6 @@
 package org.nomadblacky.scala.samples.libraries.scalikejdbc
 
-import org.scalatest.{BeforeAndAfterAll, Matchers, fixture}
+import org.scalatest.{fixture, BeforeAndAfterAll, Matchers}
 import scalikejdbc._
 import scalikejdbc.config.DBs
 import scalikejdbc.scalatest.AutoRollback

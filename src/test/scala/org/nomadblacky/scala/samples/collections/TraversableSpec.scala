@@ -14,7 +14,7 @@ class TraversableSpec extends FunSpec {
   override def suiteName: String = "Traversable - コレクションの最上位に位置するトレイト"
 
   it("++ ... Traversableを連結する") {
-    assert((List(1, 2) ++ List(3,4)) == List(1, 2, 3, 4))
+    assert((List(1, 2) ++ List(3, 4)) == List(1, 2, 3, 4))
   }
 
   it("head / headOptional ... 先頭の要素を取得する") {
@@ -56,7 +56,9 @@ class TraversableSpec extends FunSpec {
     assert(result == 6)
 
     // 省略
-    assert((0 /: List(1, 2, 3)){(sum, i) => sum + i} == 6)
+    assert((0 /: List(1, 2, 3)) { (sum, i) =>
+      sum + i
+    } == 6)
   }
 
   it("foldRight ... 要素の最後から畳み込みを行う") {
@@ -69,7 +71,9 @@ class TraversableSpec extends FunSpec {
     assert(result == 6)
 
     // 省略
-    assert((List(1, 2, 3) :\ 0){(sum, i) => sum + i} == 6)
+    assert((List(1, 2, 3) :\ 0) { (sum, i) =>
+      sum + i
+    } == 6)
   }
 
   it("reduceLeft ... 最初の要素を初期値として畳み込みを行う") {
@@ -100,12 +104,12 @@ class TraversableSpec extends FunSpec {
   }
 
   it("filter ... 条件に一致する要素のみを抜き出す") {
-    val result = List(1, 2, 3).filter{ 2 <= _ }
+    val result = List(1, 2, 3).filter { 2 <= _ }
     assert(result == List(2, 3))
   }
 
   it("filter ... 条件に一致しない要素のみを抜き出す") {
-    val result = List(1, 2, 3).filterNot{ 2 <= _ }
+    val result = List(1, 2, 3).filterNot { 2 <= _ }
     assert(result == List(1))
   }
 
@@ -118,8 +122,10 @@ class TraversableSpec extends FunSpec {
   }
 
   it("dropWhile ... 条件がfalseになるまで要素を取り除く") {
-    assert(List(1, 2, 3).dropWhile{ _ <= 2 } == List(3))
-    assert(List(1, 2, 3).dropWhile{ i => i == 1 || i == 3 } == List(2, 3))
+    assert(List(1, 2, 3).dropWhile { _ <= 2 } == List(3))
+    assert(List(1, 2, 3).dropWhile { i =>
+      i == 1 || i == 3
+    } == List(2, 3))
   }
 
   it("take ... 指定した数の要素を先頭から取り出す") {
@@ -131,8 +137,10 @@ class TraversableSpec extends FunSpec {
   }
 
   it("takeWhile ... 条件がfalseになるまで要素を取り出す") {
-    assert(List(1, 2, 3).takeWhile{ _ <= 2 } == List(1, 2))
-    assert(List(1, 2, 3).takeWhile{ i => i == 1 || i == 3 } == List(1))
+    assert(List(1, 2, 3).takeWhile { _ <= 2 } == List(1, 2))
+    assert(List(1, 2, 3).takeWhile { i =>
+      i == 1 || i == 3
+    } == List(1))
   }
 
   it("map ... 要素に関数を適用して新しいコレクションを返す") {
@@ -144,25 +152,25 @@ class TraversableSpec extends FunSpec {
   }
 
   it("flatten ... 入れ子になったコレクションを1次元にする") {
-    assert(List(List(1,2), List(3,4)).flatten == List(1, 2, 3, 4))
+    assert(List(List(1, 2), List(3, 4)).flatten == List(1, 2, 3, 4))
   }
 
   it("splitAt ... コレクションを分割する") {
-    assert(List(1,2,3,4).splitAt(2) == (List(1,2), List(3,4)))
+    assert(List(1, 2, 3, 4).splitAt(2) == (List(1, 2), List(3, 4)))
   }
 
   it("slice ... コレクションの一部を抜き出す") {
-    assert(List(1,2,3,4,5).slice(1,3) == List(2,3))
+    assert(List(1, 2, 3, 4, 5).slice(1, 3) == List(2, 3))
   }
 
   it("partition ... 条件を満たす要素とそうでない要素に分割する") {
-    assert(List(1,2,3,4,5).partition(_ < 3) == (List(1,2), List(3,4,5)))
-    assert(List(1,2,3,4,5).partition(_ > 3) == (List(4,5), List(1,2,3)))
+    assert(List(1, 2, 3, 4, 5).partition(_ < 3) == (List(1, 2), List(3, 4, 5)))
+    assert(List(1, 2, 3, 4, 5).partition(_ > 3) == (List(4, 5), List(1, 2, 3)))
   }
 
   it("span ... 条件がfalseとなった要素を堺にコレクションを分割する") {
-    assert(List(1,2,3,4,5).span(_ < 3) == (List(1,2), List(3,4,5)))
-    assert(List(1,2,3,4,5).span(_ > 3) == (List(), List(1,2,3,4,5)))
+    assert(List(1, 2, 3, 4, 5).span(_ < 3) == (List(1, 2), List(3, 4, 5)))
+    assert(List(1, 2, 3, 4, 5).span(_ > 3) == (List(), List(1, 2, 3, 4, 5)))
   }
 
   it("groupBy ... 関数の結果をキーとして要素をMapにして返す") {
@@ -182,7 +190,13 @@ class TraversableSpec extends FunSpec {
   }
 
   it("unzip3 ... 要素を3つのコレクションに分割する") {
-    assert(List((1, "one", "hoge"), (2, "two", "foo"), (3, "three", "bar")).unzip3 == (List(1, 2, 3), List("one", "two", "three"), List("hoge", "foo", "bar")))
+    assert(
+      List((1, "one", "hoge"), (2, "two", "foo"), (3, "three", "bar")).unzip3 == (List(1, 2, 3), List(
+        "one",
+        "two",
+        "three"
+      ), List("hoge", "foo", "bar"))
+    )
   }
 
   it("find ... 最初に条件を満たした要素をOptionで返す") {

@@ -14,12 +14,12 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
   override def suiteName: String = "[勉強会] Understanding Scala - Scalaのimplicit parameterを学ぶ"
 
   it("implicit parameter") {
+
     /**
       * implicit conversion とごっちゃにされやすい
       * 正しく使えば非常に強力
       * こわくない!
       */
-
     /**
       * 例題
       * + リストの要素をすべて足し合わせた値を返す関数
@@ -43,11 +43,11 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
       list.foldLeft(m.zero)(m.plus)
     object IntMonoid extends Monoid[Int] {
       override def plus(a: Int, b: Int): Int = a + b
-      override def zero: Int = 0
+      override def zero: Int                 = 0
     }
     object DoubleMonoid extends Monoid[Double] {
       override def plus(a: Double, b: Double): Double = a + b
-      override def zero: Double = 0.0
+      override def zero: Double                       = 0.0
     }
     assert(sum2(List(1, 2, 3))(IntMonoid) == 6)
     assert(sum2(List(1.0, 2.0, 3.0))(DoubleMonoid) == 6.0)
@@ -63,11 +63,11 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
     object Monoid {
       implicit object IntMonoid extends Monoid[Int] {
         override def plus(a: Int, b: Int): Int = a + b
-        override def zero: Int = 0
+        override def zero: Int                 = 0
       }
       implicit object DoubleMonoid extends Monoid[Double] {
         override def plus(a: Double, b: Double): Double = a + b
-        override def zero: Double = 0.0
+        override def zero: Double                       = 0.0
       }
     }
     def sum3[A](list: List[A])(implicit m: Monoid[A]): A =
@@ -78,12 +78,13 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
   }
 
   it("implicit parameterの仕組み") {
+
     /**
-      * + implicit修飾子が付いた引数m: Monoid[A]があったときに Aが特定の型に確定していれば
-      * + MonoidのコンパニオンオブジェクトからMonoidのインスタンスを探す
-      * + Monoidの型パラメータ（たとえばInt`)のコンパニオンオブジェクトを探す
-      * + importされたオブジェクトの下にimplicit宣言されたオブジェクトがないか探す
-      */
+    * + implicit修飾子が付いた引数m: Monoid[A]があったときに Aが特定の型に確定していれば
+    * + MonoidのコンパニオンオブジェクトからMonoidのインスタンスを探す
+    * + Monoidの型パラメータ（たとえばInt`)のコンパニオンオブジェクトを探す
+    * + importされたオブジェクトの下にimplicit宣言されたオブジェクトがないか探す
+    */
   }
 
   it("Scala標準ライブラリにおけるimplicit parameterの例") {

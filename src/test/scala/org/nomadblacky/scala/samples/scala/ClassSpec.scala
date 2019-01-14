@@ -5,12 +5,12 @@ import org.scalatest.FunSpec
 /**
   * Created by blacky on 16/10/20.
   */
-class ClassSpec extends FunSpec{
+class ClassSpec extends FunSpec {
 
   override def suiteName: String = "Scalaのクラス"
 
   it("require ... 引数を検証する") {
-    class Programmer(val language:String) {
+    class Programmer(val language: String) {
       require(language != null && language.nonEmpty)
     }
 
@@ -30,15 +30,15 @@ class ClassSpec extends FunSpec{
     }
     class Programmer(val language: String)
     object Programmer {
-      def apply(language: String): Programmer = new Programmer(language)
+      def apply(language: String): Programmer      = new Programmer(language)
       def unapply(arg: Programmer): Option[String] = Some(arg.language)
     }
 
-    def matchTest(value: Any):String = {
+    def matchTest(value: Any): String = {
       value match {
-        case Designer => "designer"
+        case Designer            => "designer"
         case Programmer("scala") => "scala programmer"
-        case _ => "other"
+        case _                   => "other"
       }
     }
 
@@ -48,12 +48,12 @@ class ClassSpec extends FunSpec{
   }
 
   it("caseクラスとパターンマッチ") {
-    case class Point(x:Int, y:Int)
+    case class Point(x: Int, y: Int)
 
-    def matchTest(value:Any):Int = {
+    def matchTest(value: Any): Int = {
       value match {
         case Point(10, y) => y + 1
-        case _ => 0
+        case _            => 0
       }
     }
 
@@ -67,11 +67,11 @@ class ClassSpec extends FunSpec{
 
   it("抽象クラス") {
     abstract class Engineer {
-      def work():String
-      def study():String = "Do study."
+      def work(): String
+      def study(): String = "Do study."
     }
 
-    class Programmer(name:String) extends Engineer {
+    class Programmer(name: String) extends Engineer {
       def work() = "%s is writing a program code.".format(name)
       // 具象メソッドをオーバーライドするときは override キーワードが必須
       override def study() = "%s is studying programming.".format(name)
@@ -87,11 +87,11 @@ class ClassSpec extends FunSpec{
     // 引数なしのメソッドを val でオーバーライドできるようにするため。
 
     abstract class Parent {
-      def method:String = "Parent."
+      def method: String = "Parent."
     }
 
     class Child extends Parent {
-      override val method:String = "Child."
+      override val method: String = "Child."
     }
 
     assert(new Child().method == "Child.")
@@ -103,23 +103,23 @@ class ClassSpec extends FunSpec{
 
     sealed abstract class TeamMember
     case class Programmer() extends TeamMember
-    case class Designer() extends TeamMember
-    case class Manager() extends TeamMember
+    case class Designer()   extends TeamMember
+    case class Manager()    extends TeamMember
 
-    val member:TeamMember = new Programmer
+    val member: TeamMember = new Programmer
 
     // パターンマッチを記述する際に役に立つ
     member match {
-      case p:Programmer => println("Programmer.")
-      case d:Designer => println("Designer.")
+      case p: Programmer => println("Programmer.")
+      case d: Designer   => println("Designer.")
       // Managerに対するcase式または、デフォルト式が足りてないので警告が出る。
     }
 
     // 警告が煩わしい場合は、 @unchecked で無効にできる
     // FIXME: 空白がない (member:@unchecked) だとエラーなのはなんでだろう
     (member: @unchecked) match {
-      case p:Programmer => println("Programmer.")
-      case d:Designer => println("Designer.")
+      case p: Programmer => println("Programmer.")
+      case d: Designer   => println("Designer.")
     }
   }
 }

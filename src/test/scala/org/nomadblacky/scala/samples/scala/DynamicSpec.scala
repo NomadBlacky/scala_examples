@@ -28,7 +28,7 @@ class DynamicSpec extends FunSpec with Matchers {
     case class MyMap[V](m: Map[String, V]) extends Dynamic {
       def applyDynamicNamed[U](key: String)(args: (String, V => U)*): Map[String, U] = {
         val kvs = for {
-          v  <- m.lift(key).toSeq
+          v      <- m.lift(key).toSeq
           (k, f) <- args
         } yield (k, f(v))
         kvs.toMap

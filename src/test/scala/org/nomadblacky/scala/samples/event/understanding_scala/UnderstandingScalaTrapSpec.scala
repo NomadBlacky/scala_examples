@@ -30,13 +30,13 @@ class UnderstandingScalaTrapSpec extends FunSpec {
     }
     assert(double2(1) == 2)
   }
-  
+
   it("変更可能コレクションの変更しない操作を呼び出してしまう") {
     val buffer = scala.collection.mutable.Buffer(1, 2, 3)
     assert(buffer.drop(1) == scala.collection.mutable.Buffer(2, 3))
     assert(buffer == scala.collection.mutable.Buffer(1, 2, 3))
   }
-  
+
   it("配列同士の==") {
     val x = Array(1, 2, 3)
     val y = Array(1, 2, 3)
@@ -51,21 +51,27 @@ class UnderstandingScalaTrapSpec extends FunSpec {
     import scala.concurrent.ExecutionContext.Implicits.global
 
     // 以下のコードでは、処理が平行に実行されない
-    for (f1 <- Future(1 + 2); f2 <- Future(3 + 4)) yield f1 + f2
+    for {
+      f1 <- Future(1 + 2)
+      f2 <- Future(3 + 4)
+    } yield f1 + f2
     // 先にFutureを格納する変数を用意する
     val f1 = Future(1 + 2)
     val f2 = Future(3 + 4)
-    for (a <- f1; b <- f2) yield a + b
+    for {
+      a <- f1
+      b <- f2
+    } yield a + b
   }
-  
+
   it("意図しない結果のパターンマッチ") {
     // TODO: Add sample code.
   }
-  
+
   it("誤った正規表現のパターンマッチ") {
     // TODO: Add sample code.
   }
-  
+
   it("既存の型同士のimplicit conversionは使わない") {
     {
       // だめ!
@@ -86,23 +92,23 @@ class UnderstandingScalaTrapSpec extends FunSpec {
     val m = new java.util.HashMap[Int, String]
     assertThrows[NullPointerException](m.get(1).toLowerCase)
   }
-  
+
   it("Set#mapの罠") {
     // Scalaのコレクションは可能な限り自分と同じ型を返そうとする
     assert(Set(1, 2, 3).map(_ => 2) == Set(2))
     // 対策: toListなどで他のコレクションに変換する
     assert(Set(1, 2, 3).toList.map(_ => 2) == List(2, 2, 2))
   }
-  
+
   it("インナークラスのインスタンス") {
     class Outer {
       class Inner
       val I = new Inner
     }
-    val outer = new Outer
+    val outer              = new Outer
     val inner: Outer#Inner = outer.I
   }
-  
+
   it("アンダースコア七変化") {
     // ワイルドカードインポート
     {
@@ -124,7 +130,7 @@ class UnderstandingScalaTrapSpec extends FunSpec {
 
     // 可変長引数にコレクションを分解して渡す
     // _単体では意味はなく、:_*の組み合わせで意味を持つ
-    printf("%d", List(1):_*)
+    printf("%d", List(1): _*)
 
     // メソッドを関数の型に変換する
     // メソッドはファーストクラスの型ではない

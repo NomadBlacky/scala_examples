@@ -8,8 +8,8 @@ import org.scalatest.FunSpec
 class TypeParameterSpec extends FunSpec {
 
   it("Scalaにおける型の検査") {
-    val v1:Any = "hoge"
-    val v2:Any = 123
+    val v1: Any = "hoge"
+    val v2: Any = 123
 
     // Any#instanceOf で型の検査ができる
     assert(v1.isInstanceOf[String] == true)
@@ -19,12 +19,12 @@ class TypeParameterSpec extends FunSpec {
 
     // が、パターンマッチを使うほうが一般的
     v1 match {
-      case v:String =>
-      case v:Int => fail()
+      case v: String =>
+      case v: Int    => fail()
     }
     v2 match {
-      case v:String => fail()
-      case v:Int =>
+      case v: String => fail()
+      case v: Int    =>
     }
   }
 

@@ -5,11 +5,11 @@ import org.scalatest.FunSpec
 class TupleSpec extends FunSpec {
 
   override def suiteName: String = "Tuple - 任意の複数の値を保持するクラス"
-  
+
   it("タプルを生成する") {
     val t = (1, "hoge", 1.0)
   }
-  
+
   it("タプルから値を取り出す") {
     val t = (1, "hoge", 1.0)
     assert(t._1 == 1)

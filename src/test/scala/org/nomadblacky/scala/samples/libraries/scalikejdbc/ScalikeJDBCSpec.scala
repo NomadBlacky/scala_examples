@@ -6,7 +6,7 @@ import java.time.Instant
 import org.scalatest._
 import scalikejdbc._
 import scalikejdbc.scalatest.AutoRollback
-import skinny.orm.{ Alias, SkinnyCRUDMapper, SkinnyMapper }
+import skinny.orm.{Alias, SkinnyCRUDMapper, SkinnyMapper}
 
 import scala.util.Try
 
@@ -67,10 +67,13 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
     it("その他オプションの設定") {
       Class.forName("org.h2.Driver")
-      ConnectionPool.singleton("jdbc:h2:mem:db", "user", "pass",
+      ConnectionPool.singleton(
+        "jdbc:h2:mem:db",
+        "user",
+        "pass",
         ConnectionPoolSettings(
-          initialSize = 20,                   // プールするコネクションの最小値
-          maxSize = 50,                       // プールするコネクションの最大値
+          initialSize = 20, // プールするコネクションの最小値
+          maxSize = 50, // プールするコネクションの最大値
           validationQuery = "select 1 as one" // 正常に接続できているかを確認するSQL
         )
       )
@@ -86,7 +89,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       }
 
       // select文以外を叩こうとすると例外
-      a [SQLException] should be thrownBy {
+      a[SQLException] should be thrownBy {
         DB readOnly { implicit s =>
           sql"insert into mambers(name) values('foooo!')".update().apply()
         }
@@ -133,10 +136,11 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
           db.commit() // コミット
 
-        } catch { case e: Exception =>
-          db.rollback()         // 例外が投げられる可能性があるロールバック
-          db.rollbackIfActive() // 例外セーフなロールバック
-          throw e
+        } catch {
+          case e: Exception =>
+            db.rollback()         // 例外が投げられる可能性があるロールバック
+            db.rollbackIfActive() // 例外セーフなロールバック
+            throw e
         }
       }
     }
@@ -148,7 +152,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
         val id = DB localTx { implicit s =>
           sql"insert into members(name, team_id) values($name, $teamId)".updateAndReturnGeneratedKey().apply()
 
-          // localTx で囲っているので、この時点でトランザクションが終了してしまう
+        // localTx で囲っているので、この時点でトランザクションが終了してしまう
         }
         Member(id, name)
       }
@@ -165,7 +169,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       DB localTx { implicit s =>
         createMember2("foo", 200L)
 
-        // 同じトランザクションを使う処理
+      // 同じトランザクションを使う処理
       }
 
       // 単体で実行もできる
@@ -183,7 +187,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     it("名前付きSQLテンプレート") {
       SQL("insert into members(id, name) values({id}, {name})")
         .bindByName(
-          'id -> 100L,
+          'id   -> 100L,
           'name -> "user01"
         )
     }
@@ -196,7 +200,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
           |)
         """.stripMargin)
         .bindByName(
-          'id -> 100L,
+          'id   -> 100L,
           'name -> "user01"
         )
     }
@@ -267,7 +271,8 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
         override def tableName: String = "teams"
         def create(id: Long, name: String): Int = DB.localTx { implicit s =>
           withSQL {
-            insert.into(Team)
+            insert
+              .into(Team)
               .columns(column.id, column.name)
               .values(id, name)
           }.update().apply()
@@ -275,7 +280,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       }
 
       val ordering = sqls"desc"
-      val id = 1234
+      val id       = 1234
 
       val t = Team.syntax("t")
       val names = DB.readOnly { implicit s =>
@@ -292,9 +297,9 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       }
 
       val t = Team.syntax("t")
-      t.id            shouldBe sqls"t.id"           // カラム名
-      t.result.id     shouldBe sqls"t.id as i_on_t" // カラム名 as エイリアス
-      t.resultName.id shouldBe sqls"i_on_t"         // エイリアス
+      t.id shouldBe sqls"t.id"                  // カラム名
+      t.result.id shouldBe sqls"t.id as i_on_t" // カラム名 as エイリアス
+      t.resultName.id shouldBe sqls"i_on_t"     // エイリアス
     }
 
   }
@@ -380,7 +385,9 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
            select ${m.result.*}, ${t.result.*}
            from ${Member as m} left join ${Team as t} on ${m.teamId} = ${t.id}
         """
-          .map(implicit rs => JoinedMember(m.resultName, t.resultName)).list().apply()
+          .map(implicit rs => JoinedMember(m.resultName, t.resultName))
+          .list()
+          .apply()
       }
     }
 
@@ -390,7 +397,9 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
         // 日付・時刻は JavaSE8 の Date Time API もしくは Joda Time を使う
         // (ScalikeJDBCのVersion3からは Date Time API を推奨)
         val (name, organization, createdAt) = ("User", Some("Hoge Inc."), Instant.now())
-        sql"insert into users (name, organization, created_at) values ($name, $organization, $createdAt)".update().apply()
+        sql"insert into users (name, organization, created_at) values ($name, $organization, $createdAt)"
+          .update()
+          .apply()
       }
     }
 
@@ -399,7 +408,8 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       val id: Long = DB localTx { implicit s =>
         // auto-increment である PK を扱うには updateAndReturnGeneratedKey を指定する
         sql"insert into users (name, organization, created_at) values ($name, $organization, $createdAt)"
-          .updateAndReturnGeneratedKey().apply()
+          .updateAndReturnGeneratedKey()
+          .apply()
       }
     }
 
@@ -423,7 +433,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       // バッチ処理には batch, batchByName を使用する
       // バインド引数のリストを実行数分だけ一括で渡す
       // ある程度大きな件数を更新する場合はこちらがおすすめ
-      val now = Instant.now()
+      val now                    = Instant.now()
       val params1: Seq[Seq[Any]] = (1 to 100).map(i => Seq("user_" + i, now))
       DB localTx { implicit s =>
         // batch メソッドはJDBCのSQLテンプレートに対してSeq[Any]を実行数分渡すメソッド
@@ -447,7 +457,6 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       * デフォルトでは、DEBUGレベルですべてのSQLを出力、
       * 一定以上の時間がかかったSQLはWARNレベルでログを出力するようになっている。
       */
-
     def insertMember(name: String, teamId: Long): Unit = DB.localTx { implicit s =>
       sql"insert into members(name, team_id) values($name, $teamId)".update().apply()
     }
@@ -476,7 +485,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
               <appender-ref ref="STDOUT" />
           </root>
       </configuration>
-       */
+     */
     }
 
     it("シングルラインモード") {
@@ -494,8 +503,8 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     it("SkinnyCRUDMapper") {
       case class Member(id: Long, name: String, teamId: Long)
       object Member extends SkinnyCRUDMapper[Member] {
-        override def tableName: String = "members"
-        override lazy val defaultAlias: Alias[Member] = createAlias("m")
+        override def tableName: String                                                        = "members"
+        override lazy val defaultAlias: Alias[Member]                                         = createAlias("m")
         override def extract(rs: WrappedResultSet, n: scalikejdbc.ResultName[Member]): Member = autoConstruct(rs, n)
       }
 
@@ -505,7 +514,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       Member.findById(123)
       Member.where('name -> "hoge")
       // Update
-      Member.updateById(123).withAttributes('name -> "foo")
+      Member.updateById(123).withAttributes('name                               -> "foo")
       Member.updateBy(sqls.eq(Member.column.name, "hoge")).withAttributes('name -> "foo")
       // Delete
       Member.deleteById(123)
