@@ -4,7 +4,7 @@ val scalikejdbcVersion = "3.2.2"
 lazy val TableOfContents = config("tableOfContents").extend(Test)
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.12.6",
+  scalaVersion := "2.12.8",
   wartremoverWarnings ++= Warts.unsafe,
   wartremoverWarnings -= Wart.NonUnitStatements
 )
