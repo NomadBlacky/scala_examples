@@ -1,5 +1,4 @@
-val scalazVersion      = "7.2.10"
-val scalikejdbcVersion = "3.2.2"
+val scalikejdbcVersion = "3.3.2"
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
 
@@ -35,23 +34,23 @@ lazy val root = (project in file("."))
     libraryDependencies ++= Seq(
       "org.scalactic"        %% "scalactic"              % "3.0.5",
       "org.scalatest"        %% "scalatest"              % "3.0.5" % "test",
-      "org.scalacheck"       %% "scalacheck"             % "1.13.4" % "test",
-      "com.github.scopt"     %% "scopt"                  % "3.5.0",
+      "org.scalacheck"       %% "scalacheck"             % "1.14.0" % "test",
+      "com.github.scopt"     %% "scopt"                  % "3.7.1",
       "org.pegdown"          % "pegdown"                 % "1.6.0",
       "org.scala-lang"       % "scala-reflect"           % scalaVersion.value,
-      "org.jfree"            % "jfreechart"              % "1.0.19",
-      "com.github.pathikrit" %% "better-files"           % "2.17.1",
-      "org.scalaz"           %% "scalaz-core"            % scalazVersion,
-      "com.typesafe.akka"    %% "akka-http-core"         % "10.0.7",
-      "com.typesafe.akka"    % "akka-stream_2.12"        % "2.5.6",
-      "com.chuusai"          %% "shapeless"              % "2.3.2",
-      "org.typelevel"        %% "cats-core"              % "1.0.0-MF",
-      "com.lihaoyi"          %% "ammonite-ops"           % "1.0.3",
-      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "1.1.6",
+      "org.jfree"            % "jfreechart"              % "1.5.0",
+      "com.github.pathikrit" %% "better-files"           % "3.7.0",
+      "org.scalaz"           %% "scalaz-core"            % "7.2.27",
+      "com.typesafe.akka"    %% "akka-http-core"         % "10.1.7",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.5.19",
+      "com.chuusai"          %% "shapeless"              % "2.3.3",
+      "org.typelevel"        %% "cats-core"              % "1.5.0",
+      "com.lihaoyi"          %% "ammonite-ops"           % "1.6.0",
+      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "1.1.12",
       "org.scalikejdbc"      %% "scalikejdbc"            % scalikejdbcVersion,
       "org.scalikejdbc"      %% "scalikejdbc-config"     % scalikejdbcVersion,
       "org.scalikejdbc"      %% "scalikejdbc-test"       % scalikejdbcVersion % "test",
-      "org.skinny-framework" %% "skinny-orm"             % "2.6.0",
+      "org.skinny-framework" %% "skinny-orm"             % "3.0.1",
       "com.h2database"       % "h2"                      % "1.4.197",
       "ch.qos.logback"       % "logback-classic"         % "1.2.3"
     )
