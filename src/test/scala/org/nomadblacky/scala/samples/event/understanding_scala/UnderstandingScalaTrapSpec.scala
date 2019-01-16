@@ -109,8 +109,7 @@ class UnderstandingScalaTrapSpec extends FunSpec {
 
   it("アンダースコア七変化") {
     // ワイルドカードインポート
-    {
-    }
+    {}
 
     // 特定クラスを除外してインポート
     {
