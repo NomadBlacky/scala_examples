@@ -5,7 +5,10 @@ lazy val TableOfContents = config("tableOfContents").extend(Test)
 lazy val commonSettings = Seq(
   scalaVersion := "2.12.8",
   wartremoverWarnings ++= Warts.unsafe,
-  wartremoverWarnings -= Wart.NonUnitStatements
+  wartremoverWarnings -= Wart.NonUnitStatements,
+  scalacOptions ++= Seq(
+    "-Ywarn-unused:imports"
+  )
 )
 
 lazy val reporter = (project in file("reporter"))
