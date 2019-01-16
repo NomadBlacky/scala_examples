@@ -1,9 +1,8 @@
 package org.nomadblacky.scala.samples.xml
 
 import org.scalatest.FunSpec
-import scala.xml.XML
-import scala.xml.Elem
-import scala.xml.NodeSeq
+
+import scala.xml.{Elem, XML}
 
 class XmlSpec extends FunSpec {
 

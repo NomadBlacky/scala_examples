@@ -1,6 +1,5 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter02
 
-import org.nomadblacky.scala.samples.functional.programming.in.scala.chapter03.{MyList, MyNil}
 import org.scalatest.FunSpec
 
 /**

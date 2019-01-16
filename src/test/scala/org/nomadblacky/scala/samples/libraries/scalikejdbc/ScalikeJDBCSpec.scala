@@ -5,8 +5,7 @@ import java.time.Instant
 
 import org.scalatest._
 import scalikejdbc._
-import scalikejdbc.scalatest.AutoRollback
-import skinny.orm.{Alias, SkinnyCRUDMapper, SkinnyMapper}
+import skinny.orm.{Alias, SkinnyCRUDMapper}
 
 import scala.util.Try
 

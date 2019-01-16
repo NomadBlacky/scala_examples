@@ -2,8 +2,6 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.{FunSpec, Matchers}
 
-import scala.util.Try
-
 /**
   * match式
   *

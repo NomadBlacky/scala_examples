@@ -6,7 +6,6 @@ import java.nio.file.{Path, Paths}
 import org.scalatest.Reporter
 import org.scalatest.events._
 
-import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 

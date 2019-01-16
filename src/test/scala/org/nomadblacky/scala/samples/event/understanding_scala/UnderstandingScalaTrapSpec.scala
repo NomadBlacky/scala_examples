@@ -1,7 +1,5 @@
 package org.nomadblacky.scala.samples.event.understanding_scala
 
-import java.util
-
 import org.scalatest.FunSpec
 
 import scala.concurrent.Future
@@ -112,7 +110,6 @@ class UnderstandingScalaTrapSpec extends FunSpec {
   it("アンダースコア七変化") {
     // ワイルドカードインポート
     {
-      import java.util._
     }
 
     // 特定クラスを除外してインポート
