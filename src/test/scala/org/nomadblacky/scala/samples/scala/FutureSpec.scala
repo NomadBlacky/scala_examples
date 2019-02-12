@@ -15,8 +15,10 @@ class FutureSpec extends FunSpec with Matchers {
 
   /**
     * ExecutionContextとは?
-    * ・Runnableのインスタンスを渡すと、よしなに非同期実行してくれる仕組み
-    * ・実行タイミング・スレッドへの配分などは実装により異なる
+    * ・Runnableのインスタンスを渡すと、よしなに非同期実行してくれる仕組み。
+    *   ・スレッド利用の効率化のため、タスク(Runnable)をスレッドに振り分ける役目をする。
+    *   ・実行タイミング・スレッドへの配分などは実装により異なる。
+    *   ・参考: http://mashi.hatenablog.com/entry/2014/11/24/010417
     * ・ExecutionContext.Implicits.globalは通常、最大でCPUの論理プロセッサ数ぶんのスレッドを立ち上げ、処理する。
     *   ※オプションで「論理プロセッサ数 x N倍」に設定できる。
     */
@@ -49,12 +51,12 @@ class FutureSpec extends FunSpec with Matchers {
     assert(f.value.get.get == "ok")
   }
 
-  it("Await ... スレッドの終了を待機する") {
+  it("Await ... Futureの終了を待機する") {
     val f = Future {
       Thread.sleep(1000)
       "ok"
     }
-    // Await.result でスレッドの終了を待機して結果を受け取る
+    // Await.result でFutureの終了を待機して結果を受け取る
     val result = Await.result(f, 3.seconds)
     assert(result == "ok")
 
