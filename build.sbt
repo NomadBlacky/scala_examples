@@ -53,7 +53,7 @@ lazy val root = (project in file("."))
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-config"     % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
-      "org.skinny-framework" %% "skinny-orm"             % "3.0.2",
+      "org.skinny-framework" %% "skinny-orm"             % "3.0.3",
       "com.h2database"       % "h2"                      % "1.4.199",
       "ch.qos.logback"       % "logback-classic"         % "1.2.3"
     )
