@@ -49,7 +49,7 @@ lazy val root = (project in file("."))
       "com.chuusai"          %% "shapeless"              % "2.3.3",
       "org.typelevel"        %% "cats-core"              % "1.6.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "1.6.6",
-      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.0.3",
+      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.0.7",
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-config"     % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
