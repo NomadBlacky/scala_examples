@@ -45,7 +45,7 @@ lazy val root = (project in file("."))
       "com.github.pathikrit" %% "better-files"           % "3.7.1",
       "org.scalaz"           %% "scalaz-core"            % "7.2.27",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.1.8",
-      "com.typesafe.akka"    %% "akka-stream"            % "2.5.22",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.5.23",
       "com.chuusai"          %% "shapeless"              % "2.3.3",
       "org.typelevel"        %% "cats-core"              % "1.6.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "1.6.6",
