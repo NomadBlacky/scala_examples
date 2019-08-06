@@ -1,5 +1,5 @@
 val versions = new {
-  val scalikejdbc = "3.3.4"
+  val scalikejdbc = "3.3.5"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
