@@ -35,7 +35,7 @@ lazy val root = (project in file("."))
       )
     ),
     libraryDependencies ++= Seq(
-      "org.scalactic"        %% "scalactic"              % "3.0.7",
+      "org.scalactic"        %% "scalactic"              % "3.0.9",
       "org.scalatest"        %% "scalatest"              % "3.0.7" % "test",
       "org.scalacheck"       %% "scalacheck"             % "1.14.0" % "test",
       "com.github.scopt"     %% "scopt"                  % "3.7.1",
