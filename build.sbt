@@ -38,7 +38,7 @@ lazy val root = (project in file("."))
       "org.scalactic"        %% "scalactic"              % "3.0.7",
       "org.scalatest"        %% "scalatest"              % "3.0.7" % "test",
       "org.scalacheck"       %% "scalacheck"             % "1.14.0" % "test",
-      "com.github.scopt"     %% "scopt"                  % "3.7.1",
+      "com.github.scopt"     %% "scopt"                  % "4.0.0",
       "org.pegdown"          % "pegdown"                 % "1.6.0",
       "org.scala-lang"       % "scala-reflect"           % scalaVersion.value,
       "org.jfree"            % "jfreechart"              % "1.5.0",
