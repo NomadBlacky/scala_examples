@@ -5,7 +5,7 @@ val versions = new {
 lazy val TableOfContents = config("tableOfContents").extend(Test)
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.12.8",
+  scalaVersion := "2.12.14",
   scalacOptions ++= Seq(
     "-Ywarn-unused:imports"
   )
