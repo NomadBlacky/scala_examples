@@ -2,8 +2,7 @@ package org.nomadblacky.scala.samples.event.understanding_scala
 
 import org.scalatest.FunSpec
 
-/**
-  * 6/10 Understanding Scala ~Scalaを理解しよう~
+/** 6/10 Understanding Scala ~Scalaを理解しよう~
   * https://connpass.com/event/55308/
   *
   * Scalaのimplicit parameterを学ぶ
@@ -15,13 +14,11 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
 
   it("implicit parameter") {
 
-    /**
-      * implicit conversion とごっちゃにされやすい
+    /** implicit conversion とごっちゃにされやすい
       * 正しく使えば非常に強力
       * こわくない!
       */
-    /**
-      * 例題
+    /** 例題
       * + リストの要素をすべて足し合わせた値を返す関数
       * + ただし、あとから特定の型を足すことができること
       * ++ 有理数(Rational)、複素数(Complext)など
@@ -79,12 +76,11 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
 
   it("implicit parameterの仕組み") {
 
-    /**
-    * + implicit修飾子が付いた引数m: Monoid[A]があったときに Aが特定の型に確定していれば
-    * + MonoidのコンパニオンオブジェクトからMonoidのインスタンスを探す
-    * + Monoidの型パラメータ（たとえばInt`)のコンパニオンオブジェクトを探す
-    * + importされたオブジェクトの下にimplicit宣言されたオブジェクトがないか探す
-    */
+    /** + implicit修飾子が付いた引数m: Monoid[A]があったときに Aが特定の型に確定していれば
+      * + MonoidのコンパニオンオブジェクトからMonoidのインスタンスを探す
+      * + Monoidの型パラメータ（たとえばInt`)のコンパニオンオブジェクトを探す
+      * + importされたオブジェクトの下にimplicit宣言されたオブジェクトがないか探す
+      */
   }
 
   it("Scala標準ライブラリにおけるimplicit parameterの例") {
