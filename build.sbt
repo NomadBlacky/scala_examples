@@ -35,13 +35,13 @@ lazy val root = (project in file("."))
       )
     ),
     libraryDependencies ++= Seq(
-      "org.scalactic"        %% "scalactic"              % "3.0.9",
-      "org.scalatest"        %% "scalatest"              % "3.0.7" % "test",
-      "org.scalacheck"       %% "scalacheck"             % "1.14.0" % "test",
+      "org.scalactic"        %% "scalactic"              % "3.0.7",
+      "org.scalatest"        %% "scalatest"              % "3.0.7"              % "test",
+      "org.scalacheck"       %% "scalacheck"             % "1.14.0"             % "test",
       "com.github.scopt"     %% "scopt"                  % "3.7.1",
-      "org.pegdown"          % "pegdown"                 % "1.6.0",
-      "org.scala-lang"       % "scala-reflect"           % scalaVersion.value,
-      "org.jfree"            % "jfreechart"              % "1.5.0",
+      "org.pegdown"           % "pegdown"                % "1.6.0",
+      "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
+      "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.7.1",
       "org.scalaz"           %% "scalaz-core"            % "7.2.27",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.1.8",
@@ -54,8 +54,8 @@ lazy val root = (project in file("."))
       "org.scalikejdbc"      %% "scalikejdbc-config"     % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.0.2",
-      "com.h2database"       % "h2"                      % "1.4.199",
-      "ch.qos.logback"       % "logback-classic"         % "1.2.3"
+      "com.h2database"        % "h2"                     % "1.4.199",
+      "ch.qos.logback"        % "logback-classic"        % "1.2.3"
     )
   )
 

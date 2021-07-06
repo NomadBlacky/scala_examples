@@ -12,8 +12,7 @@ import scala.concurrent.{Await, Future}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-/**
-  * Created by blacky on 17/05/29.
+/** Created by blacky on 17/05/29.
   */
 class AkkaHttpSpec extends FunSpec {
 

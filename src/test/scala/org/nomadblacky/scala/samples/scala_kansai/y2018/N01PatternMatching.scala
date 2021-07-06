@@ -13,11 +13,11 @@ class N01PatternMatching extends FunSpec with Matchers {
   it("match式おさらい") {
     val anyObject: Any = "nanika"
     anyObject match {
-      case 1                          => "one" // 値のマッチング
+      case 1                          => "one"      // 値のマッチング
       case d: Double                  => d.toString // 型のマッチング
       case Some(x)                    => x.toString // 構造のマッチング
-      case s: String if 5 <= s.length => s // パターンガード
-      case any                        => "Any" // 任意の値
+      case s: String if 5 <= s.length => s          // パターンガード
+      case any                        => "Any"      // 任意の値
     }
   }
 
@@ -37,8 +37,7 @@ class N01PatternMatching extends FunSpec with Matchers {
 
   it("愚直に実装する") {
 
-    /**
-      * + `List[User]` に対して
+    /** + `List[User]` に対して
       * + `isActive` が `true` のものだけを抜き出し
       * + 名前が10文字以上の場合は最初の5文字だけを抜き出し
       * + `List[String]` を返す
@@ -122,8 +121,8 @@ class N01PatternMatching extends FunSpec with Matchers {
     val strings = List(("a", 1), ("b", 2), ("c", 3)).map { tuple =>
       tuple._1 * tuple._2
     }
-    val strings2 = List(("a", 1), ("b", 2), ("c", 3)).map {
-      case (str, times) => str * times
+    val strings2 = List(("a", 1), ("b", 2), ("c", 3)).map { case (str, times) =>
+      str * times
     }
     strings shouldBe List("a", "bb", "ccc")
     strings shouldBe strings2
@@ -174,8 +173,8 @@ class N01PatternMatching extends FunSpec with Matchers {
       tryStoringUser(User(None, isActive = false)) shouldBe a[Failure[IllegalStateException]]
 
       def tryStoringUser2(user: User): Try[Unit] =
-        storeUser(user).recoverWith {
-          case e: IOException => storeError(e)
+        storeUser(user).recoverWith { case e: IOException =>
+          storeError(e)
         }
       tryStoringUser2(User(None, isActive = true)) shouldBe Success(())
       tryStoringUser2(User(None, isActive = false)) shouldBe a[Failure[IllegalStateException]]

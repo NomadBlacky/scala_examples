@@ -6,15 +6,13 @@ import scala.concurrent._
 import scala.concurrent.duration._
 import scala.util.{Failure, Success}
 
-/**
-  * Created by blacky on 17/03/31.
+/** Created by blacky on 17/03/31.
   */
 class FutureSpec extends FunSpec with Matchers {
 
   override def suiteName: String = "Futureの使い方"
 
-  /**
-    * ExecutionContextとは?
+  /** ExecutionContextとは?
     * ・Runnableのインスタンスを渡すと、よしなに非同期実行してくれる仕組み。
     *   ・スレッド利用の効率化のため、タスク(Runnable)をスレッドに振り分ける役目をする。
     *   ・実行タイミング・スレッドへの配分などは実装により異なる。
