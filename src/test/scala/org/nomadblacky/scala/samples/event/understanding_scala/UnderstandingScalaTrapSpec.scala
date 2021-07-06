@@ -4,8 +4,7 @@ import org.scalatest.FunSpec
 
 import scala.concurrent.Future
 
-/**
-  * 6/10 Understanding Scala ~Scalaを理解しよう~
+/** 6/10 Understanding Scala ~Scalaを理解しよう~
   * https://connpass.com/event/55308/
   *
   * Scalaの謎・落とし穴を学ぶ

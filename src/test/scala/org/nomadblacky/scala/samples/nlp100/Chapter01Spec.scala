@@ -6,8 +6,7 @@ import scala.annotation.tailrec
 import scala.collection.mutable
 import scala.util.Random
 
-/**
-  * 言語処理100本ノック 第1章: 準備運動
+/** 言語処理100本ノック 第1章: 準備運動
   *
   * Weeble Scalaもくもく勉強会にて回答されたコードです。
   * https://weeyble-scala.connpass.com/
@@ -41,10 +40,9 @@ class Chapter01Spec extends FunSpec with Matchers {
     // A03
     val result3 =
       text
-        .foldLeft(("", true)) {
-          case ((acc, b), c) =>
-            val str = if (b) acc + c else acc
-            (str, !b)
+        .foldLeft(("", true)) { case ((acc, b), c) =>
+          val str = if (b) acc + c else acc
+          (str, !b)
         }
         ._1
     result3 shouldBe "パトカー"
@@ -85,16 +83,15 @@ class Chapter01Spec extends FunSpec with Matchers {
     result3 shouldBe expect
 
     // A04
-    val result4 = (str1 zip str2).foldLeft("") {
-      case (acc, (c1, c2)) => acc + c1 + c2
+    val result4 = (str1 zip str2).foldLeft("") { case (acc, (c1, c2)) =>
+      acc + c1 + c2
     }
     result4 shouldBe expect
 
     // A05
     val result5 = "パトカー"
-      .foldLeft[(String, String)]("", "タクシー") {
-        case ((acc, rest), c) =>
-          (acc + c + rest.head, rest.tail)
+      .foldLeft[(String, String)]("", "タクシー") { case ((acc, rest), c) =>
+        (acc + c + rest.head, rest.tail)
       }
       ._1
     result5 shouldBe expect
@@ -163,8 +160,7 @@ class Chapter01Spec extends FunSpec with Matchers {
 
   it("04. 元素記号") {
 
-    /**
-      * "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
+    /** "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
       * という文を単語に分解し，1, 5, 6, 7, 8, 9, 15, 16, 19番目の単語は先頭の1文字
       * それ以外の単語は先頭に2文字を取り出し
       * 取り出した文字列から単語の位置（先頭から何番目の単語か）への連想配列（辞書型もしくはマップ型）を作成せよ．
@@ -199,11 +195,10 @@ class Chapter01Spec extends FunSpec with Matchers {
     val result = text
       .split("""\W+""")
       .zipWithIndex
-      .map {
-        case (s, i) =>
-          val realIndex = i + 1
-          val count     = if (pic.contains(realIndex)) 1 else 2
-          (realIndex, s.take(count))
+      .map { case (s, i) =>
+        val realIndex = i + 1
+        val count     = if (pic.contains(realIndex)) 1 else 2
+        (realIndex, s.take(count))
       }
       .toMap
     result shouldBe expect
@@ -212,9 +207,8 @@ class Chapter01Spec extends FunSpec with Matchers {
     val ones = Seq(1, 5, 6, 7, 8, 9, 15, 16, 19)
     val (_, answer) = text
       .split("""\W+""")
-      .foldLeft((1, Map.empty[Int, String])) {
-        case ((current, map), word) =>
-          (current + 1, map.updated(current, word.take(if (ones.contains(current)) 1 else 2)))
+      .foldLeft((1, Map.empty[Int, String])) { case ((current, map), word) =>
+        (current + 1, map.updated(current, word.take(if (ones.contains(current)) 1 else 2)))
       }
     answer shouldBe expect
 
@@ -233,8 +227,7 @@ class Chapter01Spec extends FunSpec with Matchers {
 
   it("07. テンプレートによる文生成") {
 
-    /**
-      * 引数x, y, zを受け取り「x時のyはz」という文字列を返す関数を実装せよ．
+    /** 引数x, y, zを受け取り「x時のyはz」という文字列を返す関数を実装せよ．
       * さらに，x=12, y="気温", z=22.4として，実行結果を確認せよ．
       */
     // A01
@@ -253,8 +246,7 @@ class Chapter01Spec extends FunSpec with Matchers {
 
   it("08. 暗号文") {
 
-    /**
-      * 与えられた文字列の各文字を，以下の仕様で変換する関数cipherを実装せよ．
+    /** 与えられた文字列の各文字を，以下の仕様で変換する関数cipherを実装せよ．
       * 英小文字ならば(219 - 文字コード)の文字に置換
       * その他の文字はそのまま出力
       * この関数を用い，英語のメッセージを暗号化・復号化せよ．
@@ -284,7 +276,8 @@ class Chapter01Spec extends FunSpec with Matchers {
     // A03
     def cipher03(text: String): String = {
       text.map { c =>
-        if (c.isLower) { (219 - c.toInt).toChar } else { c }
+        if (c.isLower) { (219 - c.toInt).toChar }
+        else { c }
       }.toString
     }
     cipher03(cipher03("Test")) should equal("Test")

@@ -2,8 +2,7 @@ package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter11
 
 import org.scalatest.FunSpec
 
-/**
-  * Created by blacky on 17/04/25.
+/** Created by blacky on 17/04/25.
   *
   * Scala関数型デザイン&プログラミング―Scalazコントリビューターによる関数型徹底ガイド
   * 第11章 モナド

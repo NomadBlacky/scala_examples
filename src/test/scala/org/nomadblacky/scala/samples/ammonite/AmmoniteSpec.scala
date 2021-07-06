@@ -3,8 +3,7 @@ package org.nomadblacky.scala.samples.ammonite
 import ammonite.ops._
 import org.scalatest.{BeforeAndAfterAll, FunSpec, Matchers}
 
-/**
-  * http://ammonite.io/#Ammonite-Ops
+/** http://ammonite.io/#Ammonite-Ops
   */
 class AmmoniteSpec extends FunSpec with Matchers with BeforeAndAfterAll {
 

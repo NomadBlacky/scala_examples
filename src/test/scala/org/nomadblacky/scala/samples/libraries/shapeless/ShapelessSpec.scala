@@ -113,10 +113,10 @@ class ShapelessSpec extends FunSpec with Matchers {
     import record._
 
     val user =
-    ("id" ->> 1) ::
-    ("name" ->> "hoge") ::
-    ("age" ->> 20) ::
-    HNil
+      ("id" ->> 1) ::
+        ("name" ->> "hoge") ::
+        ("age" ->> 20) ::
+        HNil
 
     user("id") shouldBe 1
     user("name") shouldBe "hoge"
