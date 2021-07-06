@@ -3,8 +3,7 @@ package org.nomadblacky.scala.samples.scala
 import org.scalatest.FunSpec
 import scala.collection.mutable.ListBuffer
 
-/**
-  * for (
+/** for (
   *   [ジェネレータ]
   *   [フィルタ]
   * ) 式
@@ -64,8 +63,7 @@ class ForSpec extends FunSpec {
     assert(result == List("1", "22", "333"))
   }
 
-  /**
-    * すべてのfor式は、map,flatMap,withFilterの3つの高階関数で表現できる。
+  /** すべてのfor式は、map,flatMap,withFilterの3つの高階関数で表現できる。
     */
   it("ジェネレータが1個のときの変換") {
     val a = for (x <- List(1, 2, 3)) yield x * 2
@@ -104,8 +102,8 @@ class ForSpec extends FunSpec {
     val b = list.withFilter {
       case Some(i) => true
       case _       => false
-    } map {
-      case Some(i) => i
+    } map { case Some(i) =>
+      i
     }
     assert(a == b)
   }
