@@ -4,8 +4,7 @@ import org.scalatest.FunSpec
 
 import scala.collection.mutable.ArrayBuffer
 
-/**
-  * Created by blacky on 17/01/16.
+/** Created by blacky on 17/01/16.
   *
   * Traversable ... 操作可能
   */

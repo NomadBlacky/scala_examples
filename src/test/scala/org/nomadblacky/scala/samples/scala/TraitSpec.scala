@@ -2,8 +2,7 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.FunSpec
 
-/**
-  * Created by blacky on 16/11/05.
+/** Created by blacky on 16/11/05.
   *
   * Javaでいう interface の機能。
   * トレイト自体に実装を持つことができる。
