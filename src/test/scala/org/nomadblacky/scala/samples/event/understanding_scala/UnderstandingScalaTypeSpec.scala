@@ -5,8 +5,7 @@ import java.util
 
 import org.scalatest.FunSpec
 
-/**
-  * 6/10 Understanding Scala ~Scalaを理解しよう~
+/** 6/10 Understanding Scala ~Scalaを理解しよう~
   * https://connpass.com/event/55308/
   *
   * Scalaの型システムを学ぶ
@@ -18,8 +17,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("Any あらゆる型のスーパータイプ") {
 
-    /**
-      * 最低限のメソッドのみを提供
+    /** 最低限のメソッドのみを提供
       */
     val a: Any = 10
     assert(a == 10)
@@ -31,8 +29,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("AnyVal: あらゆる値型のスーパータイプ") {
 
-    /**
-      * Javaでいうプリミティブ型をまとめたもの
+    /** Javaでいうプリミティブ型をまとめたもの
       * AnyValにnullは代入できない
       * 便宜上存在しているが、AnyValに意味があることは少ない
       */
@@ -40,15 +37,14 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     val double: AnyVal = 1.0
     val char: AnyVal   = 'a'
     val bool: AnyVal   = true
-    val unit: AnyVal   = {}
+    val unit: AnyVal = {}
     // だめ
     // val nul: AnyVal = null
   }
 
   it("AnyRef: あらゆる参照型のスーパータイプ") {
 
-    /**
-      * Javaでいうjava.lang.Object
+    /** Javaでいうjava.lang.Object
       * 参照型のすべての値はAnyRefに代入できる
       */
     // だめ
@@ -60,8 +56,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("Nothing: あらゆる型のサブタイプ") {
 
-    /**
-      * Javaでは相当する型が存在しない
+    /** Javaでは相当する型が存在しない
       * あらゆる型のサブタイプ
       * → あらゆる型の変数に代入可能
       * → Nothing型の値は存在しない
@@ -74,8 +69,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("Null") {
 
-    /**
-      * あらゆる参照型のサブタイプ
+    /** あらゆる参照型のサブタイプ
       * 値はnullのみ
       * nullはあらゆる参照型に代入可能
       */
@@ -86,8 +80,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("ジェネリクス") {
 
-    /**
-      * 最近の静的型付き言語のほとんどがもっている
+    /** 最近の静的型付き言語のほとんどがもっている
       * 型をパラメータとして取ること柔軟な型定義ができる
       */
     val strings = new util.ArrayList[String]
@@ -104,8 +97,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     // これを許すと、Stringの配列にIntが入るといった状況が生まれる
     // y(0) = 1
 
-    /**
-      * + String と Any について、StringがAnyのサブタイプである場合、
+    /** + String と Any について、StringがAnyのサブタイプである場合、
       *   Array[String]がArray[Any]のサブタイプであるとき、
       *   Arrayは共変であるという。
       * + 実際にはScalaのArrayは共変ではない(不変)
@@ -131,8 +123,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("反変") {
 
-    /**
-      * 関数の型は引数の型に関して「共変ではない」
+    /** 関数の型は引数の型に関して「共変ではない」
       */
     val x: Int => Any = { i =>
       i
@@ -143,16 +134,14 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     // これを許すと、Int引数にStringを渡せてしまうという状況が生まれる。
     // y("hoge")
 
-    /**
-      * 引数の型は引数の型に関して、「反変である」
+    /** 引数の型は引数の型に関して、「反変である」
       */
     val xx: Any => Any = { a =>
       a
     }
     val yy: Int => Any = x // OK
 
-    /**
-      * 型の汎化(スーパタイプ)を許容する。
+    /** 型の汎化(スーパタイプ)を許容する。
       * Scalaでは、[-T]のように、型パラメータに - を付けると反変になる。
       */
     class Animal
@@ -172,8 +161,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("構造的部分型") {
 
-    /**
-      * 継承関係によらず、必要なメソッドを持っていれば要求を満たす、としたい場合がある。
+    /** 継承関係によらず、必要なメソッドを持っていれば要求を満たす、としたい場合がある。
       * 動的型付け言語における、duck typing的な考え。
       */
     import scala.language.reflectiveCalls
@@ -189,17 +177,15 @@ class UnderstandingScalaTypeSpec extends FunSpec {
       // do something
     }
 
-    /**
-    * 内部的にはリフレクションを使っているので多用に注意。
-    * import scala.language.reflectiveCalls
-    * をつけないと警告が出る。
-    */
+    /** 内部的にはリフレクションを使っているので多用に注意。
+      * import scala.language.reflectiveCalls
+      * をつけないと警告が出る。
+      */
   }
 
   it("高階多相") {
 
-    /**
-      * List などのコレクションや Option など様々な型が map メソッドを持っている
+    /** List などのコレクションや Option など様々な型が map メソッドを持っている
       * とにかく map を持っている型を抽象化したい
       * そのような型 Mapper を定義してみる
       */
@@ -207,8 +193,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
       def map[A, B](c: C)(f: C => C): C
     }
 
-    /**
-      * C の要素の型は map の呼び出しによって変わるので通常のジェネリクスでは表現できない
+    /** C の要素の型は map の呼び出しによって変わるので通常のジェネリクスでは表現できない
       */
     trait Mapper2[C[_]] {
       def map[A, B](c: C[A])(f: A => B): C[B]
@@ -227,13 +212,12 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     assert(add2(List(1, 2, 3)) == List(3, 4, 5))
     assert(add2(Option(1)) == Some(3))
 
-    /**
-    * C[_]が肝心
-    * 型コンストラクタを引数に取ることを表す宣言
-    * 型コンストラクタ … ジェネリックなクラスに型が与えられる前の名前のこと
-    * + List[T] → List
-    * + Option[T] → Option
-    */
+    /** C[_]が肝心
+      * 型コンストラクタを引数に取ることを表す宣言
+      * 型コンストラクタ … ジェネリックなクラスに型が与えられる前の名前のこと
+      * + List[T] → List
+      * + Option[T] → Option
+      */
   }
 
 }

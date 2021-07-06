@@ -3,8 +3,7 @@ package org.nomadblacky.scala.samples.akka.streams
 import akka.actor.ActorSystem
 import org.scalatest.{FunSpec, Matchers}
 
-/**
-  * Akka Streams
+/** Akka Streams
   * 非同期ストリーム処理のライブラリ
   *
   * 特徴
@@ -31,7 +30,7 @@ class AkkaStreamsSpec extends FunSpec with Matchers {
     val sink   = Sink.foreach(println) // Subscriber
 
     source
-      .map(_ * 2) // Stage (Actorが立ち上がる)
+      .map(_ * 2)    // Stage (Actorが立ち上がる)
       .runWith(sink) // Sinkで結果を受け取る
   }
 }
