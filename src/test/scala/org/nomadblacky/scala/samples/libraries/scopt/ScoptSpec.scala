@@ -5,8 +5,7 @@ import java.util.Calendar
 
 import org.scalatest.FunSpec
 
-/**
-  * Created by blacky on 16/10/14.
+/** Created by blacky on 16/10/14.
   */
 class ScoptSpec extends FunSpec {
 
