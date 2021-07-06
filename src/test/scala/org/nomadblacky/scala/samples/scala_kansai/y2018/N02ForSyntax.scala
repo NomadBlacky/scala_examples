@@ -187,9 +187,9 @@ class N02ForSyntax extends FunSpec with Matchers {
     it("内部関数やprivateメソッドに切り出す") {
       def resolveActiveGroupNames: Try[Seq[String]] = {
         for {
-          members          <- resolveAllMembers()
-          groupIds         = extractGroupIdFromActiveMember(members)
-          groups           <- resolveGroupsIn(groupIds)
+          members <- resolveAllMembers()
+          groupIds = extractGroupIdFromActiveMember(members)
+          groups <- resolveGroupsIn(groupIds)
           activeGroupNames = extractNameFromExistsGroup(groups)
         } yield activeGroupNames
       }
@@ -218,13 +218,13 @@ class N02ForSyntax extends FunSpec with Matchers {
 
       def resolveActiveGroupIds(): Try[Seq[Long]] =
         for {
-          members  <- resolveAllMembers()
+          members <- resolveAllMembers()
           groupIds = extractGroupIdFromActiveMember(members)
         } yield groupIds
 
       def resolveExistsGroupNameIn(groupIds: Seq[Long]) =
         for {
-          groups           <- resolveGroupsIn(groupIds)
+          groups <- resolveGroupsIn(groupIds)
           activeGroupNames = extractNameFromExistsGroup(groups)
         } yield activeGroupNames
 

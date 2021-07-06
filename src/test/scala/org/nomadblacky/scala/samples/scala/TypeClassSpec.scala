@@ -4,8 +4,7 @@ import org.scalatest.FunSpec
 
 import scala.math.Ordering
 
-/**
-  * Created by blacky on 17/05/23.
+/** Created by blacky on 17/05/23.
   *
   * 参考
   *
@@ -17,7 +16,6 @@ import scala.math.Ordering
   *   + http://chopl.in/post/2012/11/06/introduction-to-typeclass-with-scala/
   * + Twitter検索
   *   + https://twitter.com/search?l=&q=型クラス&src=typd&lang=ja
-  *
   */
 class TypeClassSpec extends FunSpec {
 
@@ -25,42 +23,41 @@ class TypeClassSpec extends FunSpec {
 
   it("型クラスとは") {
 
-    /**
-    * + 型クラスとは
-    *   + ある型に振る舞いを提供する仕組み。
-    *   + 「アドホック多相」を実現する。
-    *     + 引数の型に応じて複数の実装を提供できる。
-    *     + 型の宣言時に振る舞いを与えず、アドホック(場当たり的に)実装を提供できる。
-    *     + (特にScalaでは)異なるスコープにおいて、型クラスの実装を有効・無効にできる。
-    * + 複数の型に対して共通の振る舞いをもたせる、という意味の用途はinterfaceとほぼ変わらない。
-    * + が、interfaceにはない利点が多い
-    *   + interfaceは元のクラス定義を書き換える必要がある。
-    *     (ex. Stringに新しいinterfaceを実装することはできない。)
-    *   + ある型に対する操作を後付けで加えることができる。
-    * + 型クラスのインスタンス(OPPのインスタンスとは異なる)を作る ≒ Strategyパターンの具体的なStrategyを定義する
-    */
+    /** + 型クラスとは
+      *   + ある型に振る舞いを提供する仕組み。
+      *   + 「アドホック多相」を実現する。
+      *     + 引数の型に応じて複数の実装を提供できる。
+      *     + 型の宣言時に振る舞いを与えず、アドホック(場当たり的に)実装を提供できる。
+      *     + (特にScalaでは)異なるスコープにおいて、型クラスの実装を有効・無効にできる。
+      * + 複数の型に対して共通の振る舞いをもたせる、という意味の用途はinterfaceとほぼ変わらない。
+      * + が、interfaceにはない利点が多い
+      *   + interfaceは元のクラス定義を書き換える必要がある。
+      *     (ex. Stringに新しいinterfaceを実装することはできない。)
+      *   + ある型に対する操作を後付けで加えることができる。
+      * + 型クラスのインスタンス(OPPのインスタンスとは異なる)を作る ≒ Strategyパターンの具体的なStrategyを定義する
+      */
   }
 
   it("型クラスの例") {
     assert(List(1, 2, 3).max == 3)
     assert(List("a", "b", "c").max == "c")
-    /**
-    * implicit parameter によって、Orderingの引数に与えられる
-    *
-    * def max[B >: A](implicit cmp: Ordering[B]): A
-    *
-    * [scala.math.Ordering.scala]
-    *
-    * trait IntOrdering extends Ordering[Int] {
-    *   def compare(x: Int, y: Int) = java.lang.Integer.compare(x, y)
-    * }
-    * implicit object Int extends IntOrdering
-    *
-    * trait StringOrdering extends Ordering[String] {
-    *   def compare(x: String, y: String) = x.compareTo(y)
-    * }
-    * implicit object String extends StringOrdering
-    */
+
+    /** implicit parameter によって、Orderingの引数に与えられる
+      *
+      * def max[B >: A](implicit cmp: Ordering[B]): A
+      *
+      * [scala.math.Ordering.scala]
+      *
+      * trait IntOrdering extends Ordering[Int] {
+      *   def compare(x: Int, y: Int) = java.lang.Integer.compare(x, y)
+      * }
+      * implicit object Int extends IntOrdering
+      *
+      * trait StringOrdering extends Ordering[String] {
+      *   def compare(x: String, y: String) = x.compareTo(y)
+      * }
+      * implicit object String extends StringOrdering
+      */
   }
 
   it("Orderedを使った実装例") {
