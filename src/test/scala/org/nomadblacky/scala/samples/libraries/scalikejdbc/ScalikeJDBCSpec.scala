@@ -9,8 +9,7 @@ import skinny.orm.{Alias, SkinnyCRUDMapper}
 
 import scala.util.Try
 
-/**
-  * scalikejdbc-cookbook
+/** scalikejdbc-cookbook
   * https://github.com/scalikejdbc/scalikejdbc-cookbook
   *
   * FIXME: Unit tests are failed
@@ -39,8 +38,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     ConnectionPool.singleton("jdbc:h2:mem:db", "username", "password")
   }
 
-  /**
-    * https://github.com/scalikejdbc/scalikejdbc-cookbook/blob/master/ja/03_connection.md
+  /** https://github.com/scalikejdbc/scalikejdbc-cookbook/blob/master/ja/03_connection.md
     */
   describe("接続設定とコネクション") {
 
@@ -74,8 +72,8 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
         "user",
         "pass",
         ConnectionPoolSettings(
-          initialSize = 20, // プールするコネクションの最小値
-          maxSize = 50, // プールするコネクションの最大値
+          initialSize = 20,                   // プールするコネクションの最小値
+          maxSize = 50,                       // プールするコネクションの最大値
           validationQuery = "select 1 as one" // 正常に接続できているかを確認するSQL
         )
       )
@@ -452,8 +450,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
   describe("SQL ロギング") {
 
-    /**
-      * ScalikeJDBCでは、実行したSQLとそのレスポンスタイムをログ出力する機能がある。
+    /** ScalikeJDBCでは、実行したSQLとそのレスポンスタイムをログ出力する機能がある。
       * スタックトレースを併せて出力することで、どのクラスのどのメソッドから発行されたかも確認できる。
       *
       * デフォルトでは、DEBUGレベルですべてのSQLを出力、
@@ -487,7 +484,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
               <appender-ref ref="STDOUT" />
           </root>
       </configuration>
-     */
+       */
     }
 
     it("シングルラインモード") {
