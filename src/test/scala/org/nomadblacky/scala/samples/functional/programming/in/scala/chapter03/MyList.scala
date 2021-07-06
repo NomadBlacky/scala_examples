@@ -1,7 +1,6 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter03
 
-/**
-  * Created by blacky on 17/02/16.
+/** Created by blacky on 17/02/16.
   */
 sealed trait MyList[+A]
 case object MyNil                             extends MyList[Nothing]
