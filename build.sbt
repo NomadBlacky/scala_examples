@@ -42,7 +42,7 @@ lazy val root = (project in file("."))
       "org.pegdown"           % "pegdown"                % "1.6.0",
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
       "org.jfree"             % "jfreechart"             % "1.5.0",
-      "com.github.pathikrit" %% "better-files"           % "3.7.1",
+      "com.github.pathikrit" %% "better-files"           % "3.9.1",
       "org.scalaz"           %% "scalaz-core"            % "7.2.33",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.1.8",
       "com.typesafe.akka"    %% "akka-stream"            % "2.5.22",
