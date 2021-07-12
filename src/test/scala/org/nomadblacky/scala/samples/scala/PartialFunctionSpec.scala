@@ -4,8 +4,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 import scala.util.{Failure, Success, Try}
 
-/**
-  * Created by blacky on 17/07/09.
+/** Created by blacky on 17/07/09.
   *
   * PartialFunction ... 部分関数
   *
@@ -28,8 +27,8 @@ class PartialFunctionSpec extends FunSpec with Matchers {
   }
 
   it("caseはPartialFunctionのシンタックスシュガー") {
-    val pf1: PartialFunction[Int, String] = {
-      case 1 => "one"
+    val pf1: PartialFunction[Int, String] = { case 1 =>
+      "one"
     }
     val pf2: PartialFunction[Int, String] = new PartialFunction[Int, String] {
       override def isDefinedAt(x: Int): Boolean = x match {
@@ -100,11 +99,11 @@ class PartialFunctionSpec extends FunSpec with Matchers {
   }
 
   it("orElse ... 部分関数にマッチしなかった引数を次の部分関数にマッチさせる関数合成") {
-    val pf1: PartialFunction[Int, String] = {
-      case 1 => "one"
+    val pf1: PartialFunction[Int, String] = { case 1 =>
+      "one"
     }
-    val pf2: PartialFunction[Int, String] = {
-      case 2 => "two"
+    val pf2: PartialFunction[Int, String] = { case 2 =>
+      "two"
     }
     val pf = pf1 orElse pf2
 
@@ -118,8 +117,8 @@ class PartialFunctionSpec extends FunSpec with Matchers {
   }
 
   it("runWith ... 部分関数の結果を利用する関数と合成する") {
-    val pf: PartialFunction[Int, String] = {
-      case 1 => "one"
+    val pf: PartialFunction[Int, String] = { case 1 =>
+      "one"
     }
     pf.runWith(s => s.length)(1) shouldBe true
     pf.runWith(_ => fail())(2) shouldBe false
@@ -137,8 +136,8 @@ class PartialFunctionSpec extends FunSpec with Matchers {
   }
 
   it("applyOrElse ... 引数がマッチすればその結果を返し、マッチしなければデフォルト値を返す") {
-    val pf: PartialFunction[Int, String] = {
-      case 1 => "one"
+    val pf: PartialFunction[Int, String] = { case 1 =>
+      "one"
     }
     pf.applyOrElse(1, (i: Int) => i.toString) shouldBe "one"
     pf.applyOrElse(2, (i: Int) => i.toString) shouldBe "2"
@@ -177,16 +176,16 @@ class PartialFunctionSpec extends FunSpec with Matchers {
 
   it("[Usage] TraversableOnce#collectFirst") {
     // 部分関数に最初にマッチした要素を取り出し、変換する。
-    val pf: PartialFunction[Int, String] = {
-      case 2 => "two"
+    val pf: PartialFunction[Int, String] = { case 2 =>
+      "two"
     }
     List(1, 2, 3).collectFirst(pf) shouldBe Some("two")
     List(4, 5, 6).collectFirst(pf) shouldBe None
   }
 
   it("[Usage] Try#collect") {
-    val result1: Try[String] = Try { 1 }.collect { case 1                               => "one" }
-    val result2: Try[String] = Try { 1 }.collect { case 2                               => "two" }
+    val result1: Try[String] = Try { 1 }.collect { case 1 => "one" }
+    val result2: Try[String] = Try { 1 }.collect { case 2 => "two" }
     val result3: Try[String] = Try { throw new RuntimeException(); 1 }.collect { case 1 => "one" }
 
     result1 shouldBe Success("one")

@@ -4,8 +4,7 @@ import org.scalatest.FunSpec
 
 import scala.annotation.tailrec
 
-/**
-  * 6/10 Understanding Scala ~Scalaを理解しよう~
+/** 6/10 Understanding Scala ~Scalaを理解しよう~
   * https://connpass.com/event/55308/
   *
   * Scalaの実行時の挙動を学ぶ
@@ -17,8 +16,7 @@ class UnderstandingScalaFormulaSpec extends FunSpec {
 
   it("メソッド呼び出し式") {
 
-    /**
-      * 関数内関数を除いたすべての操作はメソッド呼び出し
+    /** 関数内関数を除いたすべての操作はメソッド呼び出し
       * 演算子の優先順位は考慮される
       * → 最初の一文字で決まる
       * → :で終わるメソッドは右結合
@@ -28,8 +26,7 @@ class UnderstandingScalaFormulaSpec extends FunSpec {
 
   it("while式") {
 
-    /**
-      * Javaと変わらない
+    /** Javaと変わらない
       * 式なので値を返す→Unit
       */
     var a = 1
@@ -40,8 +37,7 @@ class UnderstandingScalaFormulaSpec extends FunSpec {
 
   it("if式") {
 
-    /**
-      * else部がない場合、Unitの値の()が補われる
+    /** else部がない場合、Unitの値の()が補われる
       */
     val i         = 1
     val a: String = if (0 <= i) "positive" else "negative"
@@ -51,8 +47,7 @@ class UnderstandingScalaFormulaSpec extends FunSpec {
 
   it("for式(1)") {
 
-    /**
-      * foreach,map,flatMapなどのシンタックスシュガー
+    /** foreach,map,flatMapなどのシンタックスシュガー
       */
     for {
       i <- 1 to 5
@@ -70,8 +65,7 @@ class UnderstandingScalaFormulaSpec extends FunSpec {
 
   it("for式(2)") {
 
-    /**
-      * yield
+    /** yield
       */
     for (i <- 1 to 5) yield i
     // ↑同等↓
@@ -95,8 +89,7 @@ class UnderstandingScalaFormulaSpec extends FunSpec {
 
   it("for式(4)") {
 
-    /**
-      * 実際のfor式の意味は定義されたデータ型によって異なる
+    /** 実際のfor式の意味は定義されたデータ型によって異なる
       * + Future
       * + Option
       * + Try   ...など

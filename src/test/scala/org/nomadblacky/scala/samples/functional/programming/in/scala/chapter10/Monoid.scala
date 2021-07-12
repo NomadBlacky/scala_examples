@@ -1,7 +1,6 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter10
 
-/**
-  * Created by blacky on 17/03/08.
+/** Created by blacky on 17/03/08.
   */
 trait Monoid[A] {
   // op(op(x,y),z) == op(x, op(y,z)) を満たす
