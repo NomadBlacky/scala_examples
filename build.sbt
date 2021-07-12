@@ -1,3 +1,11 @@
+inThisBuild(
+  List(
+    scalaVersion := "2.12.8",
+    semanticdbEnabled := true,
+    semanticdbVersion := scalafixSemanticdb.revision
+  )
+)
+
 val versions = new {
   val scalikejdbc = "3.3.4"
 }
@@ -7,6 +15,7 @@ lazy val TableOfContents = config("tableOfContents").extend(Test)
 lazy val commonSettings = Seq(
   scalaVersion := "2.12.8",
   scalacOptions ++= Seq(
+    "-Yrangepos",
     "-Ywarn-unused:imports"
   )
 )
