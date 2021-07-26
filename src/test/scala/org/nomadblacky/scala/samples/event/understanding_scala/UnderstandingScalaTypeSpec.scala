@@ -1,6 +1,6 @@
 package org.nomadblacky.scala.samples.event.understanding_scala
 
-import java.io.{File, FileInputStream}
+import java.io.FileInputStream
 import java.util
 
 import org.scalatest.FunSpec
