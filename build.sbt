@@ -68,6 +68,15 @@ lazy val root = (project in file("."))
     )
   )
 
+lazy val scala3 = (project in file("scala3"))
+  .settings(commonSettings)
+  .settings(
+    scalaVersion := "3.0.1",
+    libraryDependencies ++= Seq(
+      "org.scalameta" %% "munit" % "0.7.27" % Test
+    )
+  )
+
 // FIXME: Cannot apply this...
 // https://github.com/scalatest/scalatest/commit/10b38d73e804546aaf3690e6496b65d984f2459f#diff-a2caa30f41e1c2f5fac0195d465701cf
 // ThisBuild / envVars += "SCALACTIC_FILL_FILE_PATHNAMES" -> "yes"
