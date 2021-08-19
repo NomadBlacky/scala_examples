@@ -2,8 +2,7 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.{FunSpec, Matchers}
 
-/** 文字列の補間(String Interpolation)
-  * データを利用して文字列を加工できる。
+/** 文字列の補間(String Interpolation) データを利用して文字列を加工できる。
   */
 class StringInterpolationSpec extends FunSpec with Matchers {
 

@@ -1,6 +1,6 @@
 inThisBuild(
   List(
-    scalaVersion := "2.12.8",
+    scalaVersion      := "2.12.8",
     semanticdbEnabled := true,
     semanticdbVersion := scalafixSemanticdb.revision
   )
@@ -34,7 +34,7 @@ lazy val root = (project in file("."))
   .configs(TableOfContents)
   .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
   .settings(
-    name := "scala_samples",
+    name    := "scala_samples",
     version := "1.0",
     TableOfContents / testOptions ++= Seq(
       Tests.Argument(

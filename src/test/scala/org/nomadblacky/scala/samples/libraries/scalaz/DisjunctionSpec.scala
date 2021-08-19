@@ -7,12 +7,9 @@ import Scalaz._
 
 /** Created by blacky on 17/04/14.
   *
-  * \/
-  * Disjunction, Either
-  * 数学の論理和の記号が由来 ∨
+  * \/ Disjunction, Either 数学の論理和の記号が由来 ∨
   *
-  * -\/ ... Left
-  * \/- ... Right
+  * -\/ ... Left \/- ... Right
   */
 class DisjunctionSpec extends FunSpec {
 

@@ -4,11 +4,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 /** match式
   *
-  * x match {
-  *   case [選択肢1] => [xが選択肢1にmatchした時の処理]
-  *   case [選択肢2] => [xが選択肢2にmatchした時の処理]
-  *   case _ => [xが選択肢にmatchしなかった時の処理]
-  * }
+  * x match { case [選択肢1] => [xが選択肢1にmatchした時の処理] case [選択肢2] => [xが選択肢2にmatchした時の処理] case _ => [xが選択肢にmatchしなかった時の処理] }
   */
 class MatchSpec extends FunSpec with Matchers {
 

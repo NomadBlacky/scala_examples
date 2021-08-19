@@ -6,7 +6,8 @@ package object reporter {
   implicit class Using[T <: AutoCloseable](resource: T) {
     def foreach[R](op: T => R): R = {
       try op(resource)
-      catch { case e: Exception => throw e } finally resource.close()
+      catch { case e: Exception => throw e }
+      finally resource.close()
     }
   }
 

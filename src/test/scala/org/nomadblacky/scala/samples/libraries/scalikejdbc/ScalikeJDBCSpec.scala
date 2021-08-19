@@ -9,8 +9,7 @@ import skinny.orm.{Alias, SkinnyCRUDMapper}
 
 import scala.util.Try
 
-/** scalikejdbc-cookbook
-  * https://github.com/scalikejdbc/scalikejdbc-cookbook
+/** scalikejdbc-cookbook https://github.com/scalikejdbc/scalikejdbc-cookbook
   *
   * FIXME: Unit tests are failed
   */
@@ -450,11 +449,9 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
   describe("SQL ロギング") {
 
-    /** ScalikeJDBCでは、実行したSQLとそのレスポンスタイムをログ出力する機能がある。
-      * スタックトレースを併せて出力することで、どのクラスのどのメソッドから発行されたかも確認できる。
+    /** ScalikeJDBCでは、実行したSQLとそのレスポンスタイムをログ出力する機能がある。 スタックトレースを併せて出力することで、どのクラスのどのメソッドから発行されたかも確認できる。
       *
-      * デフォルトでは、DEBUGレベルですべてのSQLを出力、
-      * 一定以上の時間がかかったSQLはWARNレベルでログを出力するようになっている。
+      * デフォルトでは、DEBUGレベルですべてのSQLを出力、 一定以上の時間がかかったSQLはWARNレベルでログを出力するようになっている。
       */
     def insertMember(name: String, teamId: Long): Unit = DB.localTx { implicit s =>
       sql"insert into members(name, team_id) values($name, $teamId)".update().apply()

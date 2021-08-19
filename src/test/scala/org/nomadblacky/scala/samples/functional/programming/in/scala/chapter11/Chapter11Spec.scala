@@ -4,12 +4,10 @@ import org.scalatest.FunSpec
 
 /** Created by blacky on 17/04/25.
   *
-  * Scala関数型デザイン&プログラミング―Scalazコントリビューターによる関数型徹底ガイド
-  * 第11章 モナド
+  * Scala関数型デザイン&プログラミング―Scalazコントリビューターによる関数型徹底ガイド 第11章 モナド
   * https://www.amazon.co.jp/dp/B00WM54V5Q/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
   *
-  * Github
-  * https://github.com/fpinscala/fpinscala/tree/master/answerkey/monads
+  * Github https://github.com/fpinscala/fpinscala/tree/master/answerkey/monads
   */
 class Chapter11Spec extends FunSpec {
 
