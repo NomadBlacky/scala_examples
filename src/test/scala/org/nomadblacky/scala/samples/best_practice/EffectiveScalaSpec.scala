@@ -6,8 +6,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 import scala.collection.mutable
 
-/** Effective Scala
-  * http://twitter.github.io/effectivescala/index-ja.html
+/** Effective Scala http://twitter.github.io/effectivescala/index-ja.html
   */
 class EffectiveScalaSpec extends FunSpec with Matchers {
 

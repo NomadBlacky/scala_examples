@@ -12,13 +12,9 @@ class FutureSpec extends FunSpec with Matchers {
 
   override def suiteName: String = "Futureの使い方"
 
-  /** ExecutionContextとは?
-    * ・Runnableのインスタンスを渡すと、よしなに非同期実行してくれる仕組み。
-    *   ・スレッド利用の効率化のため、タスク(Runnable)をスレッドに振り分ける役目をする。
-    *   ・実行タイミング・スレッドへの配分などは実装により異なる。
-    *   ・参考: http://mashi.hatenablog.com/entry/2014/11/24/010417
-    * ・ExecutionContext.Implicits.globalは通常、最大でCPUの論理プロセッサ数ぶんのスレッドを立ち上げ、処理する。
-    *   ※オプションで「論理プロセッサ数 x N倍」に設定できる。
+  /** ExecutionContextとは? ・Runnableのインスタンスを渡すと、よしなに非同期実行してくれる仕組み。 ・スレッド利用の効率化のため、タスク(Runnable)をスレッドに振り分ける役目をする。
+    * ・実行タイミング・スレッドへの配分などは実装により異なる。 ・参考: http://mashi.hatenablog.com/entry/2014/11/24/010417
+    * ・ExecutionContext.Implicits.globalは通常、最大でCPUの論理プロセッサ数ぶんのスレッドを立ち上げ、処理する。 ※オプションで「論理プロセッサ数 x N倍」に設定できる。
     */
   import ExecutionContext.Implicits.global
 

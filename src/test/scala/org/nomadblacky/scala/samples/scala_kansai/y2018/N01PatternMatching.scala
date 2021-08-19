@@ -37,10 +37,7 @@ class N01PatternMatching extends FunSpec with Matchers {
 
   it("愚直に実装する") {
 
-    /** + `List[User]` に対して
-      * + `isActive` が `true` のものだけを抜き出し
-      * + 名前が10文字以上の場合は最初の5文字だけを抜き出し
-      * + `List[String]` を返す
+    /** + `List[User]` に対して + `isActive` が `true` のものだけを抜き出し + 名前が10文字以上の場合は最初の5文字だけを抜き出し + `List[String]` を返す
       */
     def extractUserNameWithTop10Chars(users: List[User]): List[String] = {
       users

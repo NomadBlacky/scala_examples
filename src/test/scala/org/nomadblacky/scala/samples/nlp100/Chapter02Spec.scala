@@ -6,8 +6,7 @@ import scala.io.Source
 
 /** 言語処理100本ノック 第2章: UNIXコマンド
   *
-  * Weeble Scalaもくもく勉強会にて回答されたコードです。
-  * https://weeyble-scala.connpass.com/
+  * Weeble Scalaもくもく勉強会にて回答されたコードです。 https://weeyble-scala.connpass.com/
   */
 class Chapter02Spec extends FunSpec with Matchers {
 

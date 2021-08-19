@@ -3,13 +3,9 @@ package org.nomadblacky.scala.samples.scala
 import org.scalatest.FunSpec
 import scala.collection.mutable.ListBuffer
 
-/** for (
-  *   [ジェネレータ]
-  *   [フィルタ]
-  * ) 式
+/** for ( [ジェネレータ] [フィルタ] ) 式
   *
-  * ※フィルタは任意
-  * ※処理に複数の式を記述したい場合{}で囲む
+  * ※フィルタは任意 ※処理に複数の式を記述したい場合{}で囲む
   */
 class ForSpec extends FunSpec {
 

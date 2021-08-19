@@ -1,7 +1,6 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter06
 
-/** クラスとして独立させ、関数を追加する。
-  * この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
+/** クラスとして独立させ、関数を追加する。 この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
   *
   * [EXERCISE 6.10]
   */

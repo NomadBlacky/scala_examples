@@ -5,9 +5,7 @@ import scala.collection.immutable.List
 import scala.collection.immutable.Nil
 import scala.collection.mutable.ListBuffer
 
-/** 要素同士を連結するデータ構造のリスト。
-  * 順次呼び出しや再帰アクセスに強い。
-  * ランダムアクセスは遅い。
+/** 要素同士を連結するデータ構造のリスト。 順次呼び出しや再帰アクセスに強い。 ランダムアクセスは遅い。
   */
 class ListSpec extends FunSpec {
 
