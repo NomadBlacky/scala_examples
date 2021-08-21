@@ -1,15 +1,13 @@
 package org.nomadblacky.scala.samples.event.understanding_scala
 
-import java.io.{File, FileInputStream}
+import java.io.FileInputStream
 import java.util
 
 import org.scalatest.FunSpec
 
-/** 6/10 Understanding Scala ~Scalaを理解しよう~
-  * https://connpass.com/event/55308/
+/** 6/10 Understanding Scala ~Scalaを理解しよう~ https://connpass.com/event/55308/
   *
-  * Scalaの型システムを学ぶ
-  * http://kmizu.github.io/understanding_scala/type_system/#/14
+  * Scalaの型システムを学ぶ http://kmizu.github.io/understanding_scala/type_system/#/14
   */
 class UnderstandingScalaTypeSpec extends FunSpec {
 
@@ -29,9 +27,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("AnyVal: あらゆる値型のスーパータイプ") {
 
-    /** Javaでいうプリミティブ型をまとめたもの
-      * AnyValにnullは代入できない
-      * 便宜上存在しているが、AnyValに意味があることは少ない
+    /** Javaでいうプリミティブ型をまとめたもの AnyValにnullは代入できない 便宜上存在しているが、AnyValに意味があることは少ない
       */
     val int: AnyVal    = 10
     val double: AnyVal = 1.0
@@ -44,8 +40,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("AnyRef: あらゆる参照型のスーパータイプ") {
 
-    /** Javaでいうjava.lang.Object
-      * 参照型のすべての値はAnyRefに代入できる
+    /** Javaでいうjava.lang.Object 参照型のすべての値はAnyRefに代入できる
       */
     // だめ
     // val int: AnyRef = 10
@@ -56,22 +51,15 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("Nothing: あらゆる型のサブタイプ") {
 
-    /** Javaでは相当する型が存在しない
-      * あらゆる型のサブタイプ
-      * → あらゆる型の変数に代入可能
-      * → Nothing型の値は存在しない
-      * 存在意義
-      * → 必ず例外を投げて正常にreturnしないメソッドの型になる
-      * → ジェネリクスと組み合わせて使う
+    /** Javaでは相当する型が存在しない あらゆる型のサブタイプ → あらゆる型の変数に代入可能 → Nothing型の値は存在しない 存在意義 → 必ず例外を投げて正常にreturnしないメソッドの型になる →
+      * ジェネリクスと組み合わせて使う
       */
     def method(): Nothing = { throw new Exception() }
   }
 
   it("Null") {
 
-    /** あらゆる参照型のサブタイプ
-      * 値はnullのみ
-      * nullはあらゆる参照型に代入可能
+    /** あらゆる参照型のサブタイプ 値はnullのみ nullはあらゆる参照型に代入可能
       */
     val string: String = null
     // だめ
@@ -80,8 +68,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("ジェネリクス") {
 
-    /** 最近の静的型付き言語のほとんどがもっている
-      * 型をパラメータとして取ること柔軟な型定義ができる
+    /** 最近の静的型付き言語のほとんどがもっている 型をパラメータとして取ること柔軟な型定義ができる
       */
     val strings = new util.ArrayList[String]
     strings.add("hoge")
@@ -97,13 +84,8 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     // これを許すと、Stringの配列にIntが入るといった状況が生まれる
     // y(0) = 1
 
-    /** + String と Any について、StringがAnyのサブタイプである場合、
-      *   Array[String]がArray[Any]のサブタイプであるとき、
-      *   Arrayは共変であるという。
-      * + 実際にはScalaのArrayは共変ではない(不変)
-      *   一方、Javaの配列は共変だが、実行時に例外が投げられる危険がある。
-      * + 共変は便利だが、制限無しで取り扱うのは危険。
-      *   何らかの制限が必要→共変性に関する注釈をつける
+    /** + String と Any について、StringがAnyのサブタイプである場合、 Array[String]がArray[Any]のサブタイプであるとき、 Arrayは共変であるという。 +
+      * 実際にはScalaのArrayは共変ではない(不変) 一方、Javaの配列は共変だが、実行時に例外が投げられる危険がある。 + 共変は便利だが、制限無しで取り扱うのは危険。 何らかの制限が必要→共変性に関する注釈をつける
       */
     sealed trait Link[+T] // + がだいじ
     case class Cons[T](head: T, tail: Link[T]) extends Link[T]
@@ -141,8 +123,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     }
     val yy: Int => Any = x // OK
 
-    /** 型の汎化(スーパタイプ)を許容する。
-      * Scalaでは、[-T]のように、型パラメータに - を付けると反変になる。
+    /** 型の汎化(スーパタイプ)を許容する。 Scalaでは、[-T]のように、型パラメータに - を付けると反変になる。
       */
     class Animal
     class Human extends Animal
@@ -161,8 +142,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
 
   it("構造的部分型") {
 
-    /** 継承関係によらず、必要なメソッドを持っていれば要求を満たす、としたい場合がある。
-      * 動的型付け言語における、duck typing的な考え。
+    /** 継承関係によらず、必要なメソッドを持っていれば要求を満たす、としたい場合がある。 動的型付け言語における、duck typing的な考え。
       */
     import scala.language.reflectiveCalls
 
@@ -177,17 +157,13 @@ class UnderstandingScalaTypeSpec extends FunSpec {
       // do something
     }
 
-    /** 内部的にはリフレクションを使っているので多用に注意。
-      * import scala.language.reflectiveCalls
-      * をつけないと警告が出る。
+    /** 内部的にはリフレクションを使っているので多用に注意。 import scala.language.reflectiveCalls をつけないと警告が出る。
       */
   }
 
   it("高階多相") {
 
-    /** List などのコレクションや Option など様々な型が map メソッドを持っている
-      * とにかく map を持っている型を抽象化したい
-      * そのような型 Mapper を定義してみる
+    /** List などのコレクションや Option など様々な型が map メソッドを持っている とにかく map を持っている型を抽象化したい そのような型 Mapper を定義してみる
       */
     trait Mapper[C] {
       def map[A, B](c: C)(f: C => C): C
@@ -212,11 +188,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     assert(add2(List(1, 2, 3)) == List(3, 4, 5))
     assert(add2(Option(1)) == Some(3))
 
-    /** C[_]が肝心
-      * 型コンストラクタを引数に取ることを表す宣言
-      * 型コンストラクタ … ジェネリックなクラスに型が与えられる前の名前のこと
-      * + List[T] → List
-      * + Option[T] → Option
+    /** C[_]が肝心 型コンストラクタを引数に取ることを表す宣言 型コンストラクタ … ジェネリックなクラスに型が与えられる前の名前のこと + List[T] → List + Option[T] → Option
       */
   }
 

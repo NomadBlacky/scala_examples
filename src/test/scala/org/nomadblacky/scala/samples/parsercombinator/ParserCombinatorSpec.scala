@@ -4,10 +4,8 @@ import org.scalatest.FunSpec
 
 import scala.util.parsing.combinator.{JavaTokenParsers, RegexParsers}
 
-/** 参考資料
-  *  * Scalaスケーラブルプログラミング 第33章 パーサー・コンビネーター
-  *  * 面倒くさいパーサの実装もDSLで書くだけ！そう、Scalaならね - Qiita
-  *     http://qiita.com/suin/items/35bc4afe618cb77f80f6
+/** 参考資料 * Scalaスケーラブルプログラミング 第33章 パーサー・コンビネーター * 面倒くさいパーサの実装もDSLで書くだけ！そう、Scalaならね - Qiita
+  * http://qiita.com/suin/items/35bc4afe618cb77f80f6
   *
   * Created by blacky on 17/04/20.
   */

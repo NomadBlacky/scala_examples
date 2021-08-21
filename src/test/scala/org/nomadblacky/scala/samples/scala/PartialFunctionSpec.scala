@@ -8,8 +8,7 @@ import scala.util.{Failure, Success, Try}
   *
   * PartialFunction ... 部分関数
   *
-  * 特定の引数に対してのみ結果を返す関数。
-  * 引数により値を返さない場合がある。
+  * 特定の引数に対してのみ結果を返す関数。 引数により値を返さない場合がある。
   */
 class PartialFunctionSpec extends FunSpec with Matchers {
 

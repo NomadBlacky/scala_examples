@@ -1,3 +1,11 @@
+inThisBuild(
+  List(
+    scalaVersion      := "2.12.8",
+    semanticdbEnabled := true,
+    semanticdbVersion := scalafixSemanticdb.revision
+  )
+)
+
 val versions = new {
   val scalikejdbc = "3.3.4"
 }
@@ -7,6 +15,7 @@ lazy val TableOfContents = config("tableOfContents").extend(Test)
 lazy val commonSettings = Seq(
   scalaVersion := "2.12.8",
   scalacOptions ++= Seq(
+    "-Yrangepos",
     "-Ywarn-unused:imports"
   )
 )
@@ -25,7 +34,7 @@ lazy val root = (project in file("."))
   .configs(TableOfContents)
   .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
   .settings(
-    name := "scala_samples",
+    name    := "scala_samples",
     version := "1.0",
     TableOfContents / testOptions ++= Seq(
       Tests.Argument(
@@ -43,8 +52,8 @@ lazy val root = (project in file("."))
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
       "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
-      "org.scalaz"           %% "scalaz-core"            % "7.3.4",
-      "com.typesafe.akka"    %% "akka-http-core"         % "10.1.14",
+      "org.scalaz"           %% "scalaz-core"            % "7.3.5",
+      "com.typesafe.akka"    %% "akka-http-core"         % "10.1.8",
       "com.typesafe.akka"    %% "akka-stream"            % "2.5.22",
       "com.chuusai"          %% "shapeless"              % "2.3.3",
       "org.typelevel"        %% "cats-core"              % "1.6.0",
@@ -53,9 +62,18 @@ lazy val root = (project in file("."))
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-config"     % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
-      "org.skinny-framework" %% "skinny-orm"             % "3.0.2",
-      "com.h2database"        % "h2"                     % "1.4.199",
-      "ch.qos.logback"        % "logback-classic"        % "1.2.3"
+      "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
+      "com.h2database"        % "h2"                     % "1.4.200",
+      "ch.qos.logback"        % "logback-classic"        % "1.2.5"
+    )
+  )
+
+lazy val scala3 = (project in file("scala3"))
+  .settings(commonSettings)
+  .settings(
+    scalaVersion := "3.0.1",
+    libraryDependencies ++= Seq(
+      "org.scalameta" %% "munit" % "0.7.27" % Test
     )
   )
 

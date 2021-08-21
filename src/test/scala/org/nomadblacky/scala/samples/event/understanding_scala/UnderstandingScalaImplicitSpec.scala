@@ -2,11 +2,9 @@ package org.nomadblacky.scala.samples.event.understanding_scala
 
 import org.scalatest.FunSpec
 
-/** 6/10 Understanding Scala ~Scalaを理解しよう~
-  * https://connpass.com/event/55308/
+/** 6/10 Understanding Scala ~Scalaを理解しよう~ https://connpass.com/event/55308/
   *
-  * Scalaのimplicit parameterを学ぶ
-  * http://kmizu.github.io/understanding_scala/implicit_parameter/#/14
+  * Scalaのimplicit parameterを学ぶ http://kmizu.github.io/understanding_scala/implicit_parameter/#/14
   */
 class UnderstandingScalaImplicitSpec extends FunSpec {
 
@@ -14,14 +12,9 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
 
   it("implicit parameter") {
 
-    /** implicit conversion とごっちゃにされやすい
-      * 正しく使えば非常に強力
-      * こわくない!
+    /** implicit conversion とごっちゃにされやすい 正しく使えば非常に強力 こわくない!
       */
-    /** 例題
-      * + リストの要素をすべて足し合わせた値を返す関数
-      * + ただし、あとから特定の型を足すことができること
-      * ++ 有理数(Rational)、複素数(Complext)など
+    /** 例題 + リストの要素をすべて足し合わせた値を返す関数 + ただし、あとから特定の型を足すことができること ++ 有理数(Rational)、複素数(Complext)など
       */
     // 素直な回答
     def sum(list: List[Int]): Int = list.foldLeft(0)(_ + _)
@@ -76,10 +69,8 @@ class UnderstandingScalaImplicitSpec extends FunSpec {
 
   it("implicit parameterの仕組み") {
 
-    /** + implicit修飾子が付いた引数m: Monoid[A]があったときに Aが特定の型に確定していれば
-      * + MonoidのコンパニオンオブジェクトからMonoidのインスタンスを探す
-      * + Monoidの型パラメータ（たとえばInt`)のコンパニオンオブジェクトを探す
-      * + importされたオブジェクトの下にimplicit宣言されたオブジェクトがないか探す
+    /** + implicit修飾子が付いた引数m: Monoid[A]があったときに Aが特定の型に確定していれば + MonoidのコンパニオンオブジェクトからMonoidのインスタンスを探す +
+      * Monoidの型パラメータ（たとえばInt`)のコンパニオンオブジェクトを探す + importされたオブジェクトの下にimplicit宣言されたオブジェクトがないか探す
       */
   }
 

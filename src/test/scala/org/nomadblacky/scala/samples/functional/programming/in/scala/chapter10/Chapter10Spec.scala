@@ -7,19 +7,14 @@ import org.scalatest.FunSpec
   * Scala関数型デザイン&プログラミング―Scalazコントリビューターによる関数型徹底ガイド
   * https://www.amazon.co.jp/dp/B00WM54V5Q/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
   *
-  * Github
-  * https://github.com/fpinscala/fpinscala/tree/master/answerkey/monoids
+  * Github https://github.com/fpinscala/fpinscala/tree/master/answerkey/monoids
   */
 class Chapter10Spec extends FunSpec {
 
   override def suiteName: String = "[FP in Scala] 第10章 モノイド"
 
-  /** モノイドは以下の要素で構成される
-    * ・何らかの型A
-    * ・A型の2つの値を受け取り、それらをひとつにまとめる2項連想演算opがあり、
-    *   任意の x:A y:A z:A に対し、 op(op(x,y),z) == op(x, op(y, z)) が成り立つ。
-    * ・この演算の単位元である zero:A の値。
-    *   任意の x:A に対し、 op(x, zero) == x と、 op(zero, x) == x が成り立つ。
+  /** モノイドは以下の要素で構成される ・何らかの型A ・A型の2つの値を受け取り、それらをひとつにまとめる2項連想演算opがあり、 任意の x:A y:A z:A に対し、 op(op(x,y),z) == op(x, op(y,
+    * z)) が成り立つ。 ・この演算の単位元である zero:A の値。 任意の x:A に対し、 op(x, zero) == x と、 op(zero, x) == x が成り立つ。
     */
   val stringMonoid = new Monoid[String] {
     override def op(a1: String, a2: String): String = a1 + a2
