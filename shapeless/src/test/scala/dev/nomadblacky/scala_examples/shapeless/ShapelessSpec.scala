@@ -1,13 +1,14 @@
-package org.nomadblacky.scala.samples.libraries.shapeless
+package dev.nomadblacky.scala_examples.shapeless
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 import shapeless._
 
 /** Shapeless
   *
   * Scalaでジェネリックプログラミングをサポートするライブラリ
   */
-class ShapelessSpec extends FunSpec with Matchers {
+class ShapelessSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "Shapeless"
 
@@ -146,4 +147,20 @@ class ShapelessSpec extends FunSpec with Matchers {
     user.toMap shouldBe Map("id" -> 1, "name" -> "hoge", "age" -> 20)
   }
 
+}
+
+// https://gist.github.com/calippo/892ce793c9696b330e55772099056b7a
+object Mappable {
+  implicit class ToMapOps[A](val a: A) extends AnyVal {
+    import shapeless._
+    import ops.record._
+
+    def toMap[L <: HList](implicit gen: LabelledGeneric.Aux[A, L], tmr: ToMap[L]): Map[String, Any] = {
+      val m: Map[tmr.Key, tmr.Value] = tmr(gen.to(a))
+      m.map {
+        case (k: Symbol, v) => k.name -> v
+        case x              => throw new IllegalStateException(x.toString())
+      }
+    }
+  }
 }

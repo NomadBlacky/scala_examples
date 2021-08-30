@@ -36,9 +36,9 @@ lazy val root = (project in file("."))
   .configs(TableOfContents)
   .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
   .settings(
-    name := "scala_samples",
+    name         := "scala_samples",
     scalaVersion := Scala2_12,
-    version := "1.0",
+    version      := "1.0",
     TableOfContents / testOptions ++= Seq(
       Tests.Argument(
         TestFrameworks.ScalaTest,
@@ -58,7 +58,6 @@ lazy val root = (project in file("."))
       "org.scalaz"           %% "scalaz-core"            % "7.3.5",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.1.8",
       "com.typesafe.akka"    %% "akka-stream"            % "2.5.22",
-      "com.chuusai"          %% "shapeless"              % "2.3.3",
       "org.typelevel"        %% "cats-core"              % "1.6.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "1.6.6",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.0.3",
@@ -68,6 +67,17 @@ lazy val root = (project in file("."))
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
       "com.h2database"        % "h2"                     % "1.4.200",
       "ch.qos.logback"        % "logback-classic"        % "1.2.5"
+    )
+  )
+
+lazy val shapeless = (project in file("shapeless"))
+  .settings(commonSettings)
+  .settings(
+    scalaVersion := Scala2_13,
+    libraryDependencies ++= Seq(
+      "com.chuusai"   %% "shapeless"                % "2.3.7",
+      "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
+      "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
     )
   )
 
