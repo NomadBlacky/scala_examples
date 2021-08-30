@@ -2,11 +2,9 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.FunSpec
 
-/**
-  * Created by blacky on 16/11/05.
+/** Created by blacky on 16/11/05.
   *
-  * Javaでいう interface の機能。
-  * トレイト自体に実装を持つことができる。
+  * Javaでいう interface の機能。 トレイト自体に実装を持つことができる。
   *
   * trait ... (人・ものの) 特性、特色、特徴
   */

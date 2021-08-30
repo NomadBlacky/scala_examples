@@ -4,11 +4,9 @@ import org.scalatest.{FunSpec, Matchers}
 
 import scala.io.Source
 
-/**
-  * 言語処理100本ノック 第2章: UNIXコマンド
+/** 言語処理100本ノック 第2章: UNIXコマンド
   *
-  * Weeble Scalaもくもく勉強会にて回答されたコードです。
-  * https://weeyble-scala.connpass.com/
+  * Weeble Scalaもくもく勉強会にて回答されたコードです。 https://weeyble-scala.connpass.com/
   */
 class Chapter02Spec extends FunSpec with Matchers {
 
@@ -19,8 +17,7 @@ class Chapter02Spec extends FunSpec with Matchers {
 
   it("10. 行数のカウント") {
 
-    /**
-      * 行数をカウントせよ．確認にはwcコマンドを用いよ．
+    /** 行数をカウントせよ．確認にはwcコマンドを用いよ．
       */
     // A01
     val lines01 = Source.fromFile("data/hightemp.txt").getLines()
