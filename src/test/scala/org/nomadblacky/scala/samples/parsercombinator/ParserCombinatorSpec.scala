@@ -4,11 +4,8 @@ import org.scalatest.FunSpec
 
 import scala.util.parsing.combinator.{JavaTokenParsers, RegexParsers}
 
-/**
-  * 参考資料
-  *  * Scalaスケーラブルプログラミング 第33章 パーサー・コンビネーター
-  *  * 面倒くさいパーサの実装もDSLで書くだけ！そう、Scalaならね - Qiita
-  *     http://qiita.com/suin/items/35bc4afe618cb77f80f6
+/** 参考資料 * Scalaスケーラブルプログラミング 第33章 パーサー・コンビネーター * 面倒くさいパーサの実装もDSLで書くだけ！そう、Scalaならね - Qiita
+  * http://qiita.com/suin/items/35bc4afe618cb77f80f6
   *
   * Created by blacky on 17/04/20.
   */
@@ -105,20 +102,18 @@ class ParserCombinatorSpec extends FunSpec {
         case Num(x)    => x
       }
 
-      lazy val expr: Parser[Tree] = term ~ rep("[+-]".r ~ term) ^^ {
-        case t ~ ts =>
-          ts.foldLeft(t) {
-            case (t1, "+" ~ t2) => Add(t1, t2)
-            case (t1, "-" ~ t2) => Sub(t1, t2)
-          }
+      lazy val expr: Parser[Tree] = term ~ rep("[+-]".r ~ term) ^^ { case t ~ ts =>
+        ts.foldLeft(t) {
+          case (t1, "+" ~ t2) => Add(t1, t2)
+          case (t1, "-" ~ t2) => Sub(t1, t2)
+        }
       }
 
-      lazy val term = factor ~ rep("[*/]".r ~ factor) ^^ {
-        case t ~ ts =>
-          ts.foldLeft(t) {
-            case (t1, "*" ~ t2) => Mul(t1, t2)
-            case (t1, "/" ~ t2) => Div(t1, t2)
-          }
+      lazy val term = factor ~ rep("[*/]".r ~ factor) ^^ { case t ~ ts =>
+        ts.foldLeft(t) {
+          case (t1, "*" ~ t2) => Mul(t1, t2)
+          case (t1, "/" ~ t2) => Div(t1, t2)
+        }
       }
 
       lazy val factor = "(" ~> expr <~ ")" | num

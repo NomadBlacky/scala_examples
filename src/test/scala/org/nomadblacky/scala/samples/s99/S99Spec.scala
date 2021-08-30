@@ -4,9 +4,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 import scala.annotation.tailrec
 
-/**
-  * Weeble ゆるふわScala勉強会にて回答されたコードです。
-  * https://weeyble-scala.connpass.com/
+/** Weeble ゆるふわScala勉強会にて回答されたコードです。 https://weeyble-scala.connpass.com/
   */
 class S99Spec extends FunSpec with Matchers {
 

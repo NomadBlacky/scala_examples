@@ -9,8 +9,7 @@ import org.scalatest.{BeforeAndAfter, FunSpec}
 
 import scala.util.Random
 
-/**
-  * Created by blacky on 17/02/26.
+/** Created by blacky on 17/02/26.
   */
 class JFreeChartSpec extends FunSpec with BeforeAndAfter {
 

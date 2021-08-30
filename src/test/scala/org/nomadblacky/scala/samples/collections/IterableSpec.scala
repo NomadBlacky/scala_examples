@@ -2,8 +2,7 @@ package org.nomadblacky.scala.samples.collections
 
 import org.scalatest.FunSpec
 
-/**
-  * Created by blacky on 17/02/06.
+/** Created by blacky on 17/02/06.
   */
 class IterableSpec extends FunSpec {
 
