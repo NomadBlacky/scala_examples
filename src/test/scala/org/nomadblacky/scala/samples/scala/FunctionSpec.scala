@@ -111,7 +111,7 @@ class FunctionSpec extends FunSpec {
     assert(l(10)(20) == 40)
 
     // 翻訳
-    val ll1: (Int) => (Int) => Int = (f _)
+    val ll1: (Int) => (Int) => Int = f _
     val ll2: (Int) => Int          = g
     val ll3                        = ll1 compose ll2
     assert(ll3(10)(20) == 40)

@@ -2,9 +2,7 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.{FunSpec, Matchers}
 
-/**
-  * scala.Dynamic
-  * 特殊な構文を提供するトレイト
+/** scala.Dynamic 特殊な構文を提供するトレイト
   */
 class DynamicSpec extends FunSpec with Matchers {
 

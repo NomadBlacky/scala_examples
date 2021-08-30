@@ -7,8 +7,7 @@ class Chapter06Spec extends FunSpec with Matchers {
 
   implicit val doubleEquality: Equality[Double] = TolerantNumerics.tolerantDoubleEquality(0.0001)
 
-  /**
-    * [EXERCISE 6.1]
+  /** [EXERCISE 6.1]
     */
   def nonNegativeInt(rng: RNG): (Int, RNG) = {
     val (n, rng2) = rng.nextInt
@@ -16,8 +15,7 @@ class Chapter06Spec extends FunSpec with Matchers {
     (n2, rng2)
   }
 
-  /**
-    * [EXERCISE 6.2]
+  /** [EXERCISE 6.2]
     */
   def double(rng: RNG): (Double, RNG) = {
     val (n, rng2) = nonNegativeInt(rng)
@@ -59,10 +57,9 @@ class Chapter06Spec extends FunSpec with Matchers {
 
   it("[EXERCISE 6.4] ランダムな整数のリストを作成する関数") {
     def ints(count: Int)(rng: RNG): (List[Int], RNG) = {
-      (1 to count).foldLeft((List.empty[Int], rng)) {
-        case ((list, r), _) =>
-          val (i, r2) = nonNegativeInt(r)
-          (list :+ i, r2)
+      (1 to count).foldLeft((List.empty[Int], rng)) { case ((list, r), _) =>
+        val (i, r2) = nonNegativeInt(r)
+        (list :+ i, r2)
       }
     }
 
@@ -78,9 +75,7 @@ class Chapter06Spec extends FunSpec with Matchers {
 
   def unit[A](a: A): Rand[A] = rng => (a, rng)
 
-  /**
-    * 状態そのものを変化させずに状態アクションの出力を変換するmap関数
-    * 関数合成のようなもの
+  /** 状態そのものを変化させずに状態アクションの出力を変換するmap関数 関数合成のようなもの
     */
   def map[A, B](s: Rand[A])(f: A => B): Rand[B] = rng => {
     val (a, rng2) = s(rng)
@@ -97,8 +92,7 @@ class Chapter06Spec extends FunSpec with Matchers {
 
   // 6.4.1 状態アクションの結合
 
-  /**
-    * [EXERCISE 6.6]
+  /** [EXERCISE 6.6]
     */
   def map2[A, B, C](ra: Rand[A], rb: Rand[B])(f: (A, B) => C): Rand[C] = rng => {
     val (a, rng2) = ra(rng)
@@ -154,8 +148,7 @@ class Chapter06Spec extends FunSpec with Matchers {
       nonNegativeLessThen(n)(rng)
   }
 
-  /**
-    * [EXERCISE 6.8]
+  /** [EXERCISE 6.8]
     */
   def flatMap[A, B](f: Rand[A])(g: A => Rand[B]): Rand[B] =
     rng => {
@@ -191,8 +184,7 @@ class Chapter06Spec extends FunSpec with Matchers {
 
   describe("6.5 状態アクションデータ型の一般化") {
 
-    /**
-      * より汎用的なmap関数
+    /** より汎用的なmap関数
       */
     def map_[S, A, B](a: S => (A, S))(f: A => B): S => (B, S) =
       s => {
@@ -200,15 +192,11 @@ class Chapter06Spec extends FunSpec with Matchers {
         (f(a2), s2)
       }
 
-    /**
-      * Randより汎用的な型
-      * 何らかの状態を伴う計算、状態アクションなどの省略形
+    /** Randより汎用的な型 何らかの状態を伴う計算、状態アクションなどの省略形
       */
     //type State[S, +A] = S => (A, S)
 
-    /**
-      * クラスとして独立させ、関数を追加する。
-      * この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
+    /** クラスとして独立させ、関数を追加する。 この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
       *
       * [EXERCISE 6.10]
       */
@@ -226,8 +214,7 @@ class Chapter06Spec extends FunSpec with Matchers {
         }
     }
 
-    /**
-      * [EXERCISE 6.10]
+    /** [EXERCISE 6.10]
       */
     object State {
       def unit[S, A](a: A): State[S, A] =
@@ -237,8 +224,7 @@ class Chapter06Spec extends FunSpec with Matchers {
         sas.foldRight(unit[S, List[A]](List.empty))((st, acc) => st.map2(acc)(_ :: _))
     }
 
-    /**
-      * RandをStateのエイリアスとする
+    /** RandをStateのエイリアスとする
       */
     type Rand[A] = State[RNG, A]
 
@@ -283,11 +269,10 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     it("[EXERCISE 6.11] 有限状態オートマトンの実装") {
 
-      /**
-        * - ロックされた状態の自動販売機に硬貨を投入すると、スナックが残っている場合はロックが解除される。
-        * - ロックが解除された状態の自動販売機のハンドルを回すと、スナックが出てきてロックがかかる。
-        * - ロックされた状態でハンドルを回したり、ロックが解除された状態で硬貨を投入したりしても何も起こらない
-        * - スナックが売り切れた自動販売機は入力を全て無視する。
+      /**   - ロックされた状態の自動販売機に硬貨を投入すると、スナックが残っている場合はロックが解除される。
+        *   - ロックが解除された状態の自動販売機のハンドルを回すと、スナックが出てきてロックがかかる。
+        *   - ロックされた状態でハンドルを回したり、ロックが解除された状態で硬貨を投入したりしても何も起こらない
+        *   - スナックが売り切れた自動販売機は入力を全て無視する。
         */
       sealed trait Input
       case object Coin extends Input
@@ -307,7 +292,7 @@ class Chapter06Spec extends FunSpec with Matchers {
                   Machine(false, candy, coin + 1)
                 case (Turn, Machine(false, candy, coin)) =>
                   Machine(true, candy - 1, coin)
-          }
+              }
 
         def simulateMachine(inputs: List[Input]): State[Machine, (Int, Int)] =
           for {
