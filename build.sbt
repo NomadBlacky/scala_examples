@@ -1,10 +1,13 @@
 inThisBuild(
   List(
-    scalaVersion      := "2.12.8",
     semanticdbEnabled := true,
     semanticdbVersion := scalafixSemanticdb.revision
   )
 )
+
+val Scala2_12 = "2.12.8"
+val Scala2_13 = "2.13.6"
+val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.4"
@@ -13,7 +16,6 @@ val versions = new {
 lazy val TableOfContents = config("tableOfContents").extend(Test)
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.12.8",
   scalacOptions ++= Seq(
     "-Yrangepos",
     "-Ywarn-unused:imports"
@@ -34,7 +36,8 @@ lazy val root = (project in file("."))
   .configs(TableOfContents)
   .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
   .settings(
-    name    := "scala_samples",
+    name := "scala_samples",
+    scalaVersion := Scala2_12,
     version := "1.0",
     TableOfContents / testOptions ++= Seq(
       Tests.Argument(
@@ -71,7 +74,7 @@ lazy val root = (project in file("."))
 lazy val scala3 = (project in file("scala3"))
   .settings(commonSettings)
   .settings(
-    scalaVersion := "3.0.1",
+    scalaVersion := Scala3,
     libraryDependencies ++= Seq(
       "org.scalameta" %% "munit" % "0.7.27" % Test
     )
