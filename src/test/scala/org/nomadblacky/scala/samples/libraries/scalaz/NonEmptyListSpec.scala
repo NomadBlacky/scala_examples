@@ -5,8 +5,7 @@ import org.scalatest.FunSpec
 import scalaz._
 import Scalaz._
 
-/**
-  * Created by blacky on 17/04/13.
+/** Created by blacky on 17/04/13.
   *
   * NonEmptyList ... 要素がひとつ以上含まれることが保証されているList
   */

@@ -2,9 +2,7 @@ package org.nomadblacky.scala.samples.scala
 
 import org.scalatest.{FunSpec, Matchers}
 
-/**
-  * 文字列の補間(String Interpolation)
-  * データを利用して文字列を加工できる。
+/** 文字列の補間(String Interpolation) データを利用して文字列を加工できる。
   */
 class StringInterpolationSpec extends FunSpec with Matchers {
 
@@ -55,7 +53,7 @@ object StringInterpolationSpec {
         a match {
           case i: Int    => i * 2
           case s: String => s + s
-      }
+        }
       sc.parts.reduceLeft { (acc, s) =>
         acc + f(ai.next()) + s
       }
@@ -64,11 +62,11 @@ object StringInterpolationSpec {
     // ↓ 利用するとコンパイル通らない。なんで?
     def parts(args: Any*): Seq[String] = sc.parts
     /*
-   * [error] /home/blacky/projects/scala/samples/src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala:41:13: not enough arguments for method apply: (idx: Int)String in trait SeqLike.
-   * [error] Unspecified value parameter idx.
-   * [error]     parts"hoge, $num, foo, ${num + 1}, bar, $str"
-   * [error]     ^
-   */
+     * [error] /home/blacky/projects/scala/samples/src/test/scala/org/nomadblacky/scala/samples/scala/StringInterpolationSpec.scala:41:13: not enough arguments for method apply: (idx: Int)String in trait SeqLike.
+     * [error] Unspecified value parameter idx.
+     * [error]     parts"hoge, $num, foo, ${num + 1}, bar, $str"
+     * [error]     ^
+     */
   }
 
 }

@@ -2,9 +2,7 @@ package org.nomadblacky.scala.samples.collections
 
 import org.scalatest.FunSpec
 
-/**
-  * 集合
-  * http://docs.scala-lang.org/ja/overviews/collections/sets
+/** 集合 http://docs.scala-lang.org/ja/overviews/collections/sets
   *
   * Created by blacky on 17/03/18.
   */

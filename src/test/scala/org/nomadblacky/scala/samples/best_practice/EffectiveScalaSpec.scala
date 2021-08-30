@@ -6,9 +6,7 @@ import org.scalatest.{FunSpec, Matchers}
 
 import scala.collection.mutable
 
-/**
-  * Effective Scala
-  * http://twitter.github.io/effectivescala/index-ja.html
+/** Effective Scala http://twitter.github.io/effectivescala/index-ja.html
   */
 class EffectiveScalaSpec extends FunSpec with Matchers {
 
@@ -60,9 +58,8 @@ class EffectiveScalaSpec extends FunSpec with Matchers {
     // 正しい処理ではあるが、読み手にとって理解しづらい
     val orderedVotes = votes
       .groupBy(_._1)
-      .map {
-        case (which, counts) =>
-          (which, counts.foldLeft(0)(_ + _._2))
+      .map { case (which, counts) =>
+        (which, counts.foldLeft(0)(_ + _._2))
       }
       .toSeq
       .sortBy(_._2)
@@ -70,20 +67,18 @@ class EffectiveScalaSpec extends FunSpec with Matchers {
 
     // 中間結果やパラメータに名前をつけることで可読性を保つ
     val voteByLang = votes groupBy { case (lang, _) => lang }
-    val sumByLang = voteByLang map {
-      case (lang, counts) =>
-        val countsOnly = counts map { case (_, count) => count }
-        (lang, countsOnly.sum)
+    val sumByLang = voteByLang map { case (lang, counts) =>
+      val countsOnly = counts map { case (_, count) => count }
+      (lang, countsOnly.sum)
     }
     val orderedVotes2 = sumByLang.toSeq.sortBy { case (_, count) => count }.reverse
 
     // 名前空間を汚したくなければ、式を {} でグループ化する
     val orderedVotes3 = {
       val voteByLang = votes groupBy { case (lang, _) => lang }
-      val sumByLang = voteByLang map {
-        case (lang, counts) =>
-          val countsOnly = counts map { case (_, count) => count }
-          (lang, countsOnly.sum)
+      val sumByLang = voteByLang map { case (lang, counts) =>
+        val countsOnly = counts map { case (_, count) => count }
+        (lang, countsOnly.sum)
       }
       sumByLang.toSeq.sortBy { case (_, count) => count }.reverse
     }
