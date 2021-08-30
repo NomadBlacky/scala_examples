@@ -1,10 +1,13 @@
 inThisBuild(
   List(
-    scalaVersion      := "2.12.8",
     semanticdbEnabled := true,
     semanticdbVersion := scalafixSemanticdb.revision
   )
 )
+
+val Scala2_12 = "2.12.14"
+val Scala2_13 = "2.13.6"
+val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.4"
@@ -13,7 +16,6 @@ val versions = new {
 lazy val TableOfContents = config("tableOfContents").extend(Test)
 
 lazy val commonSettings = Seq(
-  scalaVersion := "2.12.8",
   scalacOptions ++= Seq(
     "-Yrangepos",
     "-Ywarn-unused:imports"
@@ -34,8 +36,9 @@ lazy val root = (project in file("."))
   .configs(TableOfContents)
   .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
   .settings(
-    name    := "scala_samples",
-    version := "1.0",
+    name         := "scala_samples",
+    scalaVersion := Scala2_12,
+    version      := "1.0",
     TableOfContents / testOptions ++= Seq(
       Tests.Argument(
         TestFrameworks.ScalaTest,
@@ -53,9 +56,8 @@ lazy val root = (project in file("."))
       "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
       "org.scalaz"           %% "scalaz-core"            % "7.3.5",
-      "com.typesafe.akka"    %% "akka-http-core"         % "10.1.14",
-      "com.typesafe.akka"    %% "akka-stream"            % "2.5.22",
-      "com.chuusai"          %% "shapeless"              % "2.3.3",
+      "com.typesafe.akka"    %% "akka-http-core"         % "10.1.8",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.5.32",
       "org.typelevel"        %% "cats-core"              % "1.6.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "1.6.6",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.0.3",
@@ -68,10 +70,21 @@ lazy val root = (project in file("."))
     )
   )
 
+lazy val shapeless = (project in file("shapeless"))
+  .settings(commonSettings)
+  .settings(
+    scalaVersion := Scala2_13,
+    libraryDependencies ++= Seq(
+      "com.chuusai"   %% "shapeless"                % "2.3.7",
+      "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
+      "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
+    )
+  )
+
 lazy val scala3 = (project in file("scala3"))
   .settings(commonSettings)
   .settings(
-    scalaVersion := "3.0.1",
+    scalaVersion := Scala3,
     libraryDependencies ++= Seq(
       "org.scalameta" %% "munit" % "0.7.27" % Test
     )
