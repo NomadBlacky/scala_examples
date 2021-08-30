@@ -58,7 +58,7 @@ lazy val root = (project in file("."))
       "org.scalaz"           %% "scalaz-core"            % "7.3.5",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.1.8",
       "com.typesafe.akka"    %% "akka-stream"            % "2.5.22",
-      "org.typelevel"        %% "cats-core"              % "1.6.0",
+      "org.typelevel"        %% "cats-core"              % "1.6.1",
       "com.lihaoyi"          %% "ammonite-ops"           % "1.6.6",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.0.3",
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
