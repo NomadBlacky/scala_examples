@@ -2,7 +2,6 @@ package org.nomadblacky.scala.samples.libraries.cats
 
 import cats.data.NonEmptyList
 import org.scalatest.{FunSpec, Matchers}
-import cats.instances.int._
 
 class CatsSpec extends FunSpec with Matchers {
 
@@ -37,7 +36,6 @@ class CatsSpec extends FunSpec with Matchers {
 //  10.show
 
     // cats.instnces 以下に型クラスのインスタンスが定義されている
-    import cats.instances.int._
 
     // 利用できた
     10.show shouldBe "10"
@@ -45,7 +43,6 @@ class CatsSpec extends FunSpec with Matchers {
 
   it("Eq ... 型安全な等価比較を提供する") {
     // EqSyntax により、型安全な比較をするメソッドが提供される
-    import cats.instances.string._
     import cats.syntax.eq._
 
     // FIXME: Conflict to org.scalastics.TripleEqualsSupport
