@@ -1,8 +1,6 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter06
 
-/**
-  * クラスとして独立させ、関数を追加する。
-  * この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
+/** クラスとして独立させ、関数を追加する。 この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
   *
   * [EXERCISE 6.10]
   */
@@ -20,8 +18,7 @@ case class State[S, +A](run: S => (A, S)) {
     }
 }
 
-/**
-  * [EXERCISE 6.10]
+/** [EXERCISE 6.10]
   */
 object State {
   def unit[S, A](a: A): State[S, A] =

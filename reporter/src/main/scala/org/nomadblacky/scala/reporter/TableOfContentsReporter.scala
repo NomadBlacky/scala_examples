@@ -9,8 +9,7 @@ import org.scalatest.events._
 import scala.collection.mutable.ListBuffer
 import scala.util.matching.Regex
 
-/**
-  * Created by blacky on 16/11/06.
+/** Created by blacky on 16/11/06.
   */
 class TableOfContentsReporter() extends Reporter {
 
@@ -47,12 +46,11 @@ class TableOfContentsReporter() extends Reporter {
       .sortBy(_._1)
 
     val markdownLines: Seq[String] = sortedSuites
-      .flatMap {
-        case (suiteName, tests) =>
-          val testLines = tests.toList
-            .sortBy(getLineNumber(_, Int.MaxValue))
-            .map(getTestDetailLine)
-          Seq("", s"## $suiteName", "") ++ testLines
+      .flatMap { case (suiteName, tests) =>
+        val testLines = tests.toList
+          .sortBy(getLineNumber(_, Int.MaxValue))
+          .map(getTestDetailLine)
+        Seq("", s"## $suiteName", "") ++ testLines
       }
 
     for (pw <- new PrintWriter(markdownFilePath.toFile)) {
@@ -62,8 +60,8 @@ class TableOfContentsReporter() extends Reporter {
 
   private def getTestDetailLine(test: TestSucceeded): String = {
     val githubRelativeUrl = for {
-      location         <- test.location.collect { case l: LineInFile => l }
-      filePathname     <- location.filePathname
+      location     <- test.location.collect { case l: LineInFile => l }
+      filePathname <- location.filePathname
       absolutePathName = Paths.get(filePathname).toAbsolutePath.toString
       matchGroups      <- relativeFilePathRegex.unapplySeq(absolutePathName)
       relativeFilePath <- matchGroups.headOption
