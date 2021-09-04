@@ -97,13 +97,6 @@ lazy val root = (project in file("."))
     )
   )
 
-lazy val shapeless = createProject("shapeless", Scala2_13)
-  .settings(
-    libraryDependencies ++= Seq(
-      "com.chuusai" %% "shapeless" % "2.3.7"
-    )
-  )
-
 lazy val scala3 = createProject("scala3", Scala3)
   .settings(
     libraryDependencies ++= Seq(
@@ -111,6 +104,9 @@ lazy val scala3 = createProject("scala3", Scala3)
     )
   )
 
-// FIXME: Cannot apply this...
-// https://github.com/scalatest/scalatest/commit/10b38d73e804546aaf3690e6496b65d984f2459f#diff-a2caa30f41e1c2f5fac0195d465701cf
-// ThisBuild / envVars += "SCALACTIC_FILL_FILE_PATHNAMES" -> "yes"
+lazy val shapeless = createProject("shapeless", Scala2_13)
+  .settings(
+    libraryDependencies ++= Seq(
+      "com.chuusai" %% "shapeless" % "2.3.7"
+    )
+  )
