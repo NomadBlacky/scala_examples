@@ -11,6 +11,7 @@ val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.4"
+  val silencer    = "1.7.5"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -22,32 +23,49 @@ lazy val legacyCommonSettings = Seq(
   )
 )
 
-def createProject(path: String, scalaVer: String): sbt.Project =
+def createProject(path: String, scalaVer: String): sbt.Project = {
+  val isScala3 = scalaVer.startsWith("3")
   Project(path, file(path))
     .settings(
       scalaVersion := scalaVer,
-      scalacOptions ++= mkScalacOptions(scalaVer),
-      libraryDependencies ++= Seq(
-        "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
-        "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
-      )
+      scalacOptions ++= mkScalacOptions(isScala3),
+      libraryDependencies ++= mkLibraryDependencies(isScala3)
     )
+}
 
-def mkScalacOptions(scalaVer: String): Seq[String] =
+def mkScalacOptions(isScala3: Boolean): Seq[String] = {
   Seq(
     "-deprecation",
     "-feature",
     "-unchecked",
     "-Xfatal-warnings"
   ) ++ {
-    if (scalaVer.startsWith("3")) {
+    if (isScala3) {
       Seq()
     } else {
       Seq(
-        "-Xlint"
+        "-Xlint",
+        "-P:silencer:checkUnused"
       )
     }
   }
+}
+
+def mkLibraryDependencies(isScala3: Boolean): Seq[ModuleID] = {
+  Seq(
+    "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
+    "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
+  ) ++ {
+    if (isScala3) {
+      Seq()
+    } else {
+      Seq(
+        compilerPlugin("com.github.ghik" % "silencer-plugin" % versions.silencer cross CrossVersion.full),
+        "com.github.ghik" % "silencer-lib" % versions.silencer % Provided cross CrossVersion.full
+      )
+    }
+  }
+}
 
 lazy val reporter = (project in file("reporter"))
   .settings(legacyCommonSettings)
