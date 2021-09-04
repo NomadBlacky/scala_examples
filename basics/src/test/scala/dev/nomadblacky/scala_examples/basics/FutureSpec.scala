@@ -1,6 +1,7 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 import scala.concurrent._
 import scala.concurrent.duration._
@@ -8,7 +9,7 @@ import scala.util.{Failure, Success}
 
 /** Created by blacky on 17/03/31.
   */
-class FutureSpec extends FunSpec with Matchers {
+class FutureSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "Futureの使い方"
 

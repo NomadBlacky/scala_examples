@@ -1,6 +1,4 @@
-package org.nomadblacky.scala.samples.scala
-
-import org.scalatest.{FunSpec, Matchers}
+package dev.nomadblacky.scala_examples.basics
 
 /** scala.Dynamic 特殊な構文を提供するトレイト
   */

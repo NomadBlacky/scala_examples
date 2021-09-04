@@ -115,6 +115,8 @@ lazy val root = (project in file("."))
     )
   )
 
+lazy val basics = createProject("basics", Scala2_13)
+
 lazy val scala3 = createProject("scala3", Scala3)
   .settings(
     libraryDependencies ++= Seq(

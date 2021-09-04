@@ -1,10 +1,12 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.{FunSpec, Matchers}
+import com.github.ghik.silencer.silent
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 /** 文字列の補間(String Interpolation) データを利用して文字列を加工できる。
   */
-class StringInterpolationSpec extends FunSpec with Matchers {
+class StringInterpolationSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "文字列の補間 (String Interpolation)"
 
@@ -47,6 +49,7 @@ object StringInterpolationSpec {
     def spacing(args: Any*): String       = sc.parts.flatten.mkString(" ")
     def getParts(args: Any*): Seq[String] = sc.parts
     def args(args: Any*): Seq[Any]        = args
+    @silent("match may not be exhaustive")
     def double(args: Any*): String = {
       val ai = args.iterator
       val f = (a: Any) =>

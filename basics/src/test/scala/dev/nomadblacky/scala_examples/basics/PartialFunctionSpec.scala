@@ -1,6 +1,7 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 import scala.util.{Failure, Success, Try}
 
@@ -10,7 +11,7 @@ import scala.util.{Failure, Success, Try}
   *
   * 特定の引数に対してのみ結果を返す関数。 引数により値を返さない場合がある。
   */
-class PartialFunctionSpec extends FunSpec with Matchers {
+class PartialFunctionSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "部分関数"
 
@@ -73,9 +74,12 @@ class PartialFunctionSpec extends FunSpec with Matchers {
       case "three" => 3
     }
     val andThen = pf1 andThen pf2
+    andThen.isDefinedAt(1) shouldBe true
     andThen(1) shouldBe 1
-    andThen.isDefinedAt(2) shouldBe true
+
+    andThen.isDefinedAt(2) shouldBe false
     assertThrows[MatchError](andThen(2))
+
     andThen.isDefinedAt(3) shouldBe false
     assertThrows[MatchError](andThen(3))
   }

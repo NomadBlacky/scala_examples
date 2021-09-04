@@ -1,13 +1,15 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.FunSpec
+import com.github.ghik.silencer.silent
+import org.scalatest.funspec.AnyFunSpec
+
 import scala.collection.mutable.ListBuffer
 
 /** for ( [ジェネレータ] [フィルタ] ) 式
   *
   * ※フィルタは任意 ※処理に複数の式を記述したい場合{}で囲む
   */
-class ForSpec extends FunSpec {
+class ForSpec extends AnyFunSpec {
 
   override def suiteName: String = "for式 (for内包表記)"
 
@@ -48,7 +50,7 @@ class ForSpec extends FunSpec {
   it("for式のmap展開") {
     class Hoge {
       type A = Int
-      def map[B](f: A => B): TraversableOnce[B] = {
+      def map[B](f: A => B): IterableOnce[B] = {
         List(f(1), f(2), f(3))
       }
     }
@@ -93,15 +95,20 @@ class ForSpec extends FunSpec {
   }
 
   it("ジェネレータに含まれるパターンの変換 - その他パターンの場合") {
-    val list = List(Some(1), None, Some(3))
-    val a    = for (Some(i) <- list) yield i
-    val b = list.withFilter {
-      case Some(i) => true
-      case _       => false
-    } map { case Some(i) =>
-      i
+    @silent("match may not be exhaustive")
+    def foo(): Unit = {
+      val list = List(Some(1), None, Some(3))
+      val a    = for (Some(i) <- list) yield i
+      // desugared
+      val b = list.withFilter {
+        case Some(i) => true
+        case _       => false
+      } map { case Some(i) =>
+        i
+      }
+      assert(a == b)
     }
-    assert(a == b)
+    foo()
   }
 
   it("[Sample] 2つのコレクションを同じ順序で取り出して処理する") {

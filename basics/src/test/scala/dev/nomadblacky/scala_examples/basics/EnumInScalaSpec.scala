@@ -1,8 +1,9 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class EnumInScalaSpec extends FunSpec with Matchers {
+class EnumInScalaSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "Scalaで列挙型を扱う"
 
@@ -25,15 +26,6 @@ class EnumInScalaSpec extends FunSpec with Matchers {
 
     // valuesで列挙体のSetが返る
     Enum.values shouldBe Enum.ValueSet(One, Two, Three)
-
-    // パターンマッチでコンパイラが網羅性を検知できない
-    intercept[MatchError] {
-      Two match {
-        case One => fail()
-        // ここで Two が抜けているが警告は出ない。
-        case Three => fail()
-      }
-    }
   }
 
   it("余計な `Value` を排除する") {
@@ -76,6 +68,7 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     // こう…?
     enumOne match {
       case EnumVal(d) => d shouldBe 1.0
+      case _          => fail()
     }
   }
 
@@ -85,11 +78,10 @@ class EnumInScalaSpec extends FunSpec with Matchers {
     case object Two   extends Enum
     case object Three extends Enum
 
-    // Enumerationと異なり、パターンマッチでコンパイラが網羅性を検知できる
     val enum: Enum = One
     enum match {
-      case One =>
-      // ここで Two が抜けていることをコンパイラが警告する
+      case One   => succeed
+      case Two   => fail()
       case Three => fail()
     }
   }
