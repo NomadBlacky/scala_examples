@@ -15,15 +15,42 @@ val versions = new {
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
 
-lazy val commonSettings = Seq(
+lazy val legacyCommonSettings = Seq(
   scalacOptions ++= Seq(
     "-Yrangepos",
     "-Ywarn-unused:imports"
   )
 )
 
+def createProject(path: String, scalaVer: String): sbt.Project =
+  Project(path, file(path))
+    .settings(
+      scalaVersion := scalaVer,
+      scalacOptions ++= mkScalacOptions(scalaVer),
+      libraryDependencies ++= Seq(
+        "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
+        "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
+      )
+    )
+
+def mkScalacOptions(scalaVer: String): Seq[String] =
+  Seq(
+    "-deprecation",
+    "-feature",
+    "-unchecked",
+    "-Xfatal-warnings"
+  ) ++ {
+    if (scalaVer.startsWith("3")) {
+      Seq()
+    } else {
+      Seq(
+        "-Xlint"
+      )
+    }
+  }
+
 lazy val reporter = (project in file("reporter"))
-  .settings(commonSettings)
+  .settings(legacyCommonSettings)
   .settings(
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "3.0.5"
@@ -32,7 +59,7 @@ lazy val reporter = (project in file("reporter"))
 
 lazy val root = (project in file("."))
   .dependsOn(reporter)
-  .settings(commonSettings)
+  .settings(legacyCommonSettings)
   .configs(TableOfContents)
   .settings(inConfig(TableOfContents)(Defaults.testTasks): _*)
   .settings(
@@ -70,21 +97,15 @@ lazy val root = (project in file("."))
     )
   )
 
-lazy val shapeless = (project in file("shapeless"))
-  .settings(commonSettings)
+lazy val shapeless = createProject("shapeless", Scala2_13)
   .settings(
-    scalaVersion := Scala2_13,
     libraryDependencies ++= Seq(
-      "com.chuusai"   %% "shapeless"                % "2.3.7",
-      "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
-      "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
+      "com.chuusai" %% "shapeless" % "2.3.7"
     )
   )
 
-lazy val scala3 = (project in file("scala3"))
-  .settings(commonSettings)
+lazy val scala3 = createProject("scala3", Scala3)
   .settings(
-    scalaVersion := Scala3,
     libraryDependencies ++= Seq(
       "org.scalameta" %% "munit" % "0.7.27" % Test
     )
