@@ -37,7 +37,7 @@ class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeA
 
   describe("ユニットテスト") {
 
-    it("接続情報の設定") { implicit s =>
+    ignore("接続情報の設定") { implicit s =>
       // scalikejdbc-config を依存関係に追加する。
       // DBs.setupAll() を呼ぶと、 application.conf を読み込んで接続情報を初期化する
       import scalikejdbc.config._
@@ -45,7 +45,7 @@ class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeA
       DB.getAllTableNames() contains "users2"
     }
 
-    it("自動ロールバック") { implicit session =>
+    ignore("自動ロールバック") { implicit session =>
       // AutoRollback トレイトをmixinして、テストのパラメタにimplicitでDBSessionを受け取る
       // テストごとにひとつのトランザクションが生成され、テスト終了後にロールバックされる。
       User.create("User4", None)
