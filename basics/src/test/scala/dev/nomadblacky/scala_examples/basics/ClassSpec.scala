@@ -1,10 +1,11 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.FunSpec
+import com.github.ghik.silencer.silent
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 16/10/20.
   */
-class ClassSpec extends FunSpec {
+class ClassSpec extends AnyFunSpec {
 
   override def suiteName: String = "Scalaのクラス"
 
@@ -107,18 +108,21 @@ class ClassSpec extends FunSpec {
 
     val member: TeamMember = new Programmer
 
-    // パターンマッチを記述する際に役に立つ
-    member match {
-      case p: Programmer => println("Programmer.")
-      case d: Designer   => println("Designer.")
-      // Managerに対するcase式または、デフォルト式が足りてないので警告が出る。
-    }
+    @silent("match may not be exhaustive")
+    def foo(): Unit = {
+      // パターンマッチを記述する際に役に立つ
+      member match {
+        case p: Programmer => println("Programmer.")
+        case d: Designer   => println("Designer.")
+        // Managerに対するcase式または、デフォルト式が足りてないので警告が出る。
+      }
 
-    // 警告が煩わしい場合は、 @unchecked で無効にできる
-    // FIXME: 空白がない (member:@unchecked) だとエラーなのはなんでだろう
-    (member: @unchecked) match {
-      case p: Programmer => println("Programmer.")
-      case d: Designer   => println("Designer.")
+      // 警告が煩わしい場合は、 @unchecked で無効にできる
+      (member: @unchecked) match {
+        case p: Programmer => println("Programmer.")
+        case d: Designer   => println("Designer.")
+      }
     }
+    foo()
   }
 }

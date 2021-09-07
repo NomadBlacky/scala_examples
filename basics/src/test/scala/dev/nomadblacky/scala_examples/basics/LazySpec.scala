@@ -1,8 +1,8 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
-class LazySpec extends FunSpec {
+class LazySpec extends AnyFunSpec {
 
   override def suiteName: String = "遅延評価"
 

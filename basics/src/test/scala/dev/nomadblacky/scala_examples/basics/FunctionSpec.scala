@@ -1,8 +1,8 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
-class FunctionSpec extends FunSpec {
+class FunctionSpec extends AnyFunSpec {
 
   override def suiteName: String = "Scalaの関数"
 
@@ -71,7 +71,7 @@ class FunctionSpec extends FunSpec {
   }
 
   it("関数の引数を遅延評価する") {
-    def myWhile(conditional: => Boolean)(f: => Unit) {
+    def myWhile(conditional: => Boolean)(f: => Unit): Unit = {
       if (conditional) {
         f
         myWhile(conditional)(f)

@@ -1,12 +1,13 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 /** match式
   *
   * x match { case [選択肢1] => [xが選択肢1にmatchした時の処理] case [選択肢2] => [xが選択肢2にmatchした時の処理] case _ => [xが選択肢にmatchしなかった時の処理] }
   */
-class MatchSpec extends FunSpec with Matchers {
+class MatchSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "match式とパターンマッチング"
 

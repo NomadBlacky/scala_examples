@@ -1,6 +1,7 @@
-package org.nomadblacky.scala.samples.scala
+package dev.nomadblacky.scala_examples.basics
 
-import org.scalatest.FunSpec
+import com.github.ghik.silencer.silent
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 16/11/05.
   *
@@ -8,7 +9,7 @@ import org.scalatest.FunSpec
   *
   * trait ... (人・ものの) 特性、特色、特徴
   */
-class TraitSpec extends FunSpec {
+class TraitSpec extends AnyFunSpec {
 
   override def suiteName: String = "トレイトの使い方"
 
@@ -58,6 +59,7 @@ class TraitSpec extends FunSpec {
       def write: String = "I'm writing a blog."
     }
 
+    @silent("never used")
     class Person extends Programmer with Writer {
       // メソッドを必ずオーバーライドしなくてはならない。(エラーになる。)
       override def write: String = "I'm writing a document."
