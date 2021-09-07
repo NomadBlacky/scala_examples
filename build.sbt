@@ -75,7 +75,7 @@ lazy val reporter = (project in file("reporter"))
     )
   )
 
-lazy val root = (project in file("."))
+lazy val legacy = (project in file("legacy"))
   .dependsOn(reporter)
   .settings(legacyCommonSettings)
   .configs(TableOfContents)
