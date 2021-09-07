@@ -6,6 +6,7 @@ Scala コードのサンプル集です。
 
 ### Scala の基本
 
++ [Scala の基本](basics)
 + [Scala3](scala3)
 
 ### ライブラリの使用例
