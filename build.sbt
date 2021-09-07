@@ -120,7 +120,7 @@ lazy val basics = createProject("basics", Scala2_13)
 lazy val scala3 = createProject("scala3", Scala3)
   .settings(
     libraryDependencies ++= Seq(
-      "org.scalameta" %% "munit" % "0.7.27" % Test
+      "org.scalameta" %% "munit" % "0.7.29" % Test
     )
   )
 
