@@ -117,6 +117,8 @@ lazy val legacy = (project in file("legacy"))
 
 lazy val basics = createProject("basics", Scala2_13)
 
+lazy val collections = createProject("collections", Scala2_13)
+
 lazy val scala3 = createProject("scala3", Scala3)
   .settings(
     libraryDependencies ++= Seq(
