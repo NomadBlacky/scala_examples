@@ -119,6 +119,24 @@ lazy val basics = createProject("basics", Scala2_13)
 
 lazy val collections = createProject("collections", Scala2_13)
 
+lazy val opentelemetry = createProject("opentelemetry", Scala2_13)
+  .enablePlugins(JavaAgent)
+  .settings(
+    javaAgents += "io.opentelemetry.javaagent" % "opentelemetry-javaagent" % "1.6.0" % Runtime,
+    libraryDependencies ++= Seq(
+      "io.opentelemetry"          % "opentelemetry-api"           % "1.6.0",
+      "io.opentelemetry"          % "opentelemetry-sdk"           % "1.6.0",
+      "io.opentelemetry"          % "opentelemetry-exporter-otlp" % "1.6.0",
+      "io.grpc"                   % "grpc-okhttp"                 % "1.41.0",
+      "io.grpc"                   % "grpc-netty-shaded"           % "1.41.0",
+      "org.apache.logging.log4j"  % "log4j-core"                  % "2.14.1",
+      "org.apache.logging.log4j"  % "log4j-jul"                   % "2.14.1" % Runtime,
+      "org.apache.logging.log4j" %% "log4j-api-scala"             % "12.0"
+    ),
+    run / fork := true,
+    run / javaOptions += "-Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager"
+  )
+
 lazy val scala3 = createProject("scala3", Scala3)
   .settings(
     libraryDependencies ++= Seq(
