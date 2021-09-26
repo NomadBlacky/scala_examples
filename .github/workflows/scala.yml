@@ -18,7 +18,7 @@ jobs:
           distribution: adopt
           java-version: 11
       - name: Check scalafmt
-        run: ./sbt scalafmtCheckAll scalafmtSbtCheck
+        run: ./sbt pullRemoteCache scalafmtCheckAll scalafmtSbtCheck pushRemoteCache
   test:
     strategy:
       matrix:
@@ -38,4 +38,4 @@ jobs:
           distribution: adopt
           java-version: ${{ matrix.java }}
       - name: Run tests
-        run: ./sbt test
+        run: ./sbt pullRemoteCache test pushRemoteCache
