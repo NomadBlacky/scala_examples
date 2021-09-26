@@ -1,4 +1,4 @@
-// fooooo
+// foooooooo
 inThisBuild(
   List(
     semanticdbEnabled := true,
