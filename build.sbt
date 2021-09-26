@@ -1,3 +1,4 @@
+// foo
 inThisBuild(
   List(
     semanticdbEnabled := true,
