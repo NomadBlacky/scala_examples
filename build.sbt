@@ -85,7 +85,6 @@ lazy val legacy = (project in file("legacy"))
   .settings(
     name         := "scala_samples",
     scalaVersion := Scala2_12,
-    version      := "1.0",
     TableOfContents / testOptions ++= Seq(
       Tests.Argument(
         TestFrameworks.ScalaTest,
