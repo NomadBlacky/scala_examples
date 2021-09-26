@@ -1,7 +1,8 @@
 inThisBuild(
   List(
     semanticdbEnabled := true,
-    semanticdbVersion := scalafixSemanticdb.revision
+    semanticdbVersion := scalafixSemanticdb.revision,
+    pushRemoteCacheTo := Some(MavenCache("local-cache", baseDirectory.value / ".compile-cache"))
   )
 )
 

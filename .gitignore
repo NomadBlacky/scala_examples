@@ -75,3 +75,4 @@ tmp/
 sample.mv.db
 .bsp
 sample.trace.db
+.compile-cache
