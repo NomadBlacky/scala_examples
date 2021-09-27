@@ -33,7 +33,7 @@ class UnderstandingScalaTypeSpec extends FunSpec {
     val double: AnyVal = 1.0
     val char: AnyVal   = 'a'
     val bool: AnyVal   = true
-    val unit: AnyVal = {}
+    val unit: AnyVal   = {}
     // だめ
     // val nul: AnyVal = null
   }
