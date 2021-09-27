@@ -6,12 +6,9 @@ class Scala3Test extends munit.FunSuite {
 
     // if - then で括弧を省略
     val x = 1
-    if x < 0 then
-      "negative"
-    else if x == 0 then
-      "zero"
-    else
-      "positive"
+    if x < 0 then "negative"
+    else if x == 0 then "zero"
+    else "positive"
 
     if x < 0 then -x else x
 
@@ -26,10 +23,11 @@ class Scala3Test extends munit.FunSuite {
     for
       x <- (1 to 3)
       y <- (1 to 3)
-    do
-      println(x + y)
+    do println(x + y)
 
     // try-catch - 例外がひとつの場合ワンライナーで書ける
+    // format: off
     try sys.error("error!") catch case ex: Exception => println(ex)
+    // format: on
   }
 }
