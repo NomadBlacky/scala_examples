@@ -12,6 +12,7 @@ Scala コードのサンプル集です。
 
 ### ライブラリの使用例
 
++ [akka-stream](akka-stream)
 + [shapeless](shapeless)
 
 ---

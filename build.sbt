@@ -115,6 +115,14 @@ lazy val legacy = (project in file("legacy"))
     )
   )
 
+lazy val akkaStream = createProject("akka-stream", Scala2_13)
+  .settings(
+    libraryDependencies ++= Seq(
+      "com.typesafe.akka" %% "akka-stream"         % "2.6.16",
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.16" % Test
+    )
+  )
+
 lazy val basics = createProject("basics", Scala2_13)
 
 lazy val collections = createProject("collections", Scala2_13)
