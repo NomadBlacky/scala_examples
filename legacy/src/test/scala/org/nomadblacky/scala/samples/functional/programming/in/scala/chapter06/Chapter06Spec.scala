@@ -194,7 +194,7 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     /** Randより汎用的な型 何らかの状態を伴う計算、状態アクションなどの省略形
       */
-    //type State[S, +A] = S => (A, S)
+    // type State[S, +A] = S => (A, S)
 
     /** クラスとして独立させ、関数を追加する。 この型を使い、ステートフルなプログラムの共通パターンを表現する関数を記述すればよい。
       *

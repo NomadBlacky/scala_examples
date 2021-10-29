@@ -94,7 +94,7 @@ class FunctionSpec extends AnyFunSpec {
     assert(k(10, 20) == 40)
 
     // これはだめ
-    //val l = f(_).compose(g)
+    // val l = f(_).compose(g)
 
     // method と FunctionN は異なる
     // method は第一級ではない (下記をいずれも満たさない)
