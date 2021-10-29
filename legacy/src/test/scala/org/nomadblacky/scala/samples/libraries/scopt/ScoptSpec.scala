@@ -53,7 +53,7 @@ class ScoptSpec extends FunSpec {
   it("引数から日付を取得") {
     parser.parse(List("--calendar", "2016-1-1"), Config()) match {
       case Some(config: Config) =>
-        //FIXME: Calendarの比較
+        // FIXME: Calendarの比較
         println(config.calendar)
       case None =>
         throw new IllegalArgumentException("arguments are bad.")

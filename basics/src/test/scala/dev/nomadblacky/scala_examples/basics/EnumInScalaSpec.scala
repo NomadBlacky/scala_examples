@@ -36,7 +36,7 @@ class EnumInScalaSpec extends AnyFunSpec with Matchers {
     }
     import Enum._
 
-    //val enumOne: Enum.Value = Enum.One
+    // val enumOne: Enum.Value = Enum.One
     //                  ↑これが余計
     val enumOne: Enum = One
 
@@ -63,7 +63,7 @@ class EnumInScalaSpec extends AnyFunSpec with Matchers {
     // しかし、valuesで取ってきた列挙型はEnum.Valueのため、直接値は取れない…
     val enumOne: Enum.Value = Enum.values.head
     // コンパイルエラー
-    //enumOne.toDouble
+    // enumOne.toDouble
 
     // こう…?
     enumOne match {
