@@ -10,8 +10,8 @@ val Scala2_13 = "2.13.6"
 val Scala3    = "3.0.1"
 
 val versions = new {
-  val scalikejdbc = "3.5.0"
-  val silencer    = "1.7.5"
+  val scalikejdbc = "3.3.5"
+  val silencer    = "1.7.7"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -75,7 +75,7 @@ lazy val reporter = (project in file("reporter"))
     )
   )
 
-lazy val root = (project in file("."))
+lazy val legacy = (project in file("legacy"))
   .dependsOn(reporter)
   .settings(legacyCommonSettings)
   .configs(TableOfContents)
@@ -102,7 +102,7 @@ lazy val root = (project in file("."))
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
       "org.scalaz"           %% "scalaz-core"            % "7.3.5",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.2.6",
-      "com.typesafe.akka"    %% "akka-stream"            % "2.6.16",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.6.17",
       "org.typelevel"        %% "cats-core"              % "2.6.1",
       "com.lihaoyi"          %% "ammonite-ops"           % "2.4.0",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.3",
@@ -114,6 +114,18 @@ lazy val root = (project in file("."))
       "ch.qos.logback"        % "logback-classic"        % "1.2.5"
     )
   )
+
+lazy val akkaStream = createProject("akka-stream", Scala2_13)
+  .settings(
+    libraryDependencies ++= Seq(
+      "com.typesafe.akka" %% "akka-stream"         % "2.6.17",
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.17" % Test
+    )
+  )
+
+lazy val basics = createProject("basics", Scala2_13)
+
+lazy val collections = createProject("collections", Scala2_13)
 
 lazy val scala3 = createProject("scala3", Scala3)
   .settings(
