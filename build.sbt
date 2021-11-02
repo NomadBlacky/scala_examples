@@ -10,7 +10,7 @@ val Scala2_13 = "2.13.6"
 val Scala3    = "3.0.1"
 
 val versions = new {
-  val scalikejdbc = "3.3.5"
+  val scalikejdbc = "3.5.0"
   val silencer    = "1.7.7"
 }
 
