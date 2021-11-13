@@ -104,7 +104,7 @@ lazy val legacy = (project in file("legacy"))
       "com.typesafe.akka"    %% "akka-http-core"         % "10.2.7",
       "com.typesafe.akka"    %% "akka-stream"            % "2.6.17",
       "org.typelevel"        %% "cats-core"              % "2.6.1",
-      "com.lihaoyi"          %% "ammonite-ops"           % "2.4.0",
+      "com.lihaoyi"          %% "ammonite-ops"           % "2.4.1",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.3",
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-config"     % versions.scalikejdbc,
