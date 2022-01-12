@@ -11,7 +11,7 @@ val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.5"
-  val silencer    = "1.7.7"
+  val silencer    = "1.7.8"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
