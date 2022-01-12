@@ -10,8 +10,8 @@ val Scala2_13 = "2.13.6"
 val Scala3    = "3.0.1"
 
 val versions = new {
-  val scalikejdbc = "3.5.0"
-  val silencer    = "1.7.7"
+  val scalikejdbc = "3.3.5"
+  val silencer    = "1.7.8"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -101,25 +101,25 @@ lazy val legacy = (project in file("legacy"))
       "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
       "org.scalaz"           %% "scalaz-core"            % "7.3.5",
-      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.6",
-      "com.typesafe.akka"    %% "akka-stream"            % "2.6.17",
-      "org.typelevel"        %% "cats-core"              % "2.6.1",
-      "com.lihaoyi"          %% "ammonite-ops"           % "2.4.0",
-      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.3",
+      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.7",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.6.18",
+      "org.typelevel"        %% "cats-core"              % "2.7.0",
+      "com.lihaoyi"          %% "ammonite-ops"           % "2.4.1",
+      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.7",
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-config"     % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
-      "com.h2database"        % "h2"                     % "1.4.200",
-      "ch.qos.logback"        % "logback-classic"        % "1.2.5"
+      "com.h2database"        % "h2"                     % "2.0.206",
+      "ch.qos.logback"        % "logback-classic"        % "1.2.10"
     )
   )
 
 lazy val akkaStream = createProject("akka-stream", Scala2_13)
   .settings(
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-stream"         % "2.6.17",
-      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.17" % Test
+      "com.typesafe.akka" %% "akka-stream"         % "2.6.18",
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.18" % Test
     )
   )
 
