@@ -6,7 +6,7 @@ inThisBuild(
 )
 
 val Scala2_12 = "2.12.14"
-val Scala2_13 = "2.13.6"
+val Scala2_13 = "2.13.8"
 val Scala3    = "3.0.1"
 
 val versions = new {
