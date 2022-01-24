@@ -53,8 +53,8 @@ def mkScalacOptions(isScala3: Boolean): Seq[String] = {
 
 def mkLibraryDependencies(isScala3: Boolean): Seq[ModuleID] = {
   Seq(
-    "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
-    "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
+    "org.scalatest" %% "scalatest-funspec"        % "3.2.11" % Test,
+    "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.11" % Test
   ) ++ {
     if (isScala3) {
       Seq()
