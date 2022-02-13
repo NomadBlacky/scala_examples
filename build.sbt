@@ -137,6 +137,6 @@ lazy val scala3 = createProject("scala3", Scala3)
 lazy val shapeless = createProject("shapeless", Scala2_13)
   .settings(
     libraryDependencies ++= Seq(
-      "com.chuusai" %% "shapeless" % "2.3.7"
+      "com.chuusai" %% "shapeless" % "2.3.8"
     )
   )
