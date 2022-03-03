@@ -101,7 +101,7 @@ lazy val legacy = (project in file("legacy"))
       "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
       "org.scalaz"           %% "scalaz-core"            % "7.3.6",
-      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.8",
+      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.9",
       "com.typesafe.akka"    %% "akka-stream"            % "2.6.18",
       "org.typelevel"        %% "cats-core"              % "2.7.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "2.4.1",
