@@ -102,7 +102,7 @@ lazy val legacy = (project in file("legacy"))
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
       "org.scalaz"           %% "scalaz-core"            % "7.3.6",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.2.9",
-      "com.typesafe.akka"    %% "akka-stream"            % "2.6.18",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.6.19",
       "org.typelevel"        %% "cats-core"              % "2.7.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "2.4.1",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.7",
@@ -118,8 +118,8 @@ lazy val legacy = (project in file("legacy"))
 lazy val akkaStream = createProject("akka-stream", Scala2_13)
   .settings(
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-stream"         % "2.6.18",
-      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.18" % Test
+      "com.typesafe.akka" %% "akka-stream"         % "2.6.19",
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.19" % Test
     )
   )
 
