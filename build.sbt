@@ -11,7 +11,7 @@ val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.5"
-  val silencer    = "1.7.8"
+  val silencer    = "1.7.9"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -53,8 +53,8 @@ def mkScalacOptions(isScala3: Boolean): Seq[String] = {
 
 def mkLibraryDependencies(isScala3: Boolean): Seq[ModuleID] = {
   Seq(
-    "org.scalatest" %% "scalatest-funspec"        % "3.2.9" % Test,
-    "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.9" % Test
+    "org.scalatest" %% "scalatest-funspec"        % "3.2.11" % Test,
+    "org.scalatest" %% "scalatest-shouldmatchers" % "3.2.11" % Test
   ) ++ {
     if (isScala3) {
       Seq()
@@ -95,31 +95,31 @@ lazy val legacy = (project in file("legacy"))
       "org.scalactic"        %% "scalactic"              % "3.0.7",
       "org.scalatest"        %% "scalatest"              % "3.0.7"              % "test",
       "org.scalacheck"       %% "scalacheck"             % "1.14.0"             % "test",
-      "com.github.scopt"     %% "scopt"                  % "3.7.1",
+      "com.github.scopt"     %% "scopt"                  % "4.1.0",
       "org.pegdown"           % "pegdown"                % "1.6.0",
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
       "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
-      "org.scalaz"           %% "scalaz-core"            % "7.3.5",
-      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.7",
-      "com.typesafe.akka"    %% "akka-stream"            % "2.6.18",
-      "org.typelevel"        %% "cats-core"              % "2.7.0",
+      "org.scalaz"           %% "scalaz-core"            % "7.3.6",
+      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.9",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.6.19",
+      "org.typelevel"        %% "cats-core"              % "2.8.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "2.4.1",
-      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.7",
+      "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.10",
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-config"     % versions.scalikejdbc,
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
-      "com.h2database"        % "h2"                     % "2.0.206",
-      "ch.qos.logback"        % "logback-classic"        % "1.2.10"
+      "com.h2database"        % "h2"                     % "2.1.214",
+      "ch.qos.logback"        % "logback-classic"        % "1.2.11"
     )
   )
 
 lazy val akkaStream = createProject("akka-stream", Scala2_13)
   .settings(
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-stream"         % "2.6.18",
-      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.18" % Test
+      "com.typesafe.akka" %% "akka-stream"         % "2.6.19",
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.19" % Test
     )
   )
 
@@ -137,6 +137,6 @@ lazy val scala3 = createProject("scala3", Scala3)
 lazy val shapeless = createProject("shapeless", Scala2_13)
   .settings(
     libraryDependencies ++= Seq(
-      "com.chuusai" %% "shapeless" % "2.3.7"
+      "com.chuusai" %% "shapeless" % "2.3.9"
     )
   )
