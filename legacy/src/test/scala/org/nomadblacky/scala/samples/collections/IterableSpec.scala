@@ -1,10 +1,10 @@
 package org.nomadblacky.scala.samples.collections
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/02/06.
   */
-class IterableSpec extends FunSpec {
+class IterableSpec extends AnyFunSpec {
 
   override def suiteName: String = "Iterable - コレクションの要素をひとつずつ返すトレイト"
 

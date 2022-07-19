@@ -1,11 +1,13 @@
 package org.nomadblacky.scala.samples.libraries.scalikejdbc
 
-import org.scalatest.{fixture, BeforeAndAfterAll, Matchers}
+import org.scalatest.{fixture, BeforeAndAfterAll}
 import scalikejdbc._
 import scalikejdbc.config.DBs
 import scalikejdbc.scalatest.AutoRollback
+import org.scalatest.funspec
+import org.scalatest.matchers.should.Matchers
 
-class ScalikeJDBCUnitTestSpec extends fixture.FunSpec with Matchers with BeforeAndAfterAll with AutoRollback {
+class ScalikeJDBCUnitTestSpec extends funspec.FixtureAnyFunSpec with Matchers with BeforeAndAfterAll with AutoRollback {
 
   override def suiteName: String = "ScalikeJDBCでのユニットテスト"
 

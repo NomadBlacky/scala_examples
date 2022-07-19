@@ -1,13 +1,13 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter03
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/02/13.
   *
   * Scala関数型デザイン&プログラミング―Scalazコントリビューターによる関数型徹底ガイド
   * https://www.amazon.co.jp/dp/B00WM54V5Q/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
   */
-class Chapter03Spec extends FunSpec {
+class Chapter03Spec extends AnyFunSpec {
 
   override def suiteName: String = "[FP in Scala] 第3章 関数型プログラミングのデータ構造"
 
