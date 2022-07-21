@@ -1,17 +1,16 @@
 package org.nomadblacky.scala.samples.nlp100
 
+import org.scalatest.{FunSpec, Matchers}
 
 import scala.annotation.tailrec
 import scala.collection.mutable
 import scala.util.Random
-import org.scalatest.funspec.AnyFunSpec
-import org.scalatest.matchers.should.Matchers
 
 /** 言語処理100本ノック 第1章: 準備運動
   *
   * Weeble Scalaもくもく勉強会にて回答されたコードです。 https://weeyble-scala.connpass.com/
   */
-class Chapter01Spec extends AnyFunSpec with Matchers {
+class Chapter01Spec extends FunSpec with Matchers {
 
   override def suiteName: String = "言語処理100本ノック 第1章: 準備運動"
 

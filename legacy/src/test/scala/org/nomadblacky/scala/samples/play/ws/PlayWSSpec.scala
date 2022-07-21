@@ -4,15 +4,14 @@ import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{Flow, Keep, Sink}
 import akka.util.ByteString
+import org.scalatest.{FunSpec, Matchers}
 import play.api.libs.ws.StandaloneWSRequest
 import play.api.libs.ws.ahc.StandaloneAhcWSClient
 
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}
-import org.scalatest.funspec.AnyFunSpec
-import org.scalatest.matchers.should.Matchers
 
-class PlayWSSpec extends AnyFunSpec with Matchers {
+class PlayWSSpec extends FunSpec with Matchers {
   import scala.concurrent.ExecutionContext.Implicits.global
 
   override def suiteName: String = "Play WS ... Play製のHTTPクライアント"

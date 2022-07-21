@@ -3,13 +3,13 @@ package org.nomadblacky.scala.samples.event.understanding_scala
 import java.io.FileInputStream
 import java.util
 
-import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.FunSpec
 
 /** 6/10 Understanding Scala ~Scalaを理解しよう~ https://connpass.com/event/55308/
   *
   * Scalaの型システムを学ぶ http://kmizu.github.io/understanding_scala/type_system/#/14
   */
-class UnderstandingScalaTypeSpec extends AnyFunSpec {
+class UnderstandingScalaTypeSpec extends FunSpec {
 
   override def suiteName: String = "[勉強会] Understanding Scala - Scalaの型システムを学ぶ"
 

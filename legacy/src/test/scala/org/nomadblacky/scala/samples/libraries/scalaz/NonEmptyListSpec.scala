@@ -1,15 +1,15 @@
 package org.nomadblacky.scala.samples.libraries.scalaz
 
+import org.scalatest.FunSpec
 
 import scalaz._
 import Scalaz._
-import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/04/13.
   *
   * NonEmptyList ... 要素がひとつ以上含まれることが保証されているList
   */
-class NonEmptyListSpec extends AnyFunSpec {
+class NonEmptyListSpec extends FunSpec {
 
   override def suiteName: String = "[Scalaz] NonEmptyList - 空でないことが保証されるリスト"
 

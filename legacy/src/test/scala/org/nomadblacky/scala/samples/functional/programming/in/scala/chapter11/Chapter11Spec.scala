@@ -1,6 +1,6 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter11
 
-import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.FunSpec
 
 /** Created by blacky on 17/04/25.
   *
@@ -9,7 +9,7 @@ import org.scalatest.funspec.AnyFunSpec
   *
   * Github https://github.com/fpinscala/fpinscala/tree/master/answerkey/monads
   */
-class Chapter11Spec extends AnyFunSpec {
+class Chapter11Spec extends FunSpec {
 
   override def suiteName: String = "[FP in Scala] 第11章 モナド"
 

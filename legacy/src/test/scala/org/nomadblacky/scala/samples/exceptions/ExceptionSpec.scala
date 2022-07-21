@@ -1,12 +1,12 @@
 package org.nomadblacky.scala.samples.exceptions
 
-import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.FunSpec
 
 /** try-catch-finally
   *
   * try { 式 } catch { case 変数:例外クラスの型 => 例外処理の式 ... } finally { 式 }
   */
-class ExceptionSpec extends AnyFunSpec {
+class ExceptionSpec extends FunSpec {
 
   override def suiteName: String = "例外処理"
 

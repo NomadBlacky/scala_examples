@@ -1,14 +1,14 @@
 package org.nomadblacky.scala.samples.collections
 
+import org.scalatest.FunSpec
 
 import scala.collection.mutable.ArrayBuffer
-import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/01/16.
   *
   * Traversable ... 操作可能
   */
-class TraversableSpec extends AnyFunSpec {
+class TraversableSpec extends FunSpec {
 
   override def suiteName: String = "Traversable - コレクションの最上位に位置するトレイト"
 
