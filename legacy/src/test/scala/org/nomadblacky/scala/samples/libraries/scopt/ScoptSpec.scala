@@ -3,11 +3,11 @@ package org.nomadblacky.scala.samples.libraries.scopt
 import java.io.File
 import java.util.Calendar
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 16/10/14.
   */
-class ScoptSpec extends FunSpec {
+class ScoptSpec extends AnyFunSpec {
 
   override def suiteName: String = "Scopt - コマンドライン引数を解析するライブラリ"
 
