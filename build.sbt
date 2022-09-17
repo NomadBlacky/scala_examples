@@ -11,7 +11,7 @@ val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.5"
-  val silencer    = "1.7.9"
+  val silencer    = "1.7.10"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -92,17 +92,17 @@ lazy val legacy = (project in file("legacy"))
       )
     ),
     libraryDependencies ++= Seq(
-      "org.scalactic"        %% "scalactic"              % "3.0.7",
-      "org.scalatest"        %% "scalatest"              % "3.0.7"              % "test",
-      "org.scalacheck"       %% "scalacheck"             % "1.14.0"             % "test",
+      "org.scalactic"        %% "scalactic"              % "3.0.9",
+      "org.scalatest"        %% "scalatest"              % "3.0.9"              % "test",
+      "org.scalacheck"       %% "scalacheck"             % "1.16.0"             % "test",
       "com.github.scopt"     %% "scopt"                  % "4.1.0",
       "org.pegdown"           % "pegdown"                % "1.6.0",
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
       "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.9.1",
       "org.scalaz"           %% "scalaz-core"            % "7.3.6",
-      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.9",
-      "com.typesafe.akka"    %% "akka-stream"            % "2.6.19",
+      "com.typesafe.akka"    %% "akka-http-core"         % "10.2.10",
+      "com.typesafe.akka"    %% "akka-stream"            % "2.6.20",
       "org.typelevel"        %% "cats-core"              % "2.8.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "2.4.1",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.10",
@@ -111,15 +111,15 @@ lazy val legacy = (project in file("legacy"))
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
       "com.h2database"        % "h2"                     % "2.1.214",
-      "ch.qos.logback"        % "logback-classic"        % "1.2.11"
+      "ch.qos.logback"        % "logback-classic"        % "1.4.1"
     )
   )
 
 lazy val akkaStream = createProject("akka-stream", Scala2_13)
   .settings(
     libraryDependencies ++= Seq(
-      "com.typesafe.akka" %% "akka-stream"         % "2.6.19",
-      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.19" % Test
+      "com.typesafe.akka" %% "akka-stream"         % "2.6.20",
+      "com.typesafe.akka" %% "akka-stream-testkit" % "2.6.20" % Test
     )
   )
 
@@ -137,6 +137,6 @@ lazy val scala3 = createProject("scala3", Scala3)
 lazy val shapeless = createProject("shapeless", Scala2_13)
   .settings(
     libraryDependencies ++= Seq(
-      "com.chuusai" %% "shapeless" % "2.3.9"
+      "com.chuusai" %% "shapeless" % "2.3.10"
     )
   )
