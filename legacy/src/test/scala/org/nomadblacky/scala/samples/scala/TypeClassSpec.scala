@@ -1,8 +1,8 @@
 package org.nomadblacky.scala.samples.scala
 
+import org.scalatest.FunSpec
 
 import scala.math.Ordering
-import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/05/23.
   *
@@ -13,7 +13,7 @@ import org.scalatest.funspec.AnyFunSpec
   * http://chopl.in/post/2012/11/06/introduction-to-typeclass-with-scala/ + Twitter検索 +
   * https://twitter.com/search?l=&q=型クラス&src=typd&lang=ja
   */
-class TypeClassSpec extends AnyFunSpec {
+class TypeClassSpec extends FunSpec {
 
   override def suiteName: String = "型クラスの使い方"
 

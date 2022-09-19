@@ -1,10 +1,10 @@
 package org.nomadblacky.scala.samples.xml
 
+import org.scalatest.FunSpec
 
 import scala.xml.{Elem, XML}
-import org.scalatest.funspec.AnyFunSpec
 
-class XmlSpec extends AnyFunSpec {
+class XmlSpec extends FunSpec {
 
   override def suiteName: String = "XMLを扱う"
 

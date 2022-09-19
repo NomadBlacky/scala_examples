@@ -1,9 +1,9 @@
 package org.nomadblacky.scala.samples.collections
 
+import org.scalatest.FunSpec
 import scala.collection.immutable.Set
-import org.scalatest.funspec.AnyFunSpec
 
-class MapSpec extends AnyFunSpec {
+class MapSpec extends FunSpec {
 
   override def suiteName: String = "Map - キーと値で構成されるコレクション"
 

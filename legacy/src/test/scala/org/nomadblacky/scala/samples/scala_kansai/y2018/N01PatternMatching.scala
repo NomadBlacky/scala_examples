@@ -2,12 +2,11 @@ package org.nomadblacky.scala.samples.scala_kansai.y2018
 
 import java.io.IOException
 
+import org.scalatest.{FunSpec, Matchers}
 
 import scala.util.{Failure, Success, Try}
-import org.scalatest.funspec.AnyFunSpec
-import org.scalatest.matchers.should.Matchers
 
-class N01PatternMatching extends AnyFunSpec with Matchers {
+class N01PatternMatching extends FunSpec with Matchers {
 
   override def suiteName: String = "Readable Code in Scala ~ パターンマッチ編"
 

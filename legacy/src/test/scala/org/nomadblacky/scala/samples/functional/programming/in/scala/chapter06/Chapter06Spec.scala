@@ -1,10 +1,9 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter06
 
 import org.scalactic.{Equality, TolerantNumerics}
-import org.scalatest.funspec.AnyFunSpec
-import org.scalatest.matchers.should.Matchers
+import org.scalatest.{FunSpec, Matchers}
 
-class Chapter06Spec extends AnyFunSpec with Matchers {
+class Chapter06Spec extends FunSpec with Matchers {
 
   implicit val doubleEquality: Equality[Double] = TolerantNumerics.tolerantDoubleEquality(0.0001)
 
