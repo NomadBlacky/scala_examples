@@ -11,7 +11,7 @@ val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.5"
-  val silencer    = "1.7.10"
+  val silencer    = "1.7.12"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -94,7 +94,7 @@ lazy val legacy = (project in file("legacy"))
     libraryDependencies ++= Seq(
       "org.scalactic"        %% "scalactic"              % "3.0.9",
       "org.scalatest"        %% "scalatest"              % "3.0.9"              % "test",
-      "org.scalacheck"       %% "scalacheck"             % "1.16.0"             % "test",
+      "org.scalacheck"       %% "scalacheck"             % "1.17.0"             % "test",
       "com.github.scopt"     %% "scopt"                  % "4.1.0",
       "org.pegdown"           % "pegdown"                % "1.6.0",
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
@@ -111,7 +111,7 @@ lazy val legacy = (project in file("legacy"))
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
       "com.h2database"        % "h2"                     % "2.1.214",
-      "ch.qos.logback"        % "logback-classic"        % "1.4.1"
+      "ch.qos.logback"        % "logback-classic"        % "1.4.4"
     )
   )
 
