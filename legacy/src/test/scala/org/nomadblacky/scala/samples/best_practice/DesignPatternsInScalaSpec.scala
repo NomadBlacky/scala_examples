@@ -4,11 +4,12 @@ import java.awt.Point
 import java.io.File
 import java.util.Scanner
 
-import org.scalatest.{FunSpec, Matchers}
 
 import scala.annotation.tailrec
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class DesignPatternsInScalaSpec extends FunSpec with Matchers {
+class DesignPatternsInScalaSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "[BestPractice] Scalaでのデザインパターン"
 
