@@ -99,7 +99,7 @@ lazy val legacy = (project in file("legacy"))
       "org.pegdown"           % "pegdown"                % "1.6.0",
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
       "org.jfree"             % "jfreechart"             % "1.5.0",
-      "com.github.pathikrit" %% "better-files"           % "3.9.1",
+      "com.github.pathikrit" %% "better-files"           % "3.9.2",
       "org.scalaz"           %% "scalaz-core"            % "7.3.7",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.2.10",
       "com.typesafe.akka"    %% "akka-stream"            % "2.6.20",
