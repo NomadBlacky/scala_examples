@@ -111,7 +111,7 @@ lazy val legacy = (project in file("legacy"))
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
       "com.h2database"        % "h2"                     % "2.1.214",
-      "ch.qos.logback"        % "logback-classic"        % "1.4.5"
+      "ch.qos.logback"        % "logback-classic"        % "1.4.6"
     )
   )
 
