@@ -5,13 +5,13 @@ inThisBuild(
   )
 )
 
-val Scala2_12 = "2.12.14"
+val Scala2_12 = "2.12.18"
 val Scala2_13 = "2.13.6"
 val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.5"
-  val silencer    = "1.7.12"
+  val silencer    = "1.7.13"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -99,11 +99,11 @@ lazy val legacy = (project in file("legacy"))
       "org.pegdown"           % "pegdown"                % "1.6.0",
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
       "org.jfree"             % "jfreechart"             % "1.5.0",
-      "com.github.pathikrit" %% "better-files"           % "3.9.1",
-      "org.scalaz"           %% "scalaz-core"            % "7.3.6",
+      "com.github.pathikrit" %% "better-files"           % "3.9.2",
+      "org.scalaz"           %% "scalaz-core"            % "7.3.7",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.2.10",
       "com.typesafe.akka"    %% "akka-stream"            % "2.6.20",
-      "org.typelevel"        %% "cats-core"              % "2.8.0",
+      "org.typelevel"        %% "cats-core"              % "2.9.0",
       "com.lihaoyi"          %% "ammonite-ops"           % "2.4.1",
       "com.typesafe.play"    %% "play-ahc-ws-standalone" % "2.1.10",
       "org.scalikejdbc"      %% "scalikejdbc"            % versions.scalikejdbc,
@@ -111,7 +111,7 @@ lazy val legacy = (project in file("legacy"))
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
       "com.h2database"        % "h2"                     % "2.1.214",
-      "ch.qos.logback"        % "logback-classic"        % "1.4.4"
+      "ch.qos.logback"        % "logback-classic"        % "1.4.7"
     )
   )
 
