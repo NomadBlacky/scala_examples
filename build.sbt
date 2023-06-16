@@ -11,7 +11,7 @@ val Scala3    = "3.0.1"
 
 val versions = new {
   val scalikejdbc = "3.3.5"
-  val silencer    = "1.7.13"
+  val silencer    = "1.17.13"
 }
 
 lazy val TableOfContents = config("tableOfContents").extend(Test)
@@ -111,7 +111,7 @@ lazy val legacy = (project in file("legacy"))
       "org.scalikejdbc"      %% "scalikejdbc-test"       % versions.scalikejdbc % "test",
       "org.skinny-framework" %% "skinny-orm"             % "3.1.0",
       "com.h2database"        % "h2"                     % "2.1.214",
-      "ch.qos.logback"        % "logback-classic"        % "1.4.7"
+      "ch.qos.logback"        % "logback-classic"        % "1.4.8"
     )
   )
 
