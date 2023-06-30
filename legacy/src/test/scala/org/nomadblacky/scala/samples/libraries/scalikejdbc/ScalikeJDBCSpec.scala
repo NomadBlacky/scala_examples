@@ -151,7 +151,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
         val id = DB localTx { implicit s =>
           sql"insert into members(name, team_id) values($name, $teamId)".updateAndReturnGeneratedKey().apply()
 
-        // localTx で囲っているので、この時点でトランザクションが終了してしまう
+          // localTx で囲っているので、この時点でトランザクションが終了してしまう
         }
         Member(id, name)
       }
@@ -168,7 +168,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       DB localTx { implicit s =>
         createMember2("foo", 200L)
 
-      // 同じトランザクションを使う処理
+        // 同じトランザクションを使う処理
       }
 
       // 単体で実行もできる
