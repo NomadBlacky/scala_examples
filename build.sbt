@@ -100,7 +100,7 @@ lazy val legacy = (project in file("legacy"))
       "org.scala-lang"        % "scala-reflect"          % scalaVersion.value,
       "org.jfree"             % "jfreechart"             % "1.5.0",
       "com.github.pathikrit" %% "better-files"           % "3.9.2",
-      "org.scalaz"           %% "scalaz-core"            % "7.3.7",
+      "org.scalaz"           %% "scalaz-core"            % "7.3.8",
       "com.typesafe.akka"    %% "akka-http-core"         % "10.2.10",
       "com.typesafe.akka"    %% "akka-stream"            % "2.6.20",
       "org.typelevel"        %% "cats-core"              % "2.10.0",
