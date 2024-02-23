@@ -5,7 +5,7 @@ inThisBuild(
   )
 )
 
-val Scala2_12 = "2.12.18"
+val Scala2_12 = "2.13.12"
 val Scala2_13 = "2.13.6"
 val Scala3    = "3.0.1"
 
