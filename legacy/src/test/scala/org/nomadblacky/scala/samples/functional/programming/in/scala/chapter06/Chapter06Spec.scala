@@ -50,9 +50,12 @@ class Chapter06Spec extends FunSpec with Matchers {
 
     intDouble(SimpleRNG(10)) shouldBe ((3847489, 0.6213264381513), SimpleRNG(87443922374356L))
     doubleInt(SimpleRNG(10)) shouldBe ((0.0017916266806423664, 1334288366), SimpleRNG(87443922374356L))
-    double3(SimpleRNG(10)) shouldBe ((0.0017916266806423664, 0.6213264381513, 0.6923740776255727), SimpleRNG(
-      97442988689487L
-    ))
+    double3(SimpleRNG(10)) shouldBe (
+      (0.0017916266806423664, 0.6213264381513, 0.6923740776255727),
+      SimpleRNG(
+        97442988689487L
+      )
+    )
   }
 
   it("[EXERCISE 6.4] ランダムな整数のリストを作成する関数") {
@@ -177,9 +180,12 @@ class Chapter06Spec extends FunSpec with Matchers {
       flatMap(ra)(a => map(rb)(b => f(a, b)))
 
     map(int)(_.toString)(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
-    map2(int, double)((i, d) => s"$i:$d")(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513", SimpleRNG(
-      87443922374356L
-    ))
+    map2(int, double)((i, d) => s"$i:$d")(SimpleRNG(10)) shouldBe (
+      "3847489:0.6213264381513",
+      SimpleRNG(
+        87443922374356L
+      )
+    )
   }
 
   describe("6.5 状態アクションデータ型の一般化") {
@@ -233,9 +239,12 @@ class Chapter06Spec extends FunSpec with Matchers {
 
       val rand: Rand[Int] = State(int)
       rand.map(i => i.toString).run(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
-      rand.map2(State(double))((i, d) => s"$i:$d").run(SimpleRNG(10)) shouldBe ("3847489:0.6213264381513", SimpleRNG(
-        87443922374356L
-      ))
+      rand.map2(State(double))((i, d) => s"$i:$d").run(SimpleRNG(10)) shouldBe (
+        "3847489:0.6213264381513",
+        SimpleRNG(
+          87443922374356L
+        )
+      )
       rand.flatMap(i => State.unit(i.toString)).run(SimpleRNG(10)) shouldBe ("3847489", SimpleRNG(252149039181L))
     }
   }
