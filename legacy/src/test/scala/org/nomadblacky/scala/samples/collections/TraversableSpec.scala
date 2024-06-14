@@ -190,11 +190,15 @@ class TraversableSpec extends FunSpec {
 
   it("unzip3 ... 要素を3つのコレクションに分割する") {
     assert(
-      List((1, "one", "hoge"), (2, "two", "foo"), (3, "three", "bar")).unzip3 == (List(1, 2, 3), List(
-        "one",
-        "two",
-        "three"
-      ), List("hoge", "foo", "bar"))
+      List((1, "one", "hoge"), (2, "two", "foo"), (3, "three", "bar")).unzip3 == (
+        List(1, 2, 3),
+        List(
+          "one",
+          "two",
+          "three"
+        ),
+        List("hoge", "foo", "bar")
+      )
     )
   }
 
