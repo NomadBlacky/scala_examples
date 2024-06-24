@@ -1,10 +1,11 @@
 package org.nomadblacky.scala.samples.exceptions
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 /** Created by blacky on 16/12/04.
   */
-class OptionSpec extends FunSpec with Matchers {
+class OptionSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "Option - 値が存在しない可能性があることを表すクラス"
 

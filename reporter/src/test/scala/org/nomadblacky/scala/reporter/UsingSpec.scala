@@ -1,8 +1,9 @@
 package org.nomadblacky.scala.reporter
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class UsingSpec extends FunSpec with Matchers {
+class UsingSpec extends AnyFunSpec with Matchers {
 
   class Resource extends AutoCloseable {
     var isClosed = false
