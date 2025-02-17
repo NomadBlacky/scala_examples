@@ -8,13 +8,15 @@ import scalikejdbc._
 import skinny.orm.{Alias, SkinnyCRUDMapper}
 
 import scala.util.Try
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 /** scalikejdbc-cookbook https://github.com/scalikejdbc/scalikejdbc-cookbook
   *
   * FIXME: Unit tests are failed
   */
 @Ignore
-class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with BeforeAndAfter {
+class ScalikeJDBCSpec extends AnyFunSpec with Matchers with BeforeAndAfterAll with BeforeAndAfter {
 
   override def suiteName: String = "ScalikeJDBC"
 
