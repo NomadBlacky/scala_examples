@@ -108,7 +108,7 @@ object StringInterpolations {
     @silent("match may not be exhaustive")
     def double(args: Any*): String = {
       val ai = args.iterator
-      val f = (a: Any) =>
+      val f  = (a: Any) =>
         a match {
           case i: Int    => i * 2
           case s: String => s + s

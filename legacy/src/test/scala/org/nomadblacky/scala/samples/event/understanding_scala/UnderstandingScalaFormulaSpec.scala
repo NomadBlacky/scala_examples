@@ -23,7 +23,7 @@ class UnderstandingScalaFormulaSpec extends FunSpec {
 
     /** Javaと変わらない 式なので値を返す→Unit
       */
-    var a = 1
+    var a          = 1
     val unit: Unit = while (a < 3) {
       a += 1
     }
