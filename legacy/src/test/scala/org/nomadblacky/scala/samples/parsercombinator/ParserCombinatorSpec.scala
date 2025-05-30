@@ -47,7 +47,7 @@ class ParserCombinatorSpec extends FunSpec {
 
   it("詳細なエラー内容を取得する") {
     object PhoneNumberParser extends RegexParsers {
-      def code = """\d{3}""".r ~ "-" ~ """\d{4}""".r ~ "-" ~ """\d{4}""".r
+      def code                  = """\d{3}""".r ~ "-" ~ """\d{4}""".r ~ "-" ~ """\d{4}""".r
       def apply(source: String) = parseAll(code, source) match {
         case Success(parsed, _) => Right(parsed)
         // next パースされていない地点を表す
@@ -72,7 +72,7 @@ class ParserCombinatorSpec extends FunSpec {
         case (area ~ "-" ~ city ~ "-" ~ subscriber) => PhoneNumber(area, city, subscriber)
       }
       def apply(source: String) = parseAll(code, source) match {
-        case Success(parsed, _) => Right(parsed)
+        case Success(parsed, _)            => Right(parsed)
         case NoSuccess(errorMessage, next) =>
           Left(s"$errorMessage on line ${next.pos.line} on column ${next.pos.column}")
       }

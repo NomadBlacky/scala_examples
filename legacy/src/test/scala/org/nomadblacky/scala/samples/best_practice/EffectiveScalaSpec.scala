@@ -67,7 +67,7 @@ class EffectiveScalaSpec extends FunSpec with Matchers {
 
     // 中間結果やパラメータに名前をつけることで可読性を保つ
     val voteByLang = votes groupBy { case (lang, _) => lang }
-    val sumByLang = voteByLang map { case (lang, counts) =>
+    val sumByLang  = voteByLang map { case (lang, counts) =>
       val countsOnly = counts map { case (_, count) => count }
       (lang, countsOnly.sum)
     }
@@ -76,7 +76,7 @@ class EffectiveScalaSpec extends FunSpec with Matchers {
     // 名前空間を汚したくなければ、式を {} でグループ化する
     val orderedVotes3 = {
       val voteByLang = votes groupBy { case (lang, _) => lang }
-      val sumByLang = voteByLang map { case (lang, counts) =>
+      val sumByLang  = voteByLang map { case (lang, counts) =>
         val countsOnly = counts map { case (_, count) => count }
         (lang, countsOnly.sum)
       }
@@ -94,7 +94,7 @@ class EffectiveScalaSpec extends FunSpec with Matchers {
     val jMap: java.util.Map[Int, String] = Map(1 -> "a", 2 -> "b").asJava
 
     // Java → Scala
-    val sList: Seq[Int] = java.util.Arrays.asList(1, 2, 3).asScala
+    val sList: Seq[Int]                = java.util.Arrays.asList(1, 2, 3).asScala
     val sMap: mutable.Map[Int, String] = new java.util.HashMap[Int, String]() {
       put(1, "a")
       put(2, "b")

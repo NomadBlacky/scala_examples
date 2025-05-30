@@ -189,7 +189,7 @@ class Chapter01Spec extends FunSpec with Matchers {
     )
 
     // A01
-    val pic = Set(1, 5, 6, 7, 8, 9, 15, 16, 19)
+    val pic    = Set(1, 5, 6, 7, 8, 9, 15, 16, 19)
     val result = text
       .split("""\W+""")
       .zipWithIndex
@@ -202,7 +202,7 @@ class Chapter01Spec extends FunSpec with Matchers {
     result shouldBe expect
 
     // A02
-    val ones = Seq(1, 5, 6, 7, 8, 9, 15, 16, 19)
+    val ones        = Seq(1, 5, 6, 7, 8, 9, 15, 16, 19)
     val (_, answer) = text
       .split("""\W+""")
       .foldLeft((1, Map.empty[Int, String])) { case ((current, map), word) =>

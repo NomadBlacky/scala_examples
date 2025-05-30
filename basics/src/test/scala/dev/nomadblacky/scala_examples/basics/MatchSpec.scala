@@ -47,7 +47,7 @@ class MatchSpec extends AnyFunSpec with Matchers {
   }
 
   it("リストのマッチング") {
-    val list = List(1, 2, 3, 4, 5)
+    val list   = List(1, 2, 3, 4, 5)
     val actual = list match {
       // リストの2番目の要素を変数に束縛して、それ以外を捨てる
       case List(_, i, _*) => i

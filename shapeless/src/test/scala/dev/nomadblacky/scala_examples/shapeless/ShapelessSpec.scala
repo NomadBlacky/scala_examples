@@ -14,8 +14,8 @@ class ShapelessSpec extends AnyFunSpec with Matchers {
 
   it("Poly ... 複数の型を処理できる関数") {
     object size extends Poly1 {
-      implicit def caseInt    = at[Int](_ => 1)
-      implicit def caseString = at[String](_.length)
+      implicit def caseInt                                                              = at[Int](_ => 1)
+      implicit def caseString                                                           = at[String](_.length)
       implicit def caseTuple[T, U](implicit st: Case.Aux[T, Int], su: Case.Aux[U, Int]) =
         at[(T, U)](t => size(t._1) + size(t._2))
     }

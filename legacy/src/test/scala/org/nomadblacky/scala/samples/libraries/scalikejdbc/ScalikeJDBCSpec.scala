@@ -240,12 +240,12 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
       // SQLSyntaxSupportを使う
       object TeamMember extends SQLSyntaxSupport[TeamMember] {
-        override def tableName: String = "team_members"
+        override def tableName: String                                                  = "team_members"
         def apply(m: ResultName[TeamMember])(implicit rs: WrappedResultSet): TeamMember =
           new TeamMember(id = rs.long(m.id), teamId = rs.long(m.teamId))
       }
       object Team extends SQLSyntaxSupport[Team] {
-        override def tableName: String = "teams"
+        override def tableName: String                                      = "teams"
         def apply(t: ResultName[Team])(implicit rs: WrappedResultSet): Team =
           new Team(id = rs.long(t.id), name = rs.string(t.name))
       }
@@ -267,7 +267,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
     it("QueryDSL") {
       case class Team(id: Long, name: String)
       object Team extends SQLSyntaxSupport[Team] {
-        override def tableName: String = "teams"
+        override def tableName: String          = "teams"
         def create(id: Long, name: String): Int = DB.localTx { implicit s =>
           withSQL {
             insert
@@ -281,7 +281,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       val ordering = sqls"desc"
       val id       = 1234
 
-      val t = Team.syntax("t")
+      val t     = Team.syntax("t")
       val names = DB.readOnly { implicit s =>
         withSQL {
           select(t.name).from(Team as t).where.eq(t.id, id).orderBy(t.id).append(ordering)
@@ -357,7 +357,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
       }
 
       // 従来のSQL構文では in句 はサポートされていないので、自分で組み立てる
-      val query = "select * from members where id in (%s)".format(memberIds.map(_ => "?").mkString(","))
+      val query    = "select * from members where id in (%s)".format(memberIds.map(_ => "?").mkString(","))
       val members2 = DB.readOnly { implicit s =>
         SQL(query).bind(memberIds: _*).map(*).list().apply()
       }
@@ -378,7 +378,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
           new JoinedMember(id = rs.long(m.id), new Team(id = rs.long(t.id), rs.string(t.name)))
       }
 
-      val (m, t) = (Member.syntax("m"), Team.syntax("t"))
+      val (m, t)        = (Member.syntax("m"), Team.syntax("t"))
       val joinedMembers = DB.readOnly { implicit s =>
         sql"""
            select ${m.result.*}, ${t.result.*}
@@ -404,7 +404,7 @@ class ScalikeJDBCSpec extends FunSpec with Matchers with BeforeAndAfterAll with 
 
     it("auto-increment な id を取得する") {
       val (name, organization, createdAt) = ("User", None, Instant.now())
-      val id: Long = DB localTx { implicit s =>
+      val id: Long                        = DB localTx { implicit s =>
         // auto-increment である PK を扱うには updateAndReturnGeneratedKey を指定する
         sql"insert into users (name, organization, created_at) values ($name, $organization, $createdAt)"
           .updateAndReturnGeneratedKey()

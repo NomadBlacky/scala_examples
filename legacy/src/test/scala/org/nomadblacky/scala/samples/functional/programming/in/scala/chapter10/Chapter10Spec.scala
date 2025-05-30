@@ -132,7 +132,7 @@ class Chapter10Spec extends FunSpec {
   }
 
   it("[EXERCISE 10.4] foldMapの実装") {
-    val list = List("1", "2", "3")
+    val list   = List("1", "2", "3")
     val monoid = new Monoid[Int] {
       override def op(a1: Int, a2: Int) = a1 + a2
       override def zero                 = 0

@@ -97,8 +97,8 @@ class EnumInScalaSpec extends AnyFunSpec with Matchers {
 
     val enum: Enum = Three("drei")
     enum match {
-      case One => fail()
-      case Two => fail()
+      case One      => fail()
+      case Two      => fail()
       case t: Three =>
         t.value shouldBe 3
         t.otherName shouldBe "drei"

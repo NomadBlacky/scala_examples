@@ -5,7 +5,7 @@ import org.scalatest.{FunSpec, Matchers}
 class UsingSpec extends FunSpec with Matchers {
 
   class Resource extends AutoCloseable {
-    var isClosed = false
+    var isClosed               = false
     override def close(): Unit = {
       isClosed = true
     }

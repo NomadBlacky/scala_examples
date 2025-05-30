@@ -47,7 +47,7 @@ class TraversableSpec extends AnyFunSpec {
   }
 
   it("foldLeft ... 要素の先頭から畳み込みを行う") {
-    val itr = List(0, 1, 3).iterator
+    val itr    = List(0, 1, 3).iterator
     val result = List(1, 2, 3).foldLeft(0) { (sum, i) =>
       assert(sum == itr.next())
       sum + i
@@ -66,7 +66,7 @@ class TraversableSpec extends AnyFunSpec {
   }
 
   it("reduceLeft ... 最初の要素を初期値として畳み込みを行う") {
-    val itr = List(1, 3).iterator
+    val itr    = List(1, 3).iterator
     val result = List(1, 2, 3).reduceLeft { (sum, i) =>
       assert(sum == itr.next())
       sum + i
@@ -268,7 +268,7 @@ class TraversableSpec extends AnyFunSpec {
   }
 
   it("collect ... PartialFunctionを適用して要素を変換する") {
-    val list = List(1, 2, 3, 4, 5)
+    val list   = List(1, 2, 3, 4, 5)
     val result = list.collect {
       case 1 => "one"
       case 2 => "two"
@@ -279,7 +279,7 @@ class TraversableSpec extends AnyFunSpec {
   }
 
   it("collectFirst ... PartialFunctionに最初に一致した値を取得する") {
-    val list = List(9, 7, 4, 2, 1, 3, 9)
+    val list   = List(9, 7, 4, 2, 1, 3, 9)
     val result = list.collectFirst {
       case 1 => "one"
       case 2 => "two"

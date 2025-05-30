@@ -251,7 +251,7 @@ class Chapter06Spec extends FunSpec with Matchers {
 
   describe("6.6 純粋関数型の命令型プログラミング") {
     type Rand[A] = State[RNG, A]
-    val int: Rand[Int] = State((rng: RNG) => rng.nextInt)
+    val int: Rand[Int]                    = State((rng: RNG) => rng.nextInt)
     def ints(count: Int): Rand[List[Int]] =
       State.sequence(List.fill(count)(int))
 
@@ -294,9 +294,9 @@ class Chapter06Spec extends FunSpec with Matchers {
           i =>
             m =>
               (i, m) match {
-                case (_, Machine(_, 0, _))        => m
-                case (Coin, Machine(false, _, _)) => m
-                case (Turn, Machine(true, _, _))  => m
+                case (_, Machine(_, 0, _))              => m
+                case (Coin, Machine(false, _, _))       => m
+                case (Turn, Machine(true, _, _))        => m
                 case (Coin, Machine(true, candy, coin)) =>
                   Machine(false, candy, coin + 1)
                 case (Turn, Machine(false, candy, coin)) =>
