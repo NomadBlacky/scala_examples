@@ -92,7 +92,7 @@ lazy val legacy = (project in file("legacy"))
       )
     ),
     libraryDependencies ++= Seq(
-      "org.scalactic"        %% "scalactic"              % "3.0.9",
+      "org.scalactic"        %% "scalactic"              % "3.2.19",
       "org.scalatest"        %% "scalatest"              % "3.0.9"              % "test",
       "org.scalacheck"       %% "scalacheck"             % "1.19.0"             % "test",
       "com.github.scopt"     %% "scopt"                  % "4.1.0",
