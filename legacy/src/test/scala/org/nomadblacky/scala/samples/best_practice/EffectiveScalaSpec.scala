@@ -2,13 +2,14 @@ package org.nomadblacky.scala.samples.best_practice
 
 import java.util.concurrent.{ConcurrentHashMap, ConcurrentLinkedQueue}
 
-import org.scalatest.{FunSpec, Matchers}
 
 import scala.collection.mutable
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 /** Effective Scala http://twitter.github.io/effectivescala/index-ja.html
   */
-class EffectiveScalaSpec extends FunSpec with Matchers {
+class EffectiveScalaSpec extends AnyFunSpec with Matchers {
 
   it("関数定義の中で直接パターンマッチを使う") {
     // これは
