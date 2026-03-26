@@ -1,10 +1,10 @@
 package org.nomadblacky.scala.samples.testing
 
 import org.scalacheck.{Arbitrary, Gen}
-import org.scalatest.{FunSpec, Matchers}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
+import org.scalatest.funspec.AnyFunSpec
 
-class ScalaCheckSpec extends FunSpec with Matchers with ScalaCheckDrivenPropertyChecks {
+class ScalaCheckSpec extends AnyFunSpec with org.scalatest.matchers.should.Matchers with ScalaCheckDrivenPropertyChecks {
 
   it("forAll ... ランダムに生成された値でテストを行う") {
     forAll { (s1: String, s2: String) =>
