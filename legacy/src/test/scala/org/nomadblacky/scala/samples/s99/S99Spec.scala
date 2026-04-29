@@ -1,12 +1,12 @@
 package org.nomadblacky.scala.samples.s99
 
-import org.scalatest.{FunSpec, Matchers}
 
 import scala.annotation.tailrec
+import org.scalatest.funspec.AnyFunSpec
 
 /** Weeble ゆるふわScala勉強会にて回答されたコードです。 https://weeyble-scala.connpass.com/
   */
-class S99Spec extends FunSpec with Matchers {
+class S99Spec extends AnyFunSpec with org.scalatest.matchers.should.Matchers {
 
   override def suiteName: String = "Ninety-Nine Scala Problems"
 
