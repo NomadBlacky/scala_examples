@@ -1,14 +1,14 @@
 package org.nomadblacky.scala.samples.nlp100
 
-import org.scalatest.{FunSpec, Matchers}
 
 import scala.io.Source
+import org.scalatest.funspec.AnyFunSpec
 
 /** 言語処理100本ノック 第2章: UNIXコマンド
   *
   * Weeble Scalaもくもく勉強会にて回答されたコードです。 https://weeyble-scala.connpass.com/
   */
-class Chapter02Spec extends FunSpec with Matchers {
+class Chapter02Spec extends AnyFunSpec with org.scalatest.matchers.should.Matchers {
 
   it("テキストファイルの読み込み") {
     val strings: Iterator[String] = Source.fromFile("data/hightemp.txt").getLines()

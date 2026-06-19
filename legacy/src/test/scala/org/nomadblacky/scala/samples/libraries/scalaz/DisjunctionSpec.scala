@@ -1,9 +1,9 @@
 package org.nomadblacky.scala.samples.libraries.scalaz
 
-import org.scalatest.FunSpec
 
 import scalaz._
 import Scalaz._
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/04/14.
   *
@@ -11,7 +11,7 @@ import Scalaz._
   *
   * -\/ ... Left \/- ... Right
   */
-class DisjunctionSpec extends FunSpec {
+class DisjunctionSpec extends AnyFunSpec {
 
   override def suiteName: String = "[Scalaz] Disjunction - 強化版Either"
 

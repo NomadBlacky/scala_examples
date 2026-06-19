@@ -1,12 +1,12 @@
 package org.nomadblacky.scala.samples.collections
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
 /** 集合 http://docs.scala-lang.org/ja/overviews/collections/sets
   *
   * Created by blacky on 17/03/18.
   */
-class SetSpec extends FunSpec {
+class SetSpec extends AnyFunSpec {
 
   override def suiteName: String = "Set - 重複する要素を含まないコレクション"
 

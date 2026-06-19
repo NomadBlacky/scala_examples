@@ -1,13 +1,13 @@
 package org.nomadblacky.scala.samples.collections
 
-import org.scalatest.FunSpec
 import scala.collection.immutable.List
 import scala.collection.immutable.Nil
 import scala.collection.mutable.ListBuffer
+import org.scalatest.funspec.AnyFunSpec
 
 /** 要素同士を連結するデータ構造のリスト。 順次呼び出しや再帰アクセスに強い。 ランダムアクセスは遅い。
   */
-class ListSpec extends FunSpec {
+class ListSpec extends AnyFunSpec {
 
   override def suiteName: String = "List - 単方向リスト"
 

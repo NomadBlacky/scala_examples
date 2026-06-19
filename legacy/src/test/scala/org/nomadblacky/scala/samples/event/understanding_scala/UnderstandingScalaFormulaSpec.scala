@@ -1,14 +1,14 @@
 package org.nomadblacky.scala.samples.event.understanding_scala
 
-import org.scalatest.FunSpec
 
 import scala.annotation.tailrec
+import org.scalatest.funspec.AnyFunSpec
 
 /** 6/10 Understanding Scala ~Scalaを理解しよう~ https://connpass.com/event/55308/
   *
   * Scalaの実行時の挙動を学ぶ http://kmizu.github.io/understanding_scala/semantics/#/22
   */
-class UnderstandingScalaFormulaSpec extends FunSpec {
+class UnderstandingScalaFormulaSpec extends AnyFunSpec {
 
   override def suiteName: String = "[勉強会] Understanding Scala - Scalaの実行時の挙動を学ぶ"
 

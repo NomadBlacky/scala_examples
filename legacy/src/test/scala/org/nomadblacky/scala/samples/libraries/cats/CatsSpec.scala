@@ -1,9 +1,9 @@
 package org.nomadblacky.scala.samples.libraries.cats
 
 import cats.data.NonEmptyList
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
 
-class CatsSpec extends FunSpec with Matchers {
+class CatsSpec extends AnyFunSpec with org.scalatest.matchers.should.Matchers {
 
   override def suiteName: String = "[Cats] Catsの基礎"
 

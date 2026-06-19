@@ -1,6 +1,6 @@
 package org.nomadblacky.scala.samples.functional.programming.in.scala.chapter10
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/03/08.
   *
@@ -9,7 +9,7 @@ import org.scalatest.FunSpec
   *
   * Github https://github.com/fpinscala/fpinscala/tree/master/answerkey/monoids
   */
-class Chapter10Spec extends FunSpec {
+class Chapter10Spec extends AnyFunSpec {
 
   override def suiteName: String = "[FP in Scala] 第10章 モノイド"
 
