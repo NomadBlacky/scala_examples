@@ -55,7 +55,7 @@ class TraversableSpec extends FunSpec {
     assert(result == 6)
 
     // 省略
-    assert((0 /: List(1, 2, 3)) { (sum, i) =>
+    assert((List(1, 2, 3).foldLeft(0)) { (sum, i) =>
       sum + i
     } == 6)
   }
@@ -70,7 +70,7 @@ class TraversableSpec extends FunSpec {
     assert(result == 6)
 
     // 省略
-    assert((List(1, 2, 3) :\ 0) { (sum, i) =>
+    assert((List(1, 2, 3).foldRight(0)) { (sum, i) =>
       sum + i
     } == 6)
   }
