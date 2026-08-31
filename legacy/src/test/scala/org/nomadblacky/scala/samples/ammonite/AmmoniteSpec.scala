@@ -1,11 +1,13 @@
 package org.nomadblacky.scala.samples.ammonite
 
 import ammonite.ops._
-import org.scalatest.{BeforeAndAfterAll, FunSpec, Matchers}
+import org.scalatest.BeforeAndAfterAll
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
 /** http://ammonite.io/#Ammonite-Ops
   */
-class AmmoniteSpec extends FunSpec with Matchers with BeforeAndAfterAll {
+class AmmoniteSpec extends AnyFunSpec with Matchers with BeforeAndAfterAll {
 
   override def suiteName: String = "Ammonite-Ops"
 

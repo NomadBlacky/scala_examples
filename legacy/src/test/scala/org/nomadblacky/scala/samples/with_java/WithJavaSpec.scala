@@ -1,8 +1,9 @@
 package org.nomadblacky.scala.samples.with_java
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class WithJavaSpec extends FunSpec with Matchers {
+class WithJavaSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "ScalaとJavaの結合"
 

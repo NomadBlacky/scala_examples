@@ -5,16 +5,16 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.{HttpRequest, HttpResponse, StatusCodes}
 import akka.stream.ActorMaterializer
 import akka.util.ByteString
-import org.scalatest.FunSpec
 
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future}
 
 import scala.concurrent.ExecutionContext.Implicits.global
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/05/29.
   */
-class AkkaHttpSpec extends FunSpec {
+class AkkaHttpSpec extends AnyFunSpec {
 
   override def suiteName: String = "Akka HTTP"
 

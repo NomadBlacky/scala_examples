@@ -1,10 +1,11 @@
 package org.nomadblacky.scala.samples.scala_kansai.y2018
 
-import org.scalatest.{FunSpec, Matchers}
 
 import scala.util.Try
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class N02ForSyntax extends FunSpec with Matchers {
+class N02ForSyntax extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "Readable Code in Scala ~ for式編"
 
