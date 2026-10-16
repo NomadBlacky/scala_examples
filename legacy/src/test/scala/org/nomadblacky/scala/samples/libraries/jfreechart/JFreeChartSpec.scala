@@ -5,13 +5,14 @@ import org.jfree.chart.plot.{PiePlot, PlotOrientation}
 import org.jfree.chart.{ChartFactory, ChartUtils, JFreeChart}
 import org.jfree.data.general.DefaultPieDataset
 import org.jfree.data.statistics.HistogramDataset
-import org.scalatest.{BeforeAndAfter, FunSpec}
+import org.scalatest.BeforeAndAfter
 
 import scala.util.Random
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 17/02/26.
   */
-class JFreeChartSpec extends FunSpec with BeforeAndAfter {
+class JFreeChartSpec extends AnyFunSpec with BeforeAndAfter {
 
   override def suiteName: String = "JFreeChart - グラフを描画するJavaライブラリ"
 

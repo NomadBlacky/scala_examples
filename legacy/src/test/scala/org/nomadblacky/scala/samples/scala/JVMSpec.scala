@@ -1,8 +1,9 @@
 package org.nomadblacky.scala.samples.scala
 
-import org.scalatest.{FunSpec, Matchers}
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers
 
-class JVMSpec extends FunSpec with Matchers {
+class JVMSpec extends AnyFunSpec with Matchers {
 
   override def suiteName: String = "JVM関連のあれこれ"
 

@@ -1,15 +1,15 @@
 package org.nomadblacky.scala.samples.parsercombinator
 
-import org.scalatest.FunSpec
 
 import scala.util.parsing.combinator.{JavaTokenParsers, RegexParsers}
+import org.scalatest.funspec.AnyFunSpec
 
 /** 参考資料 * Scalaスケーラブルプログラミング 第33章 パーサー・コンビネーター * 面倒くさいパーサの実装もDSLで書くだけ！そう、Scalaならね - Qiita
   * http://qiita.com/suin/items/35bc4afe618cb77f80f6
   *
   * Created by blacky on 17/04/20.
   */
-class ParserCombinatorSpec extends FunSpec {
+class ParserCombinatorSpec extends AnyFunSpec {
 
   override def suiteName: String = "パーザコンビネータ"
 

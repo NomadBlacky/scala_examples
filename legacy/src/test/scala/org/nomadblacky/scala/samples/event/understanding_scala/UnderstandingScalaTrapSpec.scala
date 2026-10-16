@@ -1,14 +1,14 @@
 package org.nomadblacky.scala.samples.event.understanding_scala
 
-import org.scalatest.FunSpec
 
 import scala.concurrent.Future
+import org.scalatest.funspec.AnyFunSpec
 
 /** 6/10 Understanding Scala ~Scalaを理解しよう~ https://connpass.com/event/55308/
   *
   * Scalaの謎・落とし穴を学ぶ http://kmizu.github.io/understanding_scala/pitfall/#/7
   */
-class UnderstandingScalaTrapSpec extends FunSpec {
+class UnderstandingScalaTrapSpec extends AnyFunSpec {
 
   override def suiteName: String = "[勉強会] Understanding Scala - Scalaの落とし穴を学ぶ"
 

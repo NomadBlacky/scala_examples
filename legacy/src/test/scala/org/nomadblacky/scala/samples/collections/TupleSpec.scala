@@ -1,8 +1,8 @@
 package org.nomadblacky.scala.samples.collections
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
-class TupleSpec extends FunSpec {
+class TupleSpec extends AnyFunSpec {
 
   override def suiteName: String = "Tuple - 任意の複数の値を保持するクラス"
 

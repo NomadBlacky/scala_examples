@@ -1,10 +1,10 @@
 package org.nomadblacky.scala.samples.scala
 
-import org.scalatest.FunSpec
+import org.scalatest.funspec.AnyFunSpec
 
 /** Created by blacky on 16/11/19.
   */
-class TypeParameterSpec extends FunSpec {
+class TypeParameterSpec extends AnyFunSpec {
 
   it("Scalaにおける型の検査") {
     val v1: Any = "hoge"
